@@ -24,7 +24,7 @@ import re
 from collections import deque
 
 # Import function of process restricctions
-from analisisScript01 import generar_constraintsDef
+from scripts.model_generation.analisisScript01 import generar_constraintsDef
 
 class SchemaProcessor:
     """

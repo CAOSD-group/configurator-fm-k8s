@@ -40,7 +40,7 @@ from collections import deque
 
 # [M9] Semantic constraints are deliberately disabled during structural-model generation.
 # The import is performed lazily at the end only when this flag is enabled.
-ENABLE_SEMANTIC_CONSTRAINTS = False
+ENABLE_SEMANTIC_CONSTRAINTS = True
 
 # [M8] Kubernetes 1.37.1 audit showed genuine terminal "Required." statements
 # that are absent from schema required[]. Only this narrow terminal form is promoted
@@ -218,10 +218,15 @@ class SchemaProcessor:
         return re.sub(r'\s+cardinality\s+\[[^\]]+\]', '', feature_name)
 
     def extract_documented_default(self, description):
-        """Extract a documented default without promoting it to an authoritative default.
+        """Extract and classify a default documented in natural-language prose.
 
-        The extraction is intentionally conservative: quoted values, numeric literals
-        (including decimals), booleans, and a single unquoted token are supported.
+        Returns:
+            dict | None:
+                {
+                    'value': <extracted value>,
+                    'semantics': 'documented' | 'conditional',
+                    'source': 'description'
+                }
         """
         if not description:
             return None
@@ -233,12 +238,31 @@ class SchemaProcessor:
             re.compile(prefix + r'\s+(true|false)\b', re.IGNORECASE),
             re.compile(prefix + r'\s+([A-Za-z0-9_*/%+:-]+)', re.IGNORECASE),
         ]
+
         for pattern in patterns:
             match = pattern.search(description)
-            if match:
-                return match.group(1).strip()
-        return None
+            if not match:
+                continue
 
+            value = match.group(1).strip()
+
+            tail = description[match.end():match.end() + 250]
+
+            is_conditional = bool(re.search(
+                r'\b(?:if|when|unless|otherwise|depending on|depending upon|'
+                r'implementation-defined|implementation defined)\b',
+                tail,
+                re.IGNORECASE,
+            ))
+
+            return {
+                'value': value,
+                'semantics': 'conditional' if is_conditional else 'documented',
+                'source': 'description',
+            }
+
+        return None
+    
     def schema_attributes(self, details, description='', abstract=False, deprecated=False, enum_source=None):
         """Collect OpenAPI/Kubernetes facts as UVL attributes.
 
@@ -298,12 +322,23 @@ class SchemaProcessor:
                     if len(one_of_types) == len(details[combinator]):
                         attrs.append(('schemaOneOfTypes', one_of_types))
 
-        documented_default = self.extract_documented_default(description)
-        if documented_default is not None:
-            # [M3] A prose default is useful knowledge, but is not JSON-Schema `default`.
-            attrs.append(('documentedDefault', documented_default))
-            attrs.append(('documentedDefaultSource', 'description'))
+        default_info = self.extract_documented_default(description)
 
+        if default_info is not None:
+            if default_info['semantics'] == 'conditional':
+                attrs.append(('conditionalDefault', default_info['value']))
+                attrs.append(('conditionalDefaultSource', 'description'))
+            else:
+                attrs.append(('documentedDefault', default_info['value']))
+                attrs.append(('documentedDefaultSource', 'description'))
+
+        ##         documented_default = self.extract_documented_default(description)
+        #if documented_default is not None:
+            # [M3] A prose default is useful knowledge, but is not JSON-Schema `default`.
+            #attrs.append(('documentedDefault', documented_default))
+            #attrs.append(('documentedDefaultSource', 'description'))
+    
+        
         if 'enum' in details and details['enum'] is not None:
             attrs.append(('schemaEnumValues', details['enum']))
             attrs.append(('enumSource', enum_source or 'schema'))
@@ -368,6 +403,16 @@ class SchemaProcessor:
             k: v for k, v in details.items()
             if k not in ('properties', 'description')
         }
+
+        default_info = self.extract_documented_default(description)
+
+        if default_info is not None:
+            meta['documented_default'] = {
+                'value': default_info['value'],
+                'semantics': default_info['semantics'],
+                'source': default_info['source'],
+            }
+
         self.descriptions['schema_metadata'].append(meta)
 
     def enum_values_from_schema(self, details):
@@ -448,14 +493,15 @@ class SchemaProcessor:
         return True
 
     def is_required_based_on_description(self, description):
-        """Return True only for an unconditional terminal ``Required.`` statement.
+        """Return True only for an unconditional terminal "Required." statement.
 
         [M8] This deliberately does NOT match conditional wording such as
-        ``Required when ...`` or relational statements such as ``Exactly one of ...``.
+        "Required when ..." or relational statements such as "Exactly one of ...".
         """
         if not description:
             return False
-        return bool(re.search(r'\\bRequired\\.\\s*$', description, re.IGNORECASE))
+        return description.rstrip().endswith("Required.")
+        ##return bool(re.search(r'\\bRequired\\.\\s*$', description, re.IGNORECASE))
 
     def required_source(self, prop, current_required, description):
         """Return provenance for a mandatory feature, or None when optional."""
@@ -483,14 +529,14 @@ class SchemaProcessor:
         if not description:
             return False
 
-        if re.search(r'\\bDeprecated\\s*:', description, re.IGNORECASE):
+        if re.search(r'\bDeprecated\s*:', description, re.IGNORECASE):
             return True
-        if re.search(r'\\bthis field is deprecated\\b', description, re.IGNORECASE):
+        if re.search(r'\bthis field is deprecated\b', description, re.IGNORECASE):
             return True
 
         prop_pattern = re.escape(str(prop))
         if re.search(
-            rf'\\b{prop_pattern}\\b[^.\\n]{{0,120}}\\bis deprecated\\b',
+            rf'\b{prop_pattern}\b[^.\n]{{0,120}}\bis deprecated\b',
             description,
             re.IGNORECASE,
         ):
