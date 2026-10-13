@@ -1375,8 +1375,8 @@ def generate_uvl_from_definitions(definitions_file, output_file, descriptions_fi
 #descriptions_file = "../../resources/model_generation/descriptions_01-1.json"
 
 definitions_file = "../../resources/kubernetes-json-v1.37.1/_definitions_1-37.json"
-output_file = "../../variability_model/kubernetes_combined_1-37_V3.uvl"
-descriptions_file = "../../resources/model_generation/descriptions_1-37_V3.json"
+output_file = "../../variability_model/kubernetes_combined_1-37_V3_New.uvl"
+descriptions_file = "../../resources/model_generation/descriptions_1-37_V3_New.json"
 
 
 if __name__ == "__main__":
