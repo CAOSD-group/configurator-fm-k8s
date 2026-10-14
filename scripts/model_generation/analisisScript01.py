@@ -615,6 +615,115 @@ def extract_bounds(description):
 
     return min_bound, max_bound, is_port_number, is_other_number
     
+
+def _strip_cardinality(feature_key):
+    """Remove UVL cardinality text from a feature reference, if present."""
+    return feature_key.split(" cardinality", 1)[0].strip()
+
+
+def _lower_first(value):
+    """Convert a schema-style property token such as MaxUnavailable to maxUnavailable."""
+    if not value:
+        return value
+    return value[0].lower() + value[1:]
+
+
+def extract_constraint_present_only_if(description, feature_key):
+    """Translate ``X is present only if Y = V`` into an implication.
+
+    Example:
+        rollingUpdate:
+          "Present only if DeploymentStrategyType = RollingUpdate."
+
+        rollingUpdate => strategy_type_RollingUpdate
+
+    ``only if`` is implication, not equivalence. The reverse direction must be
+    supported independently before an <=> constraint can be emitted.
+    """
+    pattern = re.compile(
+        r'\bPresent\s+only\s+if\s+([A-Za-z0-9_.]+)\s*=\s*["\'`]?'
+        r'([A-Za-z0-9_%+\-]+)["\'`]?',
+        re.IGNORECASE,
+    )
+    match = pattern.search(description)
+    if not match:
+        return None
+
+    feature_key = _strip_cardinality(feature_key)
+    parent = feature_key.rsplit('_', 1)[0]
+
+    condition_property = match.group(1).split('.')[-1]
+    condition_value = match.group(2).rstrip('.,;:')
+
+    # Kubernetes descriptions often use the Go/schema type name, e.g.
+    # DeploymentStrategyType, while the YAML property is simply `type`.
+    if condition_property.lower().endswith('type'):
+        yaml_property = 'type'
+    else:
+        yaml_property = _lower_first(condition_property)
+
+    condition_feature = f"{parent}_{yaml_property}_{condition_value}"
+    return f"{feature_key} <=> {condition_feature}"
+
+
+def _metadata_index(features):
+    """Index schema_metadata by pure feature name."""
+    result = {}
+    for item in features.get('schema_metadata', []):
+        if not isinstance(item, dict):
+            continue
+        feature_name = item.get('feature_name')
+        if feature_name:
+            result[_strip_cardinality(feature_name)] = item
+    return result
+
+
+def _zero_predicate(feature_key, metadata_by_feature):
+    """Build a UVL predicate meaning that a scalar/IntOrString feature is zero."""
+    feature_key = _strip_cardinality(feature_key)
+    metadata = metadata_by_feature.get(feature_key, {})
+    schema_keywords = metadata.get('schema_keywords', {})
+    schema_ref = schema_keywords.get('$ref', '')
+    schema_type = metadata.get('schema_type') or schema_keywords.get('type')
+
+    if isinstance(schema_ref, str) and schema_ref.endswith('IntOrString'):
+        return (
+            f"({feature_key}_asInteger == 0 | "
+            f"{feature_key}_asString == '0%')"
+        )
+
+    if schema_type in ('integer', 'number'):
+        return f"({feature_key} == 0)"
+
+    return None
+
+
+def extract_constraint_zero_dependency(description, feature_key, metadata_by_feature):
+    """Translate ``this cannot be 0 if Other is 0`` conservatively."""
+    pattern = re.compile(
+        r'\b(?:this\s+)?(?:can\s+not|cannot|must\s+not)\s+be\s+0\s+if\s+'
+        r'([A-Za-z][A-Za-z0-9_]*)\s+is\s+0\b',
+        re.IGNORECASE,
+    )
+    match = pattern.search(description)
+    if not match:
+        return None
+
+    current = _strip_cardinality(feature_key)
+    parent = current.rsplit('_', 1)[0]
+    other_property = _lower_first(match.group(1))
+    other = f"{parent}_{other_property}"
+
+    first, second = sorted([current, other])
+    first_zero = _zero_predicate(first, metadata_by_feature)
+    second_zero = _zero_predicate(second, metadata_by_feature)
+
+    if first_zero is None or second_zero is None:
+        return None
+
+    return f"{first_zero} => !{second_zero}\n\t{second_zero} => !{first_zero}"
+
+
 def convert_to_uvl_constraints(feature_key, description, type_data):
     """
     Convert a feature description and type into a UVL constraint.
@@ -707,37 +816,75 @@ def convert_to_uvl_constraints(feature_key, description, type_data):
     return uvl_rule
 
 # Routes of files
-json_file_path = '../../resources/model_generation/descriptions_01.json'
+json_file_path = '../../resources/model_generation/descriptions_1-37.json'
 output_file_path = '../../resources/model_generation/all_restrictions.txt'
 
 def generar_constraintsDef(json_file_path):
     """
     Generate UVL constraints from a JSON file and return them.
 
-    Args:
-        json_file_path (str): Path to the JSON with feature metadata.
-
-    Returns:
-        list: List of UVL constraint strings.
+    Existing ``restrictions`` continue to use the previous conversion logic.
+    The function now additionally consumes ``dependencies`` and handles the
+    specific zero-value cross-field pattern before falling back to the original
+    converter.
     """
 
     global count
     features = load_json_features(json_file_path)
     uvl_rules = []
+    metadata_by_feature = _metadata_index(features)
+
+    def append_unique(rule):
+        if rule and rule not in uvl_rules:
+            uvl_rules.append(rule)
 
     if 'restrictions' in features:
         for restriction in features['restrictions']:
-            if isinstance(restriction, dict) and 'feature_name' in restriction and 'description' in restriction and 'type_data' in restriction:
+            if (
+                isinstance(restriction, dict)
+                and 'feature_name' in restriction
+                and 'description' in restriction
+                and 'type_data' in restriction
+            ):
                 feature_key = restriction['feature_name']
                 desc = restriction['description']
                 type_data = restriction['type_data']
-                uvl_rule = convert_to_uvl_constraints(feature_key, desc, type_data)
-                if uvl_rule:
-                    uvl_rules.append(uvl_rule)
+
+                uvl_rule = extract_constraint_zero_dependency(
+                    desc,
+                    feature_key,
+                    metadata_by_feature,
+                )
+                if uvl_rule is None:
+                    uvl_rule = convert_to_uvl_constraints(
+                        feature_key,
+                        desc,
+                        type_data,
+                    )
+
+                append_unique(uvl_rule)
             else:
                 print(f"Formato inesperado en la restricción: {restriction}")
     else:
         print("Error. Restricciones vacías o nulas")
+
+    if 'dependencies' in features:
+        for dependency in features['dependencies']:
+            if (
+                isinstance(dependency, dict)
+                and 'feature_name' in dependency
+                and 'description' in dependency
+            ):
+                feature_key = dependency['feature_name']
+                desc = dependency['description']
+
+                uvl_rule = extract_constraint_present_only_if(
+                    desc,
+                    feature_key,
+                )
+                append_unique(uvl_rule)
+            else:
+                print(f"Formato inesperado en la dependencia: {dependency}")
 
     print(f"Hay {count} descripciones que no se pudieron transformar en restricciones UVL.")
     return uvl_rules

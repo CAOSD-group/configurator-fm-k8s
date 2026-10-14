@@ -21,26 +21,44 @@ Outputs:
 Final revision 2026-10-08 (Kubernetes 1.37.1 structural-enriched baseline):
 [M1] Preserve OpenAPI/Kubernetes metadata as UVL attributes without changing the feature hierarchy.
 [M2] Preserve descriptions with minimal UVL-safe escaping instead of deleting punctuation.
-[M3] Keep JSON-Schema defaults authoritative and description defaults as documentedDefault + provenance.
+[M3] Keep JSON-Schema defaults authoritative; use one compact extractor to distinguish documented from conditional prose defaults.
 [M4] Treat singleton schema enums as fixedValue metadata; multi-value enums remain alternatives.
 [M5] Distinguish arrays, structured objects, and dynamic maps for cardinality generation.
 [M6] Map JSON Schema number to UVL Real instead of Integer.
 [M7] Use minItems/maxItems and minProperties/maxProperties when cardinality is explicitly available.
 [M8] Mandatory = schema required[] OR a terminal 'Required.' documentation statement, with provenance.
-[M9] Keep semantic constraints disabled by default so this stage produces a structural-enriched FM.
+[M9] Preserve a structural-enriched baseline and generate semantic constraints only in a separate UVL variant.
 [M10] Record raw schema metadata in the descriptions sidecar for later explanations/provenance.
 [M11] Detect deprecation conservatively when the current field itself is explicitly marked deprecated.
 [M12] Keep description-based allowed-value extraction conservative; relational 'one of field A or B'
       statements are deferred to the semantic-constraint phase.
+[M13] Add a schema-derived serialization contract: configKey, configValue,
+      serializationKind and serializationRole.
+[M14] Generate a versioned serialization metadata sidecar directly from OpenAPI,
+      instead of reconstructing YAML structure later from UVL text.
+[M15] Restore `default` on an alternative only when an unconditional default value
+      matches that alternative. Scalar defaults remain separate (`defaultValue`,
+      `documentedDefault`, `conditionalDefault`).
+[M16] Keep UVL serialization metadata compact: scalar/object + property are implicit;
+      array/map/union and synthetic roles remain explicit. The sidecar keeps the full contract.
+[M17] Render `doc` last for readability.
+[M18] Model direct oneOf properties (e.g. IntOrString) as abstract grouping features;
+      typed synthetic alternatives own configKey and typed defaults.
+[M19] Use `defaultValue` + provenance for scalar defaults from descriptions; reserve
+      bare `default` for the default alternative/representation.
 """
 
 import json
 import re
+import hashlib
 from collections import deque
 
-# [M9] Semantic constraints are deliberately disabled during structural-model generation.
-# The import is performed lazily at the end only when this flag is enabled.
-ENABLE_SEMANTIC_CONSTRAINTS = True
+# [M9] Keep semantic enrichment separate from the structural/serialization baseline.
+# Enable this only after the new baseline has been validated.
+GENERATE_SEMANTIC_VARIANT = True
+
+SYSTEM_NAME = "kubernetes"
+SYSTEM_VERSION = "1.37.1"
 
 # [M8] Kubernetes 1.37.1 audit showed genuine terminal "Required." statements
 # that are absent from schema required[]. Only this narrow terminal form is promoted
@@ -74,11 +92,17 @@ class SchemaProcessor:
         self.is_deprecated = False
         self.seen_descriptions = set()
 
+        # [M13/M14] Serialization information is captured while the OpenAPI node
+        # is still available. This avoids reconstructing syntax later from UVL names.
+        self.serialization_features = []
+        self._last_extracted_config_values = {}
+
         # Patterns for classifying descriptions into categories of values, constraints and dependencies
         self.patterns = {
             'values': re.compile(r'^\b$', re.IGNORECASE), # values are|valid|supported|acceptable|can be
-            'restrictions': re.compile(r'If the operator is|template.spec.restartPolicy|conditions may not be|Details about a waiting|TCPSocket is NOT|must be between|Note that this field cannot be set when|valid port number|must be in the range|must be greater than|are mutually exclusive properties|Must be set if type is|field MUST be empty if|must be non-empty if and only if|only if type|\. Required when|required when scope|\. At least one of|a least one of|Exactly one of|resource access request|datasetUUID is|succeededIndexes specifies|Represents the requirement on the container|ResourceClaim object in the same namespace as this pod|indicates which one of|may be non-empty only if|Minimum value is|Value must be non-negative|minimum valid value for|in the range 1-', re.IGNORECASE),
-            'dependencies': re.compile(r'^\b$', re.IGNORECASE) ## (requires|if[\s\S]*?only if|only if) # depends on ningun caso especial, quitar relies on: no hay casos, contingent upon: igual = related to
+            'restrictions': re.compile(r'If the operator is|template.spec.restartPolicy|conditions may not be|Details about a waiting|TCPSocket is NOT|must be between|Note that this field cannot be set when|valid port number|must be in the range|must be greater than|are mutually exclusive properties|Must be set if type is|field MUST be empty if|must be non-empty if and only if|only if type|\. Required when|required when scope|\. At least one of|a least one of|Exactly one of|resource access request|datasetUUID is|succeededIndexes specifies|Represents the requirement on the container|ResourceClaim object in the same namespace as this pod|indicates which one of|may be non-empty only if|Minimum value is|Value must be non-negative|minimum valid value for|in the range 1-|can not be 0 if|cannot be 0 if|must not be 0 if', re.IGNORECASE),
+            'dependencies': re.compile(r'\bpresent only if\b', re.IGNORECASE)
+            #'dependencies': re.compile(r'^\b$', re.IGNORECASE) ## (requires|if[\s\S]*?only if|only if) # depends on ningun caso especial, quitar relies on: no hay casos, contingent upon: igual = related to
 
         }
 
@@ -174,9 +198,16 @@ class SchemaProcessor:
         return f"'{self.clean_description(value)}'"
 
     def format_uvl_attributes(self, attributes):
-        """Format ordered `(key, value)` pairs as one UVL attribute block."""
+        """Format ordered `(key, value)` pairs as one UVL attribute block.
+
+        For readability, ``doc`` is always rendered last because it is usually the
+        longest attribute and otherwise hides the machine-actionable metadata.
+        """
+        ordered = [item for item in attributes if item[0] != 'doc']
+        ordered.extend(item for item in attributes if item[0] == 'doc')
+
         rendered = []
-        for key, value in attributes:
+        for key, value in ordered:
             key = self._attribute_key(key)
             # Legacy flag attributes (e.g. abstract/deprecated) are represented by None.
             if value is None:
@@ -217,41 +248,227 @@ class SchemaProcessor:
         """Remove any UVL feature-cardinality suffix from a feature reference. [M7]"""
         return re.sub(r'\s+cardinality\s+\[[^\]]+\]', '', feature_name)
 
+    @staticmethod
+    def _enum_feature_token(raw_value):
+        """Return a stable UVL-safe token while preserving the raw config value separately."""
+        if raw_value is None:
+            token = 'null'
+        elif isinstance(raw_value, bool):
+            token = 'true' if raw_value else 'false'
+        else:
+            token = str(raw_value)
+        token = token.replace('*', 'estrella')
+        return re.sub(r'[^A-Za-z0-9_#§%?\\]', '_', token).strip('_') or 'empty'
+
+    def infer_serialization_kind(self, details, _seen_refs=None):
+        """Infer how a schema node is serialized in YAML."""
+        if not isinstance(details, dict):
+            return 'unknown'
+
+        if self.is_dynamic_map_schema(details):
+            return 'map'
+
+        schema_type = details.get('type')
+        if schema_type == 'array':
+            return 'array'
+        if schema_type in ('object', 'Object') or isinstance(details.get('properties'), dict):
+            return 'object'
+        if schema_type in ('string', 'integer', 'number', 'boolean'):
+            return 'scalar'
+        if isinstance(details.get('oneOf'), list):
+            return 'union'
+
+        ref = details.get('$ref')
+        if ref:
+            if _seen_refs is None:
+                _seen_refs = set()
+            if ref in _seen_refs:
+                return 'unknown'
+            _seen_refs = set(_seen_refs)
+            _seen_refs.add(ref)
+            ref_schema = self.resolve_reference(ref)
+            if ref_schema:
+                return self.infer_serialization_kind(ref_schema, _seen_refs)
+
+        return 'unknown'
+
+    def serialization_attributes(
+        self,
+        *,
+        config_key=None,
+        serialization_kind=None,
+        serialization_role=None,
+        config_value_marker=False,
+        config_value=None,
+        config_value_source=None,
+    ):
+        """Return only serialization attributes that add information in the UVL.
+
+        The sidecar still keeps the complete serialization contract.
+
+        UVL rules:
+        - ``configKey`` is kept for real YAML properties.
+        - ``serializationKind`` is emitted only for non-trivial shapes:
+          ``array``, ``map`` and ``union``.
+        - ``serializationRole`` is emitted only for concrete synthetic roles
+          (value, mapKey, mapValue, arrayItem). ``property`` and ``structural``
+          are implicit in the UVL; the sidecar still stores them explicitly.
+        """
+        attrs = []
+
+        if config_key is not None:
+            attrs.append(('configKey', config_key))
+
+        if serialization_kind in {'array', 'map', 'union'}:
+            attrs.append(('serializationKind', serialization_kind))
+
+        if serialization_role and serialization_role not in {'property', 'structural'}:
+            attrs.append(('serializationRole', serialization_role))
+
+        if config_value_marker:
+            attrs.append(('configValue', config_value))
+            if config_value_source:
+                attrs.append(('configValueSource', config_value_source))
+
+        return attrs
+
+    def record_serialization_metadata(
+        self,
+        feature_name,
+        *,
+        config_path,
+        serialization_kind,
+        serialization_role,
+        config_key=None,
+        config_value_marker=False,
+        config_value=None,
+        config_value_source=None,
+        required_source=None,
+        synthetic=False,
+        details=None,
+        default_info=None,
+        default_variant=False,
+    ):
+        """Record machine-actionable YAML rendering metadata for one feature."""
+        clean_feature_name = self.strip_cardinality(feature_name)
+        entry = {
+            'feature': clean_feature_name,
+            'configPath': config_path,
+            'serializationKind': serialization_kind,
+            'serializationRole': serialization_role,
+            'synthetic': bool(synthetic),
+        }
+
+        if config_key is not None:
+            entry['configKey'] = config_key
+        if config_value_marker:
+            entry['configValue'] = config_value
+            if config_value_source:
+                entry['configValueSource'] = config_value_source
+        if required_source:
+            entry['requiredSource'] = required_source
+        if default_variant:
+            entry['defaultVariant'] = True
+
+        if default_info is not None:
+            if default_info.get('semantics') == 'conditional':
+                entry['conditionalDefault'] = default_info.get('value')
+                entry['conditionalDefaultSource'] = default_info.get('source')
+            else:
+                entry['defaultValue'] = default_info.get('value')
+                entry['defaultValueSource'] = default_info.get('source')
+
+        if isinstance(details, dict):
+            if details.get('type') is not None:
+                entry['schemaType'] = details.get('type')
+            if details.get('$ref') is not None:
+                entry['schemaRef'] = details.get('$ref')
+            if isinstance(details.get('items'), dict):
+                if details['items'].get('type') is not None:
+                    entry['itemType'] = details['items'].get('type')
+                if details['items'].get('$ref') is not None:
+                    entry['itemRef'] = details['items'].get('$ref')
+            if isinstance(details.get('additionalProperties'), dict):
+                additional = details['additionalProperties']
+                if additional.get('type') is not None:
+                    entry['additionalPropertiesType'] = additional.get('type')
+                if additional.get('$ref') is not None:
+                    entry['additionalPropertiesRef'] = additional.get('$ref')
+            if 'default' in details:
+                entry['defaultValue'] = details['default']
+                entry['defaultValueSource'] = 'schema'
+            if isinstance(details.get('enum'), list) and len(details['enum']) == 1:
+                entry['fixedValue'] = details['enum'][0]
+                if 'configValue' not in entry:
+                    entry['configValue'] = details['enum'][0]
+                    entry['configValueSource'] = 'schema.enum'
+
+        self.serialization_features.append(entry)
+
+    def save_serialization_metadata(
+        self,
+        file_path,
+        *,
+        schema_source,
+        schema_sha256,
+        system=SYSTEM_NAME,
+        version=SYSTEM_VERSION,
+    ):
+        """Save the schema-derived serialization contract as a separate artifact."""
+        payload = {
+            'system': system,
+            'version': version,
+            'schemaSource': schema_source,
+            'schemaSha256': schema_sha256,
+            'featureCount': len(self.serialization_features),
+            'features': self.serialization_features,
+        }
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(payload, f, indent=4, ensure_ascii=False)
+        print(f"Serialization metadata saved to {file_path}")
+
     def extract_documented_default(self, description):
         """Extract and classify a default documented in natural-language prose.
 
-        Returns:
-            dict | None:
-                {
-                    'value': <extracted value>,
-                    'semantics': 'documented' | 'conditional',
-                    'source': 'description'
-                }
+        Returns a compact record with the extracted value, provenance and a type
+        hint. The type hint is only used to place defaults on the correct branch of
+        unions such as IntOrString.
+
+        Important: conditions are inspected only in the same sentence as the
+        default statement. This prevents text such as
+        ``Defaults to 25%. Example: when ...`` from being misclassified as a
+        conditional default.
         """
         if not description:
             return None
 
         prefix = r'(?:defaults? to|default value is|default is|implicitly inferred to be)'
         patterns = [
-            re.compile(prefix + r'\s+["`](.*?)["`]', re.IGNORECASE),
-            re.compile(prefix + r'\s+([-+]?\d+(?:\.\d+)?)', re.IGNORECASE),
-            re.compile(prefix + r'\s+(true|false)\b', re.IGNORECASE),
-            re.compile(prefix + r'\s+([A-Za-z0-9_*/%+:-]+)', re.IGNORECASE),
+            # Quoted values are strings even if they look numeric.
+            (re.compile(prefix + r'\s+["`](.*?)["`]', re.IGNORECASE), 'string'),
+            # Percentage syntax is serialized as String by IntOrString.
+            (re.compile(prefix + r'\s+([-+]?\d+(?:\.\d+)?%)', re.IGNORECASE), 'string'),
+            (re.compile(prefix + r'\s+([-+]?\d+)\b', re.IGNORECASE), 'integer'),
+            (re.compile(prefix + r'\s+([-+]?\d+\.\d+)\b', re.IGNORECASE), 'number'),
+            (re.compile(prefix + r'\s+(true|false)\b', re.IGNORECASE), 'boolean'),
+            (re.compile(prefix + r'\s+([A-Za-z0-9_*/%+:-]+)', re.IGNORECASE), 'string'),
         ]
 
-        for pattern in patterns:
+        for pattern, value_type_hint in patterns:
             match = pattern.search(description)
             if not match:
                 continue
 
             value = match.group(1).strip()
 
-            tail = description[match.end():match.end() + 250]
+            # Only the remainder of the current sentence can qualify this default.
+            tail = description[match.end():]
+            sentence_tail = re.split(r'[.\n]', tail, maxsplit=1)[0]
 
             is_conditional = bool(re.search(
                 r'\b(?:if|when|unless|otherwise|depending on|depending upon|'
                 r'implementation-defined|implementation defined)\b',
-                tail,
+                sentence_tail,
                 re.IGNORECASE,
             ))
 
@@ -259,11 +476,78 @@ class SchemaProcessor:
                 'value': value,
                 'semantics': 'conditional' if is_conditional else 'documented',
                 'source': 'description',
+                'valueTypeHint': value_type_hint,
             }
 
         return None
-    
-    def schema_attributes(self, details, description='', abstract=False, deprecated=False, enum_source=None):
+
+    @staticmethod
+    def coerce_default_value(value, schema_type):
+        """Convert a textual documented default to the target scalar UVL value."""
+        if value is None:
+            return None
+
+        if schema_type == 'integer':
+            try:
+                return int(str(value))
+            except (TypeError, ValueError):
+                return value
+
+        if schema_type == 'number':
+            try:
+                return float(str(value))
+            except (TypeError, ValueError):
+                return value
+
+        if schema_type == 'boolean':
+            if isinstance(value, bool):
+                return value
+            lower = str(value).strip().lower()
+            if lower == 'true':
+                return True
+            if lower == 'false':
+                return False
+
+        return str(value)
+
+    @staticmethod
+    def union_default_type(default_info, one_of):
+        """Return the oneOf schema type that should receive the default."""
+        if not default_info or default_info.get('semantics') != 'documented':
+            return None
+
+        available = [
+            option.get('type')
+            for option in one_of
+            if isinstance(option, dict) and option.get('type')
+        ]
+        hint = default_info.get('valueTypeHint')
+
+        if hint in available:
+            return hint
+
+        # `number` defaults may still fit a Real branch if present.
+        if hint == 'integer' and 'number' in available and 'integer' not in available:
+            return 'number'
+
+        # Conservative fallback for textual values.
+        if 'string' in available and hint == 'string':
+            return 'string'
+
+        return None
+
+    def schema_attributes(
+        self,
+        details,
+        description='',
+        abstract=False,
+        deprecated=False,
+        enum_source=None,
+        config_key=None,
+        serialization_kind=None,
+        serialization_role=None,
+        include_description_default=True,
+    ):
         """Collect OpenAPI/Kubernetes facts as UVL attributes.
 
         [M1/M3/M10] These attributes enrich the FM for future explanations without
@@ -278,6 +562,13 @@ class SchemaProcessor:
         if description:
             attrs.append(('doc', self.clean_description(description)))
 
+        # [M13] Minimal serialization contract embedded directly in the FM.
+        attrs.extend(self.serialization_attributes(
+            config_key=config_key,
+            serialization_kind=serialization_kind,
+            serialization_role=serialization_role,
+        ))
+
         # Authoritative JSON Schema facts useful for validation/explanation.
         direct_keys = (
             'type', 'format', 'pattern', 'minimum', 'maximum', 'exclusiveMinimum',
@@ -290,8 +581,10 @@ class SchemaProcessor:
                 attrs.append((f'schema_{key}', details[key]))
 
         if 'default' in details:
-            attrs.append(('default', details['default']))
-            attrs.append(('defaultSource', 'schema'))
+            # [M15] `default` is reserved for the default alternative in UVL.
+            # A scalar/configuration default is a different concept.
+            attrs.append(('defaultValue', details['default']))
+            attrs.append(('defaultValueSource', 'schema'))
 
         # Additional provenance that is useful for explanations but does not alter
         # the feature hierarchy.
@@ -323,22 +616,19 @@ class SchemaProcessor:
                         attrs.append(('schemaOneOfTypes', one_of_types))
 
         default_info = self.extract_documented_default(description)
-
-        if default_info is not None:
+        if include_description_default and default_info is not None:
             if default_info['semantics'] == 'conditional':
                 attrs.append(('conditionalDefault', default_info['value']))
                 attrs.append(('conditionalDefaultSource', 'description'))
-            else:
-                attrs.append(('documentedDefault', default_info['value']))
-                attrs.append(('documentedDefaultSource', 'description'))
+            elif 'default' not in details:
+                # `defaultValue` is the scalar/configuration default. Provenance
+                # tells us that Kubernetes documented it in the description.
+                attrs.append((
+                    'defaultValue',
+                    self.coerce_default_value(default_info['value'], details.get('type'))
+                ))
+                attrs.append(('defaultValueSource', 'description'))
 
-        ##         documented_default = self.extract_documented_default(description)
-        #if documented_default is not None:
-            # [M3] A prose default is useful knowledge, but is not JSON-Schema `default`.
-            #attrs.append(('documentedDefault', documented_default))
-            #attrs.append(('documentedDefaultSource', 'description'))
-    
-        
         if 'enum' in details and details['enum'] is not None:
             attrs.append(('schemaEnumValues', details['enum']))
             attrs.append(('enumSource', enum_source or 'schema'))
@@ -348,6 +638,8 @@ class SchemaProcessor:
             if isinstance(details['enum'], list) and len(details['enum']) == 1:
                 attrs.append(('fixedValue', details['enum'][0]))
                 attrs.append(('fixedValueSource', 'schema.enum'))
+                attrs.append(('configValue', details['enum'][0]))
+                attrs.append(('configValueSource', 'schema.enum'))
         elif enum_source:
             attrs.append(('enumSource', enum_source))
 
@@ -388,6 +680,15 @@ class SchemaProcessor:
         }
         if required_source:
             meta['required_source'] = required_source
+
+        default_info = self.extract_documented_default(description)
+        if default_info is not None:
+            meta['documented_default'] = {
+                'value': default_info['value'],
+                'semantics': default_info['semantics'],
+                'source': default_info['source'],
+            }
+
         for key in ('default', 'enum', 'format', 'pattern', 'minimum', 'maximum',
                     'minItems', 'maxItems', 'minProperties', 'maxProperties',
                     'uniqueItems', 'nullable', 'deprecated'):
@@ -403,16 +704,6 @@ class SchemaProcessor:
             k: v for k, v in details.items()
             if k not in ('properties', 'description')
         }
-
-        default_info = self.extract_documented_default(description)
-
-        if default_info is not None:
-            meta['documented_default'] = {
-                'value': default_info['value'],
-                'semantics': default_info['semantics'],
-                'source': default_info['source'],
-            }
-
         self.descriptions['schema_metadata'].append(meta)
 
     def enum_values_from_schema(self, details):
@@ -425,14 +716,7 @@ class SchemaProcessor:
         result = []
         seen = set()
         for raw_value in values:
-            if raw_value is None:
-                token = 'null'
-            elif isinstance(raw_value, bool):
-                token = 'true' if raw_value else 'false'
-            else:
-                token = str(raw_value)
-            token = token.replace('*', 'estrella')
-            token = re.sub(r'[^A-Za-z0-9_#§%?\\]', '_', token).strip('_') or 'empty'
+            token = self._enum_feature_token(raw_value)
             if token in seen:
                 continue
             seen.add(token)
@@ -440,6 +724,16 @@ class SchemaProcessor:
                 token = f"{token} {{default}}"
             result.append(token)
         return result if len(result) >= 2 else None
+
+    def enum_config_value_map(self, details):
+        """Map UVL enum tokens to the original serialized schema values."""
+        values = details.get('enum')
+        if not isinstance(values, list):
+            return {}
+        result = {}
+        for raw_value in values:
+            result[self._enum_feature_token(raw_value)] = raw_value
+        return result
 
     def resolve_reference(self, ref):
         """
@@ -492,16 +786,22 @@ class SchemaProcessor:
         self.seen_descriptions.add(description_key)
         return True
 
+    # Final Required policy: preserve the original explicit terminal marker
+    # while recording provenance in the UVL attributes and sidecar metadata.
     def is_required_based_on_description(self, description):
-        """Return True only for an unconditional terminal "Required." statement.
+        """Return True only for an unconditional terminal ``Required.`` statement.
 
         [M8] This deliberately does NOT match conditional wording such as
-        "Required when ..." or relational statements such as "Exactly one of ...".
+        ``Required when ...`` or relational statements such as ``Exactly one of ...``.
         """
         if not description:
             return False
+
+        # Keep the deliberately narrow convention used by the original generator:
+        # only the explicit terminal marker "Required." (capital R) is structural.
+        # This avoids promoting relational prose such as
+        # "Exactly one of url or service is required." to a mandatory field.
         return description.rstrip().endswith("Required.")
-        ##return bool(re.search(r'\\bRequired\\.\\s*$', description, re.IGNORECASE))
 
     def required_source(self, prop, current_required, description):
         """Return provenance for a mandatory feature, or None when optional."""
@@ -554,6 +854,8 @@ class SchemaProcessor:
         Returns:
             list or None: Extracted values or None.
         """
+
+        self._last_extracted_config_values = {}
 
         palabras_patrones_minus = ['values are', 'following states', '. must be', 'implicitly inferred to be', 'the currently supported reasons are', '. can be', 'it can be in any of following states',
                                    'valid options are', 'a value of `', 'the supported types are', 'valid operators are', 'status of the condition,', 'status of the condition.',
@@ -623,17 +925,18 @@ class SchemaProcessor:
         ]
 
         values = []
-        # [M3] Defaults mentioned only in prose are stored as `documentedDefault`
-        # metadata and are not promoted to authoritative UVL defaults.
-        default_value = None
+        # [M15] Prose defaults remain metadata on the parameter, but an
+        # unconditional prose default may also identify the default alternative.
         for pattern in value_patterns:
             matches = pattern.findall(description)
             for match in matches:
                 split_values = re.split(r',\s*|\s+or\s+|\sor|or\s|\s+and\s+|and\s', match)  # Make sure that "or" is surrounded by spaces.
                 for v in split_values:
-                    v = v.strip()
-                    v = v.replace('*', 'estrella') # Replace '*' for "estrella", * invalid in uvl
-                    v = v.replace('"', '').replace("'", '').replace('`','')  # Removes double, single and closed quotation marks                    
+                    raw_config_value = v.strip()
+                    raw_config_value = raw_config_value.replace('"', '').replace("'", '').replace('`', '')
+                    raw_config_value = raw_config_value.strip()
+
+                    v = raw_config_value.replace('*', 'estrella') # Replace '*' for "estrella", * invalid in uvl
                     v = v.replace(' ', '_').replace('/', '_')
 
                     # Filter values that contain periods, square brackets, braces or are too long
@@ -644,6 +947,7 @@ class SchemaProcessor:
                         else:
                         # Add the value if it does not have underscore or if it is less than 20 characters
                             values.append(v)
+                            self._last_extracted_config_values[v] = raw_config_value
 
         case_not_none = ['NodePort', 'ClusterIP', 'None', 'LoadBalancer', 'ExternalName'] ## List where None was added and was not part of the possible value set
         case_not_policies = {'IfHealthyBudget', 'AlwaysAllow', 'Ready', 'True', 'Running'} ## Set to avoid defining another list and using set(). Check if something goes wrong
@@ -702,7 +1006,16 @@ class SchemaProcessor:
         
         return False
 
-    def process_oneOf(self, oneOf, full_name, type_feature):
+    def process_oneOf(
+        self,
+        oneOf,
+        full_name,
+        type_feature,
+        serialization_role='value',
+        config_path='',
+        config_key=None,
+        default_info=None,
+    ):
         """
         Process a JSON Schema `oneOf` field and generate subfeatures based on type alternatives.
 
@@ -725,6 +1038,9 @@ class SchemaProcessor:
             'sub_features': [],
             'type_data': 'Boolean'  # Here we define the type (e.g.: String, Number)
         }
+
+        default_union_type = self.union_default_type(default_info, oneOf)
+
         # Process each option within 'oneOf'
         for option in oneOf:
             if 'type' in option:
@@ -736,13 +1052,52 @@ class SchemaProcessor:
                 # Create subfeature with appropriate name
                 aux_description_sub_feature = f"Sub-feature added of type {option_type_data}"
 
+                sub_name = f"{sanitized_name}_as{option_type_data}"
+                is_default_branch = (
+                    default_union_type is not None
+                    and option.get('type') == default_union_type
+                )
+
+                sub_attrs = []
+                if is_default_branch:
+                    sub_attrs.append(('default', None))
+                if config_key is not None:
+                    sub_attrs.append(('configKey', config_key))
+                if is_default_branch:
+                    sub_attrs.append((
+                        'defaultValue',
+                        self.coerce_default_value(
+                            default_info['value'],
+                            option.get('type')
+                        )
+                    ))
+                    sub_attrs.append(('defaultValueSource', default_info['source']))
+
+                sub_attrs.extend([
+                    ('serializationRole', serialization_role),
+                    ('doc', aux_description_sub_feature),
+                ])
                 sub_feature = {
-                    'name': f"{sanitized_name}_as{option_type_data} {{doc '{aux_description_sub_feature}'}}", ##  ## quizas mas adelante definir una descr personalizada para el sub_feature
-                    'type': 'alternative',  # By default, it is added as alternative
+                    'name': sub_name,
+                    'type': 'alternative',  # Exactly one representation of the union value.
                     'description': aux_description_sub_feature,
                     'sub_features': [],
-                    'type_data': self.sanitize_type_data(option_type_data)
+                    'type_data': self.sanitize_type_data(option_type_data),
+                    'attributes': sub_attrs,
+                    'attribute_text': self.format_uvl_attributes(sub_attrs),
                 }
+
+                self.record_serialization_metadata(
+                    sub_name,
+                    config_path=config_path,
+                    config_key=config_key,
+                    serialization_kind='scalar',
+                    serialization_role=serialization_role,
+                    synthetic=True,
+                    details=option,
+                    default_info=default_info if is_default_branch else None,
+                    default_variant=is_default_branch,
+                )
 
                 # Add the subfeature to the list of sub_features of the main feature
                 feature['sub_features'].append(sub_feature)
@@ -793,7 +1148,15 @@ class SchemaProcessor:
         return feature_type_data, abstract_bool
                 
 
-    def parse_properties(self, properties, required, parent_name="", depth=0, local_stack_refs=None):
+    def parse_properties(
+        self,
+        properties,
+        required,
+        parent_name="",
+        depth=0,
+        local_stack_refs=None,
+        config_path="",
+    ):
         """
         Recursively parse a set of schema properties and transform them into UVL feature nodes.
 
@@ -819,15 +1182,19 @@ class SchemaProcessor:
         optional_features = [] # Group of optional properties
         abstract_bool = False ## Property defining whether a feature is abstract or not
         
-        queue = deque([(properties, required, parent_name, depth)])
+        queue = deque([(properties, required, parent_name, depth, config_path)])
 
         while queue:
-            current_properties, current_required, current_parent, current_depth = queue.popleft()
+            current_properties, current_required, current_parent, current_depth, current_config_path = queue.popleft()
             for prop, details in current_properties.items():
                 # Avoid leaking the abstract state from the previous property.
                 abstract_bool = False
                 sanitized_name = self.sanitize_name(prop)
                 full_name = f"{current_parent}_{sanitized_name}" if current_parent else sanitized_name
+                property_config_path = (
+                    f"{current_config_path}.{prop}" if current_config_path else prop
+                )
+                serialization_kind = self.infer_serialization_kind(details)
 
                 if full_name in self.processed_features:
                     continue
@@ -866,20 +1233,31 @@ class SchemaProcessor:
                 # [M4/M12] Multi-value schema enum is authoritative; description extraction is a conservative fallback.
                 extracted_values = self.enum_values_from_schema(details)
                 enum_source = 'schema' if extracted_values else None
+                value_config_map = self.enum_config_value_map(details) if extracted_values else {}
+
                 if not extracted_values:
                     extracted_values = self.extract_values(description)
                     if extracted_values:
                         # Keep deterministic output; the previous implementation used an unordered set.
                         extracted_values = sorted(extracted_values)
                         enum_source = 'description'
+                        value_config_map = dict(self._last_extracted_config_values)
+
                 bool_added_value = bool(extracted_values)
+                is_union_property = serialization_kind == 'union'
+                parent_config_key = None if is_union_property else prop
+                parent_serialization_role = 'structural' if is_union_property else 'property'
 
                 attributes = self.schema_attributes(
                     details,
                     description=description,
-                    abstract=abstract_bool,
+                    abstract=(abstract_bool or is_union_property),
                     deprecated=self.is_deprecated,
                     enum_source=enum_source,
+                    config_key=parent_config_key,
+                    serialization_kind=serialization_kind,
+                    serialization_role=parent_serialization_role,
+                    include_description_default=not (is_union_property or bool_added_value),
                 )
                 if required_source:
                     attributes.append(('requiredSource', required_source))
@@ -901,6 +1279,16 @@ class SchemaProcessor:
                     description,
                     feature_type,
                     required_source=required_source,
+                )
+                self.record_serialization_metadata(
+                    full_name,
+                    config_path=property_config_path,
+                    config_key=parent_config_key,
+                    serialization_kind=serialization_kind,
+                    serialization_role=parent_serialization_role,
+                    required_source=required_source,
+                    details=details,
+                    default_info=self.extract_documented_default(description),
                 )
 
                 # `full_name` remains a pure feature reference (plus cardinality), with no
@@ -927,7 +1315,14 @@ class SchemaProcessor:
                             sub_properties = ref_schema['properties']
                             sub_required = ref_schema.get('required', [])
                             # Recursive call with the local stack specific to this branch
-                            sub_mandatory, sub_optional = self.parse_properties(sub_properties, sub_required, self.strip_cardinality(full_name), current_depth + 1, local_stack_refs)
+                            sub_mandatory, sub_optional = self.parse_properties(
+                                sub_properties,
+                                sub_required,
+                                self.strip_cardinality(full_name),
+                                current_depth + 1,
+                                local_stack_refs,
+                                config_path=property_config_path,
+                            )
                             # Add subfeatures
                             feature['sub_features'].extend(sub_mandatory + sub_optional)
 
@@ -944,7 +1339,15 @@ class SchemaProcessor:
 
                         elif 'oneOf' in ref_schema:
                             feature_type = 'mandatory' if required_source else 'optional'
-                            oneOf_feature = self.process_oneOf(ref_schema['oneOf'], self.sanitize_name(f"{full_name}"), feature_type) #_{ref_oneOf}
+                            oneOf_feature = self.process_oneOf(
+                                ref_schema['oneOf'],
+                                self.sanitize_name(f"{full_name}"),
+                                feature_type,
+                                serialization_role='value',
+                                config_path=property_config_path,
+                                config_key=prop,
+                                default_info=self.extract_documented_default(description),
+                            ) #_{ref_oneOf}
                             feature_sub = oneOf_feature['sub_features']
                             # Add the reference that contains the oneOf feature
                             feature['sub_features'].extend(feature_sub)
@@ -958,13 +1361,29 @@ class SchemaProcessor:
                             aux_description_simples_schemas_sanitized = self.clean_description(aux_description_simples_schemas) ## Cleanup of descriptions with conflicting characters and errors in uvl formatting
 
                             type_data_schemas_refs_simple = self.sanitize_type_data(ref_schema.get('type', ''))
-                            feature['sub_features'].append({ ## Addition at the last level of references to simple schemas that do not have properties
-                                'name': f"{full_name}_{sanitized_ref} {{doc '{aux_description_simples_schemas_sanitized}'}}",
-                                'type': 'optional', 
+                            simple_ref_name = f"{full_name}_{sanitized_ref}"
+                            simple_ref_attrs = [
+                                ('doc', aux_description_simples_schemas_sanitized),
+                                ('serializationKind', self.infer_serialization_kind(ref_schema)),
+                                ('serializationRole', 'value'),
+                            ]
+                            feature['sub_features'].append({
+                                'name': simple_ref_name,
+                                'type': 'optional',
                                 'description': f"{aux_description_simples_schemas}",
                                 'sub_features': [],
-                                'type_data': type_data_schemas_refs_simple, # The data type of the simple schema ## is left as default for compatibility in simple schemas and feature property.
+                                'type_data': type_data_schemas_refs_simple,
+                                'attributes': simple_ref_attrs,
+                                'attribute_text': self.format_uvl_attributes(simple_ref_attrs),
                             })
+                            self.record_serialization_metadata(
+                                simple_ref_name,
+                                config_path=property_config_path,
+                                serialization_kind=self.infer_serialization_kind(ref_schema),
+                                serialization_role='value',
+                                synthetic=True,
+                                details=ref_schema,
+                            )
                             if full_name.endswith('creationTimestamp'): ## Addition of a sub-property bool to "accept" null values of creation in the model
                                 feature['sub_features'].append({ ## Addition at the last level of references to simple schemas that do not have properties
                                 'name': f"{full_name}_isNull {{doc 'Added option to select when creationTimestamp is empty declared: null'}}",
@@ -1004,7 +1423,14 @@ class SchemaProcessor:
                                 #sub_item_properties = ref_schema['properties']
                                 #sub_item_required = ref_schema.get('required', [])
                                 #sub_mandatory, sub_optional = self.parse_properties(sub_properties, sub_required, self.strip_cardinality(full_name), current_depth + 1, local_stack_refs) ## Another way to do it
-                                item_mandatory, item_optional = self.parse_properties(ref_schema['properties'], ref_schema.get('required', []), self.strip_cardinality(full_name), current_depth + 1, local_stack_refs)
+                                item_mandatory, item_optional = self.parse_properties(
+                                    ref_schema['properties'],
+                                    ref_schema.get('required', []),
+                                    self.strip_cardinality(full_name),
+                                    current_depth + 1,
+                                    local_stack_refs,
+                                    config_path=f"{property_config_path}[]",
+                                )
                                 feature['sub_features'].extend(item_mandatory + item_optional)
                             else:
                                 # If there is no 'properties', process as a simple type
@@ -1016,18 +1442,42 @@ class SchemaProcessor:
 
                                 # Add the processed reference preserving its scalar UVL type.
                                 type_data_items_ref = self.sanitize_type_data(ref_schema.get('type', ''))
+                                array_ref_name = f"{full_name}_{sanitized_ref}"
+                                array_ref_attrs = [
+                                    ('doc', aux_description_items_sanitized),
+                                    ('serializationKind', self.infer_serialization_kind(ref_schema)),
+                                    ('serializationRole', 'arrayItem'),
+                                ]
                                 feature['sub_features'].append({
-                                    'name': f"{full_name}_{sanitized_ref} {{doc '{aux_description_items_sanitized}'}}",
+                                    'name': array_ref_name,
                                     'type': 'optional',
                                     'description': aux_description_items_sanitized,
                                     'sub_features': [],
-                                    'type_data': type_data_items_ref
+                                    'type_data': type_data_items_ref,
+                                    'attributes': array_ref_attrs,
+                                    'attribute_text': self.format_uvl_attributes(array_ref_attrs),
                                 })
+                                self.record_serialization_metadata(
+                                    array_ref_name,
+                                    config_path=f"{property_config_path}[]",
+                                    serialization_kind=self.infer_serialization_kind(ref_schema),
+                                    serialization_role='arrayItem',
+                                    synthetic=True,
+                                    details=ref_schema,
+                                )
                         # Remove local stack reference when exiting this branch
                         local_stack_refs.pop()
                     elif isinstance(items, dict) and 'oneOf' in items and self.is_cardinality:
                         base_name = self.strip_cardinality(full_name)
-                        oneOf_feature = self.process_oneOf(items['oneOf'], base_name, feature_type)
+                        oneOf_feature = self.process_oneOf(
+                            items['oneOf'],
+                            base_name,
+                            feature_type,
+                            serialization_role='arrayItem',
+                            config_path=f"{property_config_path}[]",
+                            config_key=None,
+                            default_info=None,
+                        )
                         feature['sub_features'].extend(oneOf_feature['sub_features'])
                     elif isinstance(items, dict) and 'type' in items and self.is_cardinality:
                         # [M5/M6] Preserve all JSON Schema scalar array element types.
@@ -1044,13 +1494,28 @@ class SchemaProcessor:
                             aux_description_items = (
                                 f"Synthetic value for OpenAPI array; schema item type: {type_data_items}"
                             )
+                            item_name = f"{full_name}_{suffix}"
+                            item_attrs = [
+                                ('doc', aux_description_items),
+                                ('serializationRole', 'arrayItem'),
+                            ]
                             feature['sub_features'].append({
-                                'name': f"{full_name}_{suffix} {{doc '{aux_description_items}'}}",
+                                'name': item_name,
                                 'type': 'mandatory',
                                 'description': aux_description_items,
                                 'sub_features': [],
-                                'type_data': uvl_type
+                                'type_data': uvl_type,
+                                'attributes': item_attrs,
+                                'attribute_text': self.format_uvl_attributes(item_attrs),
                             })
+                            self.record_serialization_metadata(
+                                item_name,
+                                config_path=f"{property_config_path}[]",
+                                serialization_kind='scalar',
+                                serialization_role='arrayItem',
+                                synthetic=True,
+                                details=items,
+                            )
                         else:
                             print(f"Tipo de dato en array no controlado: {type_data_items}")
                 # Process additional properties
@@ -1064,13 +1529,27 @@ class SchemaProcessor:
                     map_base_name = self.strip_cardinality(full_name)
                     if self.is_dynamic_map_schema(details):
                         aux_map_key_doc = "Synthetic String key for an OpenAPI object with additionalProperties"
+                        map_key_name = f"{map_base_name}_KeyMap"
+                        map_key_attrs = [
+                            ('doc', aux_map_key_doc),
+                            ('serializationRole', 'mapKey'),
+                        ]
                         feature['sub_features'].append({
-                            'name': f"{map_base_name}_KeyMap {{doc '{aux_map_key_doc}'}}",
+                            'name': map_key_name,
                             'type': 'mandatory',
                             'description': aux_map_key_doc,
                             'sub_features': [],
-                            'type_data': 'String'
+                            'type_data': 'String',
+                            'attributes': map_key_attrs,
+                            'attribute_text': self.format_uvl_attributes(map_key_attrs),
                         })
+                        self.record_serialization_metadata(
+                            map_key_name,
+                            config_path=f"{property_config_path}{{}}",
+                            serialization_kind='scalar',
+                            serialization_role='mapKey',
+                            synthetic=True,
+                        )
 
                     if isinstance(additional_properties, dict) and '$ref' in additional_properties:
                         ref = additional_properties['$ref']
@@ -1089,11 +1568,26 @@ class SchemaProcessor:
                             ref_name = self.sanitize_name(ref.split('/')[-1]) 
 
                             if 'properties' in ref_schema:
-                                item_mandatory, item_optional = self.parse_properties(ref_schema['properties'], [], self.strip_cardinality(full_name), current_depth + 1, local_stack_refs)
+                                item_mandatory, item_optional = self.parse_properties(
+                                    ref_schema['properties'],
+                                    [],
+                                    self.strip_cardinality(full_name),
+                                    current_depth + 1,
+                                    local_stack_refs,
+                                    config_path=f"{property_config_path}{{}}",
+                                )
                                 feature['sub_features'].extend(item_mandatory + item_optional)
                             elif 'oneOf' in ref_schema:
                                 full_name = self.strip_cardinality(full_name)
-                                oneOf_feature = self.process_oneOf(ref_schema['oneOf'], self.sanitize_name(f"{full_name}"), feature_type)
+                                oneOf_feature = self.process_oneOf(
+                                    ref_schema['oneOf'],
+                                    self.sanitize_name(f"{full_name}"),
+                                    feature_type,
+                                    serialization_role='mapValue',
+                                    config_path=f"{property_config_path}{{}}",
+                                    config_key=None,
+                                    default_info=None,
+                                )
                                 feature_sub = oneOf_feature['sub_features']
                                 # Add the reference that contains the oneOf feature
                                 feature['sub_features'].extend(feature_sub)
@@ -1103,13 +1597,29 @@ class SchemaProcessor:
                                 aux_description_additional_schemas = ref_schema.get('description', '')
                                 aux_description_additional_sanitized = self.clean_description(aux_description_additional_schemas) ## Saneamiento de las descripciones con los caracteres que causan conflicto y errores en el formato uvl
                                 type_data_additional_ref = self.sanitize_type_data(ref_schema.get('type', ''))
+                                map_ref_name = f"{full_name}_{sanitized_ref}"
+                                map_ref_attrs = [
+                                    ('doc', aux_description_additional_sanitized),
+                                    ('serializationKind', self.infer_serialization_kind(ref_schema)),
+                                    ('serializationRole', 'mapValue'),
+                                ]
                                 feature['sub_features'].append({
-                                    'name': f"{full_name}_{sanitized_ref} {{doc '{aux_description_additional_sanitized}'}}",
+                                    'name': map_ref_name,
                                     'type': 'optional',
                                     'description': aux_description_additional_schemas,
                                     'sub_features': [],
-                                    'type_data': type_data_additional_ref
+                                    'type_data': type_data_additional_ref,
+                                    'attributes': map_ref_attrs,
+                                    'attribute_text': self.format_uvl_attributes(map_ref_attrs),
                                 })
+                                self.record_serialization_metadata(
+                                    map_ref_name,
+                                    config_path=f"{property_config_path}{{}}",
+                                    serialization_kind=self.infer_serialization_kind(ref_schema),
+                                    serialization_role='mapValue',
+                                    synthetic=True,
+                                    details=ref_schema,
+                                )
                         local_stack_refs.pop()
                     elif isinstance(additional_properties, dict) and 'items' in additional_properties and self.is_cardinality: ## Addition to generate the leaf node with the data type referenced in items
                         items = additional_properties['items']
@@ -1118,13 +1628,29 @@ class SchemaProcessor:
                         if type_data_additional_items == 'string' and not bool_added_value:
                             full_name = self.strip_cardinality(full_name)
                             aux_description_string_AP_items = f"Added String mandatory for complete structure Array in the model into AdditionalProperties array Array of Strings: StringValue"
+                            map_array_name = f"{full_name}_StringValueAdditional"
+                            map_array_attrs = [
+                                ('doc', aux_description_string_AP_items),
+                                ('serializationKind', 'array'),
+                                ('serializationRole', 'mapValue'),
+                            ]
                             feature['sub_features'].append({
-                                'name': f"{full_name}_StringValueAdditional {{doc '{aux_description_string_AP_items}'}}",
+                                'name': map_array_name,
                                 'type': 'mandatory',
-                                'description': aux_description_string_AP_items, #f"Added String mandatory for adding the structure Array in the model: StringValue",
+                                'description': aux_description_string_AP_items,
                                 'sub_features': [],
-                                'type_data': 'String'
+                                'type_data': 'String',
+                                'attributes': map_array_attrs,
+                                'attribute_text': self.format_uvl_attributes(map_array_attrs),
                             })
+                            self.record_serialization_metadata(
+                                map_array_name,
+                                config_path=f"{property_config_path}{{}}",
+                                serialization_kind='array',
+                                serialization_role='mapValue',
+                                synthetic=True,
+                                details=additional_properties,
+                            )
                     elif isinstance(additional_properties, dict) and 'type' in additional_properties and self.is_cardinality:
                         type_data_additional_properties = additional_properties['type']
 
@@ -1136,67 +1662,163 @@ class SchemaProcessor:
                                 f"Synthetic value for OpenAPI dynamic map; schema value type: "
                                 f"{type_data_additional_properties}"
                             )
+                            map_value_name = f"{map_base_name}_ValueMap"
+                            map_value_attrs = [
+                                ('doc', aux_description_maps_properties),
+                                ('serializationRole', 'mapValue'),
+                            ]
                             feature['sub_features'].append({
-                                'name': f"{map_base_name}_ValueMap {{doc '{aux_description_maps_properties}'}}",
+                                'name': map_value_name,
                                 'type': 'mandatory',
                                 'description': aux_description_maps_properties,
                                 'sub_features': [],
-                                'type_data': map_value_type
+                                'type_data': map_value_type,
+                                'attributes': map_value_attrs,
+                                'attribute_text': self.format_uvl_attributes(map_value_attrs),
                             })
+                            self.record_serialization_metadata(
+                                map_value_name,
+                                config_path=f"{property_config_path}{{}}",
+                                serialization_kind='scalar',
+                                serialization_role='mapValue',
+                                synthetic=True,
+                                details=additional_properties,
+                            )
 
 
                 # Extract and add values as subfeatures
                 ## All values extracted are "String", to facilitate the representation of the preset values the type is changed to Boolean.
                 if extracted_values:
-                    feature['type_data'] = '' ## The data type of the current FEATURE is accessed: From Boolean to empty ''.
-                    full_name = self.strip_cardinality(full_name) ## In case the cardinality is passed at any point
+                    feature['type_data'] = '' ## Values are represented by alternative Boolean children.
+                    full_name = self.strip_cardinality(full_name)
+
+                    documented_default = self.extract_documented_default(description)
+
                     for value in extracted_values:
                         bool_default_value = False
-                        if ('{default' in value): ## Condition to check if any of the values is default, check and remove the default to add it together with doc.
+
+                        # Schema enums may already carry a default marker.
+                        if '{default' in value:
                             bool_default_value = True
-                            value = value.replace(" {default}", "") ##  The {default} is removed and marked to be added together with the doc.
+                            value = value.replace(" {default}", "")
+
+                        config_value = value_config_map.get(
+                            value,
+                            '*' if value == 'estrella' else value
+                        )
+
+                        # [M15] An unconditional description-derived default can select the default
+                        # alternative. Conditional defaults must never select one
+                        # globally because the chosen value depends on context.
+                        if (
+                            enum_source == 'description'
+                            and documented_default is not None
+                            and documented_default['semantics'] == 'documented'
+                            and str(config_value) == str(documented_default['value'])
+                        ):
+                            bool_default_value = True
 
                         full_name_value = f"{full_name}_{value}"
-                        if '_Healthy' in full_name_value: ## Check for omitting values that should not be added to the model
+                        if '_Healthy' in full_name_value:
                             print("OMITIENDO HEALTHY", full_name_value)
                             continue
-                        aux_description_value = f"Specific value: {value}"
+
+                        aux_description_value = f"Specific value: {config_value}"
+                        value_attrs = []
+                        if bool_default_value:
+                            value_attrs.append(('default', None))
+                        value_attrs.extend([
+                            ('doc', aux_description_value),
+                            ('configValue', config_value),
+                            ('configValueSource', enum_source or 'description'),
+                            ('serializationRole', 'value'),
+                        ])
 
                         feature['sub_features'].append({
-                            'name': f"{full_name_value} {{default, doc '{aux_description_value}'}}" if bool_default_value else f"{full_name_value} {{doc '{aux_description_value}'}}",
-                            'type': 'alternative', # All values are usually alternatives (Choice of only one)
+                            'name': full_name_value,
+                            'type': 'alternative',
                             'description': aux_description_value,
                             'sub_features': [],
-                            'type_data': ''  # Default boolean: changed to empty
+                            'type_data': '',
+                            'attributes': value_attrs,
+                            'attribute_text': self.format_uvl_attributes(value_attrs),
                         })
+                        self.record_serialization_metadata(
+                            full_name_value,
+                            config_path=property_config_path,
+                            serialization_kind='scalar',
+                            serialization_role='value',
+                            config_value_marker=True,
+                            config_value=config_value,
+                            config_value_source=enum_source or 'description',
+                            synthetic=True,
+                            default_variant=bool_default_value,
+                        )
                 else:
                     if (any(keyword in full_name for keyword in self.boolean_keywords) or any(re.search(keyword, full_name) for keyword in self.boolean_keywords_regex) or any(special_name in full_name for special_name in self.special_features_config) and 'Note that this field cannot be set when' in description):
                         full_name = full_name.replace(" {abstract}", "")
                         aux_description_mandatory = f"Added String mandatory for changing booleans of boolean_keywords: {self.feature_aux_original_type} *_name"
 
                         if self.feature_aux_original_type == 'String' or self.feature_aux_original_type == 'string': ## It is checked against the original value of the feature. To add the sub-feature as String or Integer
+                            helper_name = f"{full_name}_nameStr"
+                            helper_attrs = [
+                                ('doc', aux_description_mandatory),
+                                ('serializationKind', 'scalar'),
+                                ('serializationRole', 'value'),
+                            ]
                             feature['sub_features'].append({
-                            'name': f"{full_name}_nameStr {{doc '{aux_description_mandatory}'}}",
+                            'name': helper_name,
                             'type': 'mandatory',
                             'description': aux_description_mandatory,
                             'sub_features': [],
-                            'type_data': 'String'  # String by default: an open feature is required to be able to enter a text field
+                            'type_data': 'String',
+                            'attributes': helper_attrs,
+                            'attribute_text': self.format_uvl_attributes(helper_attrs),
                         })
+                            self.record_serialization_metadata(
+                                helper_name,
+                                config_path=property_config_path,
+                                serialization_kind='scalar',
+                                serialization_role='value',
+                                synthetic=True,
+                            )
                         elif self.feature_aux_original_type == 'Integer' or self.feature_aux_original_type == 'integer':
+                            helper_name = f"{full_name}_valueInt"
+                            helper_attrs = [
+                                ('doc', aux_description_mandatory),
+                                ('serializationKind', 'scalar'),
+                                ('serializationRole', 'value'),
+                            ]
                             feature['sub_features'].append({
-                            'name': f"{full_name}_valueInt {{doc '{aux_description_mandatory}'}}",
+                            'name': helper_name,
                             'type': 'mandatory',
                             'description': aux_description_mandatory,
                             'sub_features': [],
-                            'type_data': 'Integer'  # Default Integer: an open feature is required to enter a positive integer
+                            'type_data': 'Integer',
+                            'attributes': helper_attrs,
+                            'attribute_text': self.format_uvl_attributes(helper_attrs),
                         })
+                            self.record_serialization_metadata(
+                                helper_name,
+                                config_path=property_config_path,
+                                serialization_kind='scalar',
+                                serialization_role='value',
+                                synthetic=True,
+                            )
 
                 # Processing nested properties
                 if 'properties' in details:
                     sub_properties = details['properties']
                     sub_required = details.get('required', [])
                     value_sanitized_name = re.sub(r'\s*\{.*?\}', '', full_name)
-                    sub_mandatory, sub_optional = self.parse_properties(sub_properties, sub_required, value_sanitized_name, current_depth + 1, local_stack_refs)
+                    sub_mandatory, sub_optional = self.parse_properties(
+                        sub_properties,
+                        sub_required,
+                        value_sanitized_name,
+                        current_depth + 1,
+                        local_stack_refs,
+                        config_path=property_config_path,
+                    )
                     feature['sub_features'].extend(sub_mandatory + sub_optional)
 
                 if feature_type == 'mandatory':
@@ -1294,7 +1916,14 @@ def properties_to_uvl(feature_list, indent=1):
             uvl_output += f"{indent_str}{type_str}{rendered_feature_name}\n"
     return uvl_output
 
-def generate_uvl_from_definitions(definitions_file, output_file, descriptions_file):
+def generate_uvl_from_definitions(
+    definitions_file,
+    output_file,
+    descriptions_file,
+    serialization_metadata_file=None,
+    system=SYSTEM_NAME,
+    version=SYSTEM_VERSION,
+):
     """
     Generate a UVL feature model and associated documentation from a JSON schema definitions file.
 
@@ -1312,13 +1941,24 @@ def generate_uvl_from_definitions(definitions_file, output_file, descriptions_fi
 
     definitions = load_json_file(definitions_file) # Load JSON definition file
     processor = SchemaProcessor(definitions) # Initialize the schema processor with loaded definitions
-    uvl_output = "namespace KubernetesTest1\nfeatures\n\tKubernetes {abstract}\n\t\toptional\n" # Initialize the basic structure of the UVL file {{abstract}}
+
+    root_attrs = processor.format_uvl_attributes([
+        ('abstract', None),
+        ('system', system),
+        ('systemVersion', version),
+    ])
+    uvl_output = f"namespace KubernetesTest1\nfeatures\n\tKubernetes{root_attrs}\n\t\toptional\n"
 
     # Procesar cada definición en el archivo JSON
     for schema_name, schema in definitions.get('definitions', {}).items():
         root_schema = schema.get('properties', {})
         required = schema.get('required', [])
-        mandatory_features, optional_features = processor.parse_properties(root_schema, required, processor.sanitize_name(schema_name)) # Obtain mandatory and optional features
+        mandatory_features, optional_features = processor.parse_properties(
+            root_schema,
+            required,
+            processor.sanitize_name(schema_name),
+            config_path="",
+        ) # Obtain mandatory and optional features
         
         schema_description_aux = schema.get('description', '')
         root_feature_name = processor.sanitize_name(schema_name)
@@ -1326,13 +1966,24 @@ def generate_uvl_from_definitions(definitions_file, output_file, descriptions_fi
         # [M1/M2/M10] Root definitions also retain schema/OpenAPI/Kubernetes metadata,
         # including x-kubernetes-group-version-kind when present. No artificial doc
         # string is inserted when the source schema has no description.
+        root_serialization_kind = processor.infer_serialization_kind(schema)
         root_attributes = processor.schema_attributes(
             schema,
             description=schema_description_aux,
             deprecated=schema.get('deprecated') is True,
+            serialization_kind=root_serialization_kind,
+            serialization_role='structural',
         )
         root_attribute_text = processor.format_uvl_attributes(root_attributes)
         processor.record_schema_metadata(root_feature_name, schema, schema_description_aux, 'schema-root')
+        processor.record_serialization_metadata(
+            root_feature_name,
+            config_path="",
+            serialization_kind=root_serialization_kind,
+            serialization_role='structural',
+            synthetic=False,
+            details=schema,
+        )
 
         # Adding mandatory and optional features to the UVL file
         if mandatory_features:
@@ -1351,7 +2002,15 @@ def generate_uvl_from_definitions(definitions_file, output_file, descriptions_fi
         # Adjustment addition simple schemes
         if not root_schema: ## RawExtension, JSONSchemaPropsOrBool, IntOrString-like definitions, etc.
             if 'oneOf' in schema:
-                oneOf_feature = processor.process_oneOf(schema['oneOf'], root_feature_name, type_feature='optional')
+                oneOf_feature = processor.process_oneOf(
+                    schema['oneOf'],
+                    root_feature_name,
+                    type_feature='optional',
+                    serialization_role='value',
+                    config_path="",
+                    config_key=None,
+                    default_info=None,
+                )
                 if oneOf_feature:
                     oneOf_feature['attribute_text'] = root_attribute_text
                     uvl_output += properties_to_uvl([oneOf_feature], indent=3)
@@ -1365,9 +2024,72 @@ def generate_uvl_from_definitions(definitions_file, output_file, descriptions_fi
 
     # save the extracted descriptions
     processor.save_descriptions(descriptions_file)
+
+    if serialization_metadata_file:
+        sha256 = hashlib.sha256()
+        with open(definitions_file, 'rb') as f_schema:
+            for chunk in iter(lambda: f_schema.read(1024 * 1024), b''):
+                sha256.update(chunk)
+        processor.save_serialization_metadata(
+            serialization_metadata_file,
+            schema_source=definitions_file,
+            schema_sha256=sha256.hexdigest(),
+            system=system,
+            version=version,
+        )
     
     # Save the restrictions in the UVL file
     ### processor.save_constraints(output_file) ## Duplicated method to write constraints
+
+
+def generate_semantic_variant(
+    structural_output_file,
+    semantic_output_file,
+    descriptions_file,
+    constraints_report_file=None,
+):
+    """Create a constrained UVL variant without modifying the structural baseline.
+
+    The current semantic constraints are still heuristic/description-derived.
+    Therefore they are deliberately isolated in a separate artifact that can be
+    parsed, validated and evaluated independently.
+    """
+    from analisisScript01 import generar_constraintsDef
+
+    restrictions = generar_constraintsDef(descriptions_file) or []
+
+    # Preserve order while removing exact duplicates/blank entries.
+    unique_restrictions = []
+    seen = set()
+    for restriction in restrictions:
+        restriction = str(restriction).strip()
+        if not restriction or restriction in seen:
+            continue
+        seen.add(restriction)
+        unique_restrictions.append(restriction)
+
+    with open(structural_output_file, 'r', encoding='utf-8') as f_in:
+        structural_model = f_in.read().rstrip()
+
+    with open(semantic_output_file, 'w', encoding='utf-8') as f_out:
+        f_out.write(structural_model)
+        f_out.write("\n")
+        if unique_restrictions:
+            f_out.write("constraints\n")
+            for restriction in unique_restrictions:
+                f_out.write(f"\t{restriction}\n")
+
+    if constraints_report_file:
+        with open(constraints_report_file, 'w', encoding='utf-8') as f_report:
+            for restriction in unique_restrictions:
+                f_report.write(restriction + "\n")
+
+    print(
+        f"Semantic FM variant saved in {semantic_output_file} "
+        f"with {len(unique_restrictions)} unique constraints"
+    )
+    return unique_restrictions
+
 
 # Relative file paths
 #definitions_file = "../../resources/kubernetes-json-v1.30.2/_definitions.json"
@@ -1375,24 +2097,43 @@ def generate_uvl_from_definitions(definitions_file, output_file, descriptions_fi
 #descriptions_file = "../../resources/model_generation/descriptions_01-1.json"
 
 definitions_file = "../../resources/kubernetes-json-v1.37.1/_definitions_1-37.json"
-output_file = "../../variability_model/kubernetes_combined_1-37_V3_New.uvl"
-descriptions_file = "../../resources/model_generation/descriptions_1-37_V3_New.json"
+
+# Frozen structural-enriched baseline.
+output_file = "../../variability_model/kubernetes_combined_1-37.uvl"
+descriptions_file = "../../resources/model_generation/descriptions_1-37.json"
+serialization_metadata_file = "../../resources/model_generation/serialization_metadata_1-37.json"
+
+# Separate semantic-enrichment artifact. This never overwrites the baseline.
+semantic_output_file = "../../variability_model/kubernetes_combined_1-37_semantic.uvl"
+constraints_report_file = "../../resources/model_generation/constraints_1-37.txt"
 
 
 if __name__ == "__main__":
     # Generate structural UVL file and save description/schema metadata.
-    generate_uvl_from_definitions(definitions_file, output_file, descriptions_file)
+    generate_uvl_from_definitions(
+        definitions_file,
+        output_file,
+        descriptions_file,
+        serialization_metadata_file,
+        system=SYSTEM_NAME,
+        version=SYSTEM_VERSION,
+    )
 
-    # [M9] Semantic constraints are a separate enrichment phase. They remain
-    # available for regression/testing but are OFF by default in this version.
-    if ENABLE_SEMANTIC_CONSTRAINTS:
-        from analisisScript01 import generar_constraintsDef
+    print(f"Structural-enriched FM baseline saved in {output_file}")
 
-        restrictions = generar_constraintsDef(descriptions_file)
-        with open(output_file, 'a', encoding='utf-8') as f_out:
-            f_out.write("constraints\n")
-            for restrict in restrictions:
-                f_out.write(f"\t{restrict}\n")
-        print(f"FM UVL and semantic constraints saved in {output_file}")
-    else:
-        print(f"Structural FM UVL saved in {output_file} (semantic constraints disabled)")
+    # [M9] Start the semantic-constraint phase without contaminating the baseline.
+    if GENERATE_SEMANTIC_VARIANT:
+        try:
+            generate_semantic_variant(
+                output_file,
+                semantic_output_file,
+                descriptions_file,
+                constraints_report_file,
+            )
+        except Exception as exc:
+            # The structural FM remains valid/useful even if semantic extraction
+            # still contains a rule that needs debugging.
+            print(
+                "WARNING: semantic variant could not be generated. "
+                f"Structural baseline is untouched. Reason: {exc}"
+            )
