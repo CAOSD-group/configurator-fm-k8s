@@ -2143,13 +2143,13 @@ def generate_semantic_variant(
 definitions_file = "../../resources/kubernetes-json-v1.37.1/_definitions_1-37.json"
 
 # Frozen structural-enriched baseline.
-output_file = "../../variability_model/kubernetes_combined_1-37_V1.uvl"
-descriptions_file = "../../resources/model_generation/descriptions_1-37_V1.json"
-serialization_metadata_file = "../../resources/model_generation/serialization_metadata_1-37_V1.json"
+output_file = "../../variability_model/kubernetes_combined_1-37_V2.uvl"
+descriptions_file = "../../resources/model_generation/descriptions_1-37_V2.json"
+serialization_metadata_file = "../../resources/model_generation/serialization_metadata_1-37_V2.json"
 
 # Separate semantic-enrichment artifact. This never overwrites the baseline.
-semantic_output_file = "../../variability_model/kubernetes_combined_1-37_V1_semantic.uvl"
-constraints_report_file = "../../resources/model_generation/constraints_1-37_V1.txt"
+semantic_output_file = "../../variability_model/kubernetes_combined_1-37_V2_semantic.uvl"
+constraints_report_file = "../../resources/model_generation/constraints_1-37_V2.txt"
 
 
 if __name__ == "__main__":
