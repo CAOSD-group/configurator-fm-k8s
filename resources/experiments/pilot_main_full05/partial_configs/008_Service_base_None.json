@@ -1,0 +1,5 @@
+{
+  "io_k8s_api_core_v1_Service_apiVersion": "v1",
+  "io_k8s_api_core_v1_Service_kind": "Service",
+  "io_k8s_api_core_v1_Service_metadata_name": "fm-pilot-service"
+}

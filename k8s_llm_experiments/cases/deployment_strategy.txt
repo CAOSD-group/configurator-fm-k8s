@@ -1,0 +1,8 @@
+id: deployment_strategy
+
+kubernetes_version: "1.37"
+
+prompt: |
+  Kubernetes version: 1.37
+
+  Create a Kubernetes Deployment that explicitly configures its deployment strategy.

@@ -10,8 +10,8 @@ heuristics.
 Inputs
 ------
 1. descriptions_*.json
-   - root schema metadata
-   - x-kubernetes-group-version-kind for exact (apiVersion, kind) resolution
+   - schema-root metadata
+   - x-kubernetes-group-version-kind declarations
 
 2. serialization_metadata_*.json
    - configPath
@@ -20,6 +20,11 @@ Inputs
    - configValue
    - schemaType / refs
    - synthetic helper metadata
+
+Manifest roots are derived once when the mapper is initialized. A schema-root is
+accepted only when it has at least one Kubernetes GVK and the generated
+serialization metadata contains root-level ``apiVersion`` and ``kind`` paths.
+No resource root is inferred from feature/schema names.
 
 Output
 ------
@@ -69,8 +74,9 @@ class MetadataMapper:
                 "serialization metadata must contain a list in 'features'."
             )
 
-        self.gvk_to_root = self._build_gvk_index()
         self.root_features = self._collect_root_features()
+        self.root_audit: dict[str, Any] = {}
+        self.gvk_to_root = self._build_gvk_index()
 
         self.last_unmapped: list[dict[str, Any]] = []
         self.last_ignored: list[dict[str, Any]] = []
@@ -96,41 +102,10 @@ class MetadataMapper:
         group = (group or "").strip()
         return f"{group}/{version}" if group else version
 
-    def _build_gvk_index(self) -> dict[tuple[str, str], str]:
-        index: dict[tuple[str, str], str] = {}
-
-        for meta in self.descriptions.get("schema_metadata", []):
-            if not isinstance(meta, dict):
-                continue
-            if meta.get("feature_type") != "schema-root":
-                continue
-
-            feature_name = meta.get("feature_name")
-            if not feature_name:
-                continue
-
-            xk = meta.get("x_kubernetes") or {}
-            if not isinstance(xk, dict):
-                continue
-
-            gvk_entries = xk.get("x-kubernetes-group-version-kind", [])
-            if isinstance(gvk_entries, dict):
-                gvk_entries = [gvk_entries]
-
-            for gvk in gvk_entries:
-                if not isinstance(gvk, dict):
-                    continue
-                version = gvk.get("version")
-                kind = gvk.get("kind")
-                if not version or not kind:
-                    continue
-                api_version = self._api_version(gvk.get("group"), version)
-                index[(api_version, kind)] = feature_name
-
-        return index
-
     def _collect_root_features(self) -> set[str]:
-        roots = set()
+        """Return all top-level schema-definition features in serialization metadata."""
+        roots: set[str] = set()
+
         for entry in self.serialization_entries:
             if not isinstance(entry, dict):
                 continue
@@ -141,30 +116,145 @@ class MetadataMapper:
                 and entry.get("feature")
             ):
                 roots.add(entry["feature"])
+
         return roots
 
-    def _fallback_root(self, api_version: str, kind: str) -> str | None:
-        """Compatibility fallback only; exact GVK metadata is preferred."""
-        version = api_version.split("/")[-1]
-        suffixes = [
-            f"_{version}_{kind}",
-            f"_core_{version}_{kind}",
-        ]
-        matches = [
-            root
-            for root in self.root_features
-            if any(root.endswith(suffix) for suffix in suffixes)
-        ]
-        return matches[0] if len(matches) == 1 else None
+    def _root_has_property_path(self, root_feature: str, path: str) -> bool:
+        """Check whether a root definition actually serializes a root-level path."""
+        for entry in self.serialization_entries:
+            if not isinstance(entry, dict):
+                continue
+
+            feature = entry.get("feature")
+            if not feature or not self._belongs_to_root(feature, root_feature):
+                continue
+
+            if (
+                entry.get("configPath") == path
+                and entry.get("serializationRole") == "property"
+                and not entry.get("synthetic", False)
+            ):
+                return True
+
+        return False
+
+    def _build_gvk_index(self) -> dict[tuple[str, str], str]:
+        """Build the exact manifest-root index from already-generated metadata.
+
+        A schema definition is accepted as a manifest root iff:
+        - it is a schema-root represented in serialization metadata;
+        - it has at least one x-kubernetes-group-version-kind entry;
+        - it has root-level apiVersion and kind properties.
+
+        Definitions that fail this criterion remain valid internal FM types; they
+        are simply not allowed to initiate YAML-to-FM mapping.
+        """
+        index: dict[tuple[str, str], str] = {}
+        rejected: list[dict[str, Any]] = []
+        definitions_with_gvk = 0
+        unique_gvks: set[tuple[str, str, str]] = set()
+        accepted_roots: set[str] = set()
+
+        for meta in self.descriptions.get("schema_metadata", []):
+            if not isinstance(meta, dict):
+                continue
+            if meta.get("feature_type") != "schema-root":
+                continue
+
+            feature_name = meta.get("feature_name")
+            if not feature_name or feature_name not in self.root_features:
+                continue
+
+            xk = meta.get("x_kubernetes") or {}
+            if not isinstance(xk, dict):
+                continue
+
+            gvk_entries = xk.get("x-kubernetes-group-version-kind", [])
+            if isinstance(gvk_entries, dict):
+                gvk_entries = [gvk_entries]
+            if not isinstance(gvk_entries, list):
+                continue
+
+            valid_gvks = []
+            seen_local: set[tuple[str, str, str]] = set()
+
+            for gvk in gvk_entries:
+                if not isinstance(gvk, dict):
+                    continue
+
+                group = (gvk.get("group") or "").strip()
+                version = gvk.get("version")
+                kind = gvk.get("kind")
+
+                if not version or not kind:
+                    continue
+
+                identity = (group, version, kind)
+                if identity in seen_local:
+                    continue
+
+                seen_local.add(identity)
+                unique_gvks.add(identity)
+                valid_gvks.append(identity)
+
+            if not valid_gvks:
+                continue
+
+            definitions_with_gvk += 1
+
+            missing = [
+                path
+                for path in ("apiVersion", "kind")
+                if not self._root_has_property_path(feature_name, path)
+            ]
+
+            if missing:
+                rejected.append({
+                    "feature": feature_name,
+                    "reason": "missing-root-properties",
+                    "missingProperties": missing,
+                    "gvkCount": len(valid_gvks),
+                })
+                continue
+
+            accepted_roots.add(feature_name)
+
+            for group, version, kind in valid_gvks:
+                api_version = self._api_version(group, version)
+                key = (api_version, kind)
+
+                previous = index.get(key)
+                if previous is not None and previous != feature_name:
+                    raise MetadataMappingError(
+                        "Ambiguous Kubernetes manifest GVK in generated metadata: "
+                        f"apiVersion={api_version!r}, kind={kind!r} maps to both "
+                        f"{previous!r} and {feature_name!r}."
+                    )
+
+                index[key] = feature_name
+
+        self.root_audit = {
+            "definitionsWithGVK": definitions_with_gvk,
+            "uniqueGVKEntries": len(unique_gvks),
+            "manifestRootDefinitions": len(accepted_roots),
+            "supportedManifestGVKs": len(index),
+            "rejectedGVKDefinitions": len(rejected),
+            "ambiguousGVKs": 0,
+            "rejectedDefinitions": rejected,
+        }
+
+        return index
 
     def resolve_root_feature(self, api_version: str, kind: str) -> str:
+        """Resolve an exact converter-supported Kubernetes manifest GVK."""
         root = self.gvk_to_root.get((api_version, kind))
-        if root is None:
-            root = self._fallback_root(api_version, kind)
+
         if root is None:
             raise MetadataMappingError(
-                f"Unsupported or ambiguous Kubernetes GVK: {api_version}, {kind}"
+                "Unsupported Kubernetes manifest root: "
+                f"apiVersion={api_version!r}, kind={kind!r}"
             )
+
         return root
 
     @staticmethod
@@ -721,30 +811,63 @@ class MetadataMapper:
 
     @staticmethod
     def load_manifest_file(path: str | Path) -> list[dict[str, Any]]:
-        """Load one JSON file or one/multiple YAML documents.
+        """Load one JSON file or one/multiple Kubernetes YAML documents.
 
-        Returns a list because Kubernetes YAML files may contain multiple
-        documents separated by ``---``.
+        Parsing errors are converted into MetadataMappingError with source
+        line/column information, avoiding an unhandled PyYAML traceback.
+        The mapper does not try to repair malformed YAML because changing
+        indentation or structure automatically could change manifest semantics.
         """
         file_path = Path(path)
         suffix = file_path.suffix.lower()
 
-        if suffix in {".yaml", ".yml"}:
-            with file_path.open("r", encoding="utf-8") as f:
-                docs = [
-                    doc for doc in yaml.safe_load_all(f)
-                    if doc is not None
-                ]
-        elif suffix == ".json":
-            with file_path.open("r", encoding="utf-8") as f:
-                data = json.load(f)
-            docs = [data]
-        else:
-            raise MetadataMappingError(
-                f"Unsupported manifest extension: {file_path.suffix}"
-            )
+        try:
+            if suffix in {".yaml", ".yml"}:
+                with file_path.open("r", encoding="utf-8") as f:
+                    docs = [
+                        doc for doc in yaml.safe_load_all(f)
+                        if doc is not None
+                    ]
 
-        for index, doc in enumerate(docs):
+            elif suffix == ".json":
+                with file_path.open("r", encoding="utf-8") as f:
+                    docs = [json.load(f)]
+
+            else:
+                raise MetadataMappingError(
+                    f"Unsupported manifest extension: {file_path.suffix}"
+                )
+
+        except yaml.MarkedYAMLError as exc:
+            mark = getattr(exc, "problem_mark", None)
+            problem = getattr(exc, "problem", None) or str(exc)
+
+            if mark is not None:
+                location = f"line {mark.line + 1}, column {mark.column + 1}"
+            else:
+                location = "unknown location"
+
+            raise MetadataMappingError(
+                f"Invalid YAML in {file_path} at {location}: {problem}"
+            ) from exc
+
+        except yaml.YAMLError as exc:
+            raise MetadataMappingError(
+                f"Invalid YAML in {file_path}: {exc}"
+            ) from exc
+
+        except json.JSONDecodeError as exc:
+            raise MetadataMappingError(
+                f"Invalid JSON in {file_path} at line {exc.lineno}, "
+                f"column {exc.colno}: {exc.msg}"
+            ) from exc
+
+        except OSError as exc:
+            raise MetadataMappingError(
+                f"Cannot read manifest file {file_path}: {exc}"
+            ) from exc
+
+        for index, doc in enumerate(docs, start=1):
             if not isinstance(doc, dict):
                 raise MetadataMappingError(
                     f"Document {index} in {file_path} is not a mapping/object."
@@ -789,6 +912,7 @@ class MetadataMapper:
         """Compact diagnostics for regression/evaluation runs."""
         return {
             "rootFeature": self.last_root_feature,
+            "rootAudit": dict(self.root_audit),
             "unmapped": list(self.last_unmapped),
             "ignored": list(self.last_ignored),
         }
@@ -808,7 +932,7 @@ if __name__ == '__main__':
     #serialization_metadata_path = sys.argv[2]
     serialization_metadata_path = '../../resources/model_generation/serialization_metadata_1-37_V2.json'
     #manifest_path = sys.argv[3]
-    manifest_path = '../../resources/testing_yamls/test01.yaml'
+    manifest_path = '../../resources/testing_yamls/deployment01.yaml'
 
     with open(manifest_path, 'r', encoding='utf-8') as f:
         manifest = yaml.safe_load(f)

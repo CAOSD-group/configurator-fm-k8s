@@ -1,3 +1,8 @@
 /envConf
 /resources/model_generation/versions_fm
 /workspace
+/k8s_llm_experiments/envk8sExperiments
+/k8s_llm_experiments/.env
+/__pycache__
+/.vscode
+/kubectl_testing

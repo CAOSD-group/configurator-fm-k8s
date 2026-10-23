@@ -1,0 +1,54 @@
+{
+  "resources": [
+    {
+      "kind": "Deployment",
+      "apiVersion": "apps/v1",
+      "points": [
+        {
+          "path": "spec.strategy.type",
+          "values": [
+            "Recreate",
+            "RollingUpdate"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "points": [
+        {
+          "path": "spec.clusterIP",
+          "values": [
+            "None",
+            "headless service"
+          ]
+        },
+        {
+          "path": "spec.ipFamilyPolicy",
+          "values": [
+            "PreferDualStack",
+            "RequireDualStack",
+            "SingleStack"
+          ]
+        },
+        {
+          "path": "spec.sessionAffinity",
+          "values": [
+            "ClientIP",
+            "None"
+          ]
+        },
+        {
+          "path": "spec.type",
+          "values": [
+            "ClusterIP",
+            "ExternalName",
+            "LoadBalancer",
+            "NodePort"
+          ]
+        }
+      ]
+    }
+  ]
+}

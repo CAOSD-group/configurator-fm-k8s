@@ -1,0 +1,8 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: true
+  template: true
+  replicas: 3
+metadata:
+  name: fm-pilot-deployment

@@ -1,0 +1,21 @@
+{
+  "resources": [
+    {
+      "kind": "Deployment",
+      "apiVersion": "apps/v1",
+      "points": [
+        {"path": "spec.strategy.type", "values": ["RollingUpdate", "Recreate"]},
+        {"path": "spec.replicas", "values": [1, 3]},
+        {"path": "spec.revisionHistoryLimit", "values": [0, 5]}
+      ]
+    },
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "points": [
+        {"path": "spec.type", "values": ["ClusterIP", "NodePort"]},
+        {"path": "spec.sessionAffinity", "values": ["None", "ClientIP"]}
+      ]
+    }
+  ]
+}

@@ -512,16 +512,37 @@ class SchemaProcessor:
         return None
 
     @staticmethod
-    def coerce_default_value(value, schema_type):
+    def coerce_default_value(value, schema_type, description=''):
         """Convert a textual documented default to the target scalar UVL value."""
         if value is None:
             return None
 
+
         if schema_type == 'integer':
             try:
-                return int(str(value))
+                raw = str(value).strip()
+                # Only mode/permission defaults carrying an octal clue can use
+                # the leading-zero representation. Kubernetes descriptions are
+                # inconsistent: some say "octal", others say "permission bits"
+                # and give examples/ranges such as 0755, 01777 or 0000..01777.
+                desc = description or ''
+                explicit_octal = re.search(r'\boctal\b', desc, re.IGNORECASE)
+                mode_bits_example = (
+                    re.search(r'\b(?:permissions?|mode)\s+bits?\b', desc, re.IGNORECASE)
+                    and re.search(r'(?<![\d])0[0-7]{2,4}(?![\d])', desc)
+                )
+                if (re.fullmatch(r'0[0-7]+', raw)
+                        and (explicit_octal or mode_bits_example)):
+                    return int(raw, 8)
+                return int(raw, 10)
             except (TypeError, ValueError):
                 return value
+
+        #if schema_type == 'integer':
+        #    try:
+        #        return int(str(value))
+        #    except (TypeError, ValueError):
+        #        return value
 
         if schema_type == 'number':
             try:
@@ -655,7 +676,7 @@ class SchemaProcessor:
                 # tells us that Kubernetes documented it in the description.
                 attrs.append((
                     'defaultValue',
-                    self.coerce_default_value(default_info['value'], details.get('type'))
+                    self.coerce_default_value(default_info['value'], details.get('type'), description)
                 ))
                 attrs.append(('defaultValueSource', 'description'))
 
@@ -1105,7 +1126,8 @@ class SchemaProcessor:
                         'defaultValue',
                         self.coerce_default_value(
                             default_info['value'],
-                            option.get('type')
+                            option.get('type'),
+                            inherited_doc or ''##aux_description_sub_feature
                         )
                     ))
                     sub_attrs.append(('defaultValueSource', default_info['source']))
@@ -2143,13 +2165,13 @@ def generate_semantic_variant(
 definitions_file = "../../resources/kubernetes-json-v1.37.1/_definitions_1-37.json"
 
 # Frozen structural-enriched baseline.
-output_file = "../../variability_model/kubernetes_combined_1-37_V2.uvl"
-descriptions_file = "../../resources/model_generation/descriptions_1-37_V2.json"
-serialization_metadata_file = "../../resources/model_generation/serialization_metadata_1-37_V2.json"
+output_file = "../../variability_model/kubernetes_combined_1-37_V3.uvl"
+descriptions_file = "../../resources/model_generation/descriptions_1-37_V3.json"
+serialization_metadata_file = "../../resources/model_generation/serialization_metadata_1-37_V3.json"
 
 # Separate semantic-enrichment artifact. This never overwrites the baseline.
-semantic_output_file = "../../variability_model/kubernetes_combined_1-37_V2_semantic.uvl"
-constraints_report_file = "../../resources/model_generation/constraints_1-37_V2.txt"
+semantic_output_file = "../../variability_model/kubernetes_combined_1-37_V3_semantic.uvl"
+constraints_report_file = "../../resources/model_generation/constraints_1-37_V3.txt"
 
 
 if __name__ == "__main__":

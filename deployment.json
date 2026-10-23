@@ -1,0 +1,16 @@
+
+{
+  "io_k8s_api_core_v1_ConfigMap_apiVersion": "v1",
+  "io_k8s_api_core_v1_ConfigMap_kind": "ConfigMap",
+  "io_k8s_api_core_v1_ConfigMap_metadata_name": "fm-prueba-mapa",
+    "io_k8s_api_core_v1_ConfigMap_data": [
+      {
+        "io_k8s_api_core_v1_ConfigMap_data_KeyMap": "app",
+        "io_k8s_api_core_v1_ConfigMap_data_ValueMap": "web"
+      },
+      {
+        "io_k8s_api_core_v1_ConfigMap_data_KeyMap": "environment",
+        "io_k8s_api_core_v1_ConfigMap_data_ValueMap": "testing"
+      }
+    ]
+}

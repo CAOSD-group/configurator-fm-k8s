@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: true
+  template: true
+  strategy:
+    type: RollingUpdate
+metadata:
+  name: fm-pilot-deployment

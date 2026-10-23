@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  app: web
+  environment: testing
+kind: ConfigMap
+metadata:
+  name: fm-prueba-mapa

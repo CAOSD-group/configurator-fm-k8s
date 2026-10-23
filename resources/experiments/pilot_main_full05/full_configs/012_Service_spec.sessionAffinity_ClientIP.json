@@ -1,0 +1,11 @@
+{
+  "io_k8s_api_core_v1_Service_apiVersion": "v1",
+  "io_k8s_api_core_v1_Service_kind": "Service",
+  "io_k8s_api_core_v1_Service_metadata_name": "fm-pilot-service",
+  "io_k8s_api_core_v1_Service_spec_sessionAffinity": true,
+  "io_k8s_api_core_v1_Service_spec_sessionAffinity_ClientIP": true,
+  "io_k8s_api_core_v1_Service": true,
+  "Kubernetes": true,
+  "io_k8s_api_core_v1_Service_metadata": true,
+  "io_k8s_api_core_v1_Service_spec": true
+}
