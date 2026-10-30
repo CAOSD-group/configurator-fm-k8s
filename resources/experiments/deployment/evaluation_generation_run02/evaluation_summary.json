@@ -1,0 +1,24 @@
+{
+  "source_id": "flamapy_variants",
+  "manifest_dir": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\generation_run02\\manifests",
+  "evaluated_files": 112,
+  "status_counts": {
+    "evaluated": 112
+  },
+  "kubectl_mode": "none",
+  "kubeconform": false,
+  "kubeconform_k8s_version": null,
+  "fm_sat_mode": "full",
+  "uvl": "..\\..\\variability_model\\kubernetes_combined_1-37_V3_semantic.uvl",
+  "metadata": "..\\..\\resources\\model_generation\\serialization_metadata_1-37_V3.json",
+  "mapper": "..\\..\\scripts\\mapping_files\\metadata_parser01.py",
+  "descriptions": "..\\..\\resources\\model_generation\\descriptions_1-37_V3.json",
+  "mapping_strict": false,
+  "full_config_dir": "..\\..\\resources\\experiments\\deployment\\generation_run02\\full_configs",
+  "time_model_init_s": 141.041798,
+  "python_version": "3.11.2",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "metric_note": "n_variants = options in active alternative groups. n_features is exact only with FM completed JSON. yaml_matched_features uses MetadataMapper YAML->UVL but may be partial (unmapped reported). SAT (yaml mode) tests satisfiable extension of mapped hypotheses only; collection instances not independently modeled. schema_valid=Kubeconform; semantic_valid=kubectl server dry-run. Unmeasured is blank.",
+  "output_csv": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\evaluation_generation_run02\\evaluation_metrics.csv",
+  "output_core_csv": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\evaluation_generation_run02\\evaluation_core.csv"
+}

@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template: {}
+  strategy:
+    type: Recreate
+metadata:
+  name: fm-pilot-deployment

@@ -1,0 +1,42 @@
+{
+  "config": {
+    "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+    "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+    "io_k8s_api_apps_v1_Deployment_spec": {
+      "io_k8s_api_apps_v1_Deployment_spec_selector": true,
+      "io_k8s_api_apps_v1_Deployment_spec_template": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [],
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroup": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroup_valueInt": true
+            },
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy_Always": true
+            },
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_runAsGroup": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_runAsGroup_valueInt": true
+            },
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_runAsUser": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_runAsUser_valueInt": true
+            },
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy_MountOption": true
+            },
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy_Strict": true
+            },
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type_RuntimeDefault": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "io_k8s_api_apps_v1_Deployment_metadata": {
+      "io_k8s_api_apps_v1_Deployment_metadata_name": "fm-pilot-deployment"
+    }
+  }
+}

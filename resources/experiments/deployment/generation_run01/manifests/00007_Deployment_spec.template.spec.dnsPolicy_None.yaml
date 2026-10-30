@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: true
+  template:
+    spec:
+      dnsPolicy: None
+      containers: []
+metadata:
+  name: fm-pilot-deployment

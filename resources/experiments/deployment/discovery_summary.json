@@ -1,0 +1,52 @@
+{
+  "root_feature": "io_k8s_api_apps_v1_Deployment",
+  "manifest_root": "io_k8s_api_apps_v1_Deployment",
+  "api_version": "apps/v1",
+  "kind": "Deployment",
+  "total_variation_points": 405,
+  "total_variants": 1310,
+  "relation_groups_by_type": {
+    "optional": 990,
+    "alternative": 119
+  },
+  "variation_points_by_type": {
+    "optional": 286,
+    "alternative": 119
+  },
+  "variant_children_by_type": {
+    "optional": 990,
+    "alternative": 320
+  },
+  "only_alternatives": true,
+  "materialize_single_arrays": true,
+  "relation_types": {
+    "optional": 990,
+    "alternative": 320
+  },
+  "catalog_reasons": {
+    "filtered_by_only_alternatives": 75,
+    "complex_or_non_scalar": 78,
+    "read_only_status": 21,
+    "requires_collection_instances": 838,
+    "enumerated_alternative_single_array_item": 88,
+    "enumerated_alternative": 25,
+    "multiple_nested_arrays_not_supported": 97,
+    "alternative_without_concrete_scalar_value": 88
+  },
+  "alternative_catalog_reasons": {
+    "enumerated_alternative_single_array_item": 88,
+    "complex_or_non_scalar": 19,
+    "enumerated_alternative": 25,
+    "multiple_nested_arrays_not_supported": 97,
+    "alternative_without_concrete_scalar_value": 88,
+    "read_only_status": 3
+  },
+  "enumerated_alternative_points_in_profile": 10,
+  "case_points": 10,
+  "scalar_variations": 25,
+  "boolean_feature_cases": 0,
+  "single_array_alternative_cases": 88,
+  "sampled_paths": [],
+  "planned_total_cases": 114,
+  "coverage_note": "Single-array object alternatives can be planned with explicit one-item arrays. Nested arrays/maps remain catalogued; SAT and Kubernetes validation pending."
+}

@@ -1,0 +1,19 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fm-pilot-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fm-pilot
+  template:
+    metadata:
+      labels:
+        app: fm-pilot
+    spec:
+      containers:
+        - name: fm-container-1
+          image: nginx:alpine
+          imagePullPolicy: Always

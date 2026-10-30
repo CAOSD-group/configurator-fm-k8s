@@ -1,0 +1,14 @@
+apiVersion: apps/v1  # APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+kind: Deployment  # Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+spec:
+  template: true
+  selector:
+    matchExpressions:  # matchExpressions is a list of label selector requirements. The requirements are ANDed.
+    # [Variability Point: operator represents a key’s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.]
+    # - Selected Variant: DoesNotExist (Specific value: DoesNotExist)
+    # - Alternative Variant: Exists (Specific value: Exists)
+    # - Alternative Variant: In (Specific value: In)
+    # - Alternative Variant: NotIn (Specific value: NotIn)
+    - operator: DoesNotExist  # operator represents a key’s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+metadata:  # Standard object’s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+  name: fm-pilot-deployment  # Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names

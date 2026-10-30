@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: true
+  template:
+    spec:
+      containers: []
+      tolerations:
+      - operator: Gt
+metadata:
+  name: fm-pilot-deployment

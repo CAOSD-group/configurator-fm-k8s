@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      volumes:
+      - scaleIO:
+          fsType: ntfs
+          gateway: fm-gateway
+          secretRef: {}
+          system: fm-system
+        name: fm-volume-1
+metadata:
+  name: fm-pilot-deployment

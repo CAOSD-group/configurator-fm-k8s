@@ -1,0 +1,26 @@
+{
+  "config": {
+    "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+    "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+    "io_k8s_api_apps_v1_Deployment_spec": {
+      "io_k8s_api_apps_v1_Deployment_spec_selector": true,
+      "io_k8s_api_apps_v1_Deployment_spec_template": true,
+      "io_k8s_api_apps_v1_Deployment_spec_strategy": {
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_type": {
+          "io_k8s_api_apps_v1_Deployment_spec_strategy_type_RollingUpdate": true
+        },
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate": {
+          "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge": {
+            "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge_asString": "25%"
+          },
+          "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable": {
+            "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable_asString": "25%"
+          }
+        }
+      }
+    },
+    "io_k8s_api_apps_v1_Deployment_metadata": {
+      "io_k8s_api_apps_v1_Deployment_metadata_name": "fm-pilot-deployment"
+    }
+  }
+}

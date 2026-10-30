@@ -1,0 +1,17 @@
+apiVersion: apps/v1  # APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+kind: Deployment  # Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+spec:
+  selector: true
+  template:
+    spec:
+      containers: []  # List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
+      ephemeralContainers:  # List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod’s ephemeralcontainers subresource.
+      - securityContext:  # Optional: SecurityContext defines the security options the ephemeral container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext.
+          appArmorProfile:  # appArmorProfile is the AppArmor options to use by this container. If set, this profile overrides the pod’s appArmorProfile. Note that this field cannot be set when spec.os.name is windows.
+            # [Variability Point: type indicates which kind of AppArmor profile will be applied. Valid options are:\n Localhost - a profile pre-loaded on the node.\n RuntimeDefault - the container runtime’s default profile.\n Unconfined - no AppArmor enforcement.]
+            # - Selected Variant: Unconfined (Specific value: Unconfined)
+            # - Alternative Variant: Localhost (Specific value: Localhost)
+            # - Alternative Variant: RuntimeDefault (Specific value: RuntimeDefault)
+            type: Unconfined  # type indicates which kind of AppArmor profile will be applied. Valid options are:\n Localhost - a profile pre-loaded on the node.\n RuntimeDefault - the container runtime’s default profile.\n Unconfined - no AppArmor enforcement.
+metadata:  # Standard object’s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+  name: fm-pilot-deployment  # Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names

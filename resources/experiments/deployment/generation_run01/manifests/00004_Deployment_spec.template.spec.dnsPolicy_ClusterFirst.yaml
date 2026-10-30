@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: true
+  template:
+    spec:
+      dnsPolicy: ClusterFirst
+      containers: []
+metadata:
+  name: fm-pilot-deployment

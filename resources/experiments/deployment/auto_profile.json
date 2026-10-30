@@ -1,0 +1,1836 @@
+{
+  "resources": [
+    {
+      "kind": "Deployment",
+      "apiVersion": "apps/v1",
+      "points": [
+        {
+          "path": "spec.strategy.type",
+          "values": [
+            "Recreate",
+            "RollingUpdate"
+          ]
+        },
+        {
+          "path": "spec.template.spec.dnsPolicy",
+          "values": [
+            "ClusterFirst",
+            "ClusterFirstWithHostNet",
+            "Default",
+            "None"
+          ]
+        },
+        {
+          "path": "spec.template.spec.os.name",
+          "values": [
+            "linux",
+            "windows"
+          ]
+        },
+        {
+          "path": "spec.template.spec.preemptionPolicy",
+          "values": [
+            "Never",
+            "PreemptLowerPriority"
+          ]
+        },
+        {
+          "path": "spec.template.spec.restartPolicy",
+          "values": [
+            "Always",
+            "Never",
+            "OnFailure"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.appArmorProfile.type",
+          "values": [
+            "Localhost",
+            "RuntimeDefault",
+            "Unconfined"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.fsGroupChangePolicy",
+          "values": [
+            "Always",
+            "OnRootMismatch"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.seLinuxChangePolicy",
+          "values": [
+            "MountOption",
+            "Recursive"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.seccompProfile.type",
+          "values": [
+            "Localhost",
+            "RuntimeDefault",
+            "Unconfined"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.supplementalGroupsPolicy",
+          "values": [
+            "Merge",
+            "Strict"
+          ]
+        }
+      ],
+      "feature_cases": [],
+      "array_cases": [
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Apply",
+          "path": "metadata.managedFields[].operation",
+          "value": "Apply",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation": true,
+            "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Apply": true,
+            "io_k8s_api_apps_v1_Deployment_metadata_managedFields": [
+              {
+                "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation": {
+                  "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Apply": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Update",
+          "path": "metadata.managedFields[].operation",
+          "value": "Update",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation": true,
+            "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Update": true,
+            "io_k8s_api_apps_v1_Deployment_metadata_managedFields": [
+              {
+                "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation": {
+                  "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Update": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_DoesNotExist",
+          "path": "spec.selector.matchExpressions[].operator",
+          "value": "DoesNotExist",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": true,
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_DoesNotExist": true,
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": {
+                  "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_DoesNotExist": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_Exists",
+          "path": "spec.selector.matchExpressions[].operator",
+          "value": "Exists",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": true,
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_Exists": true,
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": {
+                  "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_Exists": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_In",
+          "path": "spec.selector.matchExpressions[].operator",
+          "value": "In",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": true,
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_In": true,
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": {
+                  "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_In": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_NotIn",
+          "path": "spec.selector.matchExpressions[].operator",
+          "value": "NotIn",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": true,
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_NotIn": true,
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": {
+                  "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_NotIn": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Apply",
+          "path": "spec.template.metadata.managedFields[].operation",
+          "value": "Apply",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Apply": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Apply": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Update",
+          "path": "spec.template.metadata.managedFields[].operation",
+          "value": "Update",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Update": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Update": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Always",
+          "path": "spec.template.spec.containers[].imagePullPolicy",
+          "value": "Always",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Always": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Always": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_IfNotPresent",
+          "path": "spec.template.spec.containers[].imagePullPolicy",
+          "value": "IfNotPresent",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_IfNotPresent": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_IfNotPresent": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Never",
+          "path": "spec.template.spec.containers[].imagePullPolicy",
+          "value": "Never",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Never": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Never": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Localhost",
+          "path": "spec.template.spec.containers[].securityContext.appArmorProfile.type",
+          "value": "Localhost",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Localhost": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Localhost": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_RuntimeDefault",
+          "path": "spec.template.spec.containers[].securityContext.appArmorProfile.type",
+          "value": "RuntimeDefault",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_RuntimeDefault": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_RuntimeDefault": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Unconfined",
+          "path": "spec.template.spec.containers[].securityContext.appArmorProfile.type",
+          "value": "Unconfined",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Unconfined": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Unconfined": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Localhost",
+          "path": "spec.template.spec.containers[].securityContext.seccompProfile.type",
+          "value": "Localhost",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Localhost": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Localhost": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_RuntimeDefault",
+          "path": "spec.template.spec.containers[].securityContext.seccompProfile.type",
+          "value": "RuntimeDefault",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_RuntimeDefault": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_RuntimeDefault": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Unconfined",
+          "path": "spec.template.spec.containers[].securityContext.seccompProfile.type",
+          "value": "Unconfined",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Unconfined": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Unconfined": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Always",
+          "path": "spec.template.spec.ephemeralContainers[].imagePullPolicy",
+          "value": "Always",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Always": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Always": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_IfNotPresent",
+          "path": "spec.template.spec.ephemeralContainers[].imagePullPolicy",
+          "value": "IfNotPresent",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_IfNotPresent": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_IfNotPresent": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Never",
+          "path": "spec.template.spec.ephemeralContainers[].imagePullPolicy",
+          "value": "Never",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Never": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Never": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Localhost",
+          "path": "spec.template.spec.ephemeralContainers[].securityContext.appArmorProfile.type",
+          "value": "Localhost",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Localhost": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Localhost": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+          "path": "spec.template.spec.ephemeralContainers[].securityContext.appArmorProfile.type",
+          "value": "RuntimeDefault",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_RuntimeDefault": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_RuntimeDefault": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Unconfined",
+          "path": "spec.template.spec.ephemeralContainers[].securityContext.appArmorProfile.type",
+          "value": "Unconfined",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Unconfined": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Unconfined": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost",
+          "path": "spec.template.spec.ephemeralContainers[].securityContext.seccompProfile.type",
+          "value": "Localhost",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault",
+          "path": "spec.template.spec.ephemeralContainers[].securityContext.seccompProfile.type",
+          "value": "RuntimeDefault",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Unconfined",
+          "path": "spec.template.spec.ephemeralContainers[].securityContext.seccompProfile.type",
+          "value": "Unconfined",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Unconfined": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Unconfined": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Always",
+          "path": "spec.template.spec.initContainers[].imagePullPolicy",
+          "value": "Always",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Always": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Always": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_IfNotPresent",
+          "path": "spec.template.spec.initContainers[].imagePullPolicy",
+          "value": "IfNotPresent",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_IfNotPresent": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_IfNotPresent": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Never",
+          "path": "spec.template.spec.initContainers[].imagePullPolicy",
+          "value": "Never",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Never": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Never": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Localhost",
+          "path": "spec.template.spec.initContainers[].securityContext.appArmorProfile.type",
+          "value": "Localhost",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Localhost": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Localhost": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+          "path": "spec.template.spec.initContainers[].securityContext.appArmorProfile.type",
+          "value": "RuntimeDefault",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_RuntimeDefault": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_RuntimeDefault": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Unconfined",
+          "path": "spec.template.spec.initContainers[].securityContext.appArmorProfile.type",
+          "value": "Unconfined",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Unconfined": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Unconfined": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Localhost",
+          "path": "spec.template.spec.initContainers[].securityContext.seccompProfile.type",
+          "value": "Localhost",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Localhost": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Localhost": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault",
+          "path": "spec.template.spec.initContainers[].securityContext.seccompProfile.type",
+          "value": "RuntimeDefault",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Unconfined",
+          "path": "spec.template.spec.initContainers[].securityContext.seccompProfile.type",
+          "value": "Unconfined",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Unconfined": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Unconfined": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoExecute",
+          "path": "spec.template.spec.tolerations[].effect",
+          "value": "NoExecute",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoExecute": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoExecute": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoSchedule",
+          "path": "spec.template.spec.tolerations[].effect",
+          "value": "NoSchedule",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoSchedule": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoSchedule": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_PreferNoSchedule",
+          "path": "spec.template.spec.tolerations[].effect",
+          "value": "PreferNoSchedule",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_PreferNoSchedule": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_PreferNoSchedule": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Equal",
+          "path": "spec.template.spec.tolerations[].operator",
+          "value": "Equal",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Equal": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Equal": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Exists",
+          "path": "spec.template.spec.tolerations[].operator",
+          "value": "Exists",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Exists": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Exists": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Gt",
+          "path": "spec.template.spec.tolerations[].operator",
+          "value": "Gt",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Gt": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Gt": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Lt",
+          "path": "spec.template.spec.tolerations[].operator",
+          "value": "Lt",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Lt": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Lt": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ext4",
+          "path": "spec.template.spec.volumes[].awsElasticBlockStore.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].awsElasticBlockStore.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_xfs",
+          "path": "spec.template.spec.volumes[].awsElasticBlockStore.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_None",
+          "path": "spec.template.spec.volumes[].azureDisk.cachingMode",
+          "value": "None",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_None": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_None": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Only",
+          "path": "spec.template.spec.volumes[].azureDisk.cachingMode",
+          "value": "Read Only",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Only": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Only": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Write",
+          "path": "spec.template.spec.volumes[].azureDisk.cachingMode",
+          "value": "Read Write",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Write": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Write": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ext4",
+          "path": "spec.template.spec.volumes[].azureDisk.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].azureDisk.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_xfs",
+          "path": "spec.template.spec.volumes[].azureDisk.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Dedicated",
+          "path": "spec.template.spec.volumes[].azureDisk.kind",
+          "value": "Dedicated",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Dedicated": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Dedicated": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Managed",
+          "path": "spec.template.spec.volumes[].azureDisk.kind",
+          "value": "Managed",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Managed": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Managed": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Shared",
+          "path": "spec.template.spec.volumes[].azureDisk.kind",
+          "value": "Shared",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Shared": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Shared": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ext4",
+          "path": "spec.template.spec.volumes[].cinder.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].cinder.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_xfs",
+          "path": "spec.template.spec.volumes[].cinder.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ext4",
+          "path": "spec.template.spec.volumes[].fc.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].fc.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_xfs",
+          "path": "spec.template.spec.volumes[].fc.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ext4",
+          "path": "spec.template.spec.volumes[].flexVolume.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].flexVolume.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_xfs",
+          "path": "spec.template.spec.volumes[].flexVolume.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ext4",
+          "path": "spec.template.spec.volumes[].gcePersistentDisk.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].gcePersistentDisk.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_xfs",
+          "path": "spec.template.spec.volumes[].gcePersistentDisk.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ext4",
+          "path": "spec.template.spec.volumes[].iscsi.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].iscsi.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_xfs",
+          "path": "spec.template.spec.volumes[].iscsi.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ext4",
+          "path": "spec.template.spec.volumes[].photonPersistentDisk.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].photonPersistentDisk.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_xfs",
+          "path": "spec.template.spec.volumes[].photonPersistentDisk.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_ext4",
+          "path": "spec.template.spec.volumes[].portworxVolume.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_xfs",
+          "path": "spec.template.spec.volumes[].portworxVolume.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ext4",
+          "path": "spec.template.spec.volumes[].rbd.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].rbd.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_xfs",
+          "path": "spec.template.spec.volumes[].rbd.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ext4",
+          "path": "spec.template.spec.volumes[].scaleIO.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].scaleIO.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_xfs",
+          "path": "spec.template.spec.volumes[].scaleIO.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThickProvisioned",
+          "path": "spec.template.spec.volumes[].scaleIO.storageMode",
+          "value": "ThickProvisioned",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThickProvisioned": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThickProvisioned": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThinProvisioned",
+          "path": "spec.template.spec.volumes[].scaleIO.storageMode",
+          "value": "ThinProvisioned",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThinProvisioned": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThinProvisioned": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ext4",
+          "path": "spec.template.spec.volumes[].storageos.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].storageos.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_xfs",
+          "path": "spec.template.spec.volumes[].storageos.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ext4",
+          "path": "spec.template.spec.volumes[].vsphereVolume.fsType",
+          "value": "ext4",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ext4": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ext4": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ntfs",
+          "path": "spec.template.spec.volumes[].vsphereVolume.fsType",
+          "value": "ntfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ntfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ntfs": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType",
+          "relation_type": "alternative",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_xfs",
+          "path": "spec.template.spec.volumes[].vsphereVolume.fsType",
+          "value": "xfs",
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_xfs": true,
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_xfs": true
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

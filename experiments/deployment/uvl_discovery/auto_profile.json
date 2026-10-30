@@ -1,0 +1,307 @@
+{
+  "resources": [
+    {
+      "kind": "Deployment",
+      "apiVersion": "apps/v1",
+      "points": [
+        {
+          "path": "spec.strategy.type",
+          "values": [
+            "Recreate",
+            "RollingUpdate"
+          ]
+        },
+        {
+          "path": "spec.template.spec.dnsPolicy",
+          "values": [
+            "ClusterFirst",
+            "ClusterFirstWithHostNet",
+            "Default",
+            "None"
+          ]
+        },
+        {
+          "path": "spec.template.spec.os.name",
+          "values": [
+            "linux",
+            "windows"
+          ]
+        },
+        {
+          "path": "spec.template.spec.preemptionPolicy",
+          "values": [
+            "Never",
+            "PreemptLowerPriority"
+          ]
+        },
+        {
+          "path": "spec.template.spec.restartPolicy",
+          "values": [
+            "Always",
+            "Never",
+            "OnFailure"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.appArmorProfile.type",
+          "values": [
+            "Localhost",
+            "RuntimeDefault",
+            "Unconfined"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.fsGroupChangePolicy",
+          "values": [
+            "Always",
+            "OnRootMismatch"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.seLinuxChangePolicy",
+          "values": [
+            "MountOption",
+            "Recursive"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.seccompProfile.type",
+          "values": [
+            "Localhost",
+            "RuntimeDefault",
+            "Unconfined"
+          ]
+        },
+        {
+          "path": "spec.template.spec.securityContext.supplementalGroupsPolicy",
+          "values": [
+            "Merge",
+            "Strict"
+          ]
+        }
+      ],
+      "feature_cases": [
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_paused",
+          "path": "spec.paused",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_paused": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_paused",
+          "path": "spec.paused",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_paused": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_automountServiceAccountToken",
+          "path": "spec.template.spec.automountServiceAccountToken",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_automountServiceAccountToken": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_automountServiceAccountToken",
+          "path": "spec.template.spec.automountServiceAccountToken",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_automountServiceAccountToken": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_enableServiceLinks",
+          "path": "spec.template.spec.enableServiceLinks",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_enableServiceLinks": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_enableServiceLinks",
+          "path": "spec.template.spec.enableServiceLinks",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_enableServiceLinks": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostIPC",
+          "path": "spec.template.spec.hostIPC",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostIPC": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostIPC",
+          "path": "spec.template.spec.hostIPC",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostIPC": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostNetwork",
+          "path": "spec.template.spec.hostNetwork",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostNetwork": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostNetwork",
+          "path": "spec.template.spec.hostNetwork",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostNetwork": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostPID",
+          "path": "spec.template.spec.hostPID",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostPID": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostPID",
+          "path": "spec.template.spec.hostPID",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostPID": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostUsers",
+          "path": "spec.template.spec.hostUsers",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostUsers": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostUsers",
+          "path": "spec.template.spec.hostUsers",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_hostUsers": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_runAsNonRoot",
+          "path": "spec.template.spec.securityContext.runAsNonRoot",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_runAsNonRoot": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_runAsNonRoot",
+          "path": "spec.template.spec.securityContext.runAsNonRoot",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_runAsNonRoot": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_windowsOptions",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_windowsOptions_hostProcess",
+          "path": "spec.template.spec.securityContext.windowsOptions.hostProcess",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_windowsOptions_hostProcess": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_windowsOptions",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_windowsOptions_hostProcess",
+          "path": "spec.template.spec.securityContext.windowsOptions.hostProcess",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_windowsOptions_hostProcess": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_setHostnameAsFQDN",
+          "path": "spec.template.spec.setHostnameAsFQDN",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_setHostnameAsFQDN": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_setHostnameAsFQDN",
+          "path": "spec.template.spec.setHostnameAsFQDN",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_setHostnameAsFQDN": true
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_shareProcessNamespace",
+          "path": "spec.template.spec.shareProcessNamespace",
+          "value": false,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_shareProcessNamespace": false
+          }
+        },
+        {
+          "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec",
+          "relation_type": "optional",
+          "variant_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_shareProcessNamespace",
+          "path": "spec.template.spec.shareProcessNamespace",
+          "value": true,
+          "decisions": {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_shareProcessNamespace": true
+          }
+        }
+      ]
+    }
+  ]
+}

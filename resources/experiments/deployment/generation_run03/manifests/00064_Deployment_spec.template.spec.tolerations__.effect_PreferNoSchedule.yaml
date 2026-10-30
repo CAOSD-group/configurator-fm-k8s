@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      tolerations:
+      - effect: PreferNoSchedule
+metadata:
+  name: fm-pilot-deployment

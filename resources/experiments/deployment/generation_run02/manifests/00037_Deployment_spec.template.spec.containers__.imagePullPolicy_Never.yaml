@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - imagePullPolicy: Never
+        name: fm-container-1
+metadata:
+  name: fm-pilot-deployment

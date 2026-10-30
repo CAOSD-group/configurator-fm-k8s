@@ -1,0 +1,16 @@
+{
+  "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+  "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+  "io_k8s_api_apps_v1_Deployment_metadata_name": "fm-pilot-deployment",
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Write": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+    {
+      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Write": true
+        }
+      }
+    }
+  ]
+}

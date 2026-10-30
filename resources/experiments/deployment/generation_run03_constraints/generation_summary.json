@@ -1,0 +1,29 @@
+{
+  "uvl_sha256": "b7a3013b45f1e77aeeebd5b882b5d2d23533436140565fd45beaef6df555e4d6",
+  "generator_sha256": "733040e39fef34725f855929f836686f6ca19a03d847ee9b883730ee7193e6fe",
+  "partial_dir": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\partial_plan_points\\partial_configs",
+  "root_feature": "io_k8s_api_apps_v1_Deployment",
+  "variability_comments": true,
+  "number_of_input_partials": 41,
+  "number_processed": 41,
+  "status_counts": {
+    "generated": 41
+  },
+  "serialization_diagnostics_summary": {
+    "cases_with_forced_array_issues": 1,
+    "total_forced_array_deferred": 2,
+    "total_forced_array_ambiguous": 0,
+    "total_forced_array_merged": 12,
+    "total_selected_array_features_not_forced": 72
+  },
+  "global_times": {
+    "time_uvl_load_s": 126.917351,
+    "time_sat_translation_s": 5.549102,
+    "time_sat_checker_init_s": 0.059955
+  },
+  "time_unit": "seconds; perf_counter; UVL/SAT initialisation outside per-case timings",
+  "time_overlap_note": "time_sat_checks_in_completion_s INCLUDED in time_defaults_s; time_sat_forced_array_s is a separate post-completion SAT phase",
+  "python_version": "3.11.2",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "output_csv": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\generation_run03_constraints\\generation_times.csv"
+}

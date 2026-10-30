@@ -1,0 +1,24 @@
+apiVersion: apps/v1  # APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+kind: Deployment  # Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:  # List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
+      - name: fm-container-1  # Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+      securityContext:
+        fsGroup: 1
+        fsGroupChangePolicy: Always
+        runAsGroup: 1
+        runAsUser: 1
+        seLinuxChangePolicy: MountOption
+        supplementalGroupsPolicy: Strict
+        appArmorProfile:
+          # [Variability Point: type indicates which kind of AppArmor profile will be applied. Valid options are:\n Localhost - a profile pre-loaded on the node.\n RuntimeDefault - the container runtime’s default profile.\n Unconfined - no AppArmor enforcement.]
+          # - Selected Variant: Localhost (Specific value: Localhost)
+          # - Alternative Variant: RuntimeDefault (Specific value: RuntimeDefault)
+          # - Alternative Variant: Unconfined (Specific value: Unconfined)
+          type: Localhost
+          localhostProfile: fm-localhostprofile  # localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is "Localhost".
+metadata:  # Standard object’s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+  name: fm-pilot-deployment  # Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names

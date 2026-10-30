@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: true
+  template:
+    spec:
+      containers: []
+      securityContext:
+        fsGroup: true
+        fsGroupChangePolicy: Always
+        runAsGroup: true
+        runAsUser: true
+        seLinuxChangePolicy: MountOption
+        supplementalGroupsPolicy: Strict
+metadata:
+  name: fm-pilot-deployment

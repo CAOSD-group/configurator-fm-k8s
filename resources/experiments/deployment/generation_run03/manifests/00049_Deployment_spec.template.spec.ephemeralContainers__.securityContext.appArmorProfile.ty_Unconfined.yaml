@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      ephemeralContainers:
+      - securityContext:
+          appArmorProfile:
+            type: Unconfined
+        name: fm-ephemeralcontainer-1
+metadata:
+  name: fm-pilot-deployment

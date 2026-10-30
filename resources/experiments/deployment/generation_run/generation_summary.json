@@ -1,0 +1,24 @@
+{
+  "uvl_sha256": "b7a3013b45f1e77aeeebd5b882b5d2d23533436140565fd45beaef6df555e4d6",
+  "generator_sha256": "884c3e01491e3734b438b28670c4831aea33435f761e7bc216e5bb448fe49076",
+  "partial_dir": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\partial_plan\\partial_configs",
+  "root_feature": "io_k8s_api_apps_v1_Deployment",
+  "variability_comments": true,
+  "number_of_input_partials": 114,
+  "number_processed": 114,
+  "status_counts": {
+    "generated": 110,
+    "unsat": 2,
+    "failed": 2
+  },
+  "global_times": {
+    "time_uvl_load_s": 126.836528,
+    "time_sat_translation_s": 5.574853,
+    "time_sat_checker_init_s": 0.059062
+  },
+  "time_unit": "seconds; perf_counter; UVL/SAT initialisation outside per-case timings",
+  "time_overlap_note": "time_sat_checks_in_completion_s INCLUDED in time_defaults_s; do not sum both",
+  "python_version": "3.11.2",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "output_csv": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\generation_run\\generation_times.csv"
+}

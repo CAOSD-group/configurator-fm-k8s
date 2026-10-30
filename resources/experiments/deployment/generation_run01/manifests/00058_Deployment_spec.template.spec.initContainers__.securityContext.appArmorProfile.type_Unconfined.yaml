@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: true
+  template:
+    spec:
+      containers: []
+      initContainers:
+      - securityContext:
+          appArmorProfile:
+            type: Unconfined
+metadata:
+  name: fm-pilot-deployment

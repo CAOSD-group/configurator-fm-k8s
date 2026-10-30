@@ -1,0 +1,18 @@
+### ROLE
+You are an expert Kubernetes configuration engineer.
+
+### TASK
+Generate a correct and deployable Kubernetes manifests from the provided configuration requirements.
+
+### INSTRUCTIONS
+- Follow the specified Kubernetes version.
+- Satisfy the provided configuration requirements.
+- Include any configuration required for the requested functionality to be valid.
+- Return only the valid YAML manifest.
+- Do not include explanations, comments, or Markdown code fences.
+
+### INPUT
+Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its deployment strategy.
+Create a Kubernetes Deployment that explicitly configures its deployment restart policy.

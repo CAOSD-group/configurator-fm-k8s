@@ -1,0 +1,20 @@
+{
+  "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+  "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+  "io_k8s_api_apps_v1_Deployment_metadata_name": "fm-pilot-deployment",
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ntfs": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": true,
+  "io_k8s_api_apps_v1_Deployment": true,
+  "Kubernetes": true,
+  "io_k8s_api_apps_v1_Deployment_metadata": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template": true,
+  "io_k8s_api_apps_v1_Deployment_spec": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_name": true,
+  "io_k8s_api_apps_v1_Deployment_spec_selector": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": true,
+  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_volumePath": true
+}

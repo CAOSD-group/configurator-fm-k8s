@@ -782,7 +782,7 @@ def convert_to_uvl_constraints(feature_key, description, type_data):
         elif "conditions may not be" in description or "Details about a waiting" in description or "TCPSocket is NOT" in description:
             constraint = extract_constraints_multiple_conditions(description, feature_key)
             uvl_rule = constraint
-        elif "template.spec.restartPolicy" in description in description:
+        elif "template.spec.restartPolicy" in description:
             uvl_rule = extract_constraints_template_onlyAllowed(description, feature_key)
     elif type_data == "Integer" or type_data == "integer":
         if is_port_number:

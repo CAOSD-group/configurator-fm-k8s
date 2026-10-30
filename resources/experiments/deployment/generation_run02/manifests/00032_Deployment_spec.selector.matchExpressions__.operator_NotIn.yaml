@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template: {}
+  selector:
+    matchExpressions:
+    - operator: NotIn
+      key: fm-key
+metadata:
+  name: fm-pilot-deployment

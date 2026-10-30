@@ -1,0 +1,26 @@
+{
+  "root_feature": "io_k8s_api_apps_v1_Deployment",
+  "manifest_root": "io_k8s_api_apps_v1_Deployment",
+  "api_version": "apps/v1",
+  "kind": "Deployment",
+  "total_variation_points": 405,
+  "total_variants": 1310,
+  "relation_types": {
+    "optional": 990,
+    "alternative": 320
+  },
+  "catalog_reasons": {
+    "non_boolean_or_structural_selection_needs_value_or_instances": 64,
+    "complex_or_non_scalar": 69,
+    "read_only_status": 21,
+    "requires_collection_instances": 1120,
+    "boolean_feature_toggle": 11,
+    "enumerated_alternative": 25
+  },
+  "case_points": 10,
+  "scalar_variations": 25,
+  "boolean_feature_cases": 22,
+  "sampled_paths": [],
+  "planned_total_cases": 48,
+  "coverage_note": "Puntos internos de arrays/mapas catalogados, no instanciados automáticamente; SAT y validación Kubernetes aún pendientes."
+}
