@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      volumes:
+      - iscsi:
+          fsType: ext4
+          iqn: fm-iqn
+          lun: 1
+          targetPortal: fm-targetportal
+        name: fm-volume-1
+metadata:
+  name: fm-pilot-deployment

@@ -1,0 +1,6 @@
+{
+  "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+  "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+  "io_k8s_api_apps_v1_Deployment_metadata_name": "fm-pilot-deployment",
+  "io_k8s_api_apps_v1_Deployment_spec_strategy_type": true
+}

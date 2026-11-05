@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      os:
+        name: linux
+metadata:
+  name: fm-pilot-deployment

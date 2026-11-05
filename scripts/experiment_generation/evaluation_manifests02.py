@@ -535,6 +535,8 @@ def run(args):
         raise RuntimeError('PyYAML missing. pip install pyyaml')
     if args.uvl and not args.root_feature:
         raise ValueError('With --uvl you must set --root-feature')
+    if args.full_config_dir is not None:
+        args.full_config_dir = args.full_config_dir.resolve()
     if args.full_config_dir and not args.uvl:
         raise ValueError('--full-config-dir requires --uvl and --root-feature')
     if args.fm_sat_mode != 'none' and not args.uvl:

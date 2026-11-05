@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      volumes:
+      - ephemeral:
+          volumeClaimTemplate:
+            spec:
+              resources:
+                requests:
+                  storage: 1073741824.0
+        name: fm-volume-1
+metadata:
+  name: fm-pilot-deployment

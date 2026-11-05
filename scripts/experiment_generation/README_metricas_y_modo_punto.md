@@ -1,5 +1,8 @@
 # Pipeline experimental v2 — métricas y modo point-only
 
+#### Generar configuraciones parciales de las capturadas:
+python .\experiment_runner02-VP_version.py --profile ..\..\resources\experiments\deployment\auto_profile.json --descriptions ..\..\resources\model_generation\descriptions_1-37_V3.json --metadata ..\..\resources\model_generation\serialization_metadata_1-37_V3.json --mapper ..\..\scripts\mapping_files\metadata_parser01.py --output-dir ..\..\resources\experiments\deployment\partial_plan_points --case-mode points --plan
+
 #### Generar manifiestos de los parciales:
 
 python .\generate_manifests.py --partial-dir ..\..\resources\experiments\deployment\partial_plan\partial_configs --uvl ..\..\variability_model\kubernetes_combined_1-37_V3_semantic.uvl --generator ..\..\main_k8s03_arr.py --root-feature io_k8s_api_apps_v1_Deployment --output-dir ..\..\resources\experiments\deployment\generation_run02 --variability-comments
@@ -7,6 +10,10 @@ python .\generate_manifests.py --partial-dir ..\..\resources\experiments\deploym
 #### Evaluar archivos generados para obtener análisis core y extendido:
 
 python .\evaluation_manifests02.py --manifest-dir ..\..\resources\experiments\deployment\generation_run\manifests --output-dir ..\..\resources\experiments\deployment\evaluation_fm_variants --source-id flamapy_variants --expected-kind Deployment --expected-api-version apps/v1 --descriptions ..\..\resources\model_generation\descriptions_1-37_V3.json --metadata ..\..\resources\model_generation\serialization_metadata_1-37_V3.json --mapper ..\..\scripts\mapping_files\metadata_parser01.py --uvl ..\..\variability_model\kubernetes_combined_1-37_V3_semantic.uvl --root-feature io_k8s_api_apps_v1_Deployment --full-config-dir ..\..\resources\experiments\deployment\generation_run\full_configs --fm-sat-mode full --kubectl-mode none
+
+## Generacion de todos los VPs
+python .\build_e2b_all_vps.py --uvl ..\..\variability_model\kubernetes_combined_1-37_V3_semantic.uvl --metadata ..\..\resources\model_generation\serialization_metadata_1-37_V3.json --root-feature io_k8s_api_apps_v1_Deployment --kind Deployment --api-version apps/v1 --resource-name fm-pilot-deployment --expected-groups 119 --output-dir ..\..\resources\experiments\deployment\e2b_all_alternatives_plan
+
 
 
 ## I. Primer experimento: evaluar los YAML ya generados

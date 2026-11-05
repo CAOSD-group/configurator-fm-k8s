@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      volumes:
+      - azureDisk:
+          kind: Dedicated
+          diskName: fm-diskname
+          diskURI: fm-diskuri
+        name: fm-volume-1
+metadata:
+  name: fm-pilot-deployment

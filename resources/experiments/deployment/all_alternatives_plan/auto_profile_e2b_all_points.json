@@ -1,0 +1,3118 @@
+{
+  "format": "e2b_fmvariationpoints_all_alternatives_v1",
+  "root_feature": "io_k8s_api_apps_v1_Deployment",
+  "gvk": {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment"
+  },
+  "base_decisions": {
+    "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+    "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+    "io_k8s_api_apps_v1_Deployment_metadata_name": "fm-pilot-deployment"
+  },
+  "points": [
+    {
+      "case_id": "00002_Deployment_point_io_k8s_api_apps_v1_Deployment_metadata_b391232444",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Apply",
+        "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Update"
+      ],
+      "config_path": "metadata.managedFields[].operation",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation": true,
+        "io_k8s_api_apps_v1_Deployment_metadata_managedFields": [
+          {
+            "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00003_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_sel_ab6fbfe403",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.selector.matchExpressions[].operator",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00004_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_3c7ffd1f06",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge_asInteger"
+      ],
+      "config_path": "spec.strategy.rollingUpdate.maxSurge",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge": true
+      }
+    },
+    {
+      "case_id": "00005_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_77db41b381",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable_asInteger"
+      ],
+      "config_path": "spec.strategy.rollingUpdate.maxUnavailable",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable": true
+      }
+    },
+    {
+      "case_id": "00006_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_6123db10bf",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_strategy_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_type_Recreate",
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_type_RollingUpdate"
+      ],
+      "config_path": "spec.strategy.type",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_type": true
+      }
+    },
+    {
+      "case_id": "00007_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_af263d4eaa",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Apply",
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Update"
+      ],
+      "config_path": "spec.template.metadata.managedFields[].operation",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00008_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b5b9f2ede7",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Lt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00009_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_854654c466",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Lt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchFields[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00010_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_cf3f26c2c4",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Lt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00011_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_45a4176f47",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Lt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchFields[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00012_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_de8baf1109",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00013_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_c4ace3a322",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00014_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1b03b4ae30",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00015_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b3fb05d04e",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00016_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a24b2e938d",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00017_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d5e085e713",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00018_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f1f7c6bedb",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00019_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_8e21467f95",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00020_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_dd48b15ea1",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.template.spec.containers[].env[].valueFrom.resourceFieldRef.divisor",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00021_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b38d71263a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Never"
+      ],
+      "config_path": "spec.template.spec.containers[].imagePullPolicy",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00022_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d6b211f9ab",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].lifecycle.postStart.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00023_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_05c5d3975b",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].lifecycle.postStart.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00024_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0e65e7187f",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].lifecycle.preStop.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00025_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d425b65ef1",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].lifecycle.preStop.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00026_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ad3cdd8af0",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].livenessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00027_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_484aec5c10",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].livenessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00028_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1cf202a234",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_SCTP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_TCP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_UDP"
+      ],
+      "config_path": "spec.template.spec.containers[].ports[].protocol",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00029_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b90001ed01",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].readinessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00030_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_3b2d6635c5",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].readinessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00031_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5179f4a7d8",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName_memory"
+      ],
+      "config_path": "spec.template.spec.containers[].resizePolicy[].resourceName",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00032_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_01c8438b8d",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits_asNumber"
+      ],
+      "config_path": "spec.template.spec.containers[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00033_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_6e1dad72bd",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asNumber"
+      ],
+      "config_path": "spec.template.spec.containers[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00034_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_17f8006a4f",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.containers[].restartPolicyRules[].exitCodes.operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00035_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_15942f177f",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "config_path": "spec.template.spec.containers[].securityContext.appArmorProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00036_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_387c597203",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "config_path": "spec.template.spec.containers[].securityContext.seccompProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00037_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ee252dce39",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].startupProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00038_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9b53b7b254",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.containers[].startupProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00039_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_40d62a6afd",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "config_path": "spec.template.spec.containers[].volumeMounts[].bindMountOptions",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00040_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_96695b105a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy_ClusterFirst",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy_ClusterFirstWithHostNet",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy_Default",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy_None"
+      ],
+      "config_path": "spec.template.spec.dnsPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy": true
+      }
+    },
+    {
+      "case_id": "00041_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_db8c9570ef",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].env[].valueFrom.resourceFieldRef.divisor",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00042_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_372c41fe97",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Never"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].imagePullPolicy",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00043_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4ea5260d6a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.postStart.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00044_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4387202ea6",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.postStart.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00045_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f7a12005d9",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.preStop.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00046_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b6a184b731",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.preStop.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00047_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_7683c41f00",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].livenessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00048_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e4c5a6fe1c",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].livenessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00049_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b698332630",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol_SCTP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol_TCP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol_UDP"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].ports[].protocol",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00050_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_91d9054823",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].readinessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00051_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_24f4d20ba2",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].readinessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00052_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d572878d5b",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName_memory"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].resizePolicy[].resourceName",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00053_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_64d1d49da9",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_limits_asNumber"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00054_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b2db4f8b86",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_requests_asNumber"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00055_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_50defdda9c",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].restartPolicyRules[].exitCodes.operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00056_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_34feedc3ab",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].securityContext.appArmorProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00057_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_6a70f460e8",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].securityContext.seccompProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00058_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_30672140be",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].startupProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00059_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5e620aeeec",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].startupProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00060_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f8a275604f",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "config_path": "spec.template.spec.ephemeralContainers[].volumeMounts[].bindMountOptions",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00061_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_be422f58b3",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.template.spec.initContainers[].env[].valueFrom.resourceFieldRef.divisor",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00062_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ef25a21ec1",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Never"
+      ],
+      "config_path": "spec.template.spec.initContainers[].imagePullPolicy",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00063_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4bac360865",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].lifecycle.postStart.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00064_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_bc97e96bea",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].lifecycle.postStart.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00065_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_33bd5daa28",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].lifecycle.preStop.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00066_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_044ccd6242",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].lifecycle.preStop.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00067_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d9597921cf",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].livenessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00068_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_40f53dbffe",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].livenessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00069_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_616d18a7c6",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol_SCTP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol_TCP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol_UDP"
+      ],
+      "config_path": "spec.template.spec.initContainers[].ports[].protocol",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00070_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_582363dee7",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].readinessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00071_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f0ed22a29e",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].readinessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00072_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d423b42720",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName_memory"
+      ],
+      "config_path": "spec.template.spec.initContainers[].resizePolicy[].resourceName",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00073_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e1805a50b7",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_limits_asNumber"
+      ],
+      "config_path": "spec.template.spec.initContainers[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00074_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2c65a40235",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_requests_asNumber"
+      ],
+      "config_path": "spec.template.spec.initContainers[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00075_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_651b553f92",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.initContainers[].restartPolicyRules[].exitCodes.operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00076_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a4df10f0a8",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "config_path": "spec.template.spec.initContainers[].securityContext.appArmorProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00077_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_bd1d7673b1",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "config_path": "spec.template.spec.initContainers[].securityContext.seccompProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00078_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d7440a57b2",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].startupProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00079_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_8d5aea8648",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.template.spec.initContainers[].startupProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00080_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_382c1c4009",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "config_path": "spec.template.spec.initContainers[].volumeMounts[].bindMountOptions",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts": [
+              {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00081_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e392862a0a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_os_name",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_os_name_linux",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_os_name_windows"
+      ],
+      "config_path": "spec.template.spec.os.name",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_os_name": true
+      }
+    },
+    {
+      "case_id": "00082_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e3450ddcf5",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_overhead",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_overhead_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_overhead_asNumber"
+      ],
+      "config_path": "spec.template.spec.overhead",
+      "n_array_ancestors": 0,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00083_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_aa103e342d",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_preemptionPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_preemptionPolicy_Never",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_preemptionPolicy_PreemptLowerPriority"
+      ],
+      "config_path": "spec.template.spec.preemptionPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_preemptionPolicy": true
+      }
+    },
+    {
+      "case_id": "00084_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a087d6c5e2",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_limits_asNumber"
+      ],
+      "config_path": "spec.template.spec.resources.limits",
+      "n_array_ancestors": 0,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00085_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f77ed48e75",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_requests_asNumber"
+      ],
+      "config_path": "spec.template.spec.resources.requests",
+      "n_array_ancestors": 0,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00086_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_283ef3cb6c",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_Never",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_OnFailure"
+      ],
+      "config_path": "spec.template.spec.restartPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy": true
+      }
+    },
+    {
+      "case_id": "00087_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_88b3ecb968",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "config_path": "spec.template.spec.securityContext.appArmorProfile.type",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type": true
+      }
+    },
+    {
+      "case_id": "00088_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4beca1c6a5",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy_OnRootMismatch"
+      ],
+      "config_path": "spec.template.spec.securityContext.fsGroupChangePolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy": true
+      }
+    },
+    {
+      "case_id": "00089_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e544e21bc1",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy_MountOption",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy_Recursive"
+      ],
+      "config_path": "spec.template.spec.securityContext.seLinuxChangePolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy": true
+      }
+    },
+    {
+      "case_id": "00090_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2b70f335db",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "config_path": "spec.template.spec.securityContext.seccompProfile.type",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type": true
+      }
+    },
+    {
+      "case_id": "00091_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_62ae80c41b",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy_Merge",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy_Strict"
+      ],
+      "config_path": "spec.template.spec.securityContext.supplementalGroupsPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy": true
+      }
+    },
+    {
+      "case_id": "00092_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2fd920186d",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoExecute",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoSchedule",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_PreferNoSchedule"
+      ],
+      "config_path": "spec.template.spec.tolerations[].effect",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00093_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_73e1fc3545",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Equal",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Lt"
+      ],
+      "config_path": "spec.template.spec.tolerations[].operator",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00094_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d4b042a962",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.topologySpreadConstraints[].labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00095_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5dee55dfcc",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].awsElasticBlockStore.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00096_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1567a165cd",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_None",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Only",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Write"
+      ],
+      "config_path": "spec.template.spec.volumes[].azureDisk.cachingMode",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00097_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_3f789ae783",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].azureDisk.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00098_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ed5244fbcd",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Dedicated",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Managed",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Shared"
+      ],
+      "config_path": "spec.template.spec.volumes[].azureDisk.kind",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00099_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_05848660e1",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].cinder.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00100_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e333f8bd9a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.template.spec.volumes[].downwardAPI.items[].resourceFieldRef.divisor",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor": true
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00101_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_adc0ed2766",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit_asNumber"
+      ],
+      "config_path": "spec.template.spec.volumes[].emptyDir.sizeLimit",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00102_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9a1669179d",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Apply",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Update"
+      ],
+      "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.metadata.managedFields[].operation",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields": [
+                    {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation": true
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00103_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5d6ea6044e",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asNumber"
+      ],
+      "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00104_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_99c3e85a6a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asNumber"
+      ],
+      "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "dynamic_map_requires_key",
+      "decisions": {}
+    },
+    {
+      "case_id": "00105_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_dc7ca38dc8",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.selector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions": [
+                      {
+                        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator": true
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00106_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0bdb206ee4",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].fc.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00107_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f27f790a20",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].flexVolume.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00108_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_896f8af725",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].gcePersistentDisk.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00109_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b6437a7923",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].iscsi.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00110_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ef54c83c1b",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].photonPersistentDisk.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00111_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_03b0dab82f",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].portworxVolume.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00112_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9876ba4a4d",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.template.spec.volumes[].projected.sources[].clusterTrustBundle.labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions": [
+                        {
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator": true
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00113_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_fc6d35fa8a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.template.spec.volumes[].projected.sources[].downwardAPI.items[].resourceFieldRef.divisor",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items": [
+                      {
+                        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef": {
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor": true
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00114_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_12d17b98fb",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP256",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP384",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP521",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_ED25519",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_RSA3072",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_RSA4096"
+      ],
+      "config_path": "spec.template.spec.volumes[].projected.sources[].podCertificate.keyType",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType": true
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00115_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_588fbba6b6",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].rbd.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00116_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0570c3179a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].scaleIO.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00117_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a6e3a4775a",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThickProvisioned",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThinProvisioned"
+      ],
+      "config_path": "spec.template.spec.volumes[].scaleIO.storageMode",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00118_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_377edc90cd",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].storageos.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00119_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_cacea8cd75",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_xfs"
+      ],
+      "config_path": "spec.template.spec.volumes[].vsphereVolume.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": true,
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume": {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00120_Deployment_point_io_k8s_api_apps_v1_Deployment_status_c_dc0f62d91c",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_status_conditions_status",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_apps_v1_Deployment_status_conditions_status_False",
+        "io_k8s_api_apps_v1_Deployment_status_conditions_status_True",
+        "io_k8s_api_apps_v1_Deployment_status_conditions_status_Unknown"
+      ],
+      "config_path": "status.conditions[].status",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "read_only_status",
+      "decisions": {}
+    }
+  ]
+}

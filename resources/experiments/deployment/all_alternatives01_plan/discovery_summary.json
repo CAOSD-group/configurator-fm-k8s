@@ -1,0 +1,20 @@
+{
+  "resource_root": "io_k8s_api_apps_v1_Deployment",
+  "kind": "Deployment",
+  "api_version": "apps/v1",
+  "alternative_groups_discovered": 119,
+  "alternative_parent_features": 119,
+  "alternative_children_total": 320,
+  "cases_total_including_base": 120,
+  "cases_planned": 120,
+  "cases_blocked": 0,
+  "groups_by_plan_type": {
+    "single_object_array_point": 62,
+    "scalar_or_object_point": 12,
+    "nested_object_arrays_experimental": 34,
+    "dynamic_quantity_map_in_array": 8,
+    "dynamic_quantity_map_point": 3
+  },
+  "blocked_reasons": {},
+  "semantics": "Points are selected without selecting a variant. Single item scaffolds localize a point in object arrays; SAT and actual YAML materialization still require evaluation."
+}

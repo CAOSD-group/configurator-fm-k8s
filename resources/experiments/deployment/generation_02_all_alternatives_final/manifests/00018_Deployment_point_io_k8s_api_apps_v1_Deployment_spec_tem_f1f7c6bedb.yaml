@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - operator: NotIn
+                key: fm-key
+            topologyKey: fm-topologykey
+metadata:
+  name: fm-pilot-deployment

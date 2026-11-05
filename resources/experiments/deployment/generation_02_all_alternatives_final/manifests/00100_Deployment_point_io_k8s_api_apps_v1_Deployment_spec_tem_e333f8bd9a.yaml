@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      volumes:
+      - downwardAPI:
+          items:
+          - resourceFieldRef:
+              divisor: '1'
+              resource: fm-resource
+            path: fm-path
+        name: fm-volume-1
+metadata:
+  name: fm-pilot-deployment

@@ -1,0 +1,4 @@
+Experimento con la version "extendida" de las variantes pero usando la opción de puntos de variación
+partial_plan_points
+
+Prueba con todos los VPs de Deployment:

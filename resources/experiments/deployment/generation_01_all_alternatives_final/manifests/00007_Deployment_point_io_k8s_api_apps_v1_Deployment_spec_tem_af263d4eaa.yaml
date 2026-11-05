@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    metadata:
+      managedFields:
+      - operation: Apply
+metadata:
+  name: fm-pilot-deployment

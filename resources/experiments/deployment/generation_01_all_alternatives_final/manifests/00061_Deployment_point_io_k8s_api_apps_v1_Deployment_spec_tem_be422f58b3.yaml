@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+      - name: fm-container-1
+      initContainers:
+      - env:
+        - valueFrom:
+            resourceFieldRef:
+              divisor: '1'
+              resource: fm-resource
+          name: fm-env-1
+        name: fm-initcontainer-1
+metadata:
+  name: fm-pilot-deployment

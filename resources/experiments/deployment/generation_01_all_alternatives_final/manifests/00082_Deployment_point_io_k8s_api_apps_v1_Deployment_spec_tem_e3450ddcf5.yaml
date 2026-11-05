@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  selector: {}
+  template:
+    spec:
+      overhead:
+        cpu: '1'
+      containers:
+      - name: fm-container-1
+metadata:
+  name: fm-pilot-deployment

@@ -117,13 +117,47 @@ def _get_attr(feature: Feature, name: str) -> Any:
     return next((a for a in feature.get_attributes() if a.name == name), None)
 
 
+def is_absence_default(feature: Feature) -> bool:
+    """Identify a documented *absence* default in new and legacy UVL models.
+
+    The new converter emits ``absenceDefault``. In older models, notably
+    EmptyDir.sizeLimit_asString, the same concept was wrongly encoded as
+    ``default`` + ``defaultValue 'nil'``. Only description-derived null/nil
+    is treated as absence; a user-supplied explicit value is not rewritten.
+    """
+    marker = _get_attr(feature, 'absenceDefault')
+    if marker is not None and marker.get_default_value() is True:
+        return True
+    val = _get_attr(feature, 'defaultValue')
+    source = _get_attr(feature, 'defaultValueSource')
+    return (val is not None and source is not None
+            and str(source.get_default_value()).lower() == 'description'
+            and isinstance(val.get_default_value(), str)
+            and val.get_default_value().strip().casefold() in {'nil', 'null'})
+
+
+def has_absence_default(feature: Feature) -> bool:
+    """Whether an optional field should be *omitted* when not requested.
+
+    Legacy UVL stored the absence marker only on a union child; inspect the
+    children so the parent optional union is not auto-selected as abstract.
+    """
+    if is_absence_default(feature):
+        return True
+    kind = _get_attr(feature, 'serializationKind')
+    return (kind is not None and kind.get_default_value() == 'union'
+            and any(is_absence_default(child) for child in feature.get_children()))
+
+
 def is_default(feature: Feature) -> bool:
-    """Return whether the feature is selected by default (it carries the ``default`` flag)."""
-    return _get_attr(feature, 'default') is not None
+    """Return whether this is a real default, excluding legacy nil/null markers."""
+    return _get_attr(feature, 'default') is not None and not is_absence_default(feature)
 
 
 def get_default_value(feature: Feature) -> Any:
-    """Return the default value of a non-boolean feature, or ``None`` if it has none."""
+    """Return a real scalar default; never return a documented absence marker."""
+    if is_absence_default(feature):
+        return None
     # The legacy format ``default XX`` is still accepted as a default value.
     for name in ('defaultValue', 'default'):
         attr = _get_attr(feature, name)
@@ -476,6 +510,12 @@ def generate_default_configuration(fm: FeatureModel,
                     try_select(child)
             elif relation.is_optional():
                 for child in children:
+                    # An optional field whose documented default is absence
+                    # (e.g. sizeLimit=nil) must not be selected merely because
+                    # it is abstract. Explicit selections/mandatory relations
+                    # remain handled normally; deep expansion stays deliberate.
+                    if not deep and has_absence_default(child) and child.name not in elements:
+                        continue
                     if (deep or child.is_abstract or is_default(child)
                             or (in_scope and shows_value(child))):
                         try_select(child)
@@ -703,6 +743,65 @@ def build_variability_comments(fm: FeatureModel,
 # ---------------------------------------------------------------------------
 # Manifest
 # ---------------------------------------------------------------------------
+def typed_union_witness(feature: Feature) -> Any:
+    """An explicit experimental value for a selected, unassigned union alternative.
+
+    This is NOT a solver model for UVL arithmetic/string constraints or a
+    Kubernetes default.  Preserve actual explicit values elsewhere; synthesize
+    only if the parent is a `serializationKind=union` and the leaf describes its
+    YAML `serializationRole=value`.  Unknown types fail instead of becoming True.
+    """
+    parent = feature.get_parent()
+    if parent is None or get_serialization_attr(parent, 'serializationKind') != 'union':
+        return None
+    if get_serialization_attr(feature, 'serializationRole') != 'value':
+        return None
+
+    type_hint = getattr(feature, 'feature_type', None)
+    name_hint = getattr(type_hint, 'name', '') or str(type_hint or '')
+    token = name_hint.upper().split('.')[-1]
+    if token not in {'STRING', 'INTEGER', 'REAL', 'NUMBER'}:
+        token = str(get_serialization_attr(feature, 'schema_type') or
+                    get_serialization_attr(feature, 'schemaType') or '').upper()
+    if token not in {'STRING', 'INTEGER', 'REAL', 'NUMBER'}:
+        # Conservative compatibility with synthetic IntOrString/Quantity UVL names.
+        suffix = feature.name.rsplit('_', 1)[-1].lower()
+        token = {'asstring': 'STRING', 'asinteger': 'INTEGER',
+                 'asnumber': 'REAL'}.get(suffix, '')
+    if token not in {'STRING', 'INTEGER', 'REAL', 'NUMBER'}:
+        raise ValueError(f'Cannot infer type of selected union alternative: {feature.name}')
+
+    config_value = get_config_key_value(feature)[1]
+    if config_value is not None and not isinstance(config_value, bool):
+        return config_value
+    default = get_default_value(feature)
+    if (default is not None and not isinstance(default, bool) and
+            str(default).strip().lower() not in {'nil', 'null', 'none', 'undefined'}):
+        return default
+
+    key = get_config_key_value(feature)[0] or ''
+    doc = (get_doc(feature) or '')
+    ref = str(get_serialization_attr(parent, 'schemaRef') or '').lower()
+    def synthetic(value: Any) -> Any:
+        # Audit trail in the runner's logging output.  This is a chosen witness,
+        # NOT a solver-assigned feature value and NOT a Kubernetes default.
+        logger.info('🧪 Typed union witness: %s = %r [%s]', feature.name, value, token)
+        return value
+    if token == 'STRING':
+        if 'quantity' in ref:
+            return synthetic('1Gi')
+        if 'IANA_SVC_NAME' in doc:
+            return synthetic('http')
+        if 'percent' in doc.lower() and ('intorstring' in ref or 'percentage' in doc.lower()):
+            return synthetic('25%')
+        return synthetic('fm-value')
+    if token == 'INTEGER':
+        # 8080 satisfies the STRICT >1,<65535 UVL example; this does NOT
+        # prove satisfaction of all numeric conditions in the full UVL.
+        return synthetic(8080 if key == 'port' and '65535' in doc else 2)
+    return synthetic(1.0)
+
+
 def manifest_value(feature: Feature, config: Configuration, selected: dict[str, Any]) -> Any:
     """Return the value emitted next to the key of ``feature`` (``None`` for key-only lines).
 
@@ -721,6 +820,8 @@ def manifest_value(feature: Feature, config: Configuration, selected: dict[str, 
             value = config_value
     if value is None:
         value = _child_config_value(feature, selected)
+    if value is None and feature.name in selected:
+        value = typed_union_witness(feature)
     return value
 
 
@@ -1111,6 +1212,10 @@ def _value_from_feature(feature: Feature, value: Any, features: dict[str, Featur
     _, config_value = get_config_key_value(feature)
     if value is True and config_value is not None:
         return config_value
+    if value is True:
+        typed = typed_union_witness(feature)
+        if typed is not None:
+            return typed
     # A UVL selection flag does not mean a Kubernetes object is boolean.
     if value is True:
         shape = _yaml_shape(feature)
@@ -1118,6 +1223,11 @@ def _value_from_feature(feature: Feature, value: Any, features: dict[str, Featur
             return {}
         if shape == 'array':
             return []
+        parent = feature.get_parent()
+        if (parent is not None and
+                get_serialization_attr(parent, 'serializationKind') == 'union' and
+                get_serialization_attr(feature, 'serializationRole') == 'value'):
+            raise ValueError(f'Selected union value has no concrete scalar: {feature.name}')
     return value
 
 
@@ -1352,6 +1462,7 @@ def _merge_forced_array_fields(
             typ = str(get_serialization_attr(leaf, 'schema_type') or '').lower()
             if (key in target and target[key] is not None and
                     (target[key] is not True or typ == 'boolean')):
+                report.append(f'{name}: already present in {owner.name}[{index}].' + '.'.join(keys))
                 continue  # Preserve explicit concrete values, including Boolean true.
             value = manifest_value(leaf, config, selected)
             shape = _yaml_shape(leaf)
@@ -1371,7 +1482,8 @@ def _apply_collections(manifest: str, fm: FeatureModel,
                        config: Configuration, collections: dict[str, Any],
                        expand_to_leaves: bool = False,
                        collection_mode: str = 'empty',
-                       forced_array_features: Optional[Collection[str]] = None) -> str:
+                       forced_array_features: Optional[Collection[str]] = None,
+                       serialization_diagnostics: Optional[dict[str, Any]] = None) -> str:
     """Reconstruct arrays/maps and retain selected descendants in expanded mode.
 
     The text renderer supplies a one-item *template* from the complete UVL
@@ -1500,6 +1612,15 @@ def _apply_collections(manifest: str, fm: FeatureModel,
         # newly merged fields; no optional feature is selected by this pass.
         data, new_witnesses = _materialize_required_values(data, fm, config)
         witness_report.extend(new_witnesses)
+    if serialization_diagnostics is not None:
+        # Report only the plain YAML rendering (not the documented re-render).
+        # A merge event describes a successful addition, not complete FM/YAML
+        # fidelity. All deferred/ambiguous events are kept for diagnosis.
+        serialization_diagnostics.update({
+            'forced_array_events': list(forced_report) if forced_array_features else [],
+            'materialization_events': list(witness_report),
+            'collection_stats': dict(stats),
+        })
     if witness_report:
         logger.info('🧩 Typed witness materialization: %d field(s) or item(s)',
                     len(witness_report))
@@ -1662,7 +1783,8 @@ def render_manifest(fm: FeatureModel,
                     collections: Optional[dict[str, Any]] = None,
                     expand_to_leaves: bool = False,
                     collection_mode: str = 'empty',
-                    forced_array_features: Optional[Collection[str]] = None) -> str:
+                    forced_array_features: Optional[Collection[str]] = None,
+                    serialization_diagnostics: Optional[dict[str, Any]] = None) -> str:
     """Render the YAML manifest of a complete configuration.
 
     The feature tree is traversed depth-first so that the YAML nesting follows the model.
@@ -1735,7 +1857,8 @@ def render_manifest(fm: FeatureModel,
         rendered = _apply_collections(manifest, fm, config, collections or {},
                                       expand_to_leaves=expand_to_leaves,
                                       collection_mode=collection_mode,
-                                      forced_array_features=forced_array_features)
+                                      forced_array_features=forced_array_features,
+                                      serialization_diagnostics=serialization_diagnostics)
         if requested_comments:
             rendered = _restore_variability_comments(rendered, fm, comments,
                                                      collections or {}, config)

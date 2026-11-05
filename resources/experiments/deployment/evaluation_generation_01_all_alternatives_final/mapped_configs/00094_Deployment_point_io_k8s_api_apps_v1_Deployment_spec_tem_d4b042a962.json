@@ -1,0 +1,38 @@
+{
+  "config": {
+    "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+    "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+    "io_k8s_api_apps_v1_Deployment_spec": {
+      "io_k8s_api_apps_v1_Deployment_spec_selector": {},
+      "io_k8s_api_apps_v1_Deployment_spec_template": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": "fm-container-1"
+            }
+          ],
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_DoesNotExist": true
+                    },
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_key": "fm-key"
+                  }
+                ]
+              },
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_maxSkew": 1,
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_topologyKey": "fm-topologykey-1",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_whenUnsatisfiable": "fm-whenunsatisfiable-1"
+            }
+          ]
+        }
+      }
+    },
+    "io_k8s_api_apps_v1_Deployment_metadata": {
+      "io_k8s_api_apps_v1_Deployment_metadata_name": "fm-pilot-deployment"
+    }
+  }
+}

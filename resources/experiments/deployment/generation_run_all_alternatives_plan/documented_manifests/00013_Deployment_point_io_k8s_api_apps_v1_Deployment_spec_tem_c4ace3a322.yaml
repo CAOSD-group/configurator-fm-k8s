@@ -1,0 +1,25 @@
+apiVersion: apps/v1  # APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+kind: Deployment  # Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:  # List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
+      - name: fm-container-1  # Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+      affinity:
+        podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:  # The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+          - podAffinityTerm:  # Required. A pod affinity term, associated with the corresponding weight.
+              namespaceSelector:  # A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod’s namespace". An empty selector ({}) matches all namespaces.
+                matchExpressions:  # matchExpressions is a list of label selector requirements. The requirements are ANDed.
+                # [Variability Point: operator represents a key’s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.]
+                # - Selected Variant: NotIn (Specific value: NotIn)
+                # - Alternative Variant: DoesNotExist (Specific value: DoesNotExist)
+                # - Alternative Variant: Exists (Specific value: Exists)
+                # - Alternative Variant: In (Specific value: In)
+                - operator: NotIn  # operator represents a key’s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+                  key: fm-key  # key is the label key that the selector applies to.
+              topologyKey: fm-topologykey  # This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+            weight: 1  # weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+metadata:  # Standard object’s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+  name: fm-pilot-deployment  # Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
