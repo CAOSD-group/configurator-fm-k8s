@@ -1,0 +1,4122 @@
+{
+  "format": "k8s_llm_prompt_cases_v2",
+  "source_profile_format": "e2b_fmvariationpoints_all_alternatives_v1",
+  "root_feature": "io_k8s_api_core_v1_Pod",
+  "gvk": {
+    "apiVersion": "v1",
+    "kind": "Pod"
+  },
+  "kubernetes_version": "1.37",
+  "semantics": "Each prompt requests only the variation point. Alternative values are retained as benchmark metadata but are not exposed to the LLM. Prompt readiness is independent from benchmark grouping: PRIMARY contains ordinary user-configurable points, while EDGE retains semantically special points for a separate FM-vs-LLM analysis instead of discarding them.",
+  "summary": {
+    "cases_total": 135,
+    "by_prompt_status": {
+      "READY": 114,
+      "REVIEW": 21,
+      "SKIP": 0
+    },
+    "by_benchmark_group": {
+      "EDGE": 44,
+      "PRIMARY": 91
+    },
+    "by_classification": {
+      "non_declarative_context": 20,
+      "server_managed": 2,
+      "status_managed": 22,
+      "user_configurable": 91
+    },
+    "by_mapping_method": {
+      "affinity_rule": 12,
+      "container_rule": 60,
+      "edge_rule": 3,
+      "generic_array_fallback": 18,
+      "generic_resource_fallback": 3,
+      "pod_rule": 15,
+      "volume_rule": 24
+    },
+    "by_plan_type": {
+      "dynamic_quantity_map_in_array": 17,
+      "dynamic_quantity_map_point": 6,
+      "nested_object_arrays_experimental": 43,
+      "scalar_or_object_point": 9,
+      "single_object_array_point": 60
+    }
+  },
+  "cases": [
+    {
+      "case_id": "00002_Pod_point_io_k8s_api_core_v1_Pod_metadata_manage_cdb4efd428",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_metadata_managedFields_operation",
+      "config_path": "metadata.managedFields[].operation",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_metadata_managedFields_operation_Apply",
+        "io_k8s_api_core_v1_Pod_metadata_managedFields_operation_Update"
+      ],
+      "variant_labels": [
+        "Apply",
+        "Update"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the operation of one of its managed fields",
+      "mapping_method": "edge_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "system_managed_metadata",
+      "benchmark_group": "EDGE",
+      "classification": "server_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operation of one of its managed fields."
+    },
+    {
+      "case_id": "00003_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_d5f55d7330",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator",
+      "config_path": "spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Lt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "Gt",
+        "In",
+        "Lt",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a match expression in its preferred node affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a match expression in its preferred node affinity."
+    },
+    {
+      "case_id": "00004_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_9712c1d44c",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator",
+      "config_path": "spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchFields[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Lt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "Gt",
+        "In",
+        "Lt",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a field-matching expression in its preferred node affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a field-matching expression in its preferred node affinity."
+    },
+    {
+      "case_id": "00005_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_db8d772598",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator",
+      "config_path": "spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Lt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "Gt",
+        "In",
+        "Lt",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a match expression in its required node affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a match expression in its required node affinity."
+    },
+    {
+      "case_id": "00006_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_46e2ec5a8d",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator",
+      "config_path": "spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchFields[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Lt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "Gt",
+        "In",
+        "Lt",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a field-matching expression in its required node affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a field-matching expression in its required node affinity."
+    },
+    {
+      "case_id": "00007_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_0f54f9d1f8",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator",
+      "config_path": "spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in its preferred pod affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in its preferred pod affinity."
+    },
+    {
+      "case_id": "00008_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_fedd3e69ab",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator",
+      "config_path": "spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a namespace-selector match expression in its preferred pod affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a namespace-selector match expression in its preferred pod affinity."
+    },
+    {
+      "case_id": "00009_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_c012b75ed4",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+      "config_path": "spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in its required pod affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in its required pod affinity."
+    },
+    {
+      "case_id": "00010_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_3d29727f79",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator",
+      "config_path": "spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a namespace-selector match expression in its required pod affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a namespace-selector match expression in its required pod affinity."
+    },
+    {
+      "case_id": "00011_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_346fd4e732",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator",
+      "config_path": "spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in its preferred pod anti-affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in its preferred pod anti-affinity."
+    },
+    {
+      "case_id": "00012_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_22f16ffd4b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator",
+      "config_path": "spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a namespace-selector match expression in its preferred pod anti-affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a namespace-selector match expression in its preferred pod anti-affinity."
+    },
+    {
+      "case_id": "00013_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_89a61f32b9",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+      "config_path": "spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in its required pod anti-affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in its required pod anti-affinity."
+    },
+    {
+      "case_id": "00014_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_c0e00ecd93",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator",
+      "config_path": "spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a namespace-selector match expression in its required pod anti-affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a namespace-selector match expression in its required pod anti-affinity."
+    },
+    {
+      "case_id": "00015_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_45036378b6",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor",
+      "config_path": "spec.containers[].env[].valueFrom.resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in an environment variable of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource field reference divisor in an environment variable of one of its containers."
+    },
+    {
+      "case_id": "00016_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_ab8888ed6b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy",
+      "config_path": "spec.containers[].imagePullPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_Never"
+      ],
+      "variant_labels": [
+        "Always",
+        "IfNotPresent",
+        "Never"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the image pull policy of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the image pull policy of one of its containers."
+    },
+    {
+      "case_id": "00017_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_f3666f5a8b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port",
+      "config_path": "spec.containers[].lifecycle.postStart.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the post-start lifecycle hook in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its containers."
+    },
+    {
+      "case_id": "00018_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_627cde419b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port",
+      "config_path": "spec.containers[].lifecycle.postStart.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the post-start lifecycle hook in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its containers."
+    },
+    {
+      "case_id": "00019_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_e6eeafeccf",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port",
+      "config_path": "spec.containers[].lifecycle.preStop.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the pre-stop lifecycle hook in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its containers."
+    },
+    {
+      "case_id": "00020_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_56f8e9cd9b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port",
+      "config_path": "spec.containers[].lifecycle.preStop.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the pre-stop lifecycle hook in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its containers."
+    },
+    {
+      "case_id": "00021_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_4456f58fa3",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port",
+      "config_path": "spec.containers[].livenessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the liveness probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the liveness probe in one of its containers."
+    },
+    {
+      "case_id": "00022_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3e8ed87ca9",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port",
+      "config_path": "spec.containers[].livenessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the liveness probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the liveness probe in one of its containers."
+    },
+    {
+      "case_id": "00023_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3290945cbf",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol",
+      "config_path": "spec.containers[].ports[].protocol",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_SCTP",
+        "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_TCP",
+        "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_UDP"
+      ],
+      "variant_labels": [
+        "SCTP",
+        "TCP",
+        "UDP"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the protocol of a port exposed by one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the protocol of a port exposed by one of its containers."
+    },
+    {
+      "case_id": "00024_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_f7da76de87",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port",
+      "config_path": "spec.containers[].readinessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the readiness probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the readiness probe in one of its containers."
+    },
+    {
+      "case_id": "00025_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_fd253ff38b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port",
+      "config_path": "spec.containers[].readinessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the readiness probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the readiness probe in one of its containers."
+    },
+    {
+      "case_id": "00026_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_03feed6b13",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName",
+      "config_path": "spec.containers[].resizePolicy[].resourceName",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName_memory"
+      ],
+      "variant_labels": [
+        "cpu",
+        "memory"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource name in a resize policy of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource name in a resize policy of one of its containers."
+    },
+    {
+      "case_id": "00027_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_7fe3247249",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_resources_limits",
+      "config_path": "spec.containers[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource limits of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource limits of one of its containers."
+    },
+    {
+      "case_id": "00028_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_6eea30d7cb",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_resources_requests",
+      "config_path": "spec.containers[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource requests of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource requests of one of its containers."
+    },
+    {
+      "case_id": "00029_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_b0bebe6cc1",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator",
+      "config_path": "spec.containers[].restartPolicyRules[].exitCodes.operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "variant_labels": [
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the exit-code operator in a restart policy rule of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the exit-code operator in a restart policy rule of one of its containers."
+    },
+    {
+      "case_id": "00030_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3012f40b7f",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type",
+      "config_path": "spec.containers[].securityContext.appArmorProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the AppArmor profile type of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the AppArmor profile type of one of its containers."
+    },
+    {
+      "case_id": "00031_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_6e33a629be",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type",
+      "config_path": "spec.containers[].securityContext.seccompProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the seccomp profile type of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the seccomp profile type of one of its containers."
+    },
+    {
+      "case_id": "00032_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_591ca58da9",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port",
+      "config_path": "spec.containers[].startupProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the startup probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the startup probe in one of its containers."
+    },
+    {
+      "case_id": "00033_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_a708ee3718",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port",
+      "config_path": "spec.containers[].startupProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the startup probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the startup probe in one of its containers."
+    },
+    {
+      "case_id": "00034_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_ca33f3e6b8",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions",
+      "config_path": "spec.containers[].volumeMounts[].bindMountOptions",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "variant_labels": [
+        "nodev",
+        "noexec",
+        "nosuid"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the bind-mount options of a volume mount in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the bind-mount options of a volume mount in one of its containers."
+    },
+    {
+      "case_id": "00035_Pod_point_io_k8s_api_core_v1_Pod_spec_dnsPolicy__6e980d7824",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_dnsPolicy",
+      "config_path": "spec.dnsPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirst",
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet",
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy_Default",
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy_None"
+      ],
+      "variant_labels": [
+        "ClusterFirst",
+        "ClusterFirstWithHostNet",
+        "Default",
+        "None"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod DNS policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod DNS policy."
+    },
+    {
+      "case_id": "00036_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_47d01ef78c",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor",
+      "config_path": "spec.ephemeralContainers[].env[].valueFrom.resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in an environment variable of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource field reference divisor in an environment variable of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00037_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0efb541772",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy",
+      "config_path": "spec.ephemeralContainers[].imagePullPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy_Never"
+      ],
+      "variant_labels": [
+        "Always",
+        "IfNotPresent",
+        "Never"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the image pull policy of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the image pull policy of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00038_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_14635d5761",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port",
+      "config_path": "spec.ephemeralContainers[].lifecycle.postStart.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the post-start lifecycle hook in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00039_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0df18b1cbe",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port",
+      "config_path": "spec.ephemeralContainers[].lifecycle.postStart.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the post-start lifecycle hook in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00040_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_31833dc216",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port",
+      "config_path": "spec.ephemeralContainers[].lifecycle.preStop.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the pre-stop lifecycle hook in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00041_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_10c948e372",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port",
+      "config_path": "spec.ephemeralContainers[].lifecycle.preStop.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the pre-stop lifecycle hook in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00042_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_3fdaeea1c1",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port",
+      "config_path": "spec.ephemeralContainers[].livenessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the liveness probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the liveness probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00043_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_7cb2796bd3",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port",
+      "config_path": "spec.ephemeralContainers[].livenessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the liveness probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the liveness probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00044_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_ed1cfd1826",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol",
+      "config_path": "spec.ephemeralContainers[].ports[].protocol",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol_SCTP",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol_TCP",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol_UDP"
+      ],
+      "variant_labels": [
+        "SCTP",
+        "TCP",
+        "UDP"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the protocol of a port exposed by one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the protocol of a port exposed by one of its ephemeral containers."
+    },
+    {
+      "case_id": "00045_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_e6673e4fc6",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port",
+      "config_path": "spec.ephemeralContainers[].readinessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the readiness probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the readiness probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00046_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_d82201098d",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port",
+      "config_path": "spec.ephemeralContainers[].readinessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the readiness probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the readiness probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00047_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_1063fbc38d",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName",
+      "config_path": "spec.ephemeralContainers[].resizePolicy[].resourceName",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName_memory"
+      ],
+      "variant_labels": [
+        "cpu",
+        "memory"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource name in a resize policy of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource name in a resize policy of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00048_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0c67860882",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits",
+      "config_path": "spec.ephemeralContainers[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource limits of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource limits of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00049_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_34259fbc2e",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests",
+      "config_path": "spec.ephemeralContainers[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource requests of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource requests of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00050_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_906f01f511",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator",
+      "config_path": "spec.ephemeralContainers[].restartPolicyRules[].exitCodes.operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "variant_labels": [
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the exit-code operator in a restart policy rule of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the exit-code operator in a restart policy rule of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00051_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_fe94d4e2a8",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type",
+      "config_path": "spec.ephemeralContainers[].securityContext.appArmorProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the AppArmor profile type of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the AppArmor profile type of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00052_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_340f1cbd92",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type",
+      "config_path": "spec.ephemeralContainers[].securityContext.seccompProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the seccomp profile type of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the seccomp profile type of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00053_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_43196ca397",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port",
+      "config_path": "spec.ephemeralContainers[].startupProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the startup probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the startup probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00054_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_55ef6c0637",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port",
+      "config_path": "spec.ephemeralContainers[].startupProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the startup probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the startup probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00055_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_f597bad776",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions",
+      "config_path": "spec.ephemeralContainers[].volumeMounts[].bindMountOptions",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "variant_labels": [
+        "nodev",
+        "noexec",
+        "nosuid"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the bind-mount options of a volume mount in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the bind-mount options of a volume mount in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00056_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_9399da0ee4",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor",
+      "config_path": "spec.initContainers[].env[].valueFrom.resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in an environment variable of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource field reference divisor in an environment variable of one of its init containers."
+    },
+    {
+      "case_id": "00057_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_98d393c994",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy",
+      "config_path": "spec.initContainers[].imagePullPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy_Never"
+      ],
+      "variant_labels": [
+        "Always",
+        "IfNotPresent",
+        "Never"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the image pull policy of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the image pull policy of one of its init containers."
+    },
+    {
+      "case_id": "00058_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_6e7fa1a430",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port",
+      "config_path": "spec.initContainers[].lifecycle.postStart.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the post-start lifecycle hook in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its init containers."
+    },
+    {
+      "case_id": "00059_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_0ecb8519a4",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port",
+      "config_path": "spec.initContainers[].lifecycle.postStart.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the post-start lifecycle hook in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its init containers."
+    },
+    {
+      "case_id": "00060_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_b11413b0bd",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port",
+      "config_path": "spec.initContainers[].lifecycle.preStop.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the pre-stop lifecycle hook in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its init containers."
+    },
+    {
+      "case_id": "00061_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_3e41ad0ba6",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port",
+      "config_path": "spec.initContainers[].lifecycle.preStop.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the pre-stop lifecycle hook in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its init containers."
+    },
+    {
+      "case_id": "00062_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a83ad41966",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port",
+      "config_path": "spec.initContainers[].livenessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the liveness probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the liveness probe in one of its init containers."
+    },
+    {
+      "case_id": "00063_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_913c6cbeb3",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port",
+      "config_path": "spec.initContainers[].livenessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the liveness probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the liveness probe in one of its init containers."
+    },
+    {
+      "case_id": "00064_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a4aa809a39",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol",
+      "config_path": "spec.initContainers[].ports[].protocol",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol_SCTP",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol_TCP",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol_UDP"
+      ],
+      "variant_labels": [
+        "SCTP",
+        "TCP",
+        "UDP"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the protocol of a port exposed by one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the protocol of a port exposed by one of its init containers."
+    },
+    {
+      "case_id": "00065_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_2da963f083",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port",
+      "config_path": "spec.initContainers[].readinessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the readiness probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the readiness probe in one of its init containers."
+    },
+    {
+      "case_id": "00066_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_bed1c1f6be",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port",
+      "config_path": "spec.initContainers[].readinessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the readiness probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the readiness probe in one of its init containers."
+    },
+    {
+      "case_id": "00067_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_df9a74e4ae",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName",
+      "config_path": "spec.initContainers[].resizePolicy[].resourceName",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName_memory"
+      ],
+      "variant_labels": [
+        "cpu",
+        "memory"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource name in a resize policy of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource name in a resize policy of one of its init containers."
+    },
+    {
+      "case_id": "00068_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_f994b47e99",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits",
+      "config_path": "spec.initContainers[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource limits of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource limits of one of its init containers."
+    },
+    {
+      "case_id": "00069_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_50d74ad64e",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests",
+      "config_path": "spec.initContainers[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource requests of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource requests of one of its init containers."
+    },
+    {
+      "case_id": "00070_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_0e792dd6d2",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator",
+      "config_path": "spec.initContainers[].restartPolicyRules[].exitCodes.operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "variant_labels": [
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the exit-code operator in a restart policy rule of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the exit-code operator in a restart policy rule of one of its init containers."
+    },
+    {
+      "case_id": "00071_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_259d70fff0",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type",
+      "config_path": "spec.initContainers[].securityContext.appArmorProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the AppArmor profile type of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the AppArmor profile type of one of its init containers."
+    },
+    {
+      "case_id": "00072_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_07ef774fe0",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type",
+      "config_path": "spec.initContainers[].securityContext.seccompProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the seccomp profile type of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the seccomp profile type of one of its init containers."
+    },
+    {
+      "case_id": "00073_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a5666297ed",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port",
+      "config_path": "spec.initContainers[].startupProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the startup probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the HTTP GET port of the startup probe in one of its init containers."
+    },
+    {
+      "case_id": "00074_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_45e90bbf6e",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port",
+      "config_path": "spec.initContainers[].startupProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the startup probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the TCP socket port of the startup probe in one of its init containers."
+    },
+    {
+      "case_id": "00075_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_84c2ae1bab",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions",
+      "config_path": "spec.initContainers[].volumeMounts[].bindMountOptions",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "variant_labels": [
+        "nodev",
+        "noexec",
+        "nosuid"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the bind-mount options of a volume mount in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the bind-mount options of a volume mount in one of its init containers."
+    },
+    {
+      "case_id": "00076_Pod_point_io_k8s_api_core_v1_Pod_spec_os_name_g1_a3ab1bfeec",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_os_name",
+      "config_path": "spec.os.name",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_os_name_linux",
+        "io_k8s_api_core_v1_Pod_spec_os_name_windows"
+      ],
+      "variant_labels": [
+        "linux",
+        "windows"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod operating system",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod operating system."
+    },
+    {
+      "case_id": "00077_Pod_point_io_k8s_api_core_v1_Pod_spec_overhead_g_9e97e3a753",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_overhead",
+      "config_path": "spec.overhead",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_overhead_asString",
+        "io_k8s_api_core_v1_Pod_spec_overhead_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod overhead resource quantities",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod overhead resource quantities."
+    },
+    {
+      "case_id": "00078_Pod_point_io_k8s_api_core_v1_Pod_spec_preemption_d9928c90ab",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_preemptionPolicy",
+      "config_path": "spec.preemptionPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_preemptionPolicy_Never",
+        "io_k8s_api_core_v1_Pod_spec_preemptionPolicy_PreemptLowerPriority"
+      ],
+      "variant_labels": [
+        "Never",
+        "PreemptLowerPriority"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod preemption policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod preemption policy."
+    },
+    {
+      "case_id": "00079_Pod_point_io_k8s_api_core_v1_Pod_spec_resources__0544e432ea",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_resources_limits",
+      "config_path": "spec.resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod-level resource limits",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod-level resource limits."
+    },
+    {
+      "case_id": "00080_Pod_point_io_k8s_api_core_v1_Pod_spec_resources__aa974a3bf0",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_resources_requests",
+      "config_path": "spec.resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod-level resource requests",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod-level resource requests."
+    },
+    {
+      "case_id": "00081_Pod_point_io_k8s_api_core_v1_Pod_spec_restartPol_44f03dba44",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_restartPolicy",
+      "config_path": "spec.restartPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_restartPolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_restartPolicy_Never",
+        "io_k8s_api_core_v1_Pod_spec_restartPolicy_OnFailure"
+      ],
+      "variant_labels": [
+        "Always",
+        "Never",
+        "OnFailure"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod restart policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod restart policy."
+    },
+    {
+      "case_id": "00082_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_66a9e14917",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type",
+      "config_path": "spec.securityContext.appArmorProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod AppArmor profile type",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod AppArmor profile type."
+    },
+    {
+      "case_id": "00083_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_ebbd4817c2",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_fsGroupChangePolicy",
+      "config_path": "spec.securityContext.fsGroupChangePolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_fsGroupChangePolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_fsGroupChangePolicy_OnRootMismatch"
+      ],
+      "variant_labels": [
+        "Always",
+        "OnRootMismatch"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod filesystem group change policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod filesystem group change policy."
+    },
+    {
+      "case_id": "00084_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_b3787e919e",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_seLinuxChangePolicy",
+      "config_path": "spec.securityContext.seLinuxChangePolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seLinuxChangePolicy_MountOption",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seLinuxChangePolicy_Recursive"
+      ],
+      "variant_labels": [
+        "MountOption",
+        "Recursive"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod SELinux change policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod SELinux change policy."
+    },
+    {
+      "case_id": "00085_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_3f827104f7",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type",
+      "config_path": "spec.securityContext.seccompProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod seccomp profile type",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod seccomp profile type."
+    },
+    {
+      "case_id": "00086_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_4ad431af30",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroupsPolicy",
+      "config_path": "spec.securityContext.supplementalGroupsPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroupsPolicy_Merge",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroupsPolicy_Strict"
+      ],
+      "variant_labels": [
+        "Merge",
+        "Strict"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod supplemental groups policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its Pod supplemental groups policy."
+    },
+    {
+      "case_id": "00087_Pod_point_io_k8s_api_core_v1_Pod_spec_toleration_4f8407c65a",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_tolerations_effect",
+      "config_path": "spec.tolerations[].effect",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_tolerations_effect_NoExecute",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_effect_NoSchedule",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_effect_PreferNoSchedule"
+      ],
+      "variant_labels": [
+        "NoExecute",
+        "NoSchedule",
+        "PreferNoSchedule"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the effect of one of its Pod tolerations",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the effect of one of its Pod tolerations."
+    },
+    {
+      "case_id": "00088_Pod_point_io_k8s_api_core_v1_Pod_spec_toleration_aa2224e65b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_tolerations_operator",
+      "config_path": "spec.tolerations[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Equal",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Lt"
+      ],
+      "variant_labels": [
+        "Equal",
+        "Exists",
+        "Gt",
+        "Lt"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the operator of one of its Pod tolerations",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of one of its Pod tolerations."
+    },
+    {
+      "case_id": "00089_Pod_point_io_k8s_api_core_v1_Pod_spec_topologySp_066a108907",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator",
+      "config_path": "spec.topologySpreadConstraints[].labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in one of its topology spread constraints",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in one of its topology spread constraints."
+    },
+    {
+      "case_id": "00090_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_aw_ffd5f4a397",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType",
+      "config_path": "spec.volumes[].awsElasticBlockStore.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of an AWS Elastic Block Store volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of an AWS Elastic Block Store volume."
+    },
+    {
+      "case_id": "00091_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_1d38ebd809",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode",
+      "config_path": "spec.volumes[].azureDisk.cachingMode",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_None",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_Read_Only",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_Read_Write"
+      ],
+      "variant_labels": [
+        "None",
+        "Read_Only",
+        "Read_Write"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the caching mode of an Azure Disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the caching mode of an Azure Disk volume."
+    },
+    {
+      "case_id": "00092_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_e9c751767e",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType",
+      "config_path": "spec.volumes[].azureDisk.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of an Azure Disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of an Azure Disk volume."
+    },
+    {
+      "case_id": "00093_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_4daeed684e",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind",
+      "config_path": "spec.volumes[].azureDisk.kind",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind_Dedicated",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind_Managed",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind_Shared"
+      ],
+      "variant_labels": [
+        "Dedicated",
+        "Managed",
+        "Shared"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the kind of an Azure Disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the kind of an Azure Disk volume."
+    },
+    {
+      "case_id": "00094_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ci_0723042a0c",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType",
+      "config_path": "spec.volumes[].cinder.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a Cinder volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a Cinder volume."
+    },
+    {
+      "case_id": "00095_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_do_b2a8b672da",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor",
+      "config_path": "spec.volumes[].downwardAPI.items[].resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in a Downward API volume item",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource field reference divisor in a Downward API volume item."
+    },
+    {
+      "case_id": "00096_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_em_d7c58c8c1f",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit",
+      "config_path": "spec.volumes[].emptyDir.sizeLimit",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the size limit of an emptyDir volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the size limit of an emptyDir volume."
+    },
+    {
+      "case_id": "00097_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_7852495298",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation",
+      "config_path": "spec.volumes[].ephemeral.volumeClaimTemplate.metadata.managedFields[].operation",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Apply",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Update"
+      ],
+      "variant_labels": [
+        "Apply",
+        "Update"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operation of one of the managed fields in a generic ephemeral volume claim template",
+      "mapping_method": "edge_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "system_managed_metadata",
+      "benchmark_group": "EDGE",
+      "classification": "server_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operation of one of the managed fields in a generic ephemeral volume claim template."
+    },
+    {
+      "case_id": "00098_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_0e37055e39",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits",
+      "config_path": "spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the storage resource limits of a generic ephemeral volume claim template",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the storage resource limits of a generic ephemeral volume claim template."
+    },
+    {
+      "case_id": "00099_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_81de20519c",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests",
+      "config_path": "spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the storage resource requests of a generic ephemeral volume claim template",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the storage resource requests of a generic ephemeral volume claim template."
+    },
+    {
+      "case_id": "00100_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_d16fb40406",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator",
+      "config_path": "spec.volumes[].ephemeral.volumeClaimTemplate.spec.selector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a selector match expression in a generic ephemeral volume claim template",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a selector match expression in a generic ephemeral volume claim template."
+    },
+    {
+      "case_id": "00101_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_fc_f9efcfe1b4",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType",
+      "config_path": "spec.volumes[].fc.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a Fibre Channel volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a Fibre Channel volume."
+    },
+    {
+      "case_id": "00102_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_fl_f95e052ab6",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType",
+      "config_path": "spec.volumes[].flexVolume.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a FlexVolume volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a FlexVolume volume."
+    },
+    {
+      "case_id": "00103_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_gc_0729cc81c2",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType",
+      "config_path": "spec.volumes[].gcePersistentDisk.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a GCE persistent disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a GCE persistent disk volume."
+    },
+    {
+      "case_id": "00104_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_is_3a4c23e3d8",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType",
+      "config_path": "spec.volumes[].iscsi.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of an iSCSI volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of an iSCSI volume."
+    },
+    {
+      "case_id": "00105_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ph_fb7018c8cb",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType",
+      "config_path": "spec.volumes[].photonPersistentDisk.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a Photon persistent disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a Photon persistent disk volume."
+    },
+    {
+      "case_id": "00106_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_po_db50edda35",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType",
+      "config_path": "spec.volumes[].portworxVolume.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a Portworx volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a Portworx volume."
+    },
+    {
+      "case_id": "00107_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_5fa864e493",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator",
+      "config_path": "spec.volumes[].projected.sources[].clusterTrustBundle.labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression for a cluster trust bundle in a projected volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the operator of a label-selector match expression for a cluster trust bundle in a projected volume."
+    },
+    {
+      "case_id": "00108_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_0e67074192",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor",
+      "config_path": "spec.volumes[].projected.sources[].downwardAPI.items[].resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in a Downward API source of a projected volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resource field reference divisor in a Downward API source of a projected volume."
+    },
+    {
+      "case_id": "00109_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_16a274daeb",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType",
+      "config_path": "spec.volumes[].projected.sources[].podCertificate.keyType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP256",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP384",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP521",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_ED25519",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_RSA3072",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_RSA4096"
+      ],
+      "variant_labels": [
+        "ECDSAP256",
+        "ECDSAP384",
+        "ECDSAP521",
+        "ED25519",
+        "RSA3072",
+        "RSA4096"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the key type of a Pod certificate source in a projected volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the key type of a Pod certificate source in a projected volume."
+    },
+    {
+      "case_id": "00110_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_rb_c1954669f0",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType",
+      "config_path": "spec.volumes[].rbd.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of an RBD volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of an RBD volume."
+    },
+    {
+      "case_id": "00111_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_sc_313e3b4d75",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType",
+      "config_path": "spec.volumes[].scaleIO.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a ScaleIO volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a ScaleIO volume."
+    },
+    {
+      "case_id": "00112_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_sc_ffe6a61937",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode",
+      "config_path": "spec.volumes[].scaleIO.storageMode",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode_ThickProvisioned",
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode_ThinProvisioned"
+      ],
+      "variant_labels": [
+        "ThickProvisioned",
+        "ThinProvisioned"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the storage mode of a ScaleIO volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the storage mode of a ScaleIO volume."
+    },
+    {
+      "case_id": "00113_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_st_cb1c68e4c0",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType",
+      "config_path": "spec.volumes[].storageos.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a StorageOS volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a StorageOS volume."
+    },
+    {
+      "case_id": "00114_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_vs_7f7e16b68e",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType",
+      "config_path": "spec.volumes[].vsphereVolume.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a vSphere volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the filesystem type of a vSphere volume."
+    },
+    {
+      "case_id": "00115_Pod_point_io_k8s_api_core_v1_Pod_status_allocate_6cbeebf6f9",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_allocatedResources",
+      "config_path": "status.allocatedResources",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_allocatedResources_asString",
+        "io_k8s_api_core_v1_Pod_status_allocatedResources_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its status allocated resources",
+      "mapping_method": "generic_resource_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its status allocated resources."
+    },
+    {
+      "case_id": "00116_Pod_point_io_k8s_api_core_v1_Pod_status_conditio_cbf12bc493",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_conditions_status",
+      "config_path": "status.conditions[].status",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_conditions_status_False",
+        "io_k8s_api_core_v1_Pod_status_conditions_status_True",
+        "io_k8s_api_core_v1_Pod_status_conditions_status_Unknown"
+      ],
+      "variant_labels": [
+        "False",
+        "True",
+        "Unknown"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the status value of one of its status conditions",
+      "mapping_method": "edge_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "status_is_server_managed",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the status value of one of its status conditions."
+    },
+    {
+      "case_id": "00117_Pod_point_io_k8s_api_core_v1_Pod_status_containe_56e37fdc2b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources",
+      "config_path": "status.containerStatuses[].allocatedResources",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources_asString",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources of one of its container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources of one of its container statuses."
+    },
+    {
+      "case_id": "00118_Pod_point_io_k8s_api_core_v1_Pod_status_containe_11ec4fd6f2",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name",
+      "config_path": "status.containerStatuses[].allocatedResourcesStatus[].name",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name_claim_name",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name_request"
+      ],
+      "variant_labels": [
+        "claim_name",
+        "request"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources status name of one of its container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources status name of one of its container statuses."
+    },
+    {
+      "case_id": "00119_Pod_point_io_k8s_api_core_v1_Pod_status_containe_af88e2100c",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health",
+      "config_path": "status.containerStatuses[].allocatedResourcesStatus[].resources[].health",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health_Unhealthy",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health_Unknown"
+      ],
+      "variant_labels": [
+        "Unhealthy",
+        "Unknown"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources status resources health of one of its container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources status resources health of one of its container statuses."
+    },
+    {
+      "case_id": "00120_Pod_point_io_k8s_api_core_v1_Pod_status_containe_97c6ed226c",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits",
+      "config_path": "status.containerStatuses[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resources limits of one of its container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resources limits of one of its container statuses."
+    },
+    {
+      "case_id": "00121_Pod_point_io_k8s_api_core_v1_Pod_status_containe_821e586f34",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests",
+      "config_path": "status.containerStatuses[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resources requests of one of its container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resources requests of one of its container statuses."
+    },
+    {
+      "case_id": "00122_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_bdef7cefe1",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources",
+      "config_path": "status.ephemeralContainerStatuses[].allocatedResources",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources_asString",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources of one of its ephemeral container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources of one of its ephemeral container statuses."
+    },
+    {
+      "case_id": "00123_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_84837c4779",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name",
+      "config_path": "status.ephemeralContainerStatuses[].allocatedResourcesStatus[].name",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name_claim_name",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name_request"
+      ],
+      "variant_labels": [
+        "claim_name",
+        "request"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources status name of one of its ephemeral container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources status name of one of its ephemeral container statuses."
+    },
+    {
+      "case_id": "00124_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_2e85c805d5",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health",
+      "config_path": "status.ephemeralContainerStatuses[].allocatedResourcesStatus[].resources[].health",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health_Unhealthy",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health_Unknown"
+      ],
+      "variant_labels": [
+        "Unhealthy",
+        "Unknown"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources status resources health of one of its ephemeral container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources status resources health of one of its ephemeral container statuses."
+    },
+    {
+      "case_id": "00125_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_735089ba69",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits",
+      "config_path": "status.ephemeralContainerStatuses[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resources limits of one of its ephemeral container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resources limits of one of its ephemeral container statuses."
+    },
+    {
+      "case_id": "00126_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_a9b81afa22",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests",
+      "config_path": "status.ephemeralContainerStatuses[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resources requests of one of its ephemeral container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resources requests of one of its ephemeral container statuses."
+    },
+    {
+      "case_id": "00127_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_6581c74e97",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources",
+      "config_path": "status.initContainerStatuses[].allocatedResources",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources_asString",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources of one of its init container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources of one of its init container statuses."
+    },
+    {
+      "case_id": "00128_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_0843f04ccd",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name",
+      "config_path": "status.initContainerStatuses[].allocatedResourcesStatus[].name",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name_claim_name",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name_request"
+      ],
+      "variant_labels": [
+        "claim_name",
+        "request"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources status name of one of its init container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources status name of one of its init container statuses."
+    },
+    {
+      "case_id": "00129_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_7a80c4f66b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health",
+      "config_path": "status.initContainerStatuses[].allocatedResourcesStatus[].resources[].health",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health_Unhealthy",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health_Unknown"
+      ],
+      "variant_labels": [
+        "Unhealthy",
+        "Unknown"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the allocated resources status resources health of one of its init container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the allocated resources status resources health of one of its init container statuses."
+    },
+    {
+      "case_id": "00130_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_c2ef7e761b",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits",
+      "config_path": "status.initContainerStatuses[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resources limits of one of its init container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resources limits of one of its init container statuses."
+    },
+    {
+      "case_id": "00131_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_b06bc5933a",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests",
+      "config_path": "status.initContainerStatuses[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resources requests of one of its init container statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the resources requests of one of its init container statuses."
+    },
+    {
+      "case_id": "00132_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_e2d1ac6340",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity",
+      "config_path": "status.nodeAllocatableResourceClaimStatuses[].mapping[].quantity",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity_asString",
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the mapping quantity of one of its node allocatable resource claim statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the mapping quantity of one of its node allocatable resource claim statuses."
+    },
+    {
+      "case_id": "00133_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_ef5f843f21",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer",
+      "config_path": "status.nodeAllocatableResourceClaimStatuses[].overhead[].perContainer",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer_asString",
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the overhead resources per container of one of its node allocatable resource claim statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the overhead resources per container of one of its node allocatable resource claim statuses."
+    },
+    {
+      "case_id": "00134_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_12ac42cf48",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod",
+      "config_path": "status.nodeAllocatableResourceClaimStatuses[].overhead[].perPod",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod_asString",
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the overhead resources per pod of one of its node allocatable resource claim statuses",
+      "mapping_method": "generic_array_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures the overhead resources per pod of one of its node allocatable resource claim statuses."
+    },
+    {
+      "case_id": "00135_Pod_point_io_k8s_api_core_v1_Pod_status_resource_a5a433a64e",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_resources_limits",
+      "config_path": "status.resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_status_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its status resources limits",
+      "mapping_method": "generic_resource_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its status resources limits."
+    },
+    {
+      "case_id": "00136_Pod_point_io_k8s_api_core_v1_Pod_status_resource_89c482cf8f",
+      "resource": "Pod",
+      "api_version": "v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_resources_requests",
+      "config_path": "status.resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_core_v1_Pod_status_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_status_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its status resources requests",
+      "mapping_method": "generic_resource_fallback",
+      "mapping_confidence": "low",
+      "prompt_status": "REVIEW",
+      "prompt_status_reason": "status_is_server_managed;generic_humanization_requires_review",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Pod that explicitly configures its status resources requests."
+    }
+  ]
+}

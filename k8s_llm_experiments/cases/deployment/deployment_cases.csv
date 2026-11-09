@@ -1,0 +1,358 @@
+﻿case_id,resource,api_version,kubernetes_version,config_path,point_feature,variant_labels,plan_type,n_array_ancestors,target_phrase,mapping_method,mapping_confidence,prompt_status,prompt_status_reason,benchmark_group,classification,user_prompt
+00002_Deployment_point_io_k8s_api_apps_v1_Deployment_metadata_b391232444,Deployment,apps/v1,1.37,metadata.managedFields[].operation,io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation,Apply | Update,single_object_array_point,1,the operation of one of its managed fields,edge_rule,high,READY,system_managed_metadata,EDGE,server_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operation of one of its managed fields."
+00003_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_sel_ab6fbfe403,Deployment,apps/v1,1.37,spec.selector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,single_object_array_point,1,the operator of a match expression in its selector,resource_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a match expression in its selector."
+00004_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_3c7ffd1f06,Deployment,apps/v1,1.37,spec.strategy.rollingUpdate.maxSurge,io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge,asString | asInteger,scalar_or_object_point,0,its maximum surge during rolling updates,resource_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its maximum surge during rolling updates."
+00005_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_77db41b381,Deployment,apps/v1,1.37,spec.strategy.rollingUpdate.maxUnavailable,io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable,asString | asInteger,scalar_or_object_point,0,its maximum unavailable replicas during rolling updates,resource_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its maximum unavailable replicas during rolling updates."
+00006_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_6123db10bf,Deployment,apps/v1,1.37,spec.strategy.type,io_k8s_api_apps_v1_Deployment_spec_strategy_type,Recreate | RollingUpdate,scalar_or_object_point,0,its deployment strategy,resource_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its deployment strategy."
+00007_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_af263d4eaa,Deployment,apps/v1,1.37,spec.template.metadata.managedFields[].operation,io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation,Apply | Update,single_object_array_point,1,the operation of one of its Pod template managed fields,edge_rule,high,READY,system_managed_metadata,EDGE,server_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operation of one of its Pod template managed fields."
+00008_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b5b9f2ede7,Deployment,apps/v1,1.37,spec.template.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator,DoesNotExist | Exists | Gt | In | Lt | NotIn,nested_object_arrays_experimental,2,the operator of a match expression in its preferred node affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a match expression in its preferred node affinity."
+00009_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_854654c466,Deployment,apps/v1,1.37,spec.template.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchFields[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator,DoesNotExist | Exists | Gt | In | Lt | NotIn,nested_object_arrays_experimental,2,the operator of a field-matching expression in its preferred node affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a field-matching expression in its preferred node affinity."
+00010_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_cf3f26c2c4,Deployment,apps/v1,1.37,spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator,DoesNotExist | Exists | Gt | In | Lt | NotIn,nested_object_arrays_experimental,2,the operator of a match expression in its required node affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a match expression in its required node affinity."
+00011_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_45a4176f47,Deployment,apps/v1,1.37,spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchFields[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator,DoesNotExist | Exists | Gt | In | Lt | NotIn,nested_object_arrays_experimental,2,the operator of a field-matching expression in its required node affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a field-matching expression in its required node affinity."
+00012_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_de8baf1109,Deployment,apps/v1,1.37,spec.template.spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in its preferred pod affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in its preferred pod affinity."
+00013_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_c4ace3a322,Deployment,apps/v1,1.37,spec.template.spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a namespace-selector match expression in its preferred pod affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a namespace-selector match expression in its preferred pod affinity."
+00014_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1b03b4ae30,Deployment,apps/v1,1.37,spec.template.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in its required pod affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in its required pod affinity."
+00015_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b3fb05d04e,Deployment,apps/v1,1.37,spec.template.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a namespace-selector match expression in its required pod affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a namespace-selector match expression in its required pod affinity."
+00016_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a24b2e938d,Deployment,apps/v1,1.37,spec.template.spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in its preferred pod anti-affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in its preferred pod anti-affinity."
+00017_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d5e085e713,Deployment,apps/v1,1.37,spec.template.spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a namespace-selector match expression in its preferred pod anti-affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a namespace-selector match expression in its preferred pod anti-affinity."
+00018_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f1f7c6bedb,Deployment,apps/v1,1.37,spec.template.spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in its required pod anti-affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in its required pod anti-affinity."
+00019_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_8e21467f95,Deployment,apps/v1,1.37,spec.template.spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a namespace-selector match expression in its required pod anti-affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a namespace-selector match expression in its required pod anti-affinity."
+00020_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_dd48b15ea1,Deployment,apps/v1,1.37,spec.template.spec.containers[].env[].valueFrom.resourceFieldRef.divisor,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,2,the resource field reference divisor in an environment variable of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource field reference divisor in an environment variable of one of its containers."
+00021_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b38d71263a,Deployment,apps/v1,1.37,spec.template.spec.containers[].imagePullPolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy,Always | IfNotPresent | Never,single_object_array_point,1,the image pull policy of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the image pull policy of one of its containers."
+00022_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d6b211f9ab,Deployment,apps/v1,1.37,spec.template.spec.containers[].lifecycle.postStart.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the post-start lifecycle hook in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its containers."
+00023_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_05c5d3975b,Deployment,apps/v1,1.37,spec.template.spec.containers[].lifecycle.postStart.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the post-start lifecycle hook in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its containers."
+00024_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0e65e7187f,Deployment,apps/v1,1.37,spec.template.spec.containers[].lifecycle.preStop.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the pre-stop lifecycle hook in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its containers."
+00025_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d425b65ef1,Deployment,apps/v1,1.37,spec.template.spec.containers[].lifecycle.preStop.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the pre-stop lifecycle hook in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its containers."
+00026_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ad3cdd8af0,Deployment,apps/v1,1.37,spec.template.spec.containers[].livenessProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the liveness probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the liveness probe in one of its containers."
+00027_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_484aec5c10,Deployment,apps/v1,1.37,spec.template.spec.containers[].livenessProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the liveness probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the liveness probe in one of its containers."
+00028_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1cf202a234,Deployment,apps/v1,1.37,spec.template.spec.containers[].ports[].protocol,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol,SCTP | TCP | UDP,nested_object_arrays_experimental,2,the protocol of a port exposed by one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the protocol of a port exposed by one of its containers."
+00029_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b90001ed01,Deployment,apps/v1,1.37,spec.template.spec.containers[].readinessProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the readiness probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the readiness probe in one of its containers."
+00030_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_3b2d6635c5,Deployment,apps/v1,1.37,spec.template.spec.containers[].readinessProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the readiness probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the readiness probe in one of its containers."
+00031_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5179f4a7d8,Deployment,apps/v1,1.37,spec.template.spec.containers[].resizePolicy[].resourceName,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName,cpu | memory,nested_object_arrays_experimental,2,the resource name in a resize policy of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource name in a resize policy of one of its containers."
+00032_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_01c8438b8d,Deployment,apps/v1,1.37,spec.template.spec.containers[].resources.limits,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resource limits of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource limits of one of its containers."
+00033_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_6e1dad72bd,Deployment,apps/v1,1.37,spec.template.spec.containers[].resources.requests,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resource requests of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource requests of one of its containers."
+00034_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_17f8006a4f,Deployment,apps/v1,1.37,spec.template.spec.containers[].restartPolicyRules[].exitCodes.operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator,In | NotIn,nested_object_arrays_experimental,2,the exit-code operator in a restart policy rule of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the exit-code operator in a restart policy rule of one of its containers."
+00035_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_15942f177f,Deployment,apps/v1,1.37,spec.template.spec.containers[].securityContext.appArmorProfile.type,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the AppArmor profile type of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the AppArmor profile type of one of its containers."
+00036_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_387c597203,Deployment,apps/v1,1.37,spec.template.spec.containers[].securityContext.seccompProfile.type,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the seccomp profile type of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the seccomp profile type of one of its containers."
+00037_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ee252dce39,Deployment,apps/v1,1.37,spec.template.spec.containers[].startupProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the startup probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the startup probe in one of its containers."
+00038_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9b53b7b254,Deployment,apps/v1,1.37,spec.template.spec.containers[].startupProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the startup probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the startup probe in one of its containers."
+00039_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_40d62a6afd,Deployment,apps/v1,1.37,spec.template.spec.containers[].volumeMounts[].bindMountOptions,io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions,nodev | noexec | nosuid,nested_object_arrays_experimental,3,the bind-mount options of a volume mount in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the bind-mount options of a volume mount in one of its containers."
+00040_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_96695b105a,Deployment,apps/v1,1.37,spec.template.spec.dnsPolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy,ClusterFirst | ClusterFirstWithHostNet | Default | None,scalar_or_object_point,0,its Pod DNS policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod DNS policy."
+00041_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_db8c9570ef,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].env[].valueFrom.resourceFieldRef.divisor,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,2,the resource field reference divisor in an environment variable of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource field reference divisor in an environment variable of one of its ephemeral containers."
+00042_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_372c41fe97,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].imagePullPolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy,Always | IfNotPresent | Never,single_object_array_point,1,the image pull policy of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the image pull policy of one of its ephemeral containers."
+00043_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4ea5260d6a,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].lifecycle.postStart.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the post-start lifecycle hook in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its ephemeral containers."
+00044_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4387202ea6,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].lifecycle.postStart.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the post-start lifecycle hook in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its ephemeral containers."
+00045_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f7a12005d9,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].lifecycle.preStop.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the pre-stop lifecycle hook in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its ephemeral containers."
+00046_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b6a184b731,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].lifecycle.preStop.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the pre-stop lifecycle hook in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its ephemeral containers."
+00047_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_7683c41f00,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].livenessProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the liveness probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the liveness probe in one of its ephemeral containers."
+00048_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e4c5a6fe1c,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].livenessProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the liveness probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the liveness probe in one of its ephemeral containers."
+00049_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b698332630,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].ports[].protocol,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol,SCTP | TCP | UDP,nested_object_arrays_experimental,2,the protocol of a port exposed by one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the protocol of a port exposed by one of its ephemeral containers."
+00050_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_91d9054823,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].readinessProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the readiness probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the readiness probe in one of its ephemeral containers."
+00051_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_24f4d20ba2,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].readinessProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the readiness probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the readiness probe in one of its ephemeral containers."
+00052_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d572878d5b,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].resizePolicy[].resourceName,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName,cpu | memory,nested_object_arrays_experimental,2,the resource name in a resize policy of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource name in a resize policy of one of its ephemeral containers."
+00053_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_64d1d49da9,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].resources.limits,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resource limits of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource limits of one of its ephemeral containers."
+00054_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b2db4f8b86,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].resources.requests,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resource requests of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource requests of one of its ephemeral containers."
+00055_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_50defdda9c,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].restartPolicyRules[].exitCodes.operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator,In | NotIn,nested_object_arrays_experimental,2,the exit-code operator in a restart policy rule of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the exit-code operator in a restart policy rule of one of its ephemeral containers."
+00056_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_34feedc3ab,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].securityContext.appArmorProfile.type,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the AppArmor profile type of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the AppArmor profile type of one of its ephemeral containers."
+00057_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_6a70f460e8,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].securityContext.seccompProfile.type,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the seccomp profile type of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the seccomp profile type of one of its ephemeral containers."
+00058_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_30672140be,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].startupProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the startup probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the startup probe in one of its ephemeral containers."
+00059_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5e620aeeec,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].startupProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the startup probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the startup probe in one of its ephemeral containers."
+00060_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f8a275604f,Deployment,apps/v1,1.37,spec.template.spec.ephemeralContainers[].volumeMounts[].bindMountOptions,io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions,nodev | noexec | nosuid,nested_object_arrays_experimental,3,the bind-mount options of a volume mount in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the bind-mount options of a volume mount in one of its ephemeral containers."
+00061_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_be422f58b3,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].env[].valueFrom.resourceFieldRef.divisor,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,2,the resource field reference divisor in an environment variable of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource field reference divisor in an environment variable of one of its init containers."
+00062_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ef25a21ec1,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].imagePullPolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy,Always | IfNotPresent | Never,single_object_array_point,1,the image pull policy of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the image pull policy of one of its init containers."
+00063_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4bac360865,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].lifecycle.postStart.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the post-start lifecycle hook in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its init containers."
+00064_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_bc97e96bea,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].lifecycle.postStart.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the post-start lifecycle hook in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its init containers."
+00065_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_33bd5daa28,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].lifecycle.preStop.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the pre-stop lifecycle hook in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its init containers."
+00066_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_044ccd6242,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].lifecycle.preStop.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the pre-stop lifecycle hook in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its init containers."
+00067_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d9597921cf,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].livenessProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the liveness probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the liveness probe in one of its init containers."
+00068_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_40f53dbffe,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].livenessProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the liveness probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the liveness probe in one of its init containers."
+00069_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_616d18a7c6,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].ports[].protocol,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol,SCTP | TCP | UDP,nested_object_arrays_experimental,2,the protocol of a port exposed by one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the protocol of a port exposed by one of its init containers."
+00070_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_582363dee7,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].readinessProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the readiness probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the readiness probe in one of its init containers."
+00071_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f0ed22a29e,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].readinessProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the readiness probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the readiness probe in one of its init containers."
+00072_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d423b42720,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].resizePolicy[].resourceName,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName,cpu | memory,nested_object_arrays_experimental,2,the resource name in a resize policy of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource name in a resize policy of one of its init containers."
+00073_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e1805a50b7,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].resources.limits,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resource limits of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource limits of one of its init containers."
+00074_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2c65a40235,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].resources.requests,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resource requests of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource requests of one of its init containers."
+00075_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_651b553f92,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].restartPolicyRules[].exitCodes.operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator,In | NotIn,nested_object_arrays_experimental,2,the exit-code operator in a restart policy rule of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the exit-code operator in a restart policy rule of one of its init containers."
+00076_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a4df10f0a8,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].securityContext.appArmorProfile.type,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the AppArmor profile type of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the AppArmor profile type of one of its init containers."
+00077_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_bd1d7673b1,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].securityContext.seccompProfile.type,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the seccomp profile type of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the seccomp profile type of one of its init containers."
+00078_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d7440a57b2,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].startupProbe.httpGet.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the startup probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the startup probe in one of its init containers."
+00079_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_8d5aea8648,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].startupProbe.tcpSocket.port,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the startup probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the TCP socket port of the startup probe in one of its init containers."
+00080_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_382c1c4009,Deployment,apps/v1,1.37,spec.template.spec.initContainers[].volumeMounts[].bindMountOptions,io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions,nodev | noexec | nosuid,nested_object_arrays_experimental,3,the bind-mount options of a volume mount in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the bind-mount options of a volume mount in one of its init containers."
+00081_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e392862a0a,Deployment,apps/v1,1.37,spec.template.spec.os.name,io_k8s_api_apps_v1_Deployment_spec_template_spec_os_name,linux | windows,scalar_or_object_point,0,its Pod operating system,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod operating system."
+00082_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e3450ddcf5,Deployment,apps/v1,1.37,spec.template.spec.overhead,io_k8s_api_apps_v1_Deployment_spec_template_spec_overhead,asString | asNumber,dynamic_quantity_map_point,0,its Pod overhead resource quantities,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod overhead resource quantities."
+00083_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_aa103e342d,Deployment,apps/v1,1.37,spec.template.spec.preemptionPolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_preemptionPolicy,Never | PreemptLowerPriority,scalar_or_object_point,0,its Pod preemption policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod preemption policy."
+00084_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a087d6c5e2,Deployment,apps/v1,1.37,spec.template.spec.resources.limits,io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_limits,asString | asNumber,dynamic_quantity_map_point,0,its Pod-level resource limits,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod-level resource limits."
+00085_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f77ed48e75,Deployment,apps/v1,1.37,spec.template.spec.resources.requests,io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_requests,asString | asNumber,dynamic_quantity_map_point,0,its Pod-level resource requests,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod-level resource requests."
+00086_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_283ef3cb6c,Deployment,apps/v1,1.37,spec.template.spec.restartPolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy,Always | Never | OnFailure,scalar_or_object_point,0,its Pod restart policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod restart policy."
+00087_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_88b3ecb968,Deployment,apps/v1,1.37,spec.template.spec.securityContext.appArmorProfile.type,io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type,Localhost | RuntimeDefault | Unconfined,scalar_or_object_point,0,its Pod AppArmor profile type,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod AppArmor profile type."
+00088_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4beca1c6a5,Deployment,apps/v1,1.37,spec.template.spec.securityContext.fsGroupChangePolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy,Always | OnRootMismatch,scalar_or_object_point,0,its Pod filesystem group change policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod filesystem group change policy."
+00089_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e544e21bc1,Deployment,apps/v1,1.37,spec.template.spec.securityContext.seLinuxChangePolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy,MountOption | Recursive,scalar_or_object_point,0,its Pod SELinux change policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod SELinux change policy."
+00090_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2b70f335db,Deployment,apps/v1,1.37,spec.template.spec.securityContext.seccompProfile.type,io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type,Localhost | RuntimeDefault | Unconfined,scalar_or_object_point,0,its Pod seccomp profile type,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod seccomp profile type."
+00091_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_62ae80c41b,Deployment,apps/v1,1.37,spec.template.spec.securityContext.supplementalGroupsPolicy,io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy,Merge | Strict,scalar_or_object_point,0,its Pod supplemental groups policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures its Pod supplemental groups policy."
+00092_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2fd920186d,Deployment,apps/v1,1.37,spec.template.spec.tolerations[].effect,io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect,NoExecute | NoSchedule | PreferNoSchedule,single_object_array_point,1,the effect of one of its Pod tolerations,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the effect of one of its Pod tolerations."
+00093_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_73e1fc3545,Deployment,apps/v1,1.37,spec.template.spec.tolerations[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator,Equal | Exists | Gt | Lt,single_object_array_point,1,the operator of one of its Pod tolerations,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of one of its Pod tolerations."
+00094_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d4b042a962,Deployment,apps/v1,1.37,spec.template.spec.topologySpreadConstraints[].labelSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in one of its topology spread constraints,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in one of its topology spread constraints."
+00095_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5dee55dfcc,Deployment,apps/v1,1.37,spec.template.spec.volumes[].awsElasticBlockStore.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of an AWS Elastic Block Store volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of an AWS Elastic Block Store volume."
+00096_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1567a165cd,Deployment,apps/v1,1.37,spec.template.spec.volumes[].azureDisk.cachingMode,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode,None | Read_Only | Read_Write,single_object_array_point,1,the caching mode of an Azure Disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the caching mode of an Azure Disk volume."
+00097_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_3f789ae783,Deployment,apps/v1,1.37,spec.template.spec.volumes[].azureDisk.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of an Azure Disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of an Azure Disk volume."
+00098_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ed5244fbcd,Deployment,apps/v1,1.37,spec.template.spec.volumes[].azureDisk.kind,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind,Dedicated | Managed | Shared,single_object_array_point,1,the kind of an Azure Disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the kind of an Azure Disk volume."
+00099_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_05848660e1,Deployment,apps/v1,1.37,spec.template.spec.volumes[].cinder.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a Cinder volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a Cinder volume."
+00100_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e333f8bd9a,Deployment,apps/v1,1.37,spec.template.spec.volumes[].downwardAPI.items[].resourceFieldRef.divisor,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,2,the resource field reference divisor in a Downward API volume item,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource field reference divisor in a Downward API volume item."
+00101_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_adc0ed2766,Deployment,apps/v1,1.37,spec.template.spec.volumes[].emptyDir.sizeLimit,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit,asString | asNumber,single_object_array_point,1,the size limit of an emptyDir volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the size limit of an emptyDir volume."
+00102_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9a1669179d,Deployment,apps/v1,1.37,spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.metadata.managedFields[].operation,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation,Apply | Update,nested_object_arrays_experimental,2,the operation of one of the managed fields in a generic ephemeral volume claim template,edge_rule,high,READY,system_managed_metadata,EDGE,server_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operation of one of the managed fields in a generic ephemeral volume claim template."
+00103_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5d6ea6044e,Deployment,apps/v1,1.37,spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.limits,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the storage resource limits of a generic ephemeral volume claim template,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the storage resource limits of a generic ephemeral volume claim template."
+00104_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_99c3e85a6a,Deployment,apps/v1,1.37,spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.requests,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the storage resource requests of a generic ephemeral volume claim template,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the storage resource requests of a generic ephemeral volume claim template."
+00105_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_dc7ca38dc8,Deployment,apps/v1,1.37,spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.selector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a selector match expression in a generic ephemeral volume claim template,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a selector match expression in a generic ephemeral volume claim template."
+00106_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0bdb206ee4,Deployment,apps/v1,1.37,spec.template.spec.volumes[].fc.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a Fibre Channel volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a Fibre Channel volume."
+00107_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f27f790a20,Deployment,apps/v1,1.37,spec.template.spec.volumes[].flexVolume.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a FlexVolume volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a FlexVolume volume."
+00108_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_896f8af725,Deployment,apps/v1,1.37,spec.template.spec.volumes[].gcePersistentDisk.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a GCE persistent disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a GCE persistent disk volume."
+00109_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b6437a7923,Deployment,apps/v1,1.37,spec.template.spec.volumes[].iscsi.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of an iSCSI volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of an iSCSI volume."
+00110_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ef54c83c1b,Deployment,apps/v1,1.37,spec.template.spec.volumes[].photonPersistentDisk.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a Photon persistent disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a Photon persistent disk volume."
+00111_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_03b0dab82f,Deployment,apps/v1,1.37,spec.template.spec.volumes[].portworxVolume.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType,ext4 | xfs,single_object_array_point,1,the filesystem type of a Portworx volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a Portworx volume."
+00112_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9876ba4a4d,Deployment,apps/v1,1.37,spec.template.spec.volumes[].projected.sources[].clusterTrustBundle.labelSelector.matchExpressions[].operator,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,3,the operator of a label-selector match expression for a cluster trust bundle in a projected volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression for a cluster trust bundle in a projected volume."
+00113_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_fc6d35fa8a,Deployment,apps/v1,1.37,spec.template.spec.volumes[].projected.sources[].downwardAPI.items[].resourceFieldRef.divisor,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,3,the resource field reference divisor in a Downward API source of a projected volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource field reference divisor in a Downward API source of a projected volume."
+00114_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_12d17b98fb,Deployment,apps/v1,1.37,spec.template.spec.volumes[].projected.sources[].podCertificate.keyType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType,ECDSAP256 | ECDSAP384 | ECDSAP521 | ED25519 | RSA3072 | RSA4096,nested_object_arrays_experimental,2,the key type of a Pod certificate source in a projected volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the key type of a Pod certificate source in a projected volume."
+00115_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_588fbba6b6,Deployment,apps/v1,1.37,spec.template.spec.volumes[].rbd.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of an RBD volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of an RBD volume."
+00116_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0570c3179a,Deployment,apps/v1,1.37,spec.template.spec.volumes[].scaleIO.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a ScaleIO volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a ScaleIO volume."
+00117_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a6e3a4775a,Deployment,apps/v1,1.37,spec.template.spec.volumes[].scaleIO.storageMode,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode,ThickProvisioned | ThinProvisioned,single_object_array_point,1,the storage mode of a ScaleIO volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the storage mode of a ScaleIO volume."
+00118_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_377edc90cd,Deployment,apps/v1,1.37,spec.template.spec.volumes[].storageos.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a StorageOS volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a StorageOS volume."
+00119_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_cacea8cd75,Deployment,apps/v1,1.37,spec.template.spec.volumes[].vsphereVolume.fsType,io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a vSphere volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the filesystem type of a vSphere volume."
+00120_Deployment_point_io_k8s_api_apps_v1_Deployment_status_c_dc0f62d91c,Deployment,apps/v1,1.37,status.conditions[].status,io_k8s_api_apps_v1_Deployment_status_conditions_status,False | True | Unknown,single_object_array_point,1,the status value of one of its status conditions,edge_rule,high,READY,status_is_server_managed,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the status value of one of its status conditions."

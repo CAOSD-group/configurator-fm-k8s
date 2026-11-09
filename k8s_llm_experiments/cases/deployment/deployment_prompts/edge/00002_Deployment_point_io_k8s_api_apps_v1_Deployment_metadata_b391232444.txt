@@ -1,0 +1,3 @@
+Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the operation of one of its managed fields.

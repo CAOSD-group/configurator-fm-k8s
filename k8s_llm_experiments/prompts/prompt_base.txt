@@ -10,9 +10,3 @@ Generate a correct and deployable Kubernetes manifests from the provided configu
 - Include any configuration required for the requested functionality to be valid.
 - Return only the valid YAML manifest.
 - Do not include explanations, comments, or Markdown code fences.
-
-### INPUT
-Kubernetes version: 1.37
-
-Create a Kubernetes Deployment that explicitly configures its deployment strategy.
-Create a Kubernetes Deployment that explicitly configures its deployment restart policy.

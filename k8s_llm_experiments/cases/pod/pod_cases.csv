@@ -1,0 +1,406 @@
+﻿case_id,resource,api_version,kubernetes_version,config_path,point_feature,variant_labels,plan_type,n_array_ancestors,target_phrase,mapping_method,mapping_confidence,prompt_status,prompt_status_reason,benchmark_group,classification,user_prompt
+00002_Pod_point_io_k8s_api_core_v1_Pod_metadata_manage_cdb4efd428,Pod,v1,1.37,metadata.managedFields[].operation,io_k8s_api_core_v1_Pod_metadata_managedFields_operation,Apply | Update,single_object_array_point,1,the operation of one of its managed fields,edge_rule,high,READY,system_managed_metadata,EDGE,server_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operation of one of its managed fields."
+00003_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_d5f55d7330,Pod,v1,1.37,spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator,DoesNotExist | Exists | Gt | In | Lt | NotIn,nested_object_arrays_experimental,2,the operator of a match expression in its preferred node affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a match expression in its preferred node affinity."
+00004_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_9712c1d44c,Pod,v1,1.37,spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchFields[].operator,io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator,DoesNotExist | Exists | Gt | In | Lt | NotIn,nested_object_arrays_experimental,2,the operator of a field-matching expression in its preferred node affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a field-matching expression in its preferred node affinity."
+00005_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_db8d772598,Pod,v1,1.37,spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator,DoesNotExist | Exists | Gt | In | Lt | NotIn,nested_object_arrays_experimental,2,the operator of a match expression in its required node affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a match expression in its required node affinity."
+00006_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_46e2ec5a8d,Pod,v1,1.37,spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchFields[].operator,io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator,DoesNotExist | Exists | Gt | In | Lt | NotIn,nested_object_arrays_experimental,2,the operator of a field-matching expression in its required node affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a field-matching expression in its required node affinity."
+00007_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_0f54f9d1f8,Pod,v1,1.37,spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in its preferred pod affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in its preferred pod affinity."
+00008_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_fedd3e69ab,Pod,v1,1.37,spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a namespace-selector match expression in its preferred pod affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a namespace-selector match expression in its preferred pod affinity."
+00009_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_c012b75ed4,Pod,v1,1.37,spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in its required pod affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in its required pod affinity."
+00010_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_3d29727f79,Pod,v1,1.37,spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a namespace-selector match expression in its required pod affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a namespace-selector match expression in its required pod affinity."
+00011_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_346fd4e732,Pod,v1,1.37,spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in its preferred pod anti-affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in its preferred pod anti-affinity."
+00012_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_22f16ffd4b,Pod,v1,1.37,spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a namespace-selector match expression in its preferred pod anti-affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a namespace-selector match expression in its preferred pod anti-affinity."
+00013_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_89a61f32b9,Pod,v1,1.37,spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in its required pod anti-affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in its required pod anti-affinity."
+00014_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_c0e00ecd93,Pod,v1,1.37,spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a namespace-selector match expression in its required pod anti-affinity,affinity_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a namespace-selector match expression in its required pod anti-affinity."
+00015_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_45036378b6,Pod,v1,1.37,spec.containers[].env[].valueFrom.resourceFieldRef.divisor,io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,2,the resource field reference divisor in an environment variable of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource field reference divisor in an environment variable of one of its containers."
+00016_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_ab8888ed6b,Pod,v1,1.37,spec.containers[].imagePullPolicy,io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy,Always | IfNotPresent | Never,single_object_array_point,1,the image pull policy of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the image pull policy of one of its containers."
+00017_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_f3666f5a8b,Pod,v1,1.37,spec.containers[].lifecycle.postStart.httpGet.port,io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the post-start lifecycle hook in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its containers."
+00018_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_627cde419b,Pod,v1,1.37,spec.containers[].lifecycle.postStart.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the post-start lifecycle hook in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its containers."
+00019_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_e6eeafeccf,Pod,v1,1.37,spec.containers[].lifecycle.preStop.httpGet.port,io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the pre-stop lifecycle hook in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its containers."
+00020_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_56f8e9cd9b,Pod,v1,1.37,spec.containers[].lifecycle.preStop.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the pre-stop lifecycle hook in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its containers."
+00021_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_4456f58fa3,Pod,v1,1.37,spec.containers[].livenessProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the liveness probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the liveness probe in one of its containers."
+00022_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3e8ed87ca9,Pod,v1,1.37,spec.containers[].livenessProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the liveness probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the liveness probe in one of its containers."
+00023_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3290945cbf,Pod,v1,1.37,spec.containers[].ports[].protocol,io_k8s_api_core_v1_Pod_spec_containers_ports_protocol,SCTP | TCP | UDP,nested_object_arrays_experimental,2,the protocol of a port exposed by one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the protocol of a port exposed by one of its containers."
+00024_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_f7da76de87,Pod,v1,1.37,spec.containers[].readinessProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the readiness probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the readiness probe in one of its containers."
+00025_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_fd253ff38b,Pod,v1,1.37,spec.containers[].readinessProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the readiness probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the readiness probe in one of its containers."
+00026_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_03feed6b13,Pod,v1,1.37,spec.containers[].resizePolicy[].resourceName,io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName,cpu | memory,nested_object_arrays_experimental,2,the resource name in a resize policy of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource name in a resize policy of one of its containers."
+00027_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_7fe3247249,Pod,v1,1.37,spec.containers[].resources.limits,io_k8s_api_core_v1_Pod_spec_containers_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resource limits of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource limits of one of its containers."
+00028_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_6eea30d7cb,Pod,v1,1.37,spec.containers[].resources.requests,io_k8s_api_core_v1_Pod_spec_containers_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resource requests of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource requests of one of its containers."
+00029_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_b0bebe6cc1,Pod,v1,1.37,spec.containers[].restartPolicyRules[].exitCodes.operator,io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator,In | NotIn,nested_object_arrays_experimental,2,the exit-code operator in a restart policy rule of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the exit-code operator in a restart policy rule of one of its containers."
+00030_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3012f40b7f,Pod,v1,1.37,spec.containers[].securityContext.appArmorProfile.type,io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the AppArmor profile type of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the AppArmor profile type of one of its containers."
+00031_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_6e33a629be,Pod,v1,1.37,spec.containers[].securityContext.seccompProfile.type,io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the seccomp profile type of one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the seccomp profile type of one of its containers."
+00032_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_591ca58da9,Pod,v1,1.37,spec.containers[].startupProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the startup probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the startup probe in one of its containers."
+00033_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_a708ee3718,Pod,v1,1.37,spec.containers[].startupProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the startup probe in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the startup probe in one of its containers."
+00034_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_ca33f3e6b8,Pod,v1,1.37,spec.containers[].volumeMounts[].bindMountOptions,io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions,nodev | noexec | nosuid,nested_object_arrays_experimental,3,the bind-mount options of a volume mount in one of its containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the bind-mount options of a volume mount in one of its containers."
+00035_Pod_point_io_k8s_api_core_v1_Pod_spec_dnsPolicy__6e980d7824,Pod,v1,1.37,spec.dnsPolicy,io_k8s_api_core_v1_Pod_spec_dnsPolicy,ClusterFirst | ClusterFirstWithHostNet | Default | None,scalar_or_object_point,0,its Pod DNS policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod DNS policy."
+00036_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_47d01ef78c,Pod,v1,1.37,spec.ephemeralContainers[].env[].valueFrom.resourceFieldRef.divisor,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,2,the resource field reference divisor in an environment variable of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource field reference divisor in an environment variable of one of its ephemeral containers."
+00037_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0efb541772,Pod,v1,1.37,spec.ephemeralContainers[].imagePullPolicy,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy,Always | IfNotPresent | Never,single_object_array_point,1,the image pull policy of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the image pull policy of one of its ephemeral containers."
+00038_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_14635d5761,Pod,v1,1.37,spec.ephemeralContainers[].lifecycle.postStart.httpGet.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the post-start lifecycle hook in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its ephemeral containers."
+00039_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0df18b1cbe,Pod,v1,1.37,spec.ephemeralContainers[].lifecycle.postStart.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the post-start lifecycle hook in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its ephemeral containers."
+00040_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_31833dc216,Pod,v1,1.37,spec.ephemeralContainers[].lifecycle.preStop.httpGet.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the pre-stop lifecycle hook in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its ephemeral containers."
+00041_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_10c948e372,Pod,v1,1.37,spec.ephemeralContainers[].lifecycle.preStop.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the pre-stop lifecycle hook in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its ephemeral containers."
+00042_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_3fdaeea1c1,Pod,v1,1.37,spec.ephemeralContainers[].livenessProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the liveness probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the liveness probe in one of its ephemeral containers."
+00043_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_7cb2796bd3,Pod,v1,1.37,spec.ephemeralContainers[].livenessProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the liveness probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the liveness probe in one of its ephemeral containers."
+00044_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_ed1cfd1826,Pod,v1,1.37,spec.ephemeralContainers[].ports[].protocol,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol,SCTP | TCP | UDP,nested_object_arrays_experimental,2,the protocol of a port exposed by one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the protocol of a port exposed by one of its ephemeral containers."
+00045_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_e6673e4fc6,Pod,v1,1.37,spec.ephemeralContainers[].readinessProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the readiness probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the readiness probe in one of its ephemeral containers."
+00046_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_d82201098d,Pod,v1,1.37,spec.ephemeralContainers[].readinessProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the readiness probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the readiness probe in one of its ephemeral containers."
+00047_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_1063fbc38d,Pod,v1,1.37,spec.ephemeralContainers[].resizePolicy[].resourceName,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName,cpu | memory,nested_object_arrays_experimental,2,the resource name in a resize policy of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource name in a resize policy of one of its ephemeral containers."
+00048_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0c67860882,Pod,v1,1.37,spec.ephemeralContainers[].resources.limits,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resource limits of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource limits of one of its ephemeral containers."
+00049_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_34259fbc2e,Pod,v1,1.37,spec.ephemeralContainers[].resources.requests,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resource requests of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource requests of one of its ephemeral containers."
+00050_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_906f01f511,Pod,v1,1.37,spec.ephemeralContainers[].restartPolicyRules[].exitCodes.operator,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator,In | NotIn,nested_object_arrays_experimental,2,the exit-code operator in a restart policy rule of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the exit-code operator in a restart policy rule of one of its ephemeral containers."
+00051_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_fe94d4e2a8,Pod,v1,1.37,spec.ephemeralContainers[].securityContext.appArmorProfile.type,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the AppArmor profile type of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the AppArmor profile type of one of its ephemeral containers."
+00052_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_340f1cbd92,Pod,v1,1.37,spec.ephemeralContainers[].securityContext.seccompProfile.type,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the seccomp profile type of one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the seccomp profile type of one of its ephemeral containers."
+00053_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_43196ca397,Pod,v1,1.37,spec.ephemeralContainers[].startupProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the startup probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the startup probe in one of its ephemeral containers."
+00054_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_55ef6c0637,Pod,v1,1.37,spec.ephemeralContainers[].startupProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the startup probe in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the startup probe in one of its ephemeral containers."
+00055_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_f597bad776,Pod,v1,1.37,spec.ephemeralContainers[].volumeMounts[].bindMountOptions,io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions,nodev | noexec | nosuid,nested_object_arrays_experimental,3,the bind-mount options of a volume mount in one of its ephemeral containers,container_rule,high,READY,ephemeral_containers_subresource,EDGE,non_declarative_context,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the bind-mount options of a volume mount in one of its ephemeral containers."
+00056_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_9399da0ee4,Pod,v1,1.37,spec.initContainers[].env[].valueFrom.resourceFieldRef.divisor,io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,2,the resource field reference divisor in an environment variable of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource field reference divisor in an environment variable of one of its init containers."
+00057_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_98d393c994,Pod,v1,1.37,spec.initContainers[].imagePullPolicy,io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy,Always | IfNotPresent | Never,single_object_array_point,1,the image pull policy of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the image pull policy of one of its init containers."
+00058_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_6e7fa1a430,Pod,v1,1.37,spec.initContainers[].lifecycle.postStart.httpGet.port,io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the post-start lifecycle hook in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its init containers."
+00059_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_0ecb8519a4,Pod,v1,1.37,spec.initContainers[].lifecycle.postStart.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the post-start lifecycle hook in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its init containers."
+00060_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_b11413b0bd,Pod,v1,1.37,spec.initContainers[].lifecycle.preStop.httpGet.port,io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the pre-stop lifecycle hook in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its init containers."
+00061_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_3e41ad0ba6,Pod,v1,1.37,spec.initContainers[].lifecycle.preStop.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the pre-stop lifecycle hook in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its init containers."
+00062_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a83ad41966,Pod,v1,1.37,spec.initContainers[].livenessProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the liveness probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the liveness probe in one of its init containers."
+00063_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_913c6cbeb3,Pod,v1,1.37,spec.initContainers[].livenessProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the liveness probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the liveness probe in one of its init containers."
+00064_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a4aa809a39,Pod,v1,1.37,spec.initContainers[].ports[].protocol,io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol,SCTP | TCP | UDP,nested_object_arrays_experimental,2,the protocol of a port exposed by one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the protocol of a port exposed by one of its init containers."
+00065_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_2da963f083,Pod,v1,1.37,spec.initContainers[].readinessProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the readiness probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the readiness probe in one of its init containers."
+00066_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_bed1c1f6be,Pod,v1,1.37,spec.initContainers[].readinessProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the readiness probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the readiness probe in one of its init containers."
+00067_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_df9a74e4ae,Pod,v1,1.37,spec.initContainers[].resizePolicy[].resourceName,io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName,cpu | memory,nested_object_arrays_experimental,2,the resource name in a resize policy of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource name in a resize policy of one of its init containers."
+00068_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_f994b47e99,Pod,v1,1.37,spec.initContainers[].resources.limits,io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resource limits of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource limits of one of its init containers."
+00069_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_50d74ad64e,Pod,v1,1.37,spec.initContainers[].resources.requests,io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resource requests of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource requests of one of its init containers."
+00070_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_0e792dd6d2,Pod,v1,1.37,spec.initContainers[].restartPolicyRules[].exitCodes.operator,io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator,In | NotIn,nested_object_arrays_experimental,2,the exit-code operator in a restart policy rule of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the exit-code operator in a restart policy rule of one of its init containers."
+00071_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_259d70fff0,Pod,v1,1.37,spec.initContainers[].securityContext.appArmorProfile.type,io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the AppArmor profile type of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the AppArmor profile type of one of its init containers."
+00072_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_07ef774fe0,Pod,v1,1.37,spec.initContainers[].securityContext.seccompProfile.type,io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type,Localhost | RuntimeDefault | Unconfined,single_object_array_point,1,the seccomp profile type of one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the seccomp profile type of one of its init containers."
+00073_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a5666297ed,Pod,v1,1.37,spec.initContainers[].startupProbe.httpGet.port,io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port,asString | asInteger,single_object_array_point,1,the HTTP GET port of the startup probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the startup probe in one of its init containers."
+00074_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_45e90bbf6e,Pod,v1,1.37,spec.initContainers[].startupProbe.tcpSocket.port,io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port,asString | asInteger,single_object_array_point,1,the TCP socket port of the startup probe in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the TCP socket port of the startup probe in one of its init containers."
+00075_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_84c2ae1bab,Pod,v1,1.37,spec.initContainers[].volumeMounts[].bindMountOptions,io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions,nodev | noexec | nosuid,nested_object_arrays_experimental,3,the bind-mount options of a volume mount in one of its init containers,container_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the bind-mount options of a volume mount in one of its init containers."
+00076_Pod_point_io_k8s_api_core_v1_Pod_spec_os_name_g1_a3ab1bfeec,Pod,v1,1.37,spec.os.name,io_k8s_api_core_v1_Pod_spec_os_name,linux | windows,scalar_or_object_point,0,its Pod operating system,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod operating system."
+00077_Pod_point_io_k8s_api_core_v1_Pod_spec_overhead_g_9e97e3a753,Pod,v1,1.37,spec.overhead,io_k8s_api_core_v1_Pod_spec_overhead,asString | asNumber,dynamic_quantity_map_point,0,its Pod overhead resource quantities,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod overhead resource quantities."
+00078_Pod_point_io_k8s_api_core_v1_Pod_spec_preemption_d9928c90ab,Pod,v1,1.37,spec.preemptionPolicy,io_k8s_api_core_v1_Pod_spec_preemptionPolicy,Never | PreemptLowerPriority,scalar_or_object_point,0,its Pod preemption policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod preemption policy."
+00079_Pod_point_io_k8s_api_core_v1_Pod_spec_resources__0544e432ea,Pod,v1,1.37,spec.resources.limits,io_k8s_api_core_v1_Pod_spec_resources_limits,asString | asNumber,dynamic_quantity_map_point,0,its Pod-level resource limits,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod-level resource limits."
+00080_Pod_point_io_k8s_api_core_v1_Pod_spec_resources__aa974a3bf0,Pod,v1,1.37,spec.resources.requests,io_k8s_api_core_v1_Pod_spec_resources_requests,asString | asNumber,dynamic_quantity_map_point,0,its Pod-level resource requests,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod-level resource requests."
+00081_Pod_point_io_k8s_api_core_v1_Pod_spec_restartPol_44f03dba44,Pod,v1,1.37,spec.restartPolicy,io_k8s_api_core_v1_Pod_spec_restartPolicy,Always | Never | OnFailure,scalar_or_object_point,0,its Pod restart policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod restart policy."
+00082_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_66a9e14917,Pod,v1,1.37,spec.securityContext.appArmorProfile.type,io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type,Localhost | RuntimeDefault | Unconfined,scalar_or_object_point,0,its Pod AppArmor profile type,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod AppArmor profile type."
+00083_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_ebbd4817c2,Pod,v1,1.37,spec.securityContext.fsGroupChangePolicy,io_k8s_api_core_v1_Pod_spec_securityContext_fsGroupChangePolicy,Always | OnRootMismatch,scalar_or_object_point,0,its Pod filesystem group change policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod filesystem group change policy."
+00084_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_b3787e919e,Pod,v1,1.37,spec.securityContext.seLinuxChangePolicy,io_k8s_api_core_v1_Pod_spec_securityContext_seLinuxChangePolicy,MountOption | Recursive,scalar_or_object_point,0,its Pod SELinux change policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod SELinux change policy."
+00085_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_3f827104f7,Pod,v1,1.37,spec.securityContext.seccompProfile.type,io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type,Localhost | RuntimeDefault | Unconfined,scalar_or_object_point,0,its Pod seccomp profile type,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod seccomp profile type."
+00086_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_4ad431af30,Pod,v1,1.37,spec.securityContext.supplementalGroupsPolicy,io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroupsPolicy,Merge | Strict,scalar_or_object_point,0,its Pod supplemental groups policy,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its Pod supplemental groups policy."
+00087_Pod_point_io_k8s_api_core_v1_Pod_spec_toleration_4f8407c65a,Pod,v1,1.37,spec.tolerations[].effect,io_k8s_api_core_v1_Pod_spec_tolerations_effect,NoExecute | NoSchedule | PreferNoSchedule,single_object_array_point,1,the effect of one of its Pod tolerations,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the effect of one of its Pod tolerations."
+00088_Pod_point_io_k8s_api_core_v1_Pod_spec_toleration_aa2224e65b,Pod,v1,1.37,spec.tolerations[].operator,io_k8s_api_core_v1_Pod_spec_tolerations_operator,Equal | Exists | Gt | Lt,single_object_array_point,1,the operator of one of its Pod tolerations,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of one of its Pod tolerations."
+00089_Pod_point_io_k8s_api_core_v1_Pod_spec_topologySp_066a108907,Pod,v1,1.37,spec.topologySpreadConstraints[].labelSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a label-selector match expression in one of its topology spread constraints,pod_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a label-selector match expression in one of its topology spread constraints."
+00090_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_aw_ffd5f4a397,Pod,v1,1.37,spec.volumes[].awsElasticBlockStore.fsType,io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of an AWS Elastic Block Store volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of an AWS Elastic Block Store volume."
+00091_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_1d38ebd809,Pod,v1,1.37,spec.volumes[].azureDisk.cachingMode,io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode,None | Read_Only | Read_Write,single_object_array_point,1,the caching mode of an Azure Disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the caching mode of an Azure Disk volume."
+00092_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_e9c751767e,Pod,v1,1.37,spec.volumes[].azureDisk.fsType,io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of an Azure Disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of an Azure Disk volume."
+00093_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_4daeed684e,Pod,v1,1.37,spec.volumes[].azureDisk.kind,io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind,Dedicated | Managed | Shared,single_object_array_point,1,the kind of an Azure Disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the kind of an Azure Disk volume."
+00094_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ci_0723042a0c,Pod,v1,1.37,spec.volumes[].cinder.fsType,io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a Cinder volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a Cinder volume."
+00095_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_do_b2a8b672da,Pod,v1,1.37,spec.volumes[].downwardAPI.items[].resourceFieldRef.divisor,io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,2,the resource field reference divisor in a Downward API volume item,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource field reference divisor in a Downward API volume item."
+00096_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_em_d7c58c8c1f,Pod,v1,1.37,spec.volumes[].emptyDir.sizeLimit,io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit,asString | asNumber,single_object_array_point,1,the size limit of an emptyDir volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the size limit of an emptyDir volume."
+00097_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_7852495298,Pod,v1,1.37,spec.volumes[].ephemeral.volumeClaimTemplate.metadata.managedFields[].operation,io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation,Apply | Update,nested_object_arrays_experimental,2,the operation of one of the managed fields in a generic ephemeral volume claim template,edge_rule,high,READY,system_managed_metadata,EDGE,server_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operation of one of the managed fields in a generic ephemeral volume claim template."
+00098_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_0e37055e39,Pod,v1,1.37,spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.limits,io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the storage resource limits of a generic ephemeral volume claim template,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the storage resource limits of a generic ephemeral volume claim template."
+00099_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_81de20519c,Pod,v1,1.37,spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.requests,io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the storage resource requests of a generic ephemeral volume claim template,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the storage resource requests of a generic ephemeral volume claim template."
+00100_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_d16fb40406,Pod,v1,1.37,spec.volumes[].ephemeral.volumeClaimTemplate.spec.selector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,2,the operator of a selector match expression in a generic ephemeral volume claim template,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a selector match expression in a generic ephemeral volume claim template."
+00101_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_fc_f9efcfe1b4,Pod,v1,1.37,spec.volumes[].fc.fsType,io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a Fibre Channel volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a Fibre Channel volume."
+00102_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_fl_f95e052ab6,Pod,v1,1.37,spec.volumes[].flexVolume.fsType,io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a FlexVolume volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a FlexVolume volume."
+00103_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_gc_0729cc81c2,Pod,v1,1.37,spec.volumes[].gcePersistentDisk.fsType,io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a GCE persistent disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a GCE persistent disk volume."
+00104_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_is_3a4c23e3d8,Pod,v1,1.37,spec.volumes[].iscsi.fsType,io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of an iSCSI volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of an iSCSI volume."
+00105_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ph_fb7018c8cb,Pod,v1,1.37,spec.volumes[].photonPersistentDisk.fsType,io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a Photon persistent disk volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a Photon persistent disk volume."
+00106_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_po_db50edda35,Pod,v1,1.37,spec.volumes[].portworxVolume.fsType,io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType,ext4 | xfs,single_object_array_point,1,the filesystem type of a Portworx volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a Portworx volume."
+00107_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_5fa864e493,Pod,v1,1.37,spec.volumes[].projected.sources[].clusterTrustBundle.labelSelector.matchExpressions[].operator,io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator,DoesNotExist | Exists | In | NotIn,nested_object_arrays_experimental,3,the operator of a label-selector match expression for a cluster trust bundle in a projected volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a label-selector match expression for a cluster trust bundle in a projected volume."
+00108_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_0e67074192,Pod,v1,1.37,spec.volumes[].projected.sources[].downwardAPI.items[].resourceFieldRef.divisor,io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor,asString | asNumber,nested_object_arrays_experimental,3,the resource field reference divisor in a Downward API source of a projected volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resource field reference divisor in a Downward API source of a projected volume."
+00109_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_16a274daeb,Pod,v1,1.37,spec.volumes[].projected.sources[].podCertificate.keyType,io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType,ECDSAP256 | ECDSAP384 | ECDSAP521 | ED25519 | RSA3072 | RSA4096,nested_object_arrays_experimental,2,the key type of a Pod certificate source in a projected volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the key type of a Pod certificate source in a projected volume."
+00110_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_rb_c1954669f0,Pod,v1,1.37,spec.volumes[].rbd.fsType,io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of an RBD volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of an RBD volume."
+00111_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_sc_313e3b4d75,Pod,v1,1.37,spec.volumes[].scaleIO.fsType,io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a ScaleIO volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a ScaleIO volume."
+00112_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_sc_ffe6a61937,Pod,v1,1.37,spec.volumes[].scaleIO.storageMode,io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode,ThickProvisioned | ThinProvisioned,single_object_array_point,1,the storage mode of a ScaleIO volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the storage mode of a ScaleIO volume."
+00113_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_st_cb1c68e4c0,Pod,v1,1.37,spec.volumes[].storageos.fsType,io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a StorageOS volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a StorageOS volume."
+00114_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_vs_7f7e16b68e,Pod,v1,1.37,spec.volumes[].vsphereVolume.fsType,io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType,ext4 | ntfs | xfs,single_object_array_point,1,the filesystem type of a vSphere volume,volume_rule,high,READY,,PRIMARY,user_configurable,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a vSphere volume."
+00115_Pod_point_io_k8s_api_core_v1_Pod_status_allocate_6cbeebf6f9,Pod,v1,1.37,status.allocatedResources,io_k8s_api_core_v1_Pod_status_allocatedResources,asString | asNumber,dynamic_quantity_map_point,0,its status allocated resources,generic_resource_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its status allocated resources."
+00116_Pod_point_io_k8s_api_core_v1_Pod_status_conditio_cbf12bc493,Pod,v1,1.37,status.conditions[].status,io_k8s_api_core_v1_Pod_status_conditions_status,False | True | Unknown,single_object_array_point,1,the status value of one of its status conditions,edge_rule,high,READY,status_is_server_managed,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the status value of one of its status conditions."
+00117_Pod_point_io_k8s_api_core_v1_Pod_status_containe_56e37fdc2b,Pod,v1,1.37,status.containerStatuses[].allocatedResources,io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources,asString | asNumber,dynamic_quantity_map_in_array,1,the allocated resources of one of its container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources of one of its container statuses."
+00118_Pod_point_io_k8s_api_core_v1_Pod_status_containe_11ec4fd6f2,Pod,v1,1.37,status.containerStatuses[].allocatedResourcesStatus[].name,io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name,claim_name | request,nested_object_arrays_experimental,2,the allocated resources status name of one of its container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources status name of one of its container statuses."
+00119_Pod_point_io_k8s_api_core_v1_Pod_status_containe_af88e2100c,Pod,v1,1.37,status.containerStatuses[].allocatedResourcesStatus[].resources[].health,io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health,Unhealthy | Unknown,nested_object_arrays_experimental,3,the allocated resources status resources health of one of its container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources status resources health of one of its container statuses."
+00120_Pod_point_io_k8s_api_core_v1_Pod_status_containe_97c6ed226c,Pod,v1,1.37,status.containerStatuses[].resources.limits,io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resources limits of one of its container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resources limits of one of its container statuses."
+00121_Pod_point_io_k8s_api_core_v1_Pod_status_containe_821e586f34,Pod,v1,1.37,status.containerStatuses[].resources.requests,io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resources requests of one of its container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resources requests of one of its container statuses."
+00122_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_bdef7cefe1,Pod,v1,1.37,status.ephemeralContainerStatuses[].allocatedResources,io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources,asString | asNumber,dynamic_quantity_map_in_array,1,the allocated resources of one of its ephemeral container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources of one of its ephemeral container statuses."
+00123_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_84837c4779,Pod,v1,1.37,status.ephemeralContainerStatuses[].allocatedResourcesStatus[].name,io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name,claim_name | request,nested_object_arrays_experimental,2,the allocated resources status name of one of its ephemeral container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources status name of one of its ephemeral container statuses."
+00124_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_2e85c805d5,Pod,v1,1.37,status.ephemeralContainerStatuses[].allocatedResourcesStatus[].resources[].health,io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health,Unhealthy | Unknown,nested_object_arrays_experimental,3,the allocated resources status resources health of one of its ephemeral container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources status resources health of one of its ephemeral container statuses."
+00125_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_735089ba69,Pod,v1,1.37,status.ephemeralContainerStatuses[].resources.limits,io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resources limits of one of its ephemeral container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resources limits of one of its ephemeral container statuses."
+00126_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_a9b81afa22,Pod,v1,1.37,status.ephemeralContainerStatuses[].resources.requests,io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resources requests of one of its ephemeral container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resources requests of one of its ephemeral container statuses."
+00127_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_6581c74e97,Pod,v1,1.37,status.initContainerStatuses[].allocatedResources,io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources,asString | asNumber,dynamic_quantity_map_in_array,1,the allocated resources of one of its init container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources of one of its init container statuses."
+00128_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_0843f04ccd,Pod,v1,1.37,status.initContainerStatuses[].allocatedResourcesStatus[].name,io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name,claim_name | request,nested_object_arrays_experimental,2,the allocated resources status name of one of its init container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources status name of one of its init container statuses."
+00129_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_7a80c4f66b,Pod,v1,1.37,status.initContainerStatuses[].allocatedResourcesStatus[].resources[].health,io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health,Unhealthy | Unknown,nested_object_arrays_experimental,3,the allocated resources status resources health of one of its init container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the allocated resources status resources health of one of its init container statuses."
+00130_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_c2ef7e761b,Pod,v1,1.37,status.initContainerStatuses[].resources.limits,io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits,asString | asNumber,dynamic_quantity_map_in_array,1,the resources limits of one of its init container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resources limits of one of its init container statuses."
+00131_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_b06bc5933a,Pod,v1,1.37,status.initContainerStatuses[].resources.requests,io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests,asString | asNumber,dynamic_quantity_map_in_array,1,the resources requests of one of its init container statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the resources requests of one of its init container statuses."
+00132_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_e2d1ac6340,Pod,v1,1.37,status.nodeAllocatableResourceClaimStatuses[].mapping[].quantity,io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity,asString | asNumber,nested_object_arrays_experimental,2,the mapping quantity of one of its node allocatable resource claim statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the mapping quantity of one of its node allocatable resource claim statuses."
+00133_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_ef5f843f21,Pod,v1,1.37,status.nodeAllocatableResourceClaimStatuses[].overhead[].perContainer,io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer,asString | asNumber,nested_object_arrays_experimental,2,the overhead resources per container of one of its node allocatable resource claim statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the overhead resources per container of one of its node allocatable resource claim statuses."
+00134_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_12ac42cf48,Pod,v1,1.37,status.nodeAllocatableResourceClaimStatuses[].overhead[].perPod,io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod,asString | asNumber,nested_object_arrays_experimental,2,the overhead resources per pod of one of its node allocatable resource claim statuses,generic_array_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the overhead resources per pod of one of its node allocatable resource claim statuses."
+00135_Pod_point_io_k8s_api_core_v1_Pod_status_resource_a5a433a64e,Pod,v1,1.37,status.resources.limits,io_k8s_api_core_v1_Pod_status_resources_limits,asString | asNumber,dynamic_quantity_map_point,0,its status resources limits,generic_resource_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its status resources limits."
+00136_Pod_point_io_k8s_api_core_v1_Pod_status_resource_89c482cf8f,Pod,v1,1.37,status.resources.requests,io_k8s_api_core_v1_Pod_status_resources_requests,asString | asNumber,dynamic_quantity_map_point,0,its status resources requests,generic_resource_fallback,low,REVIEW,status_is_server_managed;generic_humanization_requires_review,EDGE,status_managed,"Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures its status resources requests."

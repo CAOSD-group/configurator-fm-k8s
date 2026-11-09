@@ -1,0 +1,3734 @@
+{
+  "format": "e2b_fmvariationpoints_all_alternatives_v1",
+  "root_feature": "io_k8s_api_core_v1_Pod",
+  "gvk": {
+    "apiVersion": "v1",
+    "kind": "Pod"
+  },
+  "base_decisions": {
+    "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+    "io_k8s_api_core_v1_Pod_kind": "Pod",
+    "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod"
+  },
+  "points": [
+    {
+      "case_id": "00002_Pod_point_io_k8s_api_core_v1_Pod_metadata_manage_cdb4efd428",
+      "point_feature": "io_k8s_api_core_v1_Pod_metadata_managedFields_operation",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_metadata_managedFields_operation_Apply",
+        "io_k8s_api_core_v1_Pod_metadata_managedFields_operation_Update"
+      ],
+      "config_path": "metadata.managedFields[].operation",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_metadata_managedFields_operation": true,
+        "io_k8s_api_core_v1_Pod_metadata_managedFields": [
+          {
+            "io_k8s_api_core_v1_Pod_metadata_managedFields_operation": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00003_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_d5f55d7330",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Lt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00004_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_9712c1d44c",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Lt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchFields[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00005_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_db8d772598",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Lt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00006_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_46e2ec5a8d",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Lt",
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchFields[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00007_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_0f54f9d1f8",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector": {
+                "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00008_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_fedd3e69ab",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector": {
+                "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00009_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_c012b75ed4",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00010_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_3d29727f79",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00011_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_346fd4e732",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector": {
+                "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00012_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_22f16ffd4b",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector": {
+                "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions": [
+                  {
+                    "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00013_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_89a61f32b9",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00014_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_p_c0e00ecd93",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector": {
+              "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00015_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_45036378b6",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.containers[].env[].valueFrom.resourceFieldRef.divisor",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_env": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom": {
+                  "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef": {
+                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_divisor": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00016_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_ab8888ed6b",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_Never"
+      ],
+      "config_path": "spec.containers[].imagePullPolicy",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00017_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_f3666f5a8b",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.containers[].lifecycle.postStart.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart": {
+                "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet": {
+                  "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00018_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_627cde419b",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.containers[].lifecycle.postStart.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart": {
+                "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket": {
+                  "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_postStart_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00019_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_e6eeafeccf",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.containers[].lifecycle.preStop.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop": {
+                "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet": {
+                  "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00020_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_56f8e9cd9b",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.containers[].lifecycle.preStop.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop": {
+                "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket": {
+                  "io_k8s_api_core_v1_Pod_spec_containers_lifecycle_preStop_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00021_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_4456f58fa3",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.containers[].livenessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00022_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3e8ed87ca9",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.containers[].livenessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00023_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3290945cbf",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_SCTP",
+        "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_TCP",
+        "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_UDP"
+      ],
+      "config_path": "spec.containers[].ports[].protocol",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00024_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_f7da76de87",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.containers[].readinessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00025_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_fd253ff38b",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.containers[].readinessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00026_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_03feed6b13",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName_memory"
+      ],
+      "config_path": "spec.containers[].resizePolicy[].resourceName",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_containers_resizePolicy_resourceName": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00027_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_7fe3247249",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asNumber"
+      ],
+      "config_path": "spec.containers[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_resources": {
+              "io_k8s_api_core_v1_Pod_spec_containers_resources_limits": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00028_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_6eea30d7cb",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asNumber"
+      ],
+      "config_path": "spec.containers[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_resources": {
+              "io_k8s_api_core_v1_Pod_spec_containers_resources_requests": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00029_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_b0bebe6cc1",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "config_path": "spec.containers[].restartPolicyRules[].exitCodes.operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes": {
+                  "io_k8s_api_core_v1_Pod_spec_containers_restartPolicyRules_exitCodes_operator": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00030_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_3012f40b7f",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "config_path": "spec.containers[].securityContext.appArmorProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_securityContext": {
+              "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile": {
+                "io_k8s_api_core_v1_Pod_spec_containers_securityContext_appArmorProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00031_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_6e33a629be",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "config_path": "spec.containers[].securityContext.seccompProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_securityContext": {
+              "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile": {
+                "io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00032_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_591ca58da9",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.containers[].startupProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_startupProbe": {
+              "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00033_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_a708ee3718",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.containers[].startupProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_startupProbe": {
+              "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_containers_startupProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00034_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_ca33f3e6b8",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "config_path": "spec.containers[].volumeMounts[].bindMountOptions",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions": true,
+        "io_k8s_api_core_v1_Pod_spec_containers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00035_Pod_point_io_k8s_api_core_v1_Pod_spec_dnsPolicy__6e980d7824",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_dnsPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirst",
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet",
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy_Default",
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy_None"
+      ],
+      "config_path": "spec.dnsPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_dnsPolicy": true
+      }
+    },
+    {
+      "case_id": "00036_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_47d01ef78c",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.ephemeralContainers[].env[].valueFrom.resourceFieldRef.divisor",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom": {
+                  "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef": {
+                    "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00037_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0efb541772",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy_Never"
+      ],
+      "config_path": "spec.ephemeralContainers[].imagePullPolicy",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_imagePullPolicy": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00038_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_14635d5761",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].lifecycle.postStart.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet": {
+                  "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00039_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0df18b1cbe",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].lifecycle.postStart.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket": {
+                  "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00040_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_31833dc216",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].lifecycle.preStop.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet": {
+                  "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00041_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_10c948e372",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].lifecycle.preStop.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket": {
+                  "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00042_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_3fdaeea1c1",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].livenessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00043_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_7cb2796bd3",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].livenessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_livenessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00044_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_ed1cfd1826",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol_SCTP",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol_TCP",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol_UDP"
+      ],
+      "config_path": "spec.ephemeralContainers[].ports[].protocol",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_protocol": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00045_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_e6673e4fc6",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].readinessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00046_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_d82201098d",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].readinessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00047_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_1063fbc38d",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName_memory"
+      ],
+      "config_path": "spec.ephemeralContainers[].resizePolicy[].resourceName",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resizePolicy_resourceName": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00048_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_0c67860882",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits_asNumber"
+      ],
+      "config_path": "spec.ephemeralContainers[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00049_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_34259fbc2e",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests_asNumber"
+      ],
+      "config_path": "spec.ephemeralContainers[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_requests_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00050_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_906f01f511",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "config_path": "spec.ephemeralContainers[].restartPolicyRules[].exitCodes.operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes": {
+                  "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00051_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_fe94d4e2a8",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "config_path": "spec.ephemeralContainers[].securityContext.appArmorProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00052_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_340f1cbd92",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "config_path": "spec.ephemeralContainers[].securityContext.seccompProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00053_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_43196ca397",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].startupProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00054_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_55ef6c0637",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.ephemeralContainers[].startupProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe": {
+              "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_startupProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00055_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_f597bad776",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "config_path": "spec.ephemeralContainers[].volumeMounts[].bindMountOptions",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions": true,
+        "io_k8s_api_core_v1_Pod_spec_ephemeralContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_volumeMounts_bindMountOptions": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00056_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_9399da0ee4",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.initContainers[].env[].valueFrom.resourceFieldRef.divisor",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_env": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom": {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef": {
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_env_valueFrom_resourceFieldRef_divisor": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00057_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_98d393c994",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy_Never"
+      ],
+      "config_path": "spec.initContainers[].imagePullPolicy",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00058_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_6e7fa1a430",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].lifecycle.postStart.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet": {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00059_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_0ecb8519a4",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].lifecycle.postStart.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket": {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_postStart_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00060_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_b11413b0bd",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].lifecycle.preStop.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet": {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_httpGet_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00061_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_3e41ad0ba6",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].lifecycle.preStop.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket": {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_lifecycle_preStop_tcpSocket_port": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00062_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a83ad41966",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].livenessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00063_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_913c6cbeb3",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].livenessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_livenessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00064_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a4aa809a39",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol_SCTP",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol_TCP",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol_UDP"
+      ],
+      "config_path": "spec.initContainers[].ports[].protocol",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_ports": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_ports_protocol": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00065_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_2da963f083",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].readinessProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00066_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_bed1c1f6be",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].readinessProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_readinessProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00067_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_df9a74e4ae",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName_memory"
+      ],
+      "config_path": "spec.initContainers[].resizePolicy[].resourceName",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00068_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_f994b47e99",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits_asNumber"
+      ],
+      "config_path": "spec.initContainers[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_resources": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00069_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_50d74ad64e",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests_asNumber"
+      ],
+      "config_path": "spec.initContainers[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_resources": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00070_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_0e792dd6d2",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "config_path": "spec.initContainers[].restartPolicyRules[].exitCodes.operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes": {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00071_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_259d70fff0",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "config_path": "spec.initContainers[].securityContext.appArmorProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_appArmorProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00072_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_07ef774fe0",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "config_path": "spec.initContainers[].securityContext.seccompProfile.type",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00073_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_a5666297ed",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].startupProbe.httpGet.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_httpGet_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00074_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_45e90bbf6e",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "config_path": "spec.initContainers[].startupProbe.tcpSocket.port",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe": {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_startupProbe_tcpSocket_port": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00075_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_84c2ae1bab",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "config_path": "spec.initContainers[].volumeMounts[].bindMountOptions",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions": true,
+        "io_k8s_api_core_v1_Pod_spec_initContainers": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_bindMountOptions": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00076_Pod_point_io_k8s_api_core_v1_Pod_spec_os_name_g1_a3ab1bfeec",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_os_name",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_os_name_linux",
+        "io_k8s_api_core_v1_Pod_spec_os_name_windows"
+      ],
+      "config_path": "spec.os.name",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_os_name": true
+      }
+    },
+    {
+      "case_id": "00077_Pod_point_io_k8s_api_core_v1_Pod_spec_overhead_g_9e97e3a753",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_overhead",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_overhead_asString",
+        "io_k8s_api_core_v1_Pod_spec_overhead_asNumber"
+      ],
+      "config_path": "spec.overhead",
+      "n_array_ancestors": 0,
+      "plan_type": "dynamic_quantity_map_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_overhead": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_overhead_KeyMap": "cpu"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00078_Pod_point_io_k8s_api_core_v1_Pod_spec_preemption_d9928c90ab",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_preemptionPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_preemptionPolicy_Never",
+        "io_k8s_api_core_v1_Pod_spec_preemptionPolicy_PreemptLowerPriority"
+      ],
+      "config_path": "spec.preemptionPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_preemptionPolicy": true
+      }
+    },
+    {
+      "case_id": "00079_Pod_point_io_k8s_api_core_v1_Pod_spec_resources__0544e432ea",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_resources_limits_asNumber"
+      ],
+      "config_path": "spec.resources.limits",
+      "n_array_ancestors": 0,
+      "plan_type": "dynamic_quantity_map_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_resources_limits": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_resources_limits_KeyMap": "cpu"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00080_Pod_point_io_k8s_api_core_v1_Pod_spec_resources__aa974a3bf0",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_resources_requests_asNumber"
+      ],
+      "config_path": "spec.resources.requests",
+      "n_array_ancestors": 0,
+      "plan_type": "dynamic_quantity_map_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_resources_requests": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_resources_requests_KeyMap": "cpu"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00081_Pod_point_io_k8s_api_core_v1_Pod_spec_restartPol_44f03dba44",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_restartPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_restartPolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_restartPolicy_Never",
+        "io_k8s_api_core_v1_Pod_spec_restartPolicy_OnFailure"
+      ],
+      "config_path": "spec.restartPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_restartPolicy": true
+      }
+    },
+    {
+      "case_id": "00082_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_66a9e14917",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "config_path": "spec.securityContext.appArmorProfile.type",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type": true
+      }
+    },
+    {
+      "case_id": "00083_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_ebbd4817c2",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_fsGroupChangePolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_fsGroupChangePolicy_Always",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_fsGroupChangePolicy_OnRootMismatch"
+      ],
+      "config_path": "spec.securityContext.fsGroupChangePolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_securityContext_fsGroupChangePolicy": true
+      }
+    },
+    {
+      "case_id": "00084_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_b3787e919e",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_seLinuxChangePolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seLinuxChangePolicy_MountOption",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seLinuxChangePolicy_Recursive"
+      ],
+      "config_path": "spec.securityContext.seLinuxChangePolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seLinuxChangePolicy": true
+      }
+    },
+    {
+      "case_id": "00085_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_3f827104f7",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "config_path": "spec.securityContext.seccompProfile.type",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type": true
+      }
+    },
+    {
+      "case_id": "00086_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_4ad431af30",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroupsPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroupsPolicy_Merge",
+        "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroupsPolicy_Strict"
+      ],
+      "config_path": "spec.securityContext.supplementalGroupsPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroupsPolicy": true
+      }
+    },
+    {
+      "case_id": "00087_Pod_point_io_k8s_api_core_v1_Pod_spec_toleration_4f8407c65a",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_tolerations_effect",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_tolerations_effect_NoExecute",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_effect_NoSchedule",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_effect_PreferNoSchedule"
+      ],
+      "config_path": "spec.tolerations[].effect",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_tolerations_effect": true,
+        "io_k8s_api_core_v1_Pod_spec_tolerations": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_tolerations_effect": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00088_Pod_point_io_k8s_api_core_v1_Pod_spec_toleration_aa2224e65b",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_tolerations_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Equal",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Gt",
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Lt"
+      ],
+      "config_path": "spec.tolerations[].operator",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_tolerations_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_tolerations": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_tolerations_operator": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00089_Pod_point_io_k8s_api_core_v1_Pod_spec_topologySp_066a108907",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.topologySpreadConstraints[].labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector": {
+              "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00090_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_aw_ffd5f4a397",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].awsElasticBlockStore.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_awsElasticBlockStore_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00091_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_1d38ebd809",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_None",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_Read_Only",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_Read_Write"
+      ],
+      "config_path": "spec.volumes[].azureDisk.cachingMode",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00092_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_e9c751767e",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].azureDisk.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00093_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_4daeed684e",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind_Dedicated",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind_Managed",
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind_Shared"
+      ],
+      "config_path": "spec.volumes[].azureDisk.kind",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_kind": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00094_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ci_0723042a0c",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].cinder.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_cinder": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_cinder_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00095_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_do_b2a8b672da",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.volumes[].downwardAPI.items[].resourceFieldRef.divisor",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef": {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_downwardAPI_items_resourceFieldRef_divisor": true
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00096_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_em_d7c58c8c1f",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit_asNumber"
+      ],
+      "config_path": "spec.volumes[].emptyDir.sizeLimit",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_sizeLimit": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00097_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_7852495298",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Apply",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Update"
+      ],
+      "config_path": "spec.volumes[].ephemeral.volumeClaimTemplate.metadata.managedFields[].operation",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate": {
+                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata": {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields": [
+                    {
+                      "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation": true
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00098_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_0e37055e39",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asNumber"
+      ],
+      "config_path": "spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate": {
+                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources": {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits": [
+                      {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_KeyMap": "storage"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00099_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_81de20519c",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asNumber"
+      ],
+      "config_path": "spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate": {
+                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources": {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests": [
+                      {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_KeyMap": "storage"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00100_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ep_d16fb40406",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.volumes[].ephemeral.volumeClaimTemplate.spec.selector.matchExpressions[].operator",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate": {
+                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector": {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions": [
+                      {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator": true
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00101_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_fc_f9efcfe1b4",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].fc.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_fc": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_fc_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00102_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_fl_f95e052ab6",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].flexVolume.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_flexVolume_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00103_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_gc_0729cc81c2",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].gcePersistentDisk.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00104_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_is_3a4c23e3d8",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].iscsi.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_iscsi": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_iscsi_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00105_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_ph_fb7018c8cb",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].photonPersistentDisk.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_photonPersistentDisk_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00106_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_po_db50edda35",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].portworxVolume.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_portworxVolume_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00107_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_5fa864e493",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "config_path": "spec.volumes[].projected.sources[].clusterTrustBundle.labelSelector.matchExpressions[].operator",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_projected": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle": {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector": {
+                      "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions": [
+                        {
+                          "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator": true
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00108_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_0e67074192",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asString",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asNumber"
+      ],
+      "config_path": "spec.volumes[].projected.sources[].downwardAPI.items[].resourceFieldRef.divisor",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_projected": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI": {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items": [
+                      {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef": {
+                          "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor": true
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00109_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_pr_16a274daeb",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP256",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP384",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP521",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_ED25519",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_RSA3072",
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType_RSA4096"
+      ],
+      "config_path": "spec.volumes[].projected.sources[].podCertificate.keyType",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_projected": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate": {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType": true
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00110_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_rb_c1954669f0",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].rbd.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_rbd": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_rbd_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00111_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_sc_313e3b4d75",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].scaleIO.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00112_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_sc_ffe6a61937",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode_ThickProvisioned",
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode_ThinProvisioned"
+      ],
+      "config_path": "spec.volumes[].scaleIO.storageMode",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00113_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_st_cb1c68e4c0",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].storageos.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_storageos": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_storageos_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00114_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_vs_7f7e16b68e",
+      "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType_ext4",
+        "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType_ntfs",
+        "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType_xfs"
+      ],
+      "config_path": "spec.volumes[].vsphereVolume.fsType",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType": true,
+        "io_k8s_api_core_v1_Pod_spec_volumes": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_vsphereVolume_fsType": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00115_Pod_point_io_k8s_api_core_v1_Pod_status_allocate_6cbeebf6f9",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_allocatedResources",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_allocatedResources_asString",
+        "io_k8s_api_core_v1_Pod_status_allocatedResources_asNumber"
+      ],
+      "config_path": "status.allocatedResources",
+      "n_array_ancestors": 0,
+      "plan_type": "dynamic_quantity_map_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_allocatedResources": [
+          {
+            "io_k8s_api_core_v1_Pod_status_allocatedResources_KeyMap": "cpu"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00116_Pod_point_io_k8s_api_core_v1_Pod_status_conditio_cbf12bc493",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_conditions_status",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_conditions_status_False",
+        "io_k8s_api_core_v1_Pod_status_conditions_status_True",
+        "io_k8s_api_core_v1_Pod_status_conditions_status_Unknown"
+      ],
+      "config_path": "status.conditions[].status",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_conditions_status": true,
+        "io_k8s_api_core_v1_Pod_status_conditions": [
+          {
+            "io_k8s_api_core_v1_Pod_status_conditions_status": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00117_Pod_point_io_k8s_api_core_v1_Pod_status_containe_56e37fdc2b",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources_asString",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources_asNumber"
+      ],
+      "config_path": "status.containerStatuses[].allocatedResources",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources": true,
+        "io_k8s_api_core_v1_Pod_status_containerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources": [
+              {
+                "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResources_KeyMap": "cpu"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00118_Pod_point_io_k8s_api_core_v1_Pod_status_containe_11ec4fd6f2",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name_claim_name",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name_request"
+      ],
+      "config_path": "status.containerStatuses[].allocatedResourcesStatus[].name",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name": true,
+        "io_k8s_api_core_v1_Pod_status_containerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus": [
+              {
+                "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_name": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00119_Pod_point_io_k8s_api_core_v1_Pod_status_containe_af88e2100c",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health_Unhealthy",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health_Unknown"
+      ],
+      "config_path": "status.containerStatuses[].allocatedResourcesStatus[].resources[].health",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health": true,
+        "io_k8s_api_core_v1_Pod_status_containerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus": [
+              {
+                "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources": [
+                  {
+                    "io_k8s_api_core_v1_Pod_status_containerStatuses_allocatedResourcesStatus_resources_health": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00120_Pod_point_io_k8s_api_core_v1_Pod_status_containe_97c6ed226c",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits_asNumber"
+      ],
+      "config_path": "status.containerStatuses[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits": true,
+        "io_k8s_api_core_v1_Pod_status_containerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_containerStatuses_resources": {
+              "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits": [
+                {
+                  "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00121_Pod_point_io_k8s_api_core_v1_Pod_status_containe_821e586f34",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests_asNumber"
+      ],
+      "config_path": "status.containerStatuses[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests": true,
+        "io_k8s_api_core_v1_Pod_status_containerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_containerStatuses_resources": {
+              "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests": [
+                {
+                  "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00122_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_bdef7cefe1",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources_asString",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources_asNumber"
+      ],
+      "config_path": "status.ephemeralContainerStatuses[].allocatedResources",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources": true,
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources": [
+              {
+                "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResources_KeyMap": "cpu"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00123_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_84837c4779",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name_claim_name",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name_request"
+      ],
+      "config_path": "status.ephemeralContainerStatuses[].allocatedResourcesStatus[].name",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name": true,
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus": [
+              {
+                "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00124_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_2e85c805d5",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health_Unhealthy",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health_Unknown"
+      ],
+      "config_path": "status.ephemeralContainerStatuses[].allocatedResourcesStatus[].resources[].health",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health": true,
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus": [
+              {
+                "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources": [
+                  {
+                    "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00125_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_735089ba69",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits_asNumber"
+      ],
+      "config_path": "status.ephemeralContainerStatuses[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits": true,
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources": {
+              "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits": [
+                {
+                  "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_limits_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00126_Pod_point_io_k8s_api_core_v1_Pod_status_ephemera_a9b81afa22",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests_asNumber"
+      ],
+      "config_path": "status.ephemeralContainerStatuses[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests": true,
+        "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources": {
+              "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests": [
+                {
+                  "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_resources_requests_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00127_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_6581c74e97",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources_asString",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources_asNumber"
+      ],
+      "config_path": "status.initContainerStatuses[].allocatedResources",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources": true,
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources": [
+              {
+                "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResources_KeyMap": "cpu"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00128_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_0843f04ccd",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name_claim_name",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name_request"
+      ],
+      "config_path": "status.initContainerStatuses[].allocatedResourcesStatus[].name",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name": true,
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus": [
+              {
+                "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_name": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00129_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_7a80c4f66b",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health_Unhealthy",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health_Unknown"
+      ],
+      "config_path": "status.initContainerStatuses[].allocatedResourcesStatus[].resources[].health",
+      "n_array_ancestors": 3,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health": true,
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus": [
+              {
+                "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources": [
+                  {
+                    "io_k8s_api_core_v1_Pod_status_initContainerStatuses_allocatedResourcesStatus_resources_health": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00130_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_c2ef7e761b",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits_asNumber"
+      ],
+      "config_path": "status.initContainerStatuses[].resources.limits",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits": true,
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources": {
+              "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits": [
+                {
+                  "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_limits_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00131_Pod_point_io_k8s_api_core_v1_Pod_status_initCont_b06bc5933a",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests_asNumber"
+      ],
+      "config_path": "status.initContainerStatuses[].resources.requests",
+      "n_array_ancestors": 1,
+      "plan_type": "dynamic_quantity_map_in_array",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests": true,
+        "io_k8s_api_core_v1_Pod_status_initContainerStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources": {
+              "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests": [
+                {
+                  "io_k8s_api_core_v1_Pod_status_initContainerStatuses_resources_requests_KeyMap": "cpu"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00132_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_e2d1ac6340",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity_asString",
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity_asNumber"
+      ],
+      "config_path": "status.nodeAllocatableResourceClaimStatuses[].mapping[].quantity",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity": true,
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping": [
+              {
+                "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00133_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_ef5f843f21",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer_asString",
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer_asNumber"
+      ],
+      "config_path": "status.nodeAllocatableResourceClaimStatuses[].overhead[].perContainer",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer": true,
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead": [
+              {
+                "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perContainer": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00134_Pod_point_io_k8s_api_core_v1_Pod_status_nodeAllo_12ac42cf48",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod_asString",
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod_asNumber"
+      ],
+      "config_path": "status.nodeAllocatableResourceClaimStatuses[].overhead[].perPod",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod": true,
+        "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses": [
+          {
+            "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead": [
+              {
+                "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_overhead_perPod": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00135_Pod_point_io_k8s_api_core_v1_Pod_status_resource_a5a433a64e",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_resources_limits",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_resources_limits_asString",
+        "io_k8s_api_core_v1_Pod_status_resources_limits_asNumber"
+      ],
+      "config_path": "status.resources.limits",
+      "n_array_ancestors": 0,
+      "plan_type": "dynamic_quantity_map_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_resources_limits": [
+          {
+            "io_k8s_api_core_v1_Pod_status_resources_limits_KeyMap": "cpu"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00136_Pod_point_io_k8s_api_core_v1_Pod_status_resource_89c482cf8f",
+      "point_feature": "io_k8s_api_core_v1_Pod_status_resources_requests",
+      "relation_index": 2,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Pod_status_resources_requests_asString",
+        "io_k8s_api_core_v1_Pod_status_resources_requests_asNumber"
+      ],
+      "config_path": "status.resources.requests",
+      "n_array_ancestors": 0,
+      "plan_type": "dynamic_quantity_map_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Pod_status_resources_requests": [
+          {
+            "io_k8s_api_core_v1_Pod_status_resources_requests_KeyMap": "cpu"
+          }
+        ]
+      }
+    }
+  ],
+  "synthetic_map_key": "cpu"
+}

@@ -1,0 +1,3 @@
+Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the operator of a label-selector match expression for a cluster trust bundle in a projected volume.

@@ -1,0 +1,3661 @@
+{
+  "format": "k8s_llm_prompt_cases_v2",
+  "source_profile_format": "e2b_fmvariationpoints_all_alternatives_v1",
+  "root_feature": "io_k8s_api_apps_v1_Deployment",
+  "gvk": {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment"
+  },
+  "kubernetes_version": "1.37",
+  "semantics": "Each prompt requests only the variation point. Alternative values are retained as benchmark metadata but are not exposed to the LLM. Prompt readiness is independent from benchmark grouping: PRIMARY contains ordinary user-configurable points, while EDGE retains semantically special points for a separate FM-vs-LLM analysis instead of discarding them.",
+  "summary": {
+    "cases_total": 119,
+    "by_prompt_status": {
+      "READY": 119,
+      "REVIEW": 0,
+      "SKIP": 0
+    },
+    "by_benchmark_group": {
+      "EDGE": 24,
+      "PRIMARY": 95
+    },
+    "by_classification": {
+      "non_declarative_context": 20,
+      "server_managed": 3,
+      "status_managed": 1,
+      "user_configurable": 95
+    },
+    "by_mapping_method": {
+      "affinity_rule": 12,
+      "container_rule": 60,
+      "edge_rule": 4,
+      "pod_rule": 15,
+      "resource_rule": 4,
+      "volume_rule": 24
+    },
+    "by_plan_type": {
+      "dynamic_quantity_map_in_array": 8,
+      "dynamic_quantity_map_point": 3,
+      "nested_object_arrays_experimental": 34,
+      "scalar_or_object_point": 12,
+      "single_object_array_point": 62
+    }
+  },
+  "cases": [
+    {
+      "case_id": "00002_Deployment_point_io_k8s_api_apps_v1_Deployment_metadata_b391232444",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation",
+      "config_path": "metadata.managedFields[].operation",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Apply",
+        "io_k8s_api_apps_v1_Deployment_metadata_managedFields_operation_Update"
+      ],
+      "variant_labels": [
+        "Apply",
+        "Update"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the operation of one of its managed fields",
+      "mapping_method": "edge_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "system_managed_metadata",
+      "benchmark_group": "EDGE",
+      "classification": "server_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operation of one of its managed fields."
+    },
+    {
+      "case_id": "00003_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_sel_ab6fbfe403",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator",
+      "config_path": "spec.selector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the operator of a match expression in its selector",
+      "mapping_method": "resource_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a match expression in its selector."
+    },
+    {
+      "case_id": "00004_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_3c7ffd1f06",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge",
+      "config_path": "spec.strategy.rollingUpdate.maxSurge",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxSurge_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its maximum surge during rolling updates",
+      "mapping_method": "resource_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its maximum surge during rolling updates."
+    },
+    {
+      "case_id": "00005_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_77db41b381",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable",
+      "config_path": "spec.strategy.rollingUpdate.maxUnavailable",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its maximum unavailable replicas during rolling updates",
+      "mapping_method": "resource_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its maximum unavailable replicas during rolling updates."
+    },
+    {
+      "case_id": "00006_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_6123db10bf",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_strategy_type",
+      "config_path": "spec.strategy.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_type_Recreate",
+        "io_k8s_api_apps_v1_Deployment_spec_strategy_type_RollingUpdate"
+      ],
+      "variant_labels": [
+        "Recreate",
+        "RollingUpdate"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its deployment strategy",
+      "mapping_method": "resource_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its deployment strategy."
+    },
+    {
+      "case_id": "00007_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_af263d4eaa",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation",
+      "config_path": "spec.template.metadata.managedFields[].operation",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Apply",
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Update"
+      ],
+      "variant_labels": [
+        "Apply",
+        "Update"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the operation of one of its Pod template managed fields",
+      "mapping_method": "edge_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "system_managed_metadata",
+      "benchmark_group": "EDGE",
+      "classification": "server_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operation of one of its Pod template managed fields."
+    },
+    {
+      "case_id": "00008_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b5b9f2ede7",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Lt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "Gt",
+        "In",
+        "Lt",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a match expression in its preferred node affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a match expression in its preferred node affinity."
+    },
+    {
+      "case_id": "00009_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_854654c466",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator",
+      "config_path": "spec.template.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchFields[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_Lt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "Gt",
+        "In",
+        "Lt",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a field-matching expression in its preferred node affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a field-matching expression in its preferred node affinity."
+    },
+    {
+      "case_id": "00010_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_cf3f26c2c4",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_Lt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "Gt",
+        "In",
+        "Lt",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a match expression in its required node affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a match expression in its required node affinity."
+    },
+    {
+      "case_id": "00011_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_45a4176f47",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator",
+      "config_path": "spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchFields[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Lt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "Gt",
+        "In",
+        "Lt",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a field-matching expression in its required node affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a field-matching expression in its required node affinity."
+    },
+    {
+      "case_id": "00012_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_de8baf1109",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in its preferred pod affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in its preferred pod affinity."
+    },
+    {
+      "case_id": "00013_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_c4ace3a322",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.podAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a namespace-selector match expression in its preferred pod affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a namespace-selector match expression in its preferred pod affinity."
+    },
+    {
+      "case_id": "00014_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1b03b4ae30",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in its required pod affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in its required pod affinity."
+    },
+    {
+      "case_id": "00015_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b3fb05d04e",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a namespace-selector match expression in its required pod affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a namespace-selector match expression in its required pod affinity."
+    },
+    {
+      "case_id": "00016_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a24b2e938d",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in its preferred pod anti-affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in its preferred pod anti-affinity."
+    },
+    {
+      "case_id": "00017_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d5e085e713",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.podAntiAffinity.preferredDuringSchedulingIgnoredDuringExecution[].podAffinityTerm.namespaceSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a namespace-selector match expression in its preferred pod anti-affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a namespace-selector match expression in its preferred pod anti-affinity."
+    },
+    {
+      "case_id": "00018_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f1f7c6bedb",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in its required pod anti-affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in its required pod anti-affinity."
+    },
+    {
+      "case_id": "00019_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_8e21467f95",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution[].namespaceSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a namespace-selector match expression in its required pod anti-affinity",
+      "mapping_method": "affinity_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a namespace-selector match expression in its required pod anti-affinity."
+    },
+    {
+      "case_id": "00020_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_dd48b15ea1",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor",
+      "config_path": "spec.template.spec.containers[].env[].valueFrom.resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in an environment variable of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource field reference divisor in an environment variable of one of its containers."
+    },
+    {
+      "case_id": "00021_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b38d71263a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy",
+      "config_path": "spec.template.spec.containers[].imagePullPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_imagePullPolicy_Never"
+      ],
+      "variant_labels": [
+        "Always",
+        "IfNotPresent",
+        "Never"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the image pull policy of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the image pull policy of one of its containers."
+    },
+    {
+      "case_id": "00022_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d6b211f9ab",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port",
+      "config_path": "spec.template.spec.containers[].lifecycle.postStart.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the post-start lifecycle hook in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its containers."
+    },
+    {
+      "case_id": "00023_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_05c5d3975b",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port",
+      "config_path": "spec.template.spec.containers[].lifecycle.postStart.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the post-start lifecycle hook in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its containers."
+    },
+    {
+      "case_id": "00024_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0e65e7187f",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port",
+      "config_path": "spec.template.spec.containers[].lifecycle.preStop.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the pre-stop lifecycle hook in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its containers."
+    },
+    {
+      "case_id": "00025_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d425b65ef1",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port",
+      "config_path": "spec.template.spec.containers[].lifecycle.preStop.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the pre-stop lifecycle hook in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its containers."
+    },
+    {
+      "case_id": "00026_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ad3cdd8af0",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port",
+      "config_path": "spec.template.spec.containers[].livenessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the liveness probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the liveness probe in one of its containers."
+    },
+    {
+      "case_id": "00027_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_484aec5c10",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.containers[].livenessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the liveness probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the liveness probe in one of its containers."
+    },
+    {
+      "case_id": "00028_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1cf202a234",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol",
+      "config_path": "spec.template.spec.containers[].ports[].protocol",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_SCTP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_TCP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_UDP"
+      ],
+      "variant_labels": [
+        "SCTP",
+        "TCP",
+        "UDP"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the protocol of a port exposed by one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the protocol of a port exposed by one of its containers."
+    },
+    {
+      "case_id": "00029_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b90001ed01",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port",
+      "config_path": "spec.template.spec.containers[].readinessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the readiness probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the readiness probe in one of its containers."
+    },
+    {
+      "case_id": "00030_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_3b2d6635c5",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.containers[].readinessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the readiness probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the readiness probe in one of its containers."
+    },
+    {
+      "case_id": "00031_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5179f4a7d8",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName",
+      "config_path": "spec.template.spec.containers[].resizePolicy[].resourceName",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resizePolicy_resourceName_memory"
+      ],
+      "variant_labels": [
+        "cpu",
+        "memory"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource name in a resize policy of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource name in a resize policy of one of its containers."
+    },
+    {
+      "case_id": "00032_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_01c8438b8d",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits",
+      "config_path": "spec.template.spec.containers[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource limits of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource limits of one of its containers."
+    },
+    {
+      "case_id": "00033_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_6e1dad72bd",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests",
+      "config_path": "spec.template.spec.containers[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource requests of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource requests of one of its containers."
+    },
+    {
+      "case_id": "00034_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_17f8006a4f",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator",
+      "config_path": "spec.template.spec.containers[].restartPolicyRules[].exitCodes.operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "variant_labels": [
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the exit-code operator in a restart policy rule of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the exit-code operator in a restart policy rule of one of its containers."
+    },
+    {
+      "case_id": "00035_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_15942f177f",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type",
+      "config_path": "spec.template.spec.containers[].securityContext.appArmorProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the AppArmor profile type of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the AppArmor profile type of one of its containers."
+    },
+    {
+      "case_id": "00036_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_387c597203",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type",
+      "config_path": "spec.template.spec.containers[].securityContext.seccompProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the seccomp profile type of one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the seccomp profile type of one of its containers."
+    },
+    {
+      "case_id": "00037_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ee252dce39",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port",
+      "config_path": "spec.template.spec.containers[].startupProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the startup probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the startup probe in one of its containers."
+    },
+    {
+      "case_id": "00038_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9b53b7b254",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.containers[].startupProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the startup probe in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the startup probe in one of its containers."
+    },
+    {
+      "case_id": "00039_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_40d62a6afd",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions",
+      "config_path": "spec.template.spec.containers[].volumeMounts[].bindMountOptions",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "variant_labels": [
+        "nodev",
+        "noexec",
+        "nosuid"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the bind-mount options of a volume mount in one of its containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the bind-mount options of a volume mount in one of its containers."
+    },
+    {
+      "case_id": "00040_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_96695b105a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy",
+      "config_path": "spec.template.spec.dnsPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy_ClusterFirst",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy_ClusterFirstWithHostNet",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy_Default",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_dnsPolicy_None"
+      ],
+      "variant_labels": [
+        "ClusterFirst",
+        "ClusterFirstWithHostNet",
+        "Default",
+        "None"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod DNS policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod DNS policy."
+    },
+    {
+      "case_id": "00041_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_db8c9570ef",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor",
+      "config_path": "spec.template.spec.ephemeralContainers[].env[].valueFrom.resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in an environment variable of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource field reference divisor in an environment variable of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00042_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_372c41fe97",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy",
+      "config_path": "spec.template.spec.ephemeralContainers[].imagePullPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_imagePullPolicy_Never"
+      ],
+      "variant_labels": [
+        "Always",
+        "IfNotPresent",
+        "Never"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the image pull policy of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the image pull policy of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00043_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4ea5260d6a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.postStart.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the post-start lifecycle hook in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00044_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4387202ea6",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.postStart.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the post-start lifecycle hook in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00045_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f7a12005d9",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.preStop.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the pre-stop lifecycle hook in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00046_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b6a184b731",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.preStop.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the pre-stop lifecycle hook in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00047_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_7683c41f00",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].livenessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the liveness probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the liveness probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00048_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e4c5a6fe1c",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].livenessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the liveness probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the liveness probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00049_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b698332630",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol",
+      "config_path": "spec.template.spec.ephemeralContainers[].ports[].protocol",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol_SCTP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol_TCP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_ports_protocol_UDP"
+      ],
+      "variant_labels": [
+        "SCTP",
+        "TCP",
+        "UDP"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the protocol of a port exposed by one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the protocol of a port exposed by one of its ephemeral containers."
+    },
+    {
+      "case_id": "00050_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_91d9054823",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].readinessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the readiness probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the readiness probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00051_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_24f4d20ba2",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].readinessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the readiness probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the readiness probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00052_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d572878d5b",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName",
+      "config_path": "spec.template.spec.ephemeralContainers[].resizePolicy[].resourceName",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resizePolicy_resourceName_memory"
+      ],
+      "variant_labels": [
+        "cpu",
+        "memory"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource name in a resize policy of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource name in a resize policy of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00053_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_64d1d49da9",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_limits",
+      "config_path": "spec.template.spec.ephemeralContainers[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource limits of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource limits of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00054_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b2db4f8b86",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_requests",
+      "config_path": "spec.template.spec.ephemeralContainers[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource requests of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource requests of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00055_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_50defdda9c",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator",
+      "config_path": "spec.template.spec.ephemeralContainers[].restartPolicyRules[].exitCodes.operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "variant_labels": [
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the exit-code operator in a restart policy rule of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the exit-code operator in a restart policy rule of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00056_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_34feedc3ab",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type",
+      "config_path": "spec.template.spec.ephemeralContainers[].securityContext.appArmorProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the AppArmor profile type of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the AppArmor profile type of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00057_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_6a70f460e8",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type",
+      "config_path": "spec.template.spec.ephemeralContainers[].securityContext.seccompProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the seccomp profile type of one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the seccomp profile type of one of its ephemeral containers."
+    },
+    {
+      "case_id": "00058_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_30672140be",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].startupProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the startup probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the startup probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00059_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5e620aeeec",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.ephemeralContainers[].startupProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the startup probe in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the startup probe in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00060_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f8a275604f",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions",
+      "config_path": "spec.template.spec.ephemeralContainers[].volumeMounts[].bindMountOptions",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "variant_labels": [
+        "nodev",
+        "noexec",
+        "nosuid"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the bind-mount options of a volume mount in one of its ephemeral containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "ephemeral_containers_subresource",
+      "benchmark_group": "EDGE",
+      "classification": "non_declarative_context",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the bind-mount options of a volume mount in one of its ephemeral containers."
+    },
+    {
+      "case_id": "00061_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_be422f58b3",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor",
+      "config_path": "spec.template.spec.initContainers[].env[].valueFrom.resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in an environment variable of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource field reference divisor in an environment variable of one of its init containers."
+    },
+    {
+      "case_id": "00062_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ef25a21ec1",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy",
+      "config_path": "spec.template.spec.initContainers[].imagePullPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_IfNotPresent",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_imagePullPolicy_Never"
+      ],
+      "variant_labels": [
+        "Always",
+        "IfNotPresent",
+        "Never"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the image pull policy of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the image pull policy of one of its init containers."
+    },
+    {
+      "case_id": "00063_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4bac360865",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port",
+      "config_path": "spec.template.spec.initContainers[].lifecycle.postStart.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the post-start lifecycle hook in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the post-start lifecycle hook in one of its init containers."
+    },
+    {
+      "case_id": "00064_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_bc97e96bea",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port",
+      "config_path": "spec.template.spec.initContainers[].lifecycle.postStart.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_postStart_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the post-start lifecycle hook in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the post-start lifecycle hook in one of its init containers."
+    },
+    {
+      "case_id": "00065_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_33bd5daa28",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port",
+      "config_path": "spec.template.spec.initContainers[].lifecycle.preStop.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the pre-stop lifecycle hook in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the pre-stop lifecycle hook in one of its init containers."
+    },
+    {
+      "case_id": "00066_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_044ccd6242",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port",
+      "config_path": "spec.template.spec.initContainers[].lifecycle.preStop.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_lifecycle_preStop_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the pre-stop lifecycle hook in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the pre-stop lifecycle hook in one of its init containers."
+    },
+    {
+      "case_id": "00067_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d9597921cf",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port",
+      "config_path": "spec.template.spec.initContainers[].livenessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the liveness probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the liveness probe in one of its init containers."
+    },
+    {
+      "case_id": "00068_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_40f53dbffe",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.initContainers[].livenessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the liveness probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the liveness probe in one of its init containers."
+    },
+    {
+      "case_id": "00069_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_616d18a7c6",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol",
+      "config_path": "spec.template.spec.initContainers[].ports[].protocol",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol_SCTP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol_TCP",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_ports_protocol_UDP"
+      ],
+      "variant_labels": [
+        "SCTP",
+        "TCP",
+        "UDP"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the protocol of a port exposed by one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the protocol of a port exposed by one of its init containers."
+    },
+    {
+      "case_id": "00070_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_582363dee7",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port",
+      "config_path": "spec.template.spec.initContainers[].readinessProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the readiness probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the readiness probe in one of its init containers."
+    },
+    {
+      "case_id": "00071_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f0ed22a29e",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.initContainers[].readinessProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_readinessProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the readiness probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the readiness probe in one of its init containers."
+    },
+    {
+      "case_id": "00072_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d423b42720",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName",
+      "config_path": "spec.template.spec.initContainers[].resizePolicy[].resourceName",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName_cpu",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resizePolicy_resourceName_memory"
+      ],
+      "variant_labels": [
+        "cpu",
+        "memory"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource name in a resize policy of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource name in a resize policy of one of its init containers."
+    },
+    {
+      "case_id": "00073_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e1805a50b7",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_limits",
+      "config_path": "spec.template.spec.initContainers[].resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource limits of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource limits of one of its init containers."
+    },
+    {
+      "case_id": "00074_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2c65a40235",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_requests",
+      "config_path": "spec.template.spec.initContainers[].resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the resource requests of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource requests of one of its init containers."
+    },
+    {
+      "case_id": "00075_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_651b553f92",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator",
+      "config_path": "spec.template.spec.initContainers[].restartPolicyRules[].exitCodes.operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_restartPolicyRules_exitCodes_operator_NotIn"
+      ],
+      "variant_labels": [
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the exit-code operator in a restart policy rule of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the exit-code operator in a restart policy rule of one of its init containers."
+    },
+    {
+      "case_id": "00076_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a4df10f0a8",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type",
+      "config_path": "spec.template.spec.initContainers[].securityContext.appArmorProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the AppArmor profile type of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the AppArmor profile type of one of its init containers."
+    },
+    {
+      "case_id": "00077_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_bd1d7673b1",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type",
+      "config_path": "spec.template.spec.initContainers[].securityContext.seccompProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the seccomp profile type of one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the seccomp profile type of one of its init containers."
+    },
+    {
+      "case_id": "00078_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d7440a57b2",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port",
+      "config_path": "spec.template.spec.initContainers[].startupProbe.httpGet.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_httpGet_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the HTTP GET port of the startup probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the HTTP GET port of the startup probe in one of its init containers."
+    },
+    {
+      "case_id": "00079_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_8d5aea8648",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port",
+      "config_path": "spec.template.spec.initContainers[].startupProbe.tcpSocket.port",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_startupProbe_tcpSocket_port_asInteger"
+      ],
+      "variant_labels": [
+        "asString",
+        "asInteger"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the TCP socket port of the startup probe in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the TCP socket port of the startup probe in one of its init containers."
+    },
+    {
+      "case_id": "00080_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_382c1c4009",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions",
+      "config_path": "spec.template.spec.initContainers[].volumeMounts[].bindMountOptions",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions_nodev",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions_noexec",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_bindMountOptions_nosuid"
+      ],
+      "variant_labels": [
+        "nodev",
+        "noexec",
+        "nosuid"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the bind-mount options of a volume mount in one of its init containers",
+      "mapping_method": "container_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the bind-mount options of a volume mount in one of its init containers."
+    },
+    {
+      "case_id": "00081_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e392862a0a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_os_name",
+      "config_path": "spec.template.spec.os.name",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_os_name_linux",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_os_name_windows"
+      ],
+      "variant_labels": [
+        "linux",
+        "windows"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod operating system",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod operating system."
+    },
+    {
+      "case_id": "00082_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e3450ddcf5",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_overhead",
+      "config_path": "spec.template.spec.overhead",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_overhead_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_overhead_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod overhead resource quantities",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod overhead resource quantities."
+    },
+    {
+      "case_id": "00083_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_aa103e342d",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_preemptionPolicy",
+      "config_path": "spec.template.spec.preemptionPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_preemptionPolicy_Never",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_preemptionPolicy_PreemptLowerPriority"
+      ],
+      "variant_labels": [
+        "Never",
+        "PreemptLowerPriority"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod preemption policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod preemption policy."
+    },
+    {
+      "case_id": "00084_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a087d6c5e2",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_limits",
+      "config_path": "spec.template.spec.resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod-level resource limits",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod-level resource limits."
+    },
+    {
+      "case_id": "00085_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f77ed48e75",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_requests",
+      "config_path": "spec.template.spec.resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod-level resource requests",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod-level resource requests."
+    },
+    {
+      "case_id": "00086_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_283ef3cb6c",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy",
+      "config_path": "spec.template.spec.restartPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_Never",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_OnFailure"
+      ],
+      "variant_labels": [
+        "Always",
+        "Never",
+        "OnFailure"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod restart policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod restart policy."
+    },
+    {
+      "case_id": "00087_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_88b3ecb968",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type",
+      "config_path": "spec.template.spec.securityContext.appArmorProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod AppArmor profile type",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod AppArmor profile type."
+    },
+    {
+      "case_id": "00088_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_4beca1c6a5",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy",
+      "config_path": "spec.template.spec.securityContext.fsGroupChangePolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy_Always",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_fsGroupChangePolicy_OnRootMismatch"
+      ],
+      "variant_labels": [
+        "Always",
+        "OnRootMismatch"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod filesystem group change policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod filesystem group change policy."
+    },
+    {
+      "case_id": "00089_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e544e21bc1",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy",
+      "config_path": "spec.template.spec.securityContext.seLinuxChangePolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy_MountOption",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seLinuxChangePolicy_Recursive"
+      ],
+      "variant_labels": [
+        "MountOption",
+        "Recursive"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod SELinux change policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod SELinux change policy."
+    },
+    {
+      "case_id": "00090_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2b70f335db",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type",
+      "config_path": "spec.template.spec.securityContext.seccompProfile.type",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type_Localhost",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type_RuntimeDefault",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_seccompProfile_type_Unconfined"
+      ],
+      "variant_labels": [
+        "Localhost",
+        "RuntimeDefault",
+        "Unconfined"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod seccomp profile type",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod seccomp profile type."
+    },
+    {
+      "case_id": "00091_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_62ae80c41b",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy",
+      "config_path": "spec.template.spec.securityContext.supplementalGroupsPolicy",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy_Merge",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_supplementalGroupsPolicy_Strict"
+      ],
+      "variant_labels": [
+        "Merge",
+        "Strict"
+      ],
+      "plan_type": "scalar_or_object_point",
+      "n_array_ancestors": 0,
+      "source_status": "planned",
+      "target_phrase": "its Pod supplemental groups policy",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures its Pod supplemental groups policy."
+    },
+    {
+      "case_id": "00092_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_2fd920186d",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect",
+      "config_path": "spec.template.spec.tolerations[].effect",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoExecute",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_NoSchedule",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_effect_PreferNoSchedule"
+      ],
+      "variant_labels": [
+        "NoExecute",
+        "NoSchedule",
+        "PreferNoSchedule"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the effect of one of its Pod tolerations",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the effect of one of its Pod tolerations."
+    },
+    {
+      "case_id": "00093_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_73e1fc3545",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator",
+      "config_path": "spec.template.spec.tolerations[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Equal",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Gt",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_tolerations_operator_Lt"
+      ],
+      "variant_labels": [
+        "Equal",
+        "Exists",
+        "Gt",
+        "Lt"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the operator of one of its Pod tolerations",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of one of its Pod tolerations."
+    },
+    {
+      "case_id": "00094_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_d4b042a962",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.topologySpreadConstraints[].labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression in one of its topology spread constraints",
+      "mapping_method": "pod_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression in one of its topology spread constraints."
+    },
+    {
+      "case_id": "00095_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5dee55dfcc",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType",
+      "config_path": "spec.template.spec.volumes[].awsElasticBlockStore.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_awsElasticBlockStore_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of an AWS Elastic Block Store volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of an AWS Elastic Block Store volume."
+    },
+    {
+      "case_id": "00096_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1567a165cd",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode",
+      "config_path": "spec.template.spec.volumes[].azureDisk.cachingMode",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_None",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Only",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_cachingMode_Read_Write"
+      ],
+      "variant_labels": [
+        "None",
+        "Read_Only",
+        "Read_Write"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the caching mode of an Azure Disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the caching mode of an Azure Disk volume."
+    },
+    {
+      "case_id": "00097_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_3f789ae783",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType",
+      "config_path": "spec.template.spec.volumes[].azureDisk.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of an Azure Disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of an Azure Disk volume."
+    },
+    {
+      "case_id": "00098_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ed5244fbcd",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind",
+      "config_path": "spec.template.spec.volumes[].azureDisk.kind",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Dedicated",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Managed",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_azureDisk_kind_Shared"
+      ],
+      "variant_labels": [
+        "Dedicated",
+        "Managed",
+        "Shared"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the kind of an Azure Disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the kind of an Azure Disk volume."
+    },
+    {
+      "case_id": "00099_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_05848660e1",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType",
+      "config_path": "spec.template.spec.volumes[].cinder.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a Cinder volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a Cinder volume."
+    },
+    {
+      "case_id": "00100_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e333f8bd9a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor",
+      "config_path": "spec.template.spec.volumes[].downwardAPI.items[].resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in a Downward API volume item",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource field reference divisor in a Downward API volume item."
+    },
+    {
+      "case_id": "00101_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_adc0ed2766",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit",
+      "config_path": "spec.template.spec.volumes[].emptyDir.sizeLimit",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the size limit of an emptyDir volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the size limit of an emptyDir volume."
+    },
+    {
+      "case_id": "00102_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9a1669179d",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation",
+      "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.metadata.managedFields[].operation",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Apply",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Update"
+      ],
+      "variant_labels": [
+        "Apply",
+        "Update"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operation of one of the managed fields in a generic ephemeral volume claim template",
+      "mapping_method": "edge_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "system_managed_metadata",
+      "benchmark_group": "EDGE",
+      "classification": "server_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operation of one of the managed fields in a generic ephemeral volume claim template."
+    },
+    {
+      "case_id": "00103_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_5d6ea6044e",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits",
+      "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.limits",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the storage resource limits of a generic ephemeral volume claim template",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the storage resource limits of a generic ephemeral volume claim template."
+    },
+    {
+      "case_id": "00104_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_99c3e85a6a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests",
+      "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.resources.requests",
+      "relation_type": "alternative",
+      "relation_index": 2,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "dynamic_quantity_map_in_array",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the storage resource requests of a generic ephemeral volume claim template",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the storage resource requests of a generic ephemeral volume claim template."
+    },
+    {
+      "case_id": "00105_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_dc7ca38dc8",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator",
+      "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.selector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the operator of a selector match expression in a generic ephemeral volume claim template",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a selector match expression in a generic ephemeral volume claim template."
+    },
+    {
+      "case_id": "00106_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0bdb206ee4",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType",
+      "config_path": "spec.template.spec.volumes[].fc.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_fc_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a Fibre Channel volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a Fibre Channel volume."
+    },
+    {
+      "case_id": "00107_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_f27f790a20",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType",
+      "config_path": "spec.template.spec.volumes[].flexVolume.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_flexVolume_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a FlexVolume volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a FlexVolume volume."
+    },
+    {
+      "case_id": "00108_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_896f8af725",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType",
+      "config_path": "spec.template.spec.volumes[].gcePersistentDisk.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_gcePersistentDisk_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a GCE persistent disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a GCE persistent disk volume."
+    },
+    {
+      "case_id": "00109_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b6437a7923",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType",
+      "config_path": "spec.template.spec.volumes[].iscsi.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_iscsi_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of an iSCSI volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of an iSCSI volume."
+    },
+    {
+      "case_id": "00110_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_ef54c83c1b",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType",
+      "config_path": "spec.template.spec.volumes[].photonPersistentDisk.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_photonPersistentDisk_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a Photon persistent disk volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a Photon persistent disk volume."
+    },
+    {
+      "case_id": "00111_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_03b0dab82f",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType",
+      "config_path": "spec.template.spec.volumes[].portworxVolume.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_portworxVolume_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a Portworx volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a Portworx volume."
+    },
+    {
+      "case_id": "00112_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9876ba4a4d",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator",
+      "config_path": "spec.template.spec.volumes[].projected.sources[].clusterTrustBundle.labelSelector.matchExpressions[].operator",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_DoesNotExist",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_Exists",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_In",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_clusterTrustBundle_labelSelector_matchExpressions_operator_NotIn"
+      ],
+      "variant_labels": [
+        "DoesNotExist",
+        "Exists",
+        "In",
+        "NotIn"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the operator of a label-selector match expression for a cluster trust bundle in a projected volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the operator of a label-selector match expression for a cluster trust bundle in a projected volume."
+    },
+    {
+      "case_id": "00113_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_fc6d35fa8a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor",
+      "config_path": "spec.template.spec.volumes[].projected.sources[].downwardAPI.items[].resourceFieldRef.divisor",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asString",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asNumber"
+      ],
+      "variant_labels": [
+        "asString",
+        "asNumber"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 3,
+      "source_status": "planned",
+      "target_phrase": "the resource field reference divisor in a Downward API source of a projected volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the resource field reference divisor in a Downward API source of a projected volume."
+    },
+    {
+      "case_id": "00114_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_12d17b98fb",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType",
+      "config_path": "spec.template.spec.volumes[].projected.sources[].podCertificate.keyType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP256",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP384",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_ECDSAP521",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_ED25519",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_RSA3072",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_podCertificate_keyType_RSA4096"
+      ],
+      "variant_labels": [
+        "ECDSAP256",
+        "ECDSAP384",
+        "ECDSAP521",
+        "ED25519",
+        "RSA3072",
+        "RSA4096"
+      ],
+      "plan_type": "nested_object_arrays_experimental",
+      "n_array_ancestors": 2,
+      "source_status": "planned",
+      "target_phrase": "the key type of a Pod certificate source in a projected volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the key type of a Pod certificate source in a projected volume."
+    },
+    {
+      "case_id": "00115_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_588fbba6b6",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType",
+      "config_path": "spec.template.spec.volumes[].rbd.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of an RBD volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of an RBD volume."
+    },
+    {
+      "case_id": "00116_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_0570c3179a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType",
+      "config_path": "spec.template.spec.volumes[].scaleIO.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a ScaleIO volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a ScaleIO volume."
+    },
+    {
+      "case_id": "00117_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_a6e3a4775a",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode",
+      "config_path": "spec.template.spec.volumes[].scaleIO.storageMode",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThickProvisioned",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_scaleIO_storageMode_ThinProvisioned"
+      ],
+      "variant_labels": [
+        "ThickProvisioned",
+        "ThinProvisioned"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the storage mode of a ScaleIO volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the storage mode of a ScaleIO volume."
+    },
+    {
+      "case_id": "00118_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_377edc90cd",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType",
+      "config_path": "spec.template.spec.volumes[].storageos.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_storageos_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a StorageOS volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a StorageOS volume."
+    },
+    {
+      "case_id": "00119_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_cacea8cd75",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType",
+      "config_path": "spec.template.spec.volumes[].vsphereVolume.fsType",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ext4",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_ntfs",
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_vsphereVolume_fsType_xfs"
+      ],
+      "variant_labels": [
+        "ext4",
+        "ntfs",
+        "xfs"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the filesystem type of a vSphere volume",
+      "mapping_method": "volume_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "",
+      "benchmark_group": "PRIMARY",
+      "classification": "user_configurable",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the filesystem type of a vSphere volume."
+    },
+    {
+      "case_id": "00120_Deployment_point_io_k8s_api_apps_v1_Deployment_status_c_dc0f62d91c",
+      "resource": "Deployment",
+      "api_version": "apps/v1",
+      "kubernetes_version": "1.37",
+      "point_feature": "io_k8s_api_apps_v1_Deployment_status_conditions_status",
+      "config_path": "status.conditions[].status",
+      "relation_type": "alternative",
+      "relation_index": 1,
+      "variant_features": [
+        "io_k8s_api_apps_v1_Deployment_status_conditions_status_False",
+        "io_k8s_api_apps_v1_Deployment_status_conditions_status_True",
+        "io_k8s_api_apps_v1_Deployment_status_conditions_status_Unknown"
+      ],
+      "variant_labels": [
+        "False",
+        "True",
+        "Unknown"
+      ],
+      "plan_type": "single_object_array_point",
+      "n_array_ancestors": 1,
+      "source_status": "planned",
+      "target_phrase": "the status value of one of its status conditions",
+      "mapping_method": "edge_rule",
+      "mapping_confidence": "high",
+      "prompt_status": "READY",
+      "prompt_status_reason": "status_is_server_managed",
+      "benchmark_group": "EDGE",
+      "classification": "status_managed",
+      "user_prompt": "Kubernetes version: 1.37\n\nCreate a Kubernetes Deployment that explicitly configures the status value of one of its status conditions."
+    }
+  ]
+}

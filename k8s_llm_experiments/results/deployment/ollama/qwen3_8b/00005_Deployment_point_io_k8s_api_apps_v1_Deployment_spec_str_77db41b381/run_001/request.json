@@ -1,0 +1,22 @@
+{
+  "case_id": "00005_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_77db41b381",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.strategy.rollingUpdate.maxUnavailable",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_strategy_rollingUpdate_maxUnavailable",
+  "variant_labels": [
+    "asString",
+    "asInteger"
+  ],
+  "plan_type": "scalar_or_object_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-09T17:57:24.876370+00:00"
+}
