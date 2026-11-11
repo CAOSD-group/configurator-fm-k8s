@@ -1,0 +1,37 @@
+{
+  "Deployment": {
+    "generation_outcomes": {
+      "generated": 114,
+      "unsat": 6
+    },
+    "audit_statuses": {
+      "rq1_vp_fidelity_status": {
+        "base_or_no_point": 1,
+        "match": 113
+      },
+      "rq2_data_equivalent": {
+        "true": 114
+      },
+      "rq2_documentation_status": {
+        "data_equal_base_not_scored": 1,
+        "checked_match": 113
+      },
+      "rq2_vp_block_status": {
+        "unmeasured": 1,
+        "present": 113
+      },
+      "rq2_selected_comment_status": {
+        "unmeasured": 1,
+        "correct": 113
+      }
+    },
+    "mapping_status": {
+      "mapped": 114
+    },
+    "default_explicit_label_status_when_marker_selected": {
+      "not_expressed_by_current_format": 29
+    },
+    "timing_stage_delta_residual_max_abs_s": 3.3306690738754696e-16,
+    "note": "Statuses requiring interpretation are retained here. SAT checks extensibility of YAML mapping, not full YAML semantics. Timed outputs are stage-derived and share completion."
+  }
+}
