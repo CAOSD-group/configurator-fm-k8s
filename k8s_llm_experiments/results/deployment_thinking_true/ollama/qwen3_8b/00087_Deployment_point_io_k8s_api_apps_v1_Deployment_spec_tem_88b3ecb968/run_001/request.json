@@ -1,0 +1,23 @@
+{
+  "case_id": "00087_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_88b3ecb968",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.securityContext.appArmorProfile.type",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_securityContext_appArmorProfile_type",
+  "variant_labels": [
+    "Localhost",
+    "RuntimeDefault",
+    "Unconfined"
+  ],
+  "plan_type": "scalar_or_object_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-09T18:30:15.351766+00:00"
+}

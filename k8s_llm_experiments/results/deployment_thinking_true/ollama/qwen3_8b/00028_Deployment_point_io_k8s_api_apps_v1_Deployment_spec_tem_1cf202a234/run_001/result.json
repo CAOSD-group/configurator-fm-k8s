@@ -1,0 +1,55 @@
+{
+  "case_id": "00028_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1cf202a234",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.containers[].ports[].protocol",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol",
+  "variant_labels": [
+    "SCTP",
+    "TCP",
+    "UDP"
+  ],
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-09T18:21:12.732831+00:00",
+  "finished_at_utc": "2026-11-09T18:21:23.190259+00:00",
+  "generation_status": "SUCCESS",
+  "latency_seconds": 10.454604800033849,
+  "usage": {
+    "prompt_tokens": 127,
+    "completion_tokens": 962
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "total_duration_ns": 10453093300,
+    "load_duration_ns": 2590200,
+    "prompt_eval_duration_ns": 20642000,
+    "eval_duration_ns": 10383771000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": true,
+    "yaml_parse_ok": false,
+    "yaml_document_count": null,
+    "yaml_root_is_mapping": false,
+    "yaml_error": "ScannerError: while scanning for the next token\nfound character '`' that cannot start any token\n  in \"<unicode string>\", line 1, column 1:\n    ```\n    ^",
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": true,
+    "method": "markdown_fence_removed",
+    "path": "candidate.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

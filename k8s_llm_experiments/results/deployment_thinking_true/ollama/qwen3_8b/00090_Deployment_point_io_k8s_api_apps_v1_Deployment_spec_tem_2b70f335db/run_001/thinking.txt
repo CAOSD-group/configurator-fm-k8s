@@ -1,0 +1,46 @@
+Okay, the user wants a Kubernetes Deployment that explicitly sets the Pod's seccomp profile type. Let me recall how to do this.
+
+First, I need to remember that seccomp profiles are configured in the Pod's security context. The seccomp profile type can be either 'runtimeDefault' or a custom profile. Since the user didn't specify a custom one, maybe using 'runtimeDefault' is safe, but maybe they want to enforce a specific one. Wait, the question says "explicitly configures its Pod seccomp profile type," so maybe they want to set it to a specific value, like 'runtimeDefault' or another predefined type.
+
+In Kubernetes, the seccomp profile is set under the securityContext in the container or at the Pod level. The Pod's securityContext can have a seccompProfile with a type. So, the Deployment's PodSpec should include a securityContext with seccompProfile.
+
+Wait, the user might be referring to the Pod's seccomp profile, not the container's. But in Kubernetes, the seccomp profile is typically set at the container level. However, if the Pod's securityContext has a seccompProfile, that applies to all containers in the Pod. So, maybe the user wants that.
+
+So, the Deployment's PodSpec should have a securityContext with seccompProfile.type set. Let me check the Kubernetes version. The user specified 1.37, which is a recent version. The seccompProfile field was introduced in Kubernetes 1.16, so 1.37 should support it.
+
+So, the YAML should have a Deployment with a PodSpec that includes a securityContext under the spec.template.spec. The securityContext would have a seccompProfile with type. Let me make sure that the syntax is correct.
+
+Also, the user might need to ensure that the seccomp profile is available. But since they just want to configure the type, maybe using 'runtimeDefault' is acceptable. Alternatively, maybe they want to use a specific profile, but since it's not specified, I'll go with 'runtimeDefault' as the example.
+
+Putting it all together: the Deployment will have a container, and in the PodSpec's securityContext, set seccompProfile.type to 'runtimeDefault'. Wait, but the securityContext is at the Pod level. Wait, no, the securityContext can be set at the Pod level or container level. If set at the Pod level, it applies to all containers. So, in the PodSpec, under securityContext, add seccompProfile with type.
+
+So the YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      securityContext:
+        seccompProfile:
+          type: runtimeDefault
+      containers:
+      - name: example-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+Wait, but the securityContext in the PodSpec applies to all containers. So that's correct. But I need to make sure that the seccompProfile is correctly nested. The securityContext has a seccompProfile field, which is an object with type.
+
+Yes. So that should be the correct structure. Let me check if there are any other required fields. For example, the seccompProfile requires the type field. So the YAML should have that.
+
+I think that's all. The user didn't specify any other requirements, so this should meet the task.

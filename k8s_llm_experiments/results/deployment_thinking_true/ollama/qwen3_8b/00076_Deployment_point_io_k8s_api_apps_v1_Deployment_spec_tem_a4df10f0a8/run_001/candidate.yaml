@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      initContainers:
+        - name: init-container
+          image: alpine:3.18
+          command: ["sh", "-c", "echo \"init container\""]
+          securityContext:
+            appArmorProfile:
+              type: TypeAppArmor
+              name: my-profile
+      containers:
+        - name: main-container
+          image: nginx:latest

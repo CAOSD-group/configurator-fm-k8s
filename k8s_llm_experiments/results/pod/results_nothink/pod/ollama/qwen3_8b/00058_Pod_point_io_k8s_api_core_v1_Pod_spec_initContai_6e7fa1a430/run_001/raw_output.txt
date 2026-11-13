@@ -1,0 +1,27 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  initContainers:
+  - name: init-container
+    image: alpine:latest
+    command:
+    - sh
+    - -c
+    - echo "Init container running"
+    lifecycle:
+      postStart:
+        httpGet:
+          path: /
+          port: 80
+          host: 0.0.0.0
+  containers:
+  - name: main-container
+    image: alpine:latest
+    command:
+    - sh
+    - -c
+    - echo "Main container running"
+```

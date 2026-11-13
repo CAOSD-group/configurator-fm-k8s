@@ -1,0 +1,17 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-limited-pod
+spec:
+  containers:
+  - name: resource-limited-container
+    image: nginx
+    resources:
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
+      requests:
+        memory: "256Mi"
+        cpu: "200m"
+```

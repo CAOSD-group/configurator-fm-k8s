@@ -1,0 +1,19 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  containers:
+  - name: main-container
+    image: nginx
+    ports:
+    - containerPort: 80
+  ephemeralContainers:
+  - name: test-ephemeral
+    image: busybox
+    lifecycle:
+      preStop:
+        tcpSocket:
+          port: 80
+```

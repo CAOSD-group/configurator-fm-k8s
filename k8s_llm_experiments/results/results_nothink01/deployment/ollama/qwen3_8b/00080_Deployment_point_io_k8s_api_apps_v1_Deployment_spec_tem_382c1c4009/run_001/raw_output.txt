@@ -1,0 +1,39 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: init-container
+          image: busybox
+          command:
+            - sh
+            - -c
+            - echo "Init container running"
+          volumeMounts:
+            - name: example-volume
+              mountPath: /mnt/data
+              readOnly: true
+              bindMountOptions:
+                - ro
+      containers:
+        - name: main-container
+          image: nginx
+          volumeMounts:
+            - name: example-volume
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: example-volume
+          hostPath:
+            path: /data
+```

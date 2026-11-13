@@ -1,0 +1,65 @@
+Okay, the user wants a Kubernetes Deployment that sets the HTTP GET port for a liveness probe in one of its containers. Let me recall the Kubernetes version they specified, which is 1.37. I need to make sure the YAML is compatible with that version.
+
+First, the Deployment needs a container with a liveness probe. The key part is configuring the httpGet section with the port. The port should be specified as a string, not a number, even though it's a number. Wait, no, in Kubernetes, the port can be a number or a string. But in the YAML, it's usually written as a number. Wait, no, looking back, in Kubernetes, the port is specified as an integer. Wait, no, actually, in the probe configuration, the port is an integer. For example, in the livenessProbe's httpGet, the port is an integer. Wait, but in the YAML, when you write the port, it's under the httpGet spec, and the port is an integer. Let me check.
+
+Wait, in Kubernetes, the port in the probe is specified as an integer. For example, in the livenessProbe configuration, the httpGet has a port field which is an integer. So in the YAML, it should be written as port: 8080, not as a string. But the user might have a specific requirement here. Wait, the user says "explicitly configures the HTTP GET port", so I need to make sure that the port is set in the liveness probe.
+
+So the structure would be under the container's livenessProbe, then httpGet, then port. Let me structure the Deployment accordingly.
+
+Let me think about the container. Let's use a simple image, maybe nginx. The liveness probe would check /healthz, and the port would be 8080. Wait, but nginx by default serves on 80. Maybe the user wants a different port. But since the example is generic, maybe using 8080 is okay.
+
+So the YAML would have a Deployment with a container, and in the livenessProbe, httpGet with path /healthz, port 8080. Also, need to make sure that the container's port is exposed. Wait, the container's port is specified in the containerPort, but the probe's port is the port on the container that the probe connects to. So if the container is listening on 8080, then the probe's port should be 8080. But the container's port is specified in the containerPort. Wait, no. The containerPort is the port that the container listens on. The probe's port is the same as the containerPort. So if the container is listening on 8080, then the probe's port should be 3000? Wait, no. Wait, the container's port is the port that the container's process is listening on. The probe's port is the port that the probe connects to on the container. So if the container is listening on port 8080, then the probe's port should be 8080. So in the container's spec, the containerPort is 8080, and the livenessProbe's httpGet port is 8080.
+
+Wait, but in the container's ports, you have to specify the containerPort. So the container's ports would have a containerPort of 8080, and the livenessProbe's httpGet port is 8080. That makes sense.
+
+So putting it all together, the Deployment would have a container with:
+
+- image: nginx
+- ports:
+  - containerPort: 8080
+- livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+Wait, but the user didn't specify the path or the initial delay, but the task is to explicitly configure the HTTP GET port. So the path and other parameters are optional, but the port must be specified. So the minimal required is the port in the httpGet.
+
+But to make it a valid configuration, maybe include some defaults. For example, the path could be /healthz, and the port is 8080. Also, the initialDelaySeconds and periodSeconds are optional but often included.
+
+So the YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liveness-probe-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: liveness-probe
+  template:
+    metadata:
+      labels:
+        app: liveness-probe
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+
+Wait, but the user didn't specify the path. However, the livenessProbe requires some configuration. If the path is not specified, it might not work. So including a path is necessary. But the user's main requirement is to set the port. So the path can be a placeholder, like /healthz, which is common.
+
+Also, the Kubernetes version is 1.37. I need to make sure that the API version is correct. For deployments, the apiVersion is apps/v1, which is correct for Kubernetes 1.37.
+
+Another thing: the container's image. Using nginx is fine, but maybe the user expects a specific image. But since it's not specified, using nginx is acceptable.
+
+So the final YAML should have the container with the livenessProbe's httpGet port set to 8080, along with the necessary fields to make the probe work. The user didn't mention other aspects, so this should suffice.

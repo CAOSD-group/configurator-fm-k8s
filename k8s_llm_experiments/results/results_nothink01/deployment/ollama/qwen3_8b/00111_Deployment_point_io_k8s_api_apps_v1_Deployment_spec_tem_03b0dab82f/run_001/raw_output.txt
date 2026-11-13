@@ -1,0 +1,45 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: px-app
+  labels:
+    app: px-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: px-app
+  template:
+    metadata:
+      labels:
+        app: px-app
+    spec:
+      containers:
+      - name: app
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: px-volume
+          mountPath: /data
+          readOnly: true
+      volumes:
+      - name: px-volume
+        persistentVolumeClaim:
+          claimName: px-pvc
+      initContainers:
+      - name: px-init
+        image: portworx/px-init:latest
+        command:
+        - /px-init
+        - --volume
+        - px-volume
+        - --fstype
+        - ext4
+        - --mountpoint
+        - /data
+        volumeMounts:
+        - name: px-volume
+          mountPath: /data
+```

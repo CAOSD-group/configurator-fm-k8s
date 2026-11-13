@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  affinity:
+    podAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - podAffinityTerm:
+          namespaceSelector:
+            matchExpressions:
+            - operator: DoesNotExist
+              key: fm-key
+          topologyKey: fm-topologykey
+        weight: 1

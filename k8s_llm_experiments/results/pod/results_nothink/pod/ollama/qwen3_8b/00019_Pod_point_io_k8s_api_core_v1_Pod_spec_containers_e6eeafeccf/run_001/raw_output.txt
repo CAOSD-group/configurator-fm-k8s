@@ -1,0 +1,15 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lifecycle-pod
+spec:
+  containers:
+  - name: test-container
+    image: alpine
+    lifecycle:
+      preStop:
+        httpGet:
+          path: /
+          port: 80
+```

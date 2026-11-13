@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  volumes:
+  - downwardAPI:
+      items:
+      - resourceFieldRef:
+          divisor: '1'
+          resource: fm-resource
+        path: fm-path
+    name: fm-volume-1

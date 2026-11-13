@@ -1,0 +1,3 @@
+Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the status value of one of its status conditions.

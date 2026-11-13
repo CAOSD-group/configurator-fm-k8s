@@ -1,0 +1,32 @@
+{
+  "case_id": "00086_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_283ef3cb6c",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.restartPolicy",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy",
+  "variant_labels": [
+    "Always",
+    "Never",
+    "OnFailure"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_Always",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_Never",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_restartPolicy_OnFailure"
+  ],
+  "target_phrase": "its Pod restart policy",
+  "mapping_method": "pod_rule",
+  "mapping_confidence": "high",
+  "plan_type": "scalar_or_object_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T12:39:34.611957+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "case_id": "00091_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_az_1d38ebd809",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.volumes[].azureDisk.cachingMode",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode",
+  "variant_labels": [
+    "None",
+    "Read_Only",
+    "Read_Write"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_None",
+    "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_Read_Only",
+    "io_k8s_api_core_v1_Pod_spec_volumes_azureDisk_cachingMode_Read_Write"
+  ],
+  "target_phrase": "the caching mode of an Azure Disk volume",
+  "mapping_method": "volume_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:47:03.680204+00:00"
+}

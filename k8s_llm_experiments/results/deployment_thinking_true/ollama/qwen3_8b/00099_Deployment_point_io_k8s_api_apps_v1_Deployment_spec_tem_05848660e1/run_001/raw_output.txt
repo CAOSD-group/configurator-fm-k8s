@@ -1,0 +1,27 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinder-volume-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinder-volume
+  template:
+    metadata:
+      labels:
+        app: cinder-volume
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: cinder-volume
+          mountPath: /var/www/html
+          fsType: ext4
+      volumes:
+      - name: cinder-volume
+        persistentVolumeClaim:
+          claimName: cinder-pvc
+```

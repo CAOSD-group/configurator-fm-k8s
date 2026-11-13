@@ -1,0 +1,28 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinder-volume-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinder-volume-app
+  template:
+    metadata:
+      labels:
+        app: cinder-volume-app
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: cinder-volume
+          mountPath: /var/www/html
+          readOnly: true
+      volumes:
+      - name: cinder-volume
+        cinder:
+          volumeID: <volume-id>
+          fsType: ext4
+```

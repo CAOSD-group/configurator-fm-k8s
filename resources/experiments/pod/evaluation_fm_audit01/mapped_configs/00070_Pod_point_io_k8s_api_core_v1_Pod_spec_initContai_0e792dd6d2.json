@@ -1,0 +1,31 @@
+{
+  "config": {
+    "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+    "io_k8s_api_core_v1_Pod_kind": "Pod",
+    "io_k8s_api_core_v1_Pod_metadata": {
+      "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod"
+    },
+    "io_k8s_api_core_v1_Pod_spec": {
+      "io_k8s_api_core_v1_Pod_spec_containers": [
+        {
+          "io_k8s_api_core_v1_Pod_spec_containers_name": "fm-container-1"
+        }
+      ],
+      "io_k8s_api_core_v1_Pod_spec_initContainers": [
+        {
+          "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules": [
+            {
+              "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes": {
+                "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator": {
+                  "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_exitCodes_operator_NotIn": true
+                }
+              },
+              "io_k8s_api_core_v1_Pod_spec_initContainers_restartPolicyRules_action": "fm-action"
+            }
+          ],
+          "io_k8s_api_core_v1_Pod_spec_initContainers_name": "fm-initcontainer-1"
+        }
+      ]
+    }
+  }
+}

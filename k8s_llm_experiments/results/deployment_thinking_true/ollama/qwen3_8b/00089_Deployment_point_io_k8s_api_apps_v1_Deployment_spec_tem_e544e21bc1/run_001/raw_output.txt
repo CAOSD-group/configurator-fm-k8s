@@ -1,0 +1,25 @@
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selinux-config-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: selinux-config
+  template:
+    metadata:
+      labels:
+        app: selinux-config
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        securityContext:
+          selinuxOptions:
+            - user: 1000
+            - role: 0
+            - type: spc_t
+            - level: s0
+```

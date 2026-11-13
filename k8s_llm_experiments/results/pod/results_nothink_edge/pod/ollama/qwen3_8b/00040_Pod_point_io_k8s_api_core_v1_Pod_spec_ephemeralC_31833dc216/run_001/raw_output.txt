@@ -1,0 +1,17 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  containers:
+  - name: test-container
+    image: nginx
+    ports:
+    - containerPort: 80
+    lifecycle:
+      preStop:
+        httpGet:
+          path: /
+          port: 80
+```

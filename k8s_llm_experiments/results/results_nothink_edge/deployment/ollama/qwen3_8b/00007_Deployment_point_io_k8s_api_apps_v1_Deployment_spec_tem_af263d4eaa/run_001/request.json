@@ -1,0 +1,30 @@
+{
+  "case_id": "00007_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_af263d4eaa",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "EDGE",
+  "classification": "server_managed",
+  "config_path": "spec.template.metadata.managedFields[].operation",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation",
+  "variant_labels": [
+    "Apply",
+    "Update"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Apply",
+    "io_k8s_api_apps_v1_Deployment_spec_template_metadata_managedFields_operation_Update"
+  ],
+  "target_phrase": "the operation of one of its Pod template managed fields",
+  "mapping_method": "edge_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T14:40:14.157302+00:00"
+}

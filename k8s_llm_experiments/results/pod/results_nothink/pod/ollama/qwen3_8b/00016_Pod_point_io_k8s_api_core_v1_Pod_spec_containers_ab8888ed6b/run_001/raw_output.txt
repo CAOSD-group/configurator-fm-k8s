@@ -1,0 +1,11 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+spec:
+  containers:
+  - name: example-container
+    image: nginx
+    imagePullPolicy: IfNotPresent
+```

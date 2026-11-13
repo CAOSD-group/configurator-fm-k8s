@@ -1,0 +1,17 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-probe-pod
+spec:
+  containers:
+  - name: liveness-container
+    image: nginx
+    ports:
+    - containerPort: 80
+    livenessProbe:
+      tcpSocket:
+        port: 80
+      initialDelaySeconds: 5
+      periodSeconds: 10
+```

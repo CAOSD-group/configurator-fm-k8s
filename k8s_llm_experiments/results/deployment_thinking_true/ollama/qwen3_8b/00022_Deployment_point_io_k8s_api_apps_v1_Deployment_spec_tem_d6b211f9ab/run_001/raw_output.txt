@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        ports:
+        - containerPort: 8080
+        lifecycle:
+          postStart:
+            httpGet:
+              path: "/"
+              port: 8080
+              host: "localhost"
+              httpHeaders:
+              - name: User-Agent
+                value: "kube-probe"

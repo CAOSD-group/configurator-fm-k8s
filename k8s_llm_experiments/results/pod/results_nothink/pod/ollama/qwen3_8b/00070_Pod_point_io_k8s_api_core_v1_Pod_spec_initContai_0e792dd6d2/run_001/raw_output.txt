@@ -1,0 +1,29 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-container-example
+spec:
+  initContainers:
+  - name: init
+    image: alpine
+    command:
+    - sh
+    - -c
+    - echo "Init container running"; sleep 3
+    lifecycle:
+      preStop:
+        exec:
+          command:
+          - sh
+          - -c
+          - echo "Init container stopping"
+    terminationGracePeriodSeconds: 10
+    restartPolicy: OnFailure
+    exitCode: 0
+  containers:
+  - name: app
+    image: nginx
+    ports:
+    - containerPort: 80
+```

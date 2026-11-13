@@ -1,0 +1,60 @@
+Okay, the user wants a Kubernetes Deployment that explicitly sets the protocol for a port in an ephemeral container. Let me recall the requirements.
+
+First, Kubernetes version 1.37. I need to make sure the features available in that version are used correctly. Ephemeral containers were introduced in Kubernetes 1.23, so 1.37 should support them.
+
+The main task is to configure the protocol for a port in an ephemeral container. In a regular container, you'd use the `protocol` field in the container's port definitions. But for ephemeral containers, which are part of a Pod's spec, the protocol needs to be specified in the `ephemeralContainers` section.
+
+Wait, the Deployment's spec defines containers, but ephemeral containers are part of the PodSpec. So the Deployment's PodSpec should include the ephemeralContainers array. Each ephemeral container can have ports with protocol specified.
+
+Let me structure the YAML. The Deployment will have a template with a PodSpec. Inside the PodSpec, under `ephemeralContainers`, I'll define an ephemeral container with a port and protocol.
+
+For example, an ephemeral container named `ephemeral-redis` with a port 6379 using TCP. So the YAML would include:
+
+In the PodSpec:
+ephemeralContainers:
+- name: ephemeral-redis
+  image: redis
+  ports:
+  - containerPort: 6379
+    protocol: TCP
+
+Wait, but in Kubernetes, the `protocol` field for ports is typically TCP or UDP. So specifying TCP here is correct.
+
+I need to make sure that the Deployment's PodSpec includes this. Also, the main container might be something else, like a busybox or another image. Let me include a main container as well to show the full Deployment structure.
+
+So the Deployment will have a main container and an ephemeral container. The main container could be a simple one, like alpine, and the ephemeral container is redis with the specified port and protocol.
+
+Putting it all together, the YAML should have the Deployment with the PodSpec containing both the main container and the ephemeral container with the protocol set.
+
+Let me check if there are any other required fields. The ephemeral container needs a name, image, and ports. The ports require containerPort and protocol. Also, the Deployment's replicas should be set, maybe to 1 for simplicity.
+
+So the final YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: main
+        image: alpine
+        command: ["sh", "-c", "sleep 3600"]
+      ephemeralContainers:
+      - name: ephemeral-redis
+        image: redis
+        ports:
+        - containerPort: 6379
+          protocol: TCP
+
+Wait, but in Kubernetes, the `ephemeralContainers` are part of the PodSpec. So the main containers and ephemeral containers are both under the spec of the Pod. So the structure is correct.
+
+I need to ensure that the YAML is valid. Also, the protocol is specified for the port in the ephemeral container. That should meet the user's requirement.

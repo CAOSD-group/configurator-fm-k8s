@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - securityContext:
+      appArmorProfile:
+        type: Localhost
+        localhostProfile: fm-localhostprofile
+    name: fm-container-1

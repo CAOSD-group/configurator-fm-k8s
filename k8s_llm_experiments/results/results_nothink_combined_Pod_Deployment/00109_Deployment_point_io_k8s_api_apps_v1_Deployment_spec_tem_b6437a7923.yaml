@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iscsi-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iscsi-app
+  template:
+    metadata:
+      labels:
+        app: iscsi-app
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: iscsi-volume
+          mountPath: /mnt/iscsi
+      volumes:
+      - name: iscsi-volume
+        persistentVolumeClaim:
+          claimName: iscsi-pvc
+      initContainers:
+      - name: iscsi-init
+        image: busybox
+        command:
+        - sh
+        - -c
+        - |
+          echo "Setting up iSCSI volume..."
+          mount -t iscsi <iscsi-target>:/path /mnt/iscsi
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"

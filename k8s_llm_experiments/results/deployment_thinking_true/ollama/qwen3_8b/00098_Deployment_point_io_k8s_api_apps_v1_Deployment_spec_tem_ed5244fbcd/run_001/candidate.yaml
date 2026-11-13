@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-disk-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-disk
+  template:
+    metadata:
+      labels:
+        app: azure-disk
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: azure-disk
+          mountPath: /mnt/azure
+      volumes:
+      - name: azure-disk
+        azureDisk:
+          diskName: mydisk
+          kind: AzureDisk

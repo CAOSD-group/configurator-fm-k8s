@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  ephemeralContainers:
+  - livenessProbe:
+      tcpSocket:
+        port: 8080
+    name: fm-ephemeralcontainer-1

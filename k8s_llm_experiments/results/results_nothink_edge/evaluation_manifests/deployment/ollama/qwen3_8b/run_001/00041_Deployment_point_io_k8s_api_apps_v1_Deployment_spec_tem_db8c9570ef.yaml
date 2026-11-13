@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: main
+        image: nginx
+        resources:
+          limits:
+            memory: 128Mi
+            cpu: 500m
+          requests:
+            memory: 64Mi
+            cpu: 250m
+        env:
+        - name: RESOURCE_REFERENCE_DIVISOR
+          value: "2"
+      ephemeralContainers:
+      - name: ephemeral
+        image: nginx
+        env:
+        - name: RESOURCE_REFERENCE_DIVISOR
+          value: "2"

@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: downard-api-pod
+spec:
+  containers:
+  - name: test-container
+    image: alpine
+    command:
+    - sh
+    - -c
+    - echo "Downward API test"
+    volumeMounts:
+    - name: env-vars
+      readOnly: true
+      mountPath: /etc/secret
+  volumes:
+  - name: env-vars
+    downwardAPI:
+      items:
+      - path: "CPU_LIMIT"
+        resourceFieldReference:
+          containerName: test-container
+          divisor: 1024
+          resource:
+            name: cpu

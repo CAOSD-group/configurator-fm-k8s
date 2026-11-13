@@ -1,0 +1,31 @@
+Okay, the user wants a Kubernetes Deployment that sets the seccomp profile type for one of its ephemeral containers. Let me recall the requirements.
+
+First, the Kubernetes version is 1.37. I need to make sure that the features used are available in that version. Ephemeral containers were introduced in Kubernetes 1.23, so 1.37 should support them. Also, seccomp profiles can be configured for containers, but I need to check if specifying the profile type is possible in the Deployment spec.
+
+In the Deployment's container specification, for an ephemeral container, I can set the seccompProfile field. The seccompProfile has a type and a profileName. The type can be 'RuntimeDefault' or 'Localhost', and profileName is the path to the profile if using 'Localhost'.
+
+Wait, the user says "explicitly configures the seccomp profile type". So they want the type specified. Let me structure the YAML accordingly.
+
+The Deployment should have a container with the seccompProfile configured. Since it's an ephemeral container, it should be under the ephemeralContainers array. Also, the main container might not need seccomp, but the ephemeral one does.
+
+Let me draft the YAML. The Deployment will have a spec with containers and ephemeralContainers. The ephemeral container will have the seccompProfile with type set to 'RuntimeDefault' or 'Localhost'. Let me choose 'RuntimeDefault' as a common example. Also, ensure that the container image is valid, maybe using a simple one like nginx.
+
+Wait, do I need to specify the profileName if the type is 'RuntimeDefault'? I think profileName is optional in that case. So the YAML should have the seccompProfile with type and possibly profileName.
+
+Putting it all together: the Deployment has a container (maybe the main one) and an ephemeral container. The ephemeral container's spec includes seccompProfile. Let me make sure the syntax is correct. Also, check if the ephemeralContainers are properly nested under the spec.
+
+Yes, the structure should be:
+
+spec:
+  containers:
+    - name: main-container
+      image: nginx
+  ephemeralContainers:
+    - name: ephemeral-container
+      image: busybox
+      seccompProfile:
+        type: RuntimeDefault
+
+That should work. Let me verify if the seccompProfile is allowed in ephemeral containers. Since ephemeral containers are regular containers, the same rules apply. So this should be valid.
+
+Also, ensure that the YAML is correctly formatted without any syntax errors. No trailing spaces, proper indentation. The user wants only the YAML, no explanations. So the final answer should be the Deployment manifest with the specified seccompProfile in an ephemeral container.

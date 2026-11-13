@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rbd-volume-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rbd-volume-app
+  template:
+    metadata:
+      labels:
+        app: rbd-volume-app
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: rbd-volume
+          mountPath: /mnt/rbd
+      volumes:
+      - name: rbd-volume
+        persistentVolumeClaim:
+          claimName: rbd-pvc
+      initContainers:
+      - name: rbd-setup
+        image: docker.io/library/ubuntu:latest
+        command:
+        - sh
+        - -c
+        - |
+          apt-get update && apt-get install -y ceph-common
+          rbd --id admin --keyring /etc/ceph/ceph.client.admin.keyring --mon-host ceph-mon:6789 map myrbd --pool mypool --format rbd
+          mkfs.ext4 -F /dev/rbd/myrbd
+          mkdir -p /mnt/rbd
+          mount -t ext4 /dev/rbd/myrbd /mnt/rbd
+        volumeMounts:
+        - name: rbd-volume
+          mountPath: /mnt/rbd
+        resources: {}
+        securityContext:
+          privileged: true

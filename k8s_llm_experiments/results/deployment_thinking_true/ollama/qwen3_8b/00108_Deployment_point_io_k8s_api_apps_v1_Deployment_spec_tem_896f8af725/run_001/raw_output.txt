@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gce-pv-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gce-pv
+  template:
+    metadata:
+      labels:
+        app: gce-pv
+    spec:
+      containers:
+        - name: app
+          image: nginx
+          volumeMounts:
+            - name: gce-volume
+              mountPath: /mnt/data
+              fsType: ext4
+      volumes:
+        - name: gce-volume
+          persistentVolumeClaim:
+            claimName: gce-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gce-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: gce-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: my-gce-disk
+    fsType: ext4
+  storageClassName: standard

@@ -1,0 +1,27 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photon-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: photon-app
+  template:
+    metadata:
+      labels:
+        app: photon-app
+    spec:
+      containers:
+      - name: app-container
+        image: your-image:latest
+        volumeMounts:
+        - name: photon-volume
+          mountPath: /mnt/photon
+      volumes:
+      - name: photon-volume
+        photonPersistentDisk:
+          pdName: your-photon-pd-name
+          fsType: ext4
+```

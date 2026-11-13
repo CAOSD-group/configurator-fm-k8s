@@ -1,0 +1,22 @@
+Okay, the user wants a Kubernetes Deployment that specifies the maximum unavailable replicas during rolling updates. Let me recall how that works.
+
+In Kubernetes, the maxUnavailable parameter is part of the RollingUpdate strategy in a Deployment's strategy section. The user mentioned version 1.37, which is pretty recent, so the syntax should be straightforward.
+
+First, I need to structure the Deployment YAML. The key part is under the strategy section. For a Deployment, the strategy is usually set to RollingUpdate. Inside that, maxUnavailable defines how many pods can be unavailable during the update. The user wants this explicitly configured, so I need to include that parameter.
+
+I should make sure that the Deployment has the necessary metadata and spec. The replicas field in the Deployment's spec determines how many pods are running. The rollingUpdate section under strategy is where maxUnavailable goes. The default for maxUnavailable is 25%, but the user wants it explicitly set. Let me choose a value, maybe 1, to demonstrate.
+
+Also, I need to include a container in the pod template. The user didn't specify the image, so I'll use a placeholder like nginx. The container's image is important for the deployment to work, so I'll include that.
+
+Let me check the syntax. The Deployment's spec has the strategy object with type RollingUpdate. Inside that, maxUnavailable is a integer. So the YAML should have:
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 1
+
+Yes, that's correct. I'll put that in the spec. Also, ensure that the replicas are set to a number, say 3, so that the rolling update can demonstrate the maxUnavailable setting.
+
+Putting it all together, the YAML should have the apiVersion, kind, metadata, spec with replicas, strategy, and the container. Let me make sure there are no typos. The apiVersion for Deployments in 1.37 is apps/v1. That's correct.
+
+Testing the YAML structure, it should validate without errors. The user wants only the YAML, no explanations. So the final answer should be the complete Deployment manifest with the specified parameters.

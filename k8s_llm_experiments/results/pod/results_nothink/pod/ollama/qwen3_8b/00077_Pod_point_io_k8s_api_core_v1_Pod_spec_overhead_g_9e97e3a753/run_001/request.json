@@ -1,0 +1,30 @@
+{
+  "case_id": "00077_Pod_point_io_k8s_api_core_v1_Pod_spec_overhead_g_9e97e3a753",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.overhead",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_overhead",
+  "variant_labels": [
+    "asString",
+    "asNumber"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_overhead_asString",
+    "io_k8s_api_core_v1_Pod_spec_overhead_asNumber"
+  ],
+  "target_phrase": "its Pod overhead resource quantities",
+  "mapping_method": "pod_rule",
+  "mapping_confidence": "high",
+  "plan_type": "dynamic_quantity_map_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:46:48.568929+00:00"
+}

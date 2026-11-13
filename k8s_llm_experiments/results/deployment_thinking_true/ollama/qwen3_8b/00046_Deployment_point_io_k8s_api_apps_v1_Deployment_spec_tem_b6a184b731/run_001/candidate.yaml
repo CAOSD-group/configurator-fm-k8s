@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: main-container
+          image: alpine
+      ephemeralContainers:
+        - name: ephemeral-container
+          image: alpine
+          lifecycle:
+            preStop:
+              tcpSocket:
+                port: 8080

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: scaleio-pod
+spec:
+  containers:
+  - name: app-container
+    image: nginx
+    volumeMounts:
+    - name: scaleio-volume
+      mountPath: /data
+      readOnly: true
+  volumes:
+  - name: scaleio-volume
+    flexVolume:
+      driver: "scaleio.org/scaleio"
+      options:
+        fsType: "ext4"

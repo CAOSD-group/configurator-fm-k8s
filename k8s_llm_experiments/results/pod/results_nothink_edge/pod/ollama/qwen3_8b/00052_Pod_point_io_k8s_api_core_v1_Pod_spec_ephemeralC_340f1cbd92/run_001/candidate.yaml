@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: seccomp-ephemeral-pod
+spec:
+  containers:
+  - name: main-container
+    image: nginx
+  ephemeralContainers:
+  - name: ephemeral-container
+    image: busybox
+    securityContext:
+      seccompProfilePath: /path/to/seccomp/profile
+      seccompProfileType: RuntimeDefault

@@ -1,0 +1,21 @@
+Okay, the user wants a Kubernetes Deployment that uses an ephemeral container with a specific image pull policy. Let me recall the requirements.
+
+First, Kubernetes version 1.37. I need to make sure the manifest is compatible with that version. Ephemeral containers were introduced in Kubernetes 1.23, so 1.37 should support them.
+
+The main task is to configure the image pull policy for one of the ephemeral containers. The Deployment should have a regular container and an ephemeral container. The image pull policy needs to be explicitly set, like Always, Never, or IfNotPresent.
+
+Wait, in the Deployment's spec, the containers section includes both the main container and the ephemeral ones. But how are ephemeral containers structured? They are part of the containers array, but with the ephemeral: true field.
+
+So the YAML should have a Deployment with a spec that includes containers. One of those containers will have the ephemeral: true attribute. Also, the imagePullPolicy must be specified for that container.
+
+Let me check the syntax. The Deployment's containers array includes each container. For the ephemeral container, I need to set ephemeral: true and specify imagePullPolicy.
+
+Let me draft the YAML. The Deployment will have a metadata name, then spec with replicas, selector, template, etc. In the containers array, the first container is the main one, and the second is ephemeral. The imagePullPolicy for the ephemeral container should be set, maybe to Always.
+
+Wait, the user said "explicitly configures the image pull policy of one of its ephemeral containers." So the ephemeral container's imagePullPolicy must be specified. The main container might not need it, but the ephemeral one must have it.
+
+So the YAML should have a Deployment with a container that has ephemeral: true and imagePullPolicy set. Let me make sure that the YAML is valid for Kubernetes 1.37. Also, ensure that the image names are placeholders, like nginx for the main container and another image for the ephemeral.
+
+Testing the structure: the Deployment's spec.containers array includes both containers. The ephemeral container has the ephemeral: true and imagePullPolicy. That should work.
+
+I think that's all. Let me put it all together in YAML format without any explanations.

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vsphere-pod
+spec:
+  containers:
+  - name: test-container
+    image: busybox
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - name: vsphere-volume
+      mountPath: /mnt/vsphere
+  volumes:
+  - name: vsphere-volume
+    vsphereVolume:
+      volumePath: "/vmfs/volumes/datastore1/my-volume"
+      fsType: ext4

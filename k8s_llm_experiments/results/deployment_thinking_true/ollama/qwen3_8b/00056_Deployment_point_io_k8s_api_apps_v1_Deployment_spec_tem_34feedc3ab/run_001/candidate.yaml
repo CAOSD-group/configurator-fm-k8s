@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: main-container
+          image: nginx
+      ephemeralContainers:
+        - name: ephemeral-container
+          image: busybox
+          securityContext:
+            appArmorProfile:
+              type: AppArmor
+              profileName: my-profile

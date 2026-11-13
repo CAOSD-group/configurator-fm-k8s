@@ -1,0 +1,49 @@
+Okay, the user wants a Kubernetes Deployment that uses AppArmor for one of its containers, specifically for Kubernetes version 1.37. Let me start by recalling how AppArmor integrates with Kubernetes.
+
+First, I need to make sure that the Kubernetes version supports AppArmor. Since the user specified 1.37, I should check if AppArmor is available. From what I remember, AppArmor has been supported in Kubernetes for a while, so it's likely available. But I should confirm that the version they mentioned doesn't have any specific issues. However, since the user provided that version, I'll proceed.
+
+Next, the Deployment needs to have a container that specifies the AppArmor profile. The key points here are: the container must have the `securityContext` with `appArmorProfile` specified. The profile can be either a predefined one or a custom one. Since the user didn't specify a particular profile, I'll use a common one like `unconfined` as a default, but maybe mention that the user can replace it with their own.
+
+Wait, the user wants to "explicitly configure" the AppArmor profile. So I need to make sure that the manifest includes the `appArmorProfile` field. Also, the container's `securityContext` must be set. Let me structure the YAML accordingly.
+
+I should also include the necessary metadata, like the app name and version. Let's say the app is called `app-armor-demo` and the image is something like `nginx`. The Deployment should have a single replica for simplicity.
+
+Another thing to consider: the AppArmor profile must exist on the node where the pod is scheduled. If the user uses a custom profile, they need to ensure it's installed. But since the user didn't mention that, maybe using a standard profile is safer. However, the `unconfined` profile is the default, so maybe that's acceptable. Alternatively, using a more restrictive profile like `docker-default` could be an example. Wait, but the user might not have that profile installed. Hmm. Maybe it's better to use a placeholder and note that the user should replace it with an existing profile. But the user didn't ask for that, so perhaps just use a common one.
+
+Let me draft the YAML. The Deployment will have a container with the image, and under `securityContext`, the `appArmorProfile` with `type` set. Let me check the syntax. The `appArmorProfile` is a nested object under `securityContext`, and it has a `type` field which can be `localhost` or `unconfined`. Wait, no. The `type` can be `localhost` if using a custom profile, or `unconfined` for the default. Wait, actually, the `type` field in the AppArmor profile configuration can be `localhost` (for a custom profile) or `unconfined` (which is the default). But maybe the user wants to specify a specific profile. However, without knowing the exact profile name, using `unconfined` is safe. Alternatively, maybe the user wants to use a specific profile, but since it's not specified, I'll go with `unconfined`.
+
+Wait, but the `appArmorProfile` field requires the `type` to be either `localhost` or `unconfined`. So in the YAML, the container's `securityContext` should have `appArmorProfile` with `type` set. Let me structure that.
+
+So the YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-armor-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-armor-demo
+  template:
+    metadata:
+      labels:
+        app: app-armor-demo
+    spec:
+      containers:
+      - name: app
+        image: nginx
+        securityContext:
+          appArmorProfile:
+            type: unconfined
+      # other containers if needed
+
+Wait, but maybe the user wants to use a specific profile. For example, if they have a profile named `my-profile`, then the `type` would be `localhost` and the `profileName` would be specified. But since the user didn't mention that, perhaps using `unconfined` is acceptable. However, the user might want to demonstrate the configuration, so maybe using `localhost` with a placeholder profile name. But without knowing the actual profile, it's safer to use `unconfined`.
+
+Alternatively, maybe the user wants to show how to specify a profile, so using `localhost` and a placeholder. But the user's instruction is to "explicitly configure the AppArmor profile type", so the `type` field is required. Therefore, the example should include that.
+
+So the final YAML would have the container with the `securityContext` and `appArmorProfile` with `type` set. Let me make sure that the syntax is correct. Also, the Kubernetes version 1.37 should support this. I think it's okay.
+
+Another thing: the `securityContext` for the container. Are there any other parameters needed? Probably not, unless the user wants to set other security options, but the task is only about AppArmor.
+
+So the final answer should be the YAML as described, with the container's `securityContext` including the AppArmor profile type.

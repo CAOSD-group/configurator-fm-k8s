@@ -1,0 +1,23 @@
+{
+  "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+  "io_k8s_api_core_v1_Pod_kind": "Pod",
+  "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod",
+  "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits": true,
+  "io_k8s_api_core_v1_Pod_spec_volumes": [
+    {
+      "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate": {
+          "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits": [
+                {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_KeyMap": "storage"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

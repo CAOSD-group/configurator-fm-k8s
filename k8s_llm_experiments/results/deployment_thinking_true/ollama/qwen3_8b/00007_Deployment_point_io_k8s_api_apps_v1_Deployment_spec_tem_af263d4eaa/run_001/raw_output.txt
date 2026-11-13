@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+      managedFields:
+        - manager: kubernetes
+          operation: UPDATE
+          fields:
+            f:spec.containers
+            f:spec.containers[0].image
+            f:spec.containers[0].name
+            f:spec.imagePullSecrets
+            f:spec.template.metadata.labels
+    spec:
+      containers:
+        - name: example
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

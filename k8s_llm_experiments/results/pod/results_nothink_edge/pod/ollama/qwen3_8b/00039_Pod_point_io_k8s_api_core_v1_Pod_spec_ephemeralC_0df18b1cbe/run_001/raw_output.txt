@@ -1,0 +1,15 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  containers:
+  - name: ephemeral-container
+    image: busybox
+    lifecycle:
+      postStart:
+        tcpSocket:
+          port: 8080
+    ephemeral: true
+```

@@ -1,0 +1,28 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resize-policy-pod
+spec:
+  initContainers:
+  - name: resize-init
+    image: busybox
+    command:
+    - sh
+    - -c
+    - echo "init container"
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+    resizePolicy:
+      name: resize-policy-1
+  containers:
+  - name: main-container
+    image: nginx
+    ports:
+    - containerPort: 80
+```

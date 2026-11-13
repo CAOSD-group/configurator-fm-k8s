@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  volumes:
+  - vsphereVolume:
+      fsType: ext4
+      volumePath: fm-volumepath
+    name: fm-volume-1

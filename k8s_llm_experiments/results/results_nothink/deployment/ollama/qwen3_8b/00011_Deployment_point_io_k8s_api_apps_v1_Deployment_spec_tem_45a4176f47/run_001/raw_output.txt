@@ -1,0 +1,32 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: field-matching-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: field-matching-operator
+  template:
+    metadata:
+      labels:
+        app: field-matching-operator
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/os
+                operator: In
+                values:
+                - linux
+              - key: field-matching
+                operator: Exists
+      containers:
+      - name: field-matching-operator
+        image: field-matching-operator:latest
+        ports:
+        - containerPort: 8080
+```

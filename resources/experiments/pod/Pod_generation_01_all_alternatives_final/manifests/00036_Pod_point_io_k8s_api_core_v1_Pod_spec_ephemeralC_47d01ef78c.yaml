@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  ephemeralContainers:
+  - env:
+    - valueFrom:
+        resourceFieldRef:
+          divisor: '1'
+          resource: fm-resource
+      name: fm-env-1
+    name: fm-ephemeralcontainer-1

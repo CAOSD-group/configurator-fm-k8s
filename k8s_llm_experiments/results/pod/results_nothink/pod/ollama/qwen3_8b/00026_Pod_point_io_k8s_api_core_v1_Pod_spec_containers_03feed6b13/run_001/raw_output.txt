@@ -1,0 +1,19 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resize-policy-pod
+spec:
+  containers:
+  - name: resize-container
+    image: nginx
+    resources:
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
+      requests:
+        memory: "256Mi"
+        cpu: "250m"
+    resizePolicy:
+      name: custom-resize-policy
+```

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flexvolume-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flexvolume-test
+  template:
+    metadata:
+      labels:
+        app: flexvolume-test
+    spec:
+      containers:
+      - name: test-container
+        image: busybox
+        command:
+        - sh
+        - -c
+        - echo "Testing FlexVolume" && sleep 3600
+        volumeMounts:
+        - name: flexvol
+          mountPath: /mnt/flexvol
+      volumes:
+      - name: flexvol
+        flexVolume:
+          driver: example.com/flexvolume
+          fsType: ext4

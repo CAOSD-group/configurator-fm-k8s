@@ -1,0 +1,15 @@
+{
+  "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+  "io_k8s_api_core_v1_Pod_kind": "Pod",
+  "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod",
+  "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity": true,
+  "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses": true,
+  "io_k8s_api_core_v1_Pod": true,
+  "Kubernetes": true,
+  "io_k8s_api_core_v1_Pod_metadata": true,
+  "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping": true,
+  "io_k8s_api_core_v1_Pod_status": true,
+  "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_resourceClaimName": true,
+  "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_name": true,
+  "io_k8s_api_core_v1_Pod_status_nodeAllocatableResourceClaimStatuses_mapping_quantity_asNumber": true
+}

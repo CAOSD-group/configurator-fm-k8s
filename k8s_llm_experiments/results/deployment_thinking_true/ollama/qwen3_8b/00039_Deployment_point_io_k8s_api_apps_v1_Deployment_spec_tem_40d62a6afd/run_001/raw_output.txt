@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-container
+        image: nginx
+        volumeMounts:
+        - name: my-volume
+          mountPath: /usr/share/nginx/html
+          mountOptions:
+          - bind
+          - ro
+      volumes:
+      - name: my-volume
+        hostPath:
+          path: /host/path

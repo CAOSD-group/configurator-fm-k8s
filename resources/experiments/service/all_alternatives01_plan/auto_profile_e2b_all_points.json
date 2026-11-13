@@ -1,0 +1,246 @@
+{
+  "format": "e2b_fmvariationpoints_all_alternatives_v1",
+  "root_feature": "io_k8s_api_core_v1_Service",
+  "gvk": {
+    "apiVersion": "v1",
+    "kind": "Service"
+  },
+  "base_decisions": {
+    "io_k8s_api_core_v1_Service_apiVersion": "v1",
+    "io_k8s_api_core_v1_Service_kind": "Service",
+    "io_k8s_api_core_v1_Service_metadata_name": "fm-pilot-pod"
+  },
+  "points": [
+    {
+      "case_id": "00002_Service_point_io_k8s_api_core_v1_Service_metadata_ma_d6bea75a0c",
+      "point_feature": "io_k8s_api_core_v1_Service_metadata_managedFields_operation",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_metadata_managedFields_operation_Apply",
+        "io_k8s_api_core_v1_Service_metadata_managedFields_operation_Update"
+      ],
+      "config_path": "metadata.managedFields[].operation",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_metadata_managedFields_operation": true,
+        "io_k8s_api_core_v1_Service_metadata_managedFields": [
+          {
+            "io_k8s_api_core_v1_Service_metadata_managedFields_operation": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00003_Service_point_io_k8s_api_core_v1_Service_spec_cluste_c45ec2bf7a",
+      "point_feature": "io_k8s_api_core_v1_Service_spec_clusterIP",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_spec_clusterIP_None",
+        "io_k8s_api_core_v1_Service_spec_clusterIP_headless_service"
+      ],
+      "config_path": "spec.clusterIP",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_spec_clusterIP": true
+      }
+    },
+    {
+      "case_id": "00004_Service_point_io_k8s_api_core_v1_Service_spec_cluste_51170d02c0",
+      "point_feature": "io_k8s_api_core_v1_Service_spec_clusterIPs",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_spec_clusterIPs_None",
+        "io_k8s_api_core_v1_Service_spec_clusterIPs_headless_service"
+      ],
+      "config_path": "spec.clusterIPs",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "array_point_requires_item_instance",
+      "decisions": {}
+    },
+    {
+      "case_id": "00005_Service_point_io_k8s_api_core_v1_Service_spec_ipFami_f0111a405c",
+      "point_feature": "io_k8s_api_core_v1_Service_spec_ipFamilies",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_spec_ipFamilies_IPv4",
+        "io_k8s_api_core_v1_Service_spec_ipFamilies_IPv6",
+        "io_k8s_api_core_v1_Service_spec_ipFamilies_headless"
+      ],
+      "config_path": "spec.ipFamilies",
+      "n_array_ancestors": 1,
+      "plan_type": "blocked",
+      "status": "blocked",
+      "reason": "array_point_requires_item_instance",
+      "decisions": {}
+    },
+    {
+      "case_id": "00006_Service_point_io_k8s_api_core_v1_Service_spec_ipFami_e5c1af42ea",
+      "point_feature": "io_k8s_api_core_v1_Service_spec_ipFamilyPolicy",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_spec_ipFamilyPolicy_PreferDualStack",
+        "io_k8s_api_core_v1_Service_spec_ipFamilyPolicy_RequireDualStack",
+        "io_k8s_api_core_v1_Service_spec_ipFamilyPolicy_SingleStack"
+      ],
+      "config_path": "spec.ipFamilyPolicy",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_spec_ipFamilyPolicy": true
+      }
+    },
+    {
+      "case_id": "00007_Service_point_io_k8s_api_core_v1_Service_spec_ports__cea52b7d23",
+      "point_feature": "io_k8s_api_core_v1_Service_spec_ports_protocol",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_spec_ports_protocol_SCTP",
+        "io_k8s_api_core_v1_Service_spec_ports_protocol_TCP",
+        "io_k8s_api_core_v1_Service_spec_ports_protocol_UDP"
+      ],
+      "config_path": "spec.ports[].protocol",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_spec_ports_protocol": true,
+        "io_k8s_api_core_v1_Service_spec_ports": [
+          {
+            "io_k8s_api_core_v1_Service_spec_ports_protocol": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00008_Service_point_io_k8s_api_core_v1_Service_spec_ports__1f40bb4a14",
+      "point_feature": "io_k8s_api_core_v1_Service_spec_ports_targetPort",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_spec_ports_targetPort_asString",
+        "io_k8s_api_core_v1_Service_spec_ports_targetPort_asInteger"
+      ],
+      "config_path": "spec.ports[].targetPort",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_spec_ports_targetPort": true,
+        "io_k8s_api_core_v1_Service_spec_ports": [
+          {
+            "io_k8s_api_core_v1_Service_spec_ports_targetPort": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00009_Service_point_io_k8s_api_core_v1_Service_spec_sessio_88d2e06500",
+      "point_feature": "io_k8s_api_core_v1_Service_spec_sessionAffinity",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_spec_sessionAffinity_ClientIP",
+        "io_k8s_api_core_v1_Service_spec_sessionAffinity_None"
+      ],
+      "config_path": "spec.sessionAffinity",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_spec_sessionAffinity": true
+      }
+    },
+    {
+      "case_id": "00010_Service_point_io_k8s_api_core_v1_Service_spec_type_g_1cc88cfe4a",
+      "point_feature": "io_k8s_api_core_v1_Service_spec_type",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_spec_type_ClusterIP",
+        "io_k8s_api_core_v1_Service_spec_type_ExternalName",
+        "io_k8s_api_core_v1_Service_spec_type_LoadBalancer",
+        "io_k8s_api_core_v1_Service_spec_type_NodePort"
+      ],
+      "config_path": "spec.type",
+      "n_array_ancestors": 0,
+      "plan_type": "scalar_or_object_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_spec_type": true
+      }
+    },
+    {
+      "case_id": "00011_Service_point_io_k8s_api_core_v1_Service_status_cond_5d35b08c9e",
+      "point_feature": "io_k8s_api_core_v1_Service_status_conditions_status",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_status_conditions_status_False",
+        "io_k8s_api_core_v1_Service_status_conditions_status_True",
+        "io_k8s_api_core_v1_Service_status_conditions_status_Unknown"
+      ],
+      "config_path": "status.conditions[].status",
+      "n_array_ancestors": 1,
+      "plan_type": "single_object_array_point",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_status_conditions_status": true,
+        "io_k8s_api_core_v1_Service_status_conditions": [
+          {
+            "io_k8s_api_core_v1_Service_status_conditions_status": true
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "00012_Service_point_io_k8s_api_core_v1_Service_status_load_29588303c3",
+      "point_feature": "io_k8s_api_core_v1_Service_status_loadBalancer_ingress_ports_protocol",
+      "relation_index": 1,
+      "relation_type": "alternative",
+      "variants": [
+        "io_k8s_api_core_v1_Service_status_loadBalancer_ingress_ports_protocol_SCTP",
+        "io_k8s_api_core_v1_Service_status_loadBalancer_ingress_ports_protocol_TCP",
+        "io_k8s_api_core_v1_Service_status_loadBalancer_ingress_ports_protocol_UDP"
+      ],
+      "config_path": "status.loadBalancer.ingress[].ports[].protocol",
+      "n_array_ancestors": 2,
+      "plan_type": "nested_object_arrays_experimental",
+      "status": "planned",
+      "reason": "",
+      "decisions": {
+        "io_k8s_api_core_v1_Service_status_loadBalancer_ingress_ports_protocol": true,
+        "io_k8s_api_core_v1_Service_status_loadBalancer_ingress": [
+          {
+            "io_k8s_api_core_v1_Service_status_loadBalancer_ingress_ports": [
+              {
+                "io_k8s_api_core_v1_Service_status_loadBalancer_ingress_ports_protocol": true
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "synthetic_map_key": "cpu"
+}

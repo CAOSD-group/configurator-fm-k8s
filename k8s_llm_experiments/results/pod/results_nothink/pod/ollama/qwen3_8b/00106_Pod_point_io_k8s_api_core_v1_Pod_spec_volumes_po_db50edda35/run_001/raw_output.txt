@@ -1,0 +1,30 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: px-pod
+spec:
+  containers:
+  - name: app
+    image: nginx
+    volumeMounts:
+    - name: px-volume
+      mountPath: /data
+      readOnly: true
+  volumes:
+  - name: px-volume
+    persistentVolumeClaim:
+      claimName: px-claim
+  initContainers:
+  - name: px-init
+    image: portworx/px-backup:latest
+    command:
+    - /bin/sh
+    - -c
+    - |
+      echo "Configuring Portworx volume filesystem type"
+      pxctl volume set-filesystem-type px-claim --filesystem-type ext4
+    volumeMounts:
+    - name: px-volume
+      mountPath: /var/lib/px
+```

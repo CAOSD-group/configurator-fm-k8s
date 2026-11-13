@@ -1,0 +1,22 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emptydir-pod
+spec:
+  containers:
+  - name: test-container
+    image: alpine
+    command:
+      - sh
+      - -c
+      - echo "Testing emptyDir volume size limit"
+    volumeMounts:
+    - name: test-volume
+      mountPath: /test
+  volumes:
+  - name: test-volume
+    emptyDir:
+      medium: Memory
+      sizeLimit: 5Mi
+```

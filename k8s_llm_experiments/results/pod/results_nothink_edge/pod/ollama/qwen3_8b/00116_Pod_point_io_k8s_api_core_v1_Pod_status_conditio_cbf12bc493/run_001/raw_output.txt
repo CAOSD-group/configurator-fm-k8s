@@ -1,0 +1,23 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+  labels:
+    app: test
+status:
+  phase: Running
+  conditions:
+  - type: Ready
+    status: "True"
+    reason: "PodReady"
+    message: "Pod is ready"
+  - type: Initialized
+    status: "True"
+    reason: "PodInitialized"
+    message: "Pod has been initialized"
+  - type: PodScheduled
+    status: "True"
+    reason: "PodScheduled"
+    message: "Pod scheduled on a node"
+```

@@ -1,0 +1,32 @@
+{
+  "case_id": "00034_Pod_point_io_k8s_api_core_v1_Pod_spec_containers_ca33f3e6b8",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.containers[].volumeMounts[].bindMountOptions",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions",
+  "variant_labels": [
+    "nodev",
+    "noexec",
+    "nosuid"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_nodev",
+    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_noexec",
+    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_bindMountOptions_nosuid"
+  ],
+  "target_phrase": "the bind-mount options of a volume mount in one of its containers",
+  "mapping_method": "container_rule",
+  "mapping_confidence": "high",
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 3,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:46:14.721475+00:00"
+}

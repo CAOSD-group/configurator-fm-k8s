@@ -1,9 +1,9 @@
 afmparser==1.0.3
 antlr4-python3-runtime==4.13.1
-flamapy-fm @ git+https://github.com/flamapy/fm_metamodel.git@7cb9a3a2a63b085bbdf2414f8b5342a307ad220c
-flamapy-fw @ git+https://github.com/flamapy/flamapy_fw.git@29acebe9891983331459181ad071b13fd83a6a37
-flamapy-sat @ git+https://github.com/flamapy/pysat_metamodel.git@0a2a7e0397afbb857c371741628133d43e73807b
+-e git+https://github.com/flamapy/fm_metamodel.git@24822a1e5145157174280819163e110d645dedf9#egg=flamapy_fm
+-e git+https://github.com/flamapy/flamapy_fw.git@4baccb717f767c9c44d33e70eed7a902e45edca9#egg=flamapy_fw
+-e git+https://github.com/flamapy/pysat_metamodel.git@9296da15fb5f3916dc04a3b112f08fecd6b82bb2#egg=flamapy_sat
 python-sat==0.1.8.dev17
+PyYAML==6.0.3
 six==1.17.0
-uvlparser==2.0.1
-PyYAML==6.0.2
+uvlparser==2.5.0

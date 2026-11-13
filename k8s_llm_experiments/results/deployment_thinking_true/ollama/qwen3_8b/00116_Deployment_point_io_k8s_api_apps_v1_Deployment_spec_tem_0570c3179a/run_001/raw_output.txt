@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scaleio-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scaleio-app
+  template:
+    metadata:
+      labels:
+        app: scaleio-app
+    spec:
+      containers:
+      - name: app
+        image: nginx
+        volumeMounts:
+        - name: scaleio-volume
+          mountPath: /data
+      volumes:
+      - name: scaleio-volume
+        persistentVolumeClaim:
+          claimName: scaleio-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: scaleio-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: scaleio-storage
+  resources:
+    requests:
+      storage: 1Gi
+  volumeAttributes:
+    fsType: ext4
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: scaleio-storage
+provisioner: kubernetes.io/csi
+parameters:
+  fsType: ext4
+  storagePool: my-pool
+  system: my-system
+  volumePrefix: scaleio-

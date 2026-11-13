@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: main
+        image: nginx:1.21
+        imagePullPolicy: Always
+      - name: helper
+        image: busybox:1.37
+        imagePullPolicy: IfNotPresent

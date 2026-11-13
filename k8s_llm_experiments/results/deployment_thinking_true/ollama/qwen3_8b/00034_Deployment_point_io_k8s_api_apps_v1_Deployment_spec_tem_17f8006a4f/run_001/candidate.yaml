@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exit-code-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exit-code-demo
+  template:
+    metadata:
+      labels:
+        app: exit-code-demo
+    spec:
+      containers:
+        - name: demo-container
+          image: alpine
+          command: ["sh", "-c", "exit 3"]
+      restartPolicy:
+        type: Always
+        rules:
+        - operator: ExitCode
+          value: "3"

@@ -1,0 +1,18 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: seccomp-pod
+spec:
+  initContainers:
+  - name: init-container
+    image: alpine:3.18
+    command: ["sh", "-c", "echo 'init container running'"]
+    securityContext:
+      seccompProfile:
+        type: RuntimeDefault
+  containers:
+  - name: main-container
+    image: alpine:3.18
+    command: ["sh", "-c", "echo 'main container running'"]
+```

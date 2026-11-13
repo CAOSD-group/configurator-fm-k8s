@@ -1,0 +1,25 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: group-change-pod
+spec:
+  containers:
+  - name: group-change-container
+    image: alpine
+    command:
+    - sh
+    - -c
+    - |
+      # Ensure the group change policy is set to 'always'
+      echo 'GROUPS=always' > /etc/security/pam_env.conf
+      # Change group to root
+      newgrp root
+      # Verify group change
+      id
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      fsGroup: 0
+      fsGroupChangePolicy: Always
+```

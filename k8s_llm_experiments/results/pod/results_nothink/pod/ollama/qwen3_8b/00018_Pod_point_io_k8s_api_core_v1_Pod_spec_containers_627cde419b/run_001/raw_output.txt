@@ -1,0 +1,14 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  containers:
+  - name: test-container
+    image: alpine
+    lifecycle:
+      postStart:
+        tcpSocket:
+          port: 8080
+```

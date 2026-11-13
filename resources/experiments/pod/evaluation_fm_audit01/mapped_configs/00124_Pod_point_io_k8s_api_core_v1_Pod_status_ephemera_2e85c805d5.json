@@ -1,0 +1,35 @@
+{
+  "config": {
+    "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+    "io_k8s_api_core_v1_Pod_kind": "Pod",
+    "io_k8s_api_core_v1_Pod_metadata": {
+      "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod"
+    },
+    "io_k8s_api_core_v1_Pod_status": {
+      "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses": [
+        {
+          "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus": [
+            {
+              "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources": [
+                {
+                  "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health": {
+                    "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_health_Unknown": true
+                  },
+                  "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_resources_resourceID": "fm-resourceid-1"
+                }
+              ],
+              "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name": {
+                "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_allocatedResourcesStatus_name_claim_name": true
+              }
+            }
+          ],
+          "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_image": "fm-image",
+          "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_imageID": "fm-imageid",
+          "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_name": "fm-ephemeralcontainerstatuse-1",
+          "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_ready": false,
+          "io_k8s_api_core_v1_Pod_status_ephemeralContainerStatuses_restartCount": 1
+        }
+      ]
+    }
+  }
+}

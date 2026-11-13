@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  volumes:
+  - rbd:
+      fsType: ext4
+      image: fm-image
+      monitors: []
+    name: fm-volume-1

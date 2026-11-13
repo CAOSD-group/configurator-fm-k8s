@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+status:
+  nodeAllocatableResourceClaimStatuses:
+  - overhead:
+    - perContainer: 1Gi
+      name: fm-overhead-1
+    resourceClaimName: fm-resourceclaimname-1

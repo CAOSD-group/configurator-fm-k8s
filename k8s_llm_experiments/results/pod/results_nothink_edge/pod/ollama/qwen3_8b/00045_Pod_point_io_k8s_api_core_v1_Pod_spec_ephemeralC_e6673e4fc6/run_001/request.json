@@ -1,0 +1,30 @@
+{
+  "case_id": "00045_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_e6673e4fc6",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "EDGE",
+  "classification": "non_declarative_context",
+  "config_path": "spec.ephemeralContainers[].readinessProbe.httpGet.port",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port",
+  "variant_labels": [
+    "asString",
+    "asInteger"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port_asString",
+    "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_readinessProbe_httpGet_port_asInteger"
+  ],
+  "target_phrase": "the HTTP GET port of the readiness probe in one of its ephemeral containers",
+  "mapping_method": "container_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:48:24.682803+00:00"
+}

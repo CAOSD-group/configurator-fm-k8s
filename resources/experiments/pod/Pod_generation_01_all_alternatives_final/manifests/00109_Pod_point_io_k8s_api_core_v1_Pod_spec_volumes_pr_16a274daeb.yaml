@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  volumes:
+  - projected:
+      sources:
+      - podCertificate:
+          keyType: ECDSAP256
+          signerName: fm-signername
+    name: fm-volume-1

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readiness-probe-pod
+spec:
+  initContainers:
+  - name: init-container
+    image: busybox
+    command:
+    - sh
+    - -c
+    - echo Initiating init container
+    readinessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 10
+  containers:
+  - name: main-container
+    image: nginx

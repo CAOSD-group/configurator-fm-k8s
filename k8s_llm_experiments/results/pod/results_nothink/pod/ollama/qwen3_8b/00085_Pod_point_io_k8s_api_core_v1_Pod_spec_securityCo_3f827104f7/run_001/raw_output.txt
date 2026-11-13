@@ -1,0 +1,13 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: seccomp-pod
+spec:
+  containers:
+  - name: seccomp-container
+    image: nginx
+    securityContext:
+      seccompProfile:
+        type: RuntimeDefault
+```

@@ -1,0 +1,30 @@
+{
+  "case_id": "00068_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_40f53dbffe",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.initContainers[].livenessProbe.tcpSocket.port",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port",
+  "variant_labels": [
+    "asString",
+    "asInteger"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port_asString",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_livenessProbe_tcpSocket_port_asInteger"
+  ],
+  "target_phrase": "the TCP socket port of the liveness probe in one of its init containers",
+  "mapping_method": "container_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T09:45:56.835791+00:00"
+}

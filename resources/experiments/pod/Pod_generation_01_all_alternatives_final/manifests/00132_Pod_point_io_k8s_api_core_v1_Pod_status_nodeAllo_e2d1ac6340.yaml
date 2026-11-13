@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+status:
+  nodeAllocatableResourceClaimStatuses:
+  - mapping:
+    - quantity: 1.0
+      name: fm-mapping-1
+    resourceClaimName: fm-resourceclaimname-1

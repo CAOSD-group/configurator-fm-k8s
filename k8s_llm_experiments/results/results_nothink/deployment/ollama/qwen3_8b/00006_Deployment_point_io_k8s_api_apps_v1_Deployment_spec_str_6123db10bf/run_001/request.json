@@ -1,0 +1,30 @@
+{
+  "case_id": "00006_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_str_6123db10bf",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.strategy.type",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_strategy_type",
+  "variant_labels": [
+    "Recreate",
+    "RollingUpdate"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_strategy_type_Recreate",
+    "io_k8s_api_apps_v1_Deployment_spec_strategy_type_RollingUpdate"
+  ],
+  "target_phrase": "its deployment strategy",
+  "mapping_method": "resource_rule",
+  "mapping_confidence": "high",
+  "plan_type": "scalar_or_object_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T12:37:55.562478+00:00"
+}

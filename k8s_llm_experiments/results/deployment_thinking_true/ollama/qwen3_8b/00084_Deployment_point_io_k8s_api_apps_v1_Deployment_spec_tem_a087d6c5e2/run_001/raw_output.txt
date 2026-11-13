@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-limited-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resource-limited
+  template:
+    metadata:
+      labels:
+        app: resource-limited
+    spec:
+      containers:
+      - name: main-container
+        image: nginx:latest
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"

@@ -1,0 +1,20 @@
+apiVersion: v1  # APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+kind: Pod  # Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+metadata:  # Standard object’s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+  name: fm-pilot-pod  # Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
+spec:  # Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+  containers:  # List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
+  - name: fm-container-1  # Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+  volumes:  # List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes
+  - projected:  # projected items for all in one resources secrets, configmaps, and downward API
+      sources:  # sources is the list of volume projections. Each entry in this list handles one source.
+      - downwardAPI:  # downwardAPI information about the downwardAPI data to project
+          items:  # Items is a list of DownwardAPIVolume file
+          # [Variability Point: io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor]
+          # - Selected Variant: divisor (Specifies the output format of the exposed resources, defaults to "1")
+          # - Alternative Variant: divisor (Specifies the output format of the exposed resources, defaults to "1")
+          - resourceFieldRef:  # Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+              divisor: '1'  # Specifies the output format of the exposed resources, defaults to "1"
+              resource: fm-resource  # Required: resource to select
+            path: fm-path  # Required: Path is the relative path name of the file to be created. Must not be absolute or contain the ’..’ path. Must be utf-8 encoded. The first item of the relative path must not start with ’..’
+    name: fm-volume-1  # name of the volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names

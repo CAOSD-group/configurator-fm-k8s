@@ -1,0 +1,61 @@
+Okay, let's tackle this problem. The user wants a Kubernetes Deployment that explicitly sets the TCP socket port for a readiness probe in one of its ephemeral containers. The Kubernetes version is 1.37.
+
+First, I need to recall the structure of a Deployment. The main components are the metadata, spec, and the containers section. Since they mentioned ephemeral containers, I should remember that ephemeral containers are part of the PodSpec and are used for debugging or inspection purposes. They are not meant for long-running processes.
+
+Now, the readiness probe configuration. In Kubernetes, readiness probes can be configured with various types like TCP, HTTP, or Exec. The user specifically wants a TCP socket probe. The key parameters here are the port and the path, but for TCP, the path is ignored. The port is crucial here.
+
+Wait, the user says "explicitly configures the TCP socket port of the readiness probe". So, in the readinessProbe section, I need to set the port. Also, since it's a TCP probe, the initialDelaySeconds and periodSeconds might be necessary, but the user didn't specify, so maybe default values are okay. But the user wants the port to be explicitly set.
+
+Now, the ephemeral container. The main container (the primary one) might have its own readiness probe, but the user wants the readiness probe in one of the ephemeral containers. So, the ephemeral container needs to have a readinessProbe configured.
+
+Wait, but in Kubernetes, readiness probes are typically part of the main container. However, the user is asking for an ephemeral container. So, the ephemeral container should have a readinessProbe. But I need to check if that's allowed. From what I remember, ephemeral containers can have readiness probes, but they are not part of the main container's lifecycle. However, the user's requirement is to have the readiness probe in one of the ephemeral containers.
+
+So, the Deployment will have a main container and an ephemeral container. The ephemeral container's readiness probe needs to have the TCP port specified.
+
+Let me structure the YAML. The Deployment's spec will have a template with a PodSpec. The PodSpec will include the main container and the ephemeral container. The ephemeral container's readinessProbe will have the TCP port.
+
+Wait, but in Kubernetes, the readinessProbe is part of the container's lifecycle. For an ephemeral container, can it have a readiness probe? I think so, but I need to make sure that the configuration is correct.
+
+So, the main container might not have a readiness probe, but the ephemeral container does. The user wants the TCP port of that readiness probe to be explicitly set.
+
+So, in the ephemeral container's readinessProbe, set the port. For TCP, the port is required. The path is not used, so it can be omitted. The initialDelaySeconds and periodSeconds can be set, but the user didn't specify, so maybe default values are okay. But the user wants the port to be explicitly set.
+
+Putting it all together, the YAML should have a Deployment with a PodSpec that includes both a main container and an ephemeral container. The ephemeral container's readinessProbe has the TCP port specified.
+
+Wait, but the user says "one of its ephemeral containers". So, the Deployment's PodSpec has an ephemeral container, and that container's readinessProbe has the TCP port.
+
+So, the YAML would look like this:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: main-container
+          image: nginx
+      ephemeralContainers:
+        - name: ephemeral-container
+          image: busybox
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+Wait, but in Kubernetes 1.37, are ephemeral containers supported? I think they were introduced in 1.24, so 1.37 should support them. So this should be valid.
+
+But the user wants the readiness probe in one of the ephemeral containers. So the above YAML should work. The main container doesn't have a readiness probe, but the ephemeral container does. The TCP port is set to 8080. The initialDelaySeconds and periodSeconds are optional but included here for completeness.
+
+I need to make sure that the YAML is valid. Also, the image for the ephemeral container could be anything, like busybox. The main container could be nginx, but it's not necessary for the readiness probe. The key part is the ephemeral container's readinessProbe with the TCP port.
+
+So, the final YAML should look like that. Let me check if there are any other required fields. The readinessProbe requires at least the type, so in this case, tcpSocket. The port is required under tcpSocket. So the YAML should be correct.

@@ -1,0 +1,32 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      initContainers:
+        - name: init-container
+          image: busybox
+          command:
+            - sh
+            - -c
+            - echo "Init container"
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            fsGroup: 0
+            appArmorProfile:
+              type: localhost
+      containers:
+        - name: app-container
+          image: nginx
+```

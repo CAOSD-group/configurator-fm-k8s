@@ -1,0 +1,23 @@
+{
+  "case_id": "00120_Deployment_point_io_k8s_api_apps_v1_Deployment_status_c_dc0f62d91c",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "EDGE",
+  "classification": "status_managed",
+  "config_path": "status.conditions[].status",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_status_conditions_status",
+  "variant_labels": [
+    "False",
+    "True",
+    "Unknown"
+  ],
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-10T08:51:56.919305+00:00"
+}

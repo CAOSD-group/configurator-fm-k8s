@@ -1,0 +1,75 @@
+Okay, the user wants a Kubernetes Deployment that explicitly sets resource requests for one of its ephemeral containers. Let me recall the requirements.
+
+First, Kubernetes version is 1.37. I need to make sure the YAML is compatible with that version. Ephemeral containers were introduced in Kubernetes 1.23, so 1.37 should support them.
+
+The Deployment needs to have at least one container, and one of them must be ephemeral. The key part is setting resource requests for that ephemeral container. Resource requests are specified under the resources section with requests.memory and requests.cpu.
+
+Wait, in the Deployment's spec, containers are defined under the spec.template.spec.containers array. For an ephemeral container, I need to set the ephemeral: true field. Also, the resources should be under the container's spec.
+
+Let me structure the YAML. Start with the apiVersion: apps/v1, kind: Deployment. Then the metadata and spec. In the spec, the replicas, selector, template, and spec.
+
+Inside the template's spec, the containers array. Let's create two containers for clarity. The first one is the main container, and the second is the ephemeral one. For the ephemeral container, set ephemeral: true and include the resources.requests.
+
+Wait, the user said "one of its ephemeral containers", so maybe the Deployment should have an ephemeral container. But in a Deployment, the containers are part of the pod specification. So the Deployment's pod spec will include the ephemeral containers.
+
+Wait, in Kubernetes, ephemeral containers are added to a Pod's spec via the Pod's spec.ephemeralContainers field. So in the Deployment's template.spec, the containers are the main ones, and then the ephemeralContainers array is where the ephemeral containers go.
+
+So the Deployment's pod spec should have both containers and ephemeralContainers. Therefore, in the YAML, under the template.spec, there's containers and ephemeralContainers.
+
+So the Deployment will have a container (maybe a main app) and an ephemeral container. The ephemeral container needs to have resources.requests specified.
+
+Let me draft the YAML. Let's say the main container is nginx, and the ephemeral container is a helper. The ephemeral container's resources.requests should have memory and cpu.
+
+Wait, the user said "explicitly configures the resource requests of one of its ephemeral containers". So the Deployment's pod spec must include an ephemeral container with resource requests.
+
+So the YAML should have:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: main-container
+          image: nginx
+      ephemeralContainers:
+        - name: ephemeral-container
+          image: busybox
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          ephemeral: true
+
+Wait, but in Kubernetes, the ephemeralContainers field is part of the PodSpec. So in the Deployment's template.spec, the spec includes containers and ephemeralContainers. So the YAML structure should have both.
+
+But in the Deployment's spec, the template's spec has containers and ephemeralContainers. So the YAML should have:
+
+spec:
+  template:
+    spec:
+      containers:
+        - ...
+      ephemeralContainers:
+        - ...
+
+Yes. So the example above is correct. Let me check if the resources are correctly placed. The ephemeral container's spec includes resources.requests.
+
+Also, the ephemeral: true is required for the container to be considered ephemeral.
+
+So the final YAML should look like that. Let me make sure that the syntax is correct. Also, the Kubernetes version 1.37 should support this, as ephemeral containers were available since 1.23.
+
+Another thing: the user might not have specified any other requirements, so the rest of the fields can be default. The main container can be any image, like nginx. The ephemeral container can be busybox, which is a common image for such examples.
+
+So the final YAML should be as written. Let me verify once more. The Deployment has a container and an ephemeral container. The ephemeral container has resources.requests specified. The apiVersion is apps/v1, which is correct for Deployments in 1.37.
+
+Yes, that should work.

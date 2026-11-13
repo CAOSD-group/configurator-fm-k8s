@@ -1,0 +1,3 @@
+Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the resource field reference divisor in an environment variable of one of its containers.

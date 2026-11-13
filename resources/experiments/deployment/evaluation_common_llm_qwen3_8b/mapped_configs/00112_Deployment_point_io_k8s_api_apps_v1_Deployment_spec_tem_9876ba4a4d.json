@@ -1,0 +1,86 @@
+{
+  "config": {
+    "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+    "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+    "io_k8s_api_apps_v1_Deployment_metadata": {
+      "io_k8s_api_apps_v1_Deployment_metadata_name": "trust-bundle-deployment"
+    },
+    "io_k8s_api_apps_v1_Deployment_spec": {
+      "io_k8s_api_apps_v1_Deployment_spec_replicas": 1,
+      "io_k8s_api_apps_v1_Deployment_spec_selector": {
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_KeyMap": "app",
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_ValueMap": "trust-bundle"
+          }
+        ]
+      },
+      "io_k8s_api_apps_v1_Deployment_spec_template": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_KeyMap": "app",
+              "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_ValueMap": "trust-bundle"
+            }
+          ]
+        },
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": "trust-bundle-container",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_image": "busybox",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_command": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_command_StringValue": "sh"
+                },
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_command_StringValue": "-c"
+                },
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_command_StringValue": "echo \"Trust bundle mounted\""
+                }
+              ],
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_name": "trust-bundle-volume",
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_mountPath": "/etc/trust-bundle"
+                }
+              ]
+            }
+          ],
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_name": "trust-bundle-volume",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap_name": "trust-bundle-config",
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap_items": [
+                        {
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap_items_key": "trust-bundle.pem",
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap_items_path": "trust-bundle.pem"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_secret": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_secret_name": "trust-bundle-secret",
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_secret_items": [
+                        {
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_secret_items_key": "trust-bundle.key",
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_secret_items_path": "trust-bundle.key"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

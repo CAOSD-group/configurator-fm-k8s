@@ -1,0 +1,19 @@
+{
+  "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+  "io_k8s_api_core_v1_Pod_kind": "Pod",
+  "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod",
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses": true,
+  "io_k8s_api_core_v1_Pod": true,
+  "Kubernetes": true,
+  "io_k8s_api_core_v1_Pod_metadata": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_resources": true,
+  "io_k8s_api_core_v1_Pod_status": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_image": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_imageID": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_name": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_ready": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_restartCount": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests_KeyMap": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_requests_asNumber": true
+}

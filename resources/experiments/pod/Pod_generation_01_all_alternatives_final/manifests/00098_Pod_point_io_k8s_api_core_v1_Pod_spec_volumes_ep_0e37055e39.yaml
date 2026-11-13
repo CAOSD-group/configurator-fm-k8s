@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  volumes:
+  - ephemeral:
+      volumeClaimTemplate:
+        spec:
+          resources:
+            limits:
+              storage: 1073741824.0
+    name: fm-volume-1

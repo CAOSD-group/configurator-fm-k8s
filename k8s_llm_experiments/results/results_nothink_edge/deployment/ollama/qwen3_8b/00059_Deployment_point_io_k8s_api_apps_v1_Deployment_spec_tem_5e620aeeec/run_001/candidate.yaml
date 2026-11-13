@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: main-container
+        image: nginx
+        ports:
+        - containerPort: 80
+        lifecycle:
+          postStart:
+            exec:
+              command: ["sh", "-c", "echo 'Post start command executed'"]
+      - name: ephemeral-container
+        image: busybox
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "echo 'Pre stop command executed'"]
+        ports:
+        - containerPort: 8080
+        startupProbe:
+          tcpSocket:
+            port: 8080
+          failureThreshold: 10
+          periodSeconds: 10
+          initialDelaySeconds: 5
+          timeoutSeconds: 5

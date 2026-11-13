@@ -1,0 +1,22 @@
+{
+  "case_id": "00082_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_e3450ddcf5",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.overhead",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_overhead",
+  "variant_labels": [
+    "asString",
+    "asNumber"
+  ],
+  "plan_type": "dynamic_quantity_map_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-09T18:29:09.382138+00:00"
+}

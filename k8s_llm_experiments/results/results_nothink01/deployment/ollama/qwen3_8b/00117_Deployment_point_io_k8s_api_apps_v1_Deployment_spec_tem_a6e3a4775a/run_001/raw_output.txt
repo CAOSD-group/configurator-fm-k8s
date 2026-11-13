@@ -1,0 +1,40 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scaleio-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scaleio-app
+  template:
+    metadata:
+      labels:
+        app: scaleio-app
+    spec:
+      containers:
+      - name: app
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: scaleio-volume
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: scaleio-volume
+        persistentVolumeClaim:
+          claimName: scaleio-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: scaleio-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: scaleio-storage-class
+  resources:
+    requests:
+      storage: 1Gi
+```

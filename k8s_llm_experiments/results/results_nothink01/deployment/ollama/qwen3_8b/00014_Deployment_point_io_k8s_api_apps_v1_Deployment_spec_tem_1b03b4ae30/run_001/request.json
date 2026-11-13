@@ -1,0 +1,34 @@
+{
+  "case_id": "00014_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1b03b4ae30",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution[].labelSelector.matchExpressions[].operator",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator",
+  "variant_labels": [
+    "DoesNotExist",
+    "Exists",
+    "In",
+    "NotIn"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_DoesNotExist",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_Exists",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_In",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator_NotIn"
+  ],
+  "target_phrase": "the operator of a label-selector match expression in its required pod affinity",
+  "mapping_method": "affinity_rule",
+  "mapping_confidence": "high",
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T09:45:00.426786+00:00"
+}

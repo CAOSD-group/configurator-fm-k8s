@@ -1,0 +1,17 @@
+{
+  "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+  "io_k8s_api_core_v1_Pod_kind": "Pod",
+  "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod",
+  "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits": true,
+  "io_k8s_api_core_v1_Pod_status_containerStatuses": [
+    {
+      "io_k8s_api_core_v1_Pod_status_containerStatuses_resources": {
+        "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits": [
+          {
+            "io_k8s_api_core_v1_Pod_status_containerStatuses_resources_limits_KeyMap": "cpu"
+          }
+        ]
+      }
+    }
+  ]
+}

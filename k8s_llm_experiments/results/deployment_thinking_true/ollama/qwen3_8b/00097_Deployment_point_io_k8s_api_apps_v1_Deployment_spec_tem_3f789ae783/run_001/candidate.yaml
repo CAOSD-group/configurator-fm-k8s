@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-disk-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-disk-app
+  template:
+    metadata:
+      labels:
+        app: azure-disk-app
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: azure-disk
+          mountPath: /mnt/azure
+      volumes:
+      - name: azure-disk
+        azureDisk:
+          diskName: my-disk
+          diskURI: https://mystorageaccount.blob.core.windows.net/mydisk
+          filesystemType: ext4

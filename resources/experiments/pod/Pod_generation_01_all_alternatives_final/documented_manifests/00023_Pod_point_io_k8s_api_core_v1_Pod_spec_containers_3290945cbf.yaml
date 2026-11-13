@@ -1,0 +1,14 @@
+apiVersion: v1  # APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+kind: Pod  # Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+metadata:  # Standard object’s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+  name: fm-pilot-pod  # Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
+spec:  # Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+  containers:  # List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
+  - ports:  # List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
+    # [Variability Point: Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP".]
+    # - Selected Variant: TCP (Specific value: TCP)
+    # - Alternative Variant: SCTP (Specific value: SCTP)
+    # - Alternative Variant: UDP (Specific value: UDP)
+    - protocol: TCP  # Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP".
+      containerPort: 1  # Number of port to expose on the pod’s IP address. This must be a valid port number, 0 < x < 65536.
+    name: fm-container-1  # Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.

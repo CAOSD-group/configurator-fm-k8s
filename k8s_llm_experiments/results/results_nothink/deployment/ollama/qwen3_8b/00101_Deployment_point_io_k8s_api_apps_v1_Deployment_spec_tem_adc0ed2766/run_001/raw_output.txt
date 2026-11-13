@@ -1,0 +1,27 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx
+        volumeMounts:
+        - name: example-volume
+          mountPath: /tmp
+      volumes:
+      - name: example-volume
+        emptyDir:
+          medium: Memory
+          sizeLimit: 5Gi
+```

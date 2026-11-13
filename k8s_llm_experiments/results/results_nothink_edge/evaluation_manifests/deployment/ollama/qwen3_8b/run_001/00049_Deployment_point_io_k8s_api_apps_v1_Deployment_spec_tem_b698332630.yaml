@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ephemeral-container-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ephemeral-container
+  template:
+    metadata:
+      labels:
+        app: ephemeral-container
+    spec:
+      containers:
+      - name: main-container
+        image: nginx
+        ports:
+        - containerPort: 80
+      - name: ephemeral-container
+        image: busybox
+        command: ["sh", "-c", "echo 'Ephemeral container running'; sleep 3600"]
+        ports:
+        - containerPort: 8080
+          protocol: TCP

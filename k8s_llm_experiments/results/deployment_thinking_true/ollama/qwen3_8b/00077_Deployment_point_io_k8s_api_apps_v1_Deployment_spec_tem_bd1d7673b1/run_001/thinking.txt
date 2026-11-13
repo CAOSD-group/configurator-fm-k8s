@@ -1,0 +1,39 @@
+Okay, the user wants a Kubernetes Deployment that sets the seccomp profile type for one of its init containers. Let me recall how to do that.
+
+First, I need to make sure the Kubernetes version is 1.37. I should check if seccomp profiles are supported in that version. Since Kubernetes 1.37 is relatively recent, it's likely supported. But I should confirm that the feature is available. However, the user specified the version, so I'll proceed under that assumption.
+
+Next, the main task is configuring the seccomp profile for an init container. In Kubernetes, you can set the seccomp profile using the `securityContext` in the container specification. The `seccompProfile` field under `securityContext` is used for this. The profile type can be either `RuntimeDefault` or `RuntimeMinimum`.
+
+Wait, the user wants to explicitly configure the seccomp profile type. So I need to set the `type` field within `seccompProfile`. Also, the init container needs to have this configuration. 
+
+Let me structure the Deployment. The Deployment should have a spec with a template, and within the containers, one of them is an init container. Wait, no—init containers are specified under the `initContainers` array in the pod specification. So the Deployment's spec should include both `containers` and `initContainers`.
+
+So, the Deployment YAML will have a `spec` section with `template` containing `spec` with both `initContainers` and `containers`. For the init container, I need to add the `securityContext` with `seccompProfile` and set the type.
+
+Let me think about the example. Let's create a simple Deployment with an init container. For example, maybe a busybox init container that does something like sleep. Then, in its security context, set the seccomp profile.
+
+Wait, but the user didn't specify the container image or command, so I can use a generic example. Let me make sure that the init container is properly defined. Also, the main container can be something like nginx or another image.
+
+But the key part is the init container's security context. Let me draft the YAML structure.
+
+In the initContainers array, each entry has a name, image, and command. Then, under the securityContext, add seccompProfile with type. For example:
+
+initContainers:
+- name: init
+  image: busybox
+  command: ["sh", "-c", "echo Hello from init"]
+  securityContext:
+    seccompProfile:
+      type: RuntimeMinimum
+
+But wait, the `securityContext` is part of the container spec. So the init container's spec includes the securityContext. Also, need to make sure that the `securityContext` is correctly placed.
+
+Also, the main container might not need any security context, unless specified. But the user only wants the init container to have the seccomp profile.
+
+So putting it all together, the Deployment YAML would have the initContainers section with the specified security context.
+
+Another thing to consider: the Kubernetes version 1.37. Are there any changes in how seccomp is handled? I think the syntax remains the same as in previous versions. So the configuration should be valid.
+
+Let me check if the `seccompProfile` is a valid field. Yes, in Kubernetes, the `securityContext` for a container can have `seccompProfile` with `type` and `localhostProfile` (though the latter is less common). Since the user wants to set the type, using `RuntimeDefault` or `RuntimeMinimum` is appropriate.
+
+So the final YAML should include the init container with the security context specifying the seccomp profile type. Let me write that out.

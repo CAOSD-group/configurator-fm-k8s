@@ -1,0 +1,31 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: exit-code-demo
+spec:
+  containers:
+  - name: demo-container
+    image: alpine
+    command:
+    - sh
+    - -c
+    - echo "This is a test"; exit 3
+    lifecycle:
+      postStart:
+        exec:
+          command:
+          - sh
+          - -c
+          - echo "Post start hook executed"
+      preStop:
+        exec:
+          command:
+          - sh
+          - -c
+          - echo "Pre stop hook executed"
+  restartPolicy:
+    always:
+      exitCode:
+        - 3
+```

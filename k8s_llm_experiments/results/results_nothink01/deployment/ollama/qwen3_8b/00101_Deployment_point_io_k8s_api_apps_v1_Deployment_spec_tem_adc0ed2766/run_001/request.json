@@ -1,0 +1,30 @@
+{
+  "case_id": "00101_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_adc0ed2766",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.volumes[].emptyDir.sizeLimit",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit",
+  "variant_labels": [
+    "asString",
+    "asNumber"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit_asString",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_sizeLimit_asNumber"
+  ],
+  "target_phrase": "the size limit of an emptyDir volume",
+  "mapping_method": "volume_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T09:46:55.124686+00:00"
+}

@@ -1,0 +1,3 @@
+﻿api_version,kind,root_feature,mapped_documents,n_model_vps,n_observed_vps,n_applicable_vp_occurrences,n_explicit_vp_occurrences,n_omitted_vp_occurrences,n_explicit_unmapped_vp_occurrences,explicit_rate_pct,omission_rate_pct,n_numeric_default_comparisons,n_numeric_default_matches,n_numeric_overrides,observed_vp_coverage_pct,n_scalar_vp_candidates,n_scalar_vp_candidates_mapped,scalar_vp_candidate_mapping_pct,n_unique_choices,n_comparable_defaults,n_matching_defaults,default_alignment_pct
+apps/v1,Deployment,io_k8s_api_apps_v1_Deployment,82,119,45,632,101,531,29,15.981,84.019,116,101,15,37.815,75,72,96.0,72,21,17,80.952
+v1,Pod,io_k8s_api_core_v1_Pod,72,135,39,516,89,427,30,17.248,82.752,15,14,1,28.889,61,59,96.721,59,20,17,85.0

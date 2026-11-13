@@ -1,0 +1,111 @@
+Okay, let's tackle this problem. The user wants a Kubernetes Deployment that explicitly sets the HTTP GET port for a pre-stop lifecycle hook in one of its init containers. The Kubernetes version is 1.37.
+
+First, I need to recall how lifecycle hooks work in Kubernetes. The pre-stop hook is used to gracefully terminate a container. For init containers, this is useful to perform any necessary cleanup before the main container stops.
+
+The key part here is configuring the HTTP GET port for the pre-stop hook. In Kubernetes, the lifecycle hooks for containers (including init containers) can have a preStop handler. The preStop handler can be a HTTP GET request to a specific port and path, or an exec command.
+
+Since the user specifically mentions the HTTP GET port, I need to set the port in the preStop handler. The HTTP GET request will be sent to that port, and the init container should respond appropriately.
+
+Now, the Deployment needs to have an init container. Let me structure the YAML. The init container will have a lifecycle preStop handler with a HTTP GET action. The port must be specified in the handler.
+
+Wait, in Kubernetes, the HTTP GET for preStop requires specifying the port and path. The port is part of the HTTPGetAction. So in the preStop handler, the HTTPGetAction will have a port specified.
+
+Let me check the syntax. For the preStop handler in an init container, the lifecycle section would have a preStop field. That field is an object with a HTTPGetAction, which includes host, path, port, and scheme.
+
+So, the init container's lifecycle preStop should be configured with HTTPGetAction, and the port is set to a specific value, like 8080.
+
+Also, the main container might not need any special configuration here, but the init container's preStop is the focus.
+
+Let me draft the YAML structure. The Deployment will have a spec with initContainers and containers. The initContainer will have the preStop lifecycle hook with HTTPGetAction.
+
+Wait, the user says "explicitly configures the HTTP GET port of the pre-stop lifecycle hook". So the port must be specified in the preStop handler.
+
+Let me make sure that the port is correctly set. For example, the init container might be a simple HTTP server that listens on port 8080. When the preStop is triggered, Kubernetes will send a GET request to that port.
+
+So, the YAML for the init container's preStop would look like:
+
+lifecycle:
+  preStop:
+    httpGet:
+      path: /health
+      port: 8080
+      scheme: HTTP
+
+But wait, the port here is the container's port. So the init container must have a port 8080 exposed. So in the container's ports section, we need to define that.
+
+Wait, the HTTPGetAction's port is a integer, which refers to the container's port. So the init container must have a port 8080, and the HTTP GET will be sent to that port.
+
+So, in the init container's spec, under ports, we need to have a containerPort of 8080. Then, in the preStop handler, the port is 8080.
+
+Putting it all together, the init container will have:
+
+ports:
+- containerPort: 8080
+  name: health-check
+
+lifecycle:
+  preStop:
+    httpGet:
+      path: /health
+      port: 8080
+      scheme: HTTP
+
+But wait, the scheme is optional. The default is HTTP, but maybe it's better to specify it.
+
+Now, the main container might not need any special configuration. The Deployment will have the init container and the main container.
+
+Let me structure the YAML. The Deployment will have a spec with initContainers and containers. The initContainer will have the preStop hook as described.
+
+Also, the user wants the HTTP GET port to be explicitly configured. So the port value must be set in the preStop handler.
+
+Let me check if there are any other considerations. For example, the init container must be able to handle the HTTP GET request. So the image used for the init container should have a web server listening on port 8080, responding to /health.
+
+But the user isn't asking for the image, just the manifest. So the YAML should include the necessary fields.
+
+Putting it all together, the YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: health-check-init
+          image: http-server:latest
+          ports:
+            - containerPort: 8080
+              name: health-check
+          lifecycle:
+            preStop:
+              httpGet:
+                path: /health
+                port: 8
+                scheme: HTTP
+      containers:
+        - name: main-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+
+Wait, but the port in the preStop handler is 8? Wait, no. The port in the HTTPGetAction is the container's port. So if the init container has a port 8080, then the port in the preStop should be 8080. But in the example above, I mistakenly wrote 8. That's an error.
+
+So the correct port is 8080. Let me correct that.
+
+Also, the image for the init container should be something that can handle HTTP requests. For example, a simple HTTP server. The user might use a specific image, but since it's not specified, I can use a placeholder like http-server:latest.
+
+So the corrected YAML would have the port set to 8080 in the preStop handler.
+
+Another thing: the Kubernetes version is 1.37. I need to ensure that the syntax is compatible. The HTTPGetAction with port as an integer is valid in Kubernetes 1.37.
+
+So the final YAML should have the init container with the preStop hook configured with the HTTP GET port set to 8080.
+
+Let me write that out.

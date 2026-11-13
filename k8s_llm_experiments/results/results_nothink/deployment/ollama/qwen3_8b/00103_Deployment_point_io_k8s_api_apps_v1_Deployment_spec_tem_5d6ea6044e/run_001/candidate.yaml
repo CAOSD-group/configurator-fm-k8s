@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        volumeMounts:
+        - name: example-volume
+          mountPath: /data
+      volumes:
+      - name: example-volume
+        persistentVolumeClaim:
+          claimName: example-claim
+      initContainers:
+      - name: init-container
+        image: busybox:latest
+        command:
+        - sh
+        - -c
+        - echo "Initializing volume"
+        volumeMounts:
+        - name: example-volume
+          mountPath: /data
+      volumes:
+      - name: example-volume
+        persistentVolumeClaim:
+          claimName: example-claim
+  volumeClaimTemplates:
+  - metadata:
+      name: example-claim
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 1Gi
+        limits:
+          storage: 2Gi

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-disk-caching-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-disk-caching
+  template:
+    metadata:
+      labels:
+        app: azure-disk-caching
+    spec:
+      containers:
+      - name: app-container
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: azure-disk
+          mountPath: /mnt/azure
+      volumes:
+      - name: azure-disk
+        azureDisk:
+          diskName: my-azure-disk
+          diskURI: https://mystorageaccount.blob.core.windows.net/mycontainer/mydisk.vhd
+          cachingMode: ReadOnly

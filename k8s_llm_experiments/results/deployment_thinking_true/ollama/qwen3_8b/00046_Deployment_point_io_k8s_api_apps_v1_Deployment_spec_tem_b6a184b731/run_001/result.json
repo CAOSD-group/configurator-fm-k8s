@@ -1,0 +1,54 @@
+{
+  "case_id": "00046_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_b6a184b731",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "EDGE",
+  "classification": "non_declarative_context",
+  "config_path": "spec.template.spec.ephemeralContainers[].lifecycle.preStop.tcpSocket.port",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port",
+  "variant_labels": [
+    "asString",
+    "asInteger"
+  ],
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-10T08:47:36.899439+00:00",
+  "finished_at_utc": "2026-11-10T08:47:50.680901+00:00",
+  "generation_status": "SUCCESS",
+  "latency_seconds": 13.766604500007816,
+  "usage": {
+    "prompt_tokens": 133,
+    "completion_tokens": 1243
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "total_duration_ns": 13765455600,
+    "load_duration_ns": 2601200,
+    "prompt_eval_duration_ns": 21712000,
+    "eval_duration_ns": 13695948000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": false,
+    "yaml_parse_ok": true,
+    "yaml_document_count": 1,
+    "yaml_root_is_mapping": true,
+    "yaml_error": null,
+    "output_compliance_ok": true
+  },
+  "candidate": {
+    "available": true,
+    "method": "raw",
+    "path": "candidate.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

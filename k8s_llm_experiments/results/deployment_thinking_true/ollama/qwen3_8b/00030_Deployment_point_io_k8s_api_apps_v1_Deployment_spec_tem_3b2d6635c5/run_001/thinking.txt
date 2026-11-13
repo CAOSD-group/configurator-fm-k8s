@@ -1,0 +1,44 @@
+Okay, the user wants a Kubernetes Deployment that sets the TCP socket port for a readiness probe in one of its containers. Let me recall the Kubernetes version they specified, which is 1.37. I need to make sure the YAML is compatible with that version.
+
+First, the deployment needs a container with a readiness probe. The key part here is configuring the TCP socket port. In Kubernetes, the readinessProbe has a tcpSocket section with port specified. The port should be an integer, so I'll set it to 8080, which is a common choice for examples.
+
+I should structure the YAML with the deployment's metadata, spec, and the container configuration. Let me check the required fields. The container must have the readinessProbe with tcpSocket and port. Also, the container needs an image, maybe a simple one like nginx. The imagePullPolicy can be set to IfNotPresent. 
+
+Wait, the user didn't mention any specific image, so using nginx as a default makes sense. The ports section in the container should include the port where the readiness probe is checking. Since the probe is on 8080, the container's port should be 8080 as well. 
+
+I need to ensure that the YAML syntax is correct. Indentation is crucial. The readinessProbe is under the container's lifecycle. Let me verify the structure:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+
+Wait, the user didn't specify initialDelaySeconds or periodSeconds, but those are optional. However, including them might be helpful for a complete example. But the user's main requirement is the TCP port in the readiness probe. So maybe just include the necessary fields. 
+
+But the problem says "explicitly configures the TCP socket port", so the key part is the port under tcpSocket. The other parameters like initialDelaySeconds are not required, but including them might make the example more realistic. However, the user might not need them. Let me check the original task again. The task says to "explicitly configure the TCP socket port", so the main focus is on that. The rest can be minimal. 
+
+So, the YAML should have the container with the readinessProbe's tcpSocket.port set. Let me make sure that the YAML is valid. Also, the Kubernetes version 1.37 should support this configuration. I think it's safe to proceed with this structure. 
+
+Another thing: the container's ports must include the port that the readiness probe is checking. So containerPort: 8080 is necessary. The readiness probe's tcpSocket port is 8080. That's correct. 
+
+I think this should work. Let me write the YAML accordingly.

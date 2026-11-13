@@ -1,0 +1,19 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cinder-pod
+spec:
+  containers:
+  - name: cinder-container
+    image: nginx
+    volumeMounts:
+    - name: cinder-volume
+      mountPath: /mnt/cinder
+      readOnly: false
+  volumes:
+  - name: cinder-volume
+    cinder:
+      volumeID: <volume-id>
+      fsType: ext4
+```

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gce-pd-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gce-pd-app
+  template:
+    metadata:
+      labels:
+        app: gce-pd-app
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: gce-pd-volume
+          mountPath: /mnt/data
+      volumes:
+      - name: gce-pd-volume
+        gcePersistentDisk:
+          pdName: my-pd
+          fsType: ext4

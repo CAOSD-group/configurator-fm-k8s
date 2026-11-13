@@ -1,0 +1,34 @@
+Okay, the user wants a Kubernetes Deployment that explicitly sets the protocol for a port in one of its containers. Let me recall how to do that.
+
+In Kubernetes, when defining a container's ports in a Deployment, you can specify the protocol using the `protocol` field under the `containerPort` in the `ports` list. The protocol can be either TCP or UDP. Since the user didn't specify which protocol, maybe I should default to TCP, but perhaps include both as an example? Wait, no, the task says to explicitly configure the protocol, so I need to choose one. Let me check the Kubernetes version they mentioned: 1.37. I should make sure that the syntax is correct for that version. 
+
+Looking at the Deployment YAML structure, the `ports` section under the container's spec should have entries with `containerPort`, `protocol`, and possibly `hostPort` if needed. But the user just wants the protocol specified for the container's port. 
+
+So, the example should have a container with a port, and in the ports array, each entry has `protocol`. Let me create a simple Deployment. Let's use a sample container image, like nginx. The container might expose port 80, and I'll set the protocol to TCP. Wait, but maybe the user wants UDP? But since they didn't specify, TCP is the default and most common. However, the task says to "explicitly configure the protocol," so maybe it's better to show TCP as the example. 
+
+Wait, maybe the user wants to ensure that the protocol is set, perhaps in a case where the default might not be TCP. For example, if the container uses UDP, like a UDP service. But without specific info, I'll go with TCP. 
+
+So the YAML would have a Deployment with a container, and in the ports section, each port entry includes the protocol. Let me structure that. Also, make sure that the YAML is valid for Kubernetes 1.37. Let me check if there are any changes in that version regarding port protocols. I don't recall any changes related to that. 
+
+Another thing: the user might be referring to the protocol in the service, but the question says "port exposed by one of its containers," which refers to the container's port, not the service. Wait, no. In Kubernetes, the container's port is specified in the container's spec, and then the service can map that to a port with a protocol. But the user's question is about the Deployment's container exposing a port with a specific protocol. 
+
+Wait, the container's port is just a number, and the protocol is part of the container's configuration. But in Kubernetes, the protocol is specified in the container's port definition. For example, in the container's `ports` list, each entry has `containerPort`, `hostPort`, `protocol`, etc. 
+
+So, the correct way is to include the `protocol` field in the container's ports. Let me create an example. Let's say the container has a port 8080, and the protocol is TCP. 
+
+So the Deployment YAML would have:
+
+containers:
+- name: my-container
+  image: my-image
+  ports:
+  - containerPort: 8080
+    protocol: TCP
+
+That's the key part. The rest of the Deployment structure can be standard. Let me put that into a full Deployment YAML. Also, make sure to include the necessary metadata and spec sections. 
+
+I should also check if the user wants any other specifics, like multiple ports or hostPort, but the question doesn't mention those. So a single port with protocol specified should suffice. 
+
+Let me write the full YAML now. Make sure to use the correct syntax, indentation, and that it's valid YAML. Also, ensure that the Kubernetes version 1.37 is compatible with this syntax. Since the syntax for ports and protocols has been around for a while, it should be okay. 
+
+Testing the YAML for validity: the `protocol` field is allowed under the port definition. Yes. So the final answer should be a Deployment with a container that has a port with explicitly set protocol.

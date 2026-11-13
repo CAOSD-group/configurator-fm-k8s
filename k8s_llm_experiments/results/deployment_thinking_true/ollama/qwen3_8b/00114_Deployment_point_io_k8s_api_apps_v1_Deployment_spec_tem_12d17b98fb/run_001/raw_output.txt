@@ -1,0 +1,50 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cert-pod
+  labels:
+    app: cert-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cert-pod
+  template:
+    metadata:
+      labels:
+        app: cert-pod
+    spec:
+      volumes:
+        - name: cert-volume
+          projected:
+            sources:
+              - secret:
+                  name: tls-secret
+                  items:
+                    - key: tls.crt
+                      path: tls.crt
+                    - key: tls.key
+                      path: tls.key
+      containers:
+        - name: cert-container
+          image: busybox
+          command:
+            - sh
+            - -c
+            - echo "Certificate and key mounted"
+          volumeMounts:
+            - name: cert-volume
+              mountPath: /etc/certs
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tls-secret
+  annotations:
+    keyType: RSA
+type: Opaque
+data:
+  tls.crt: base64encodedcert
+  tls.key: base64encodedkey
+```

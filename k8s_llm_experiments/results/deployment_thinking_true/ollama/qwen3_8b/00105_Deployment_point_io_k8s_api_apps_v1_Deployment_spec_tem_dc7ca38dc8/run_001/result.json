@@ -1,0 +1,56 @@
+{
+  "case_id": "00105_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_dc7ca38dc8",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.spec.selector.matchExpressions[].operator",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator",
+  "variant_labels": [
+    "DoesNotExist",
+    "Exists",
+    "In",
+    "NotIn"
+  ],
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-09T18:34:59.786937+00:00",
+  "finished_at_utc": "2026-11-09T18:35:13.126598+00:00",
+  "generation_status": "SUCCESS",
+  "latency_seconds": 13.327617899980396,
+  "usage": {
+    "prompt_tokens": 131,
+    "completion_tokens": 1221
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "total_duration_ns": 13326711000,
+    "load_duration_ns": 3111700,
+    "prompt_eval_duration_ns": 20801000,
+    "eval_duration_ns": 13232914000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": true,
+    "yaml_parse_ok": false,
+    "yaml_document_count": null,
+    "yaml_root_is_mapping": false,
+    "yaml_error": "ScannerError: while scanning for the next token\nfound character '`' that cannot start any token\n  in \"<unicode string>\", line 1, column 1:\n    ```yaml\n    ^",
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": true,
+    "method": "markdown_fence_removed",
+    "path": "candidate.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - restartPolicyRules:
+    - exitCodes:
+        operator: NotIn
+      action: fm-action
+    name: fm-container-1

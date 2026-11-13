@@ -1,0 +1,26 @@
+{
+  "case_id": "00009_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_854654c466",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchFields[].operator",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator",
+  "variant_labels": [
+    "DoesNotExist",
+    "Exists",
+    "Gt",
+    "In",
+    "Lt",
+    "NotIn"
+  ],
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-09T18:15:52.670935+00:00"
+}

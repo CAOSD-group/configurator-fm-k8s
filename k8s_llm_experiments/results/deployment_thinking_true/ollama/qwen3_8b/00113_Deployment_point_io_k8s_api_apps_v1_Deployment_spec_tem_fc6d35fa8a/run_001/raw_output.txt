@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx
+        volumeMounts:
+        - name: resources
+          mountPath: /etc/resources
+      volumes:
+      - name: resources
+        downwardAPI:
+          items:
+          - path: "cpu_limit"
+            resourceFieldRef:
+              resource: "limits.cpu"
+              divisor: 100

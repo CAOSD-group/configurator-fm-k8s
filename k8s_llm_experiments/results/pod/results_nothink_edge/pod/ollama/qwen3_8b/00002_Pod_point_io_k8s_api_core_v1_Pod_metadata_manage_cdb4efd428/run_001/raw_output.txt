@@ -1,0 +1,27 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+  annotations:
+    fieldManager: my-field-manager
+spec:
+  containers:
+  - name: example-container
+    image: nginx
+    ports:
+    - containerPort: 80
+  initContainers:
+  - name: init-container
+    image: busybox
+    command:
+    - sh
+    - -c
+    - echo "Initializing container"
+  volumes:
+  - name: example-volume
+    emptyDir: {}
+  terminationGracePeriodSeconds: 30
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+```

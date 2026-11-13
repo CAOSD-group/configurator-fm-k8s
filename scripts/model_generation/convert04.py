@@ -1,5 +1,4 @@
 """
-@author: bfl699 @group: caosd
 This script processes a Kubernetes JSON schema to generate a UVL (Universal Variability Language)
 feature model. It extracts feature descriptions, values, constraints, and handles schema references.
 
@@ -51,6 +50,9 @@ Final revision 2026-10-08 (Kubernetes 1.37.1 structural-enriched baseline):
       defaults remain defaults rather than semantic constraints.
 [M21] Optionally move direct-union `doc` metadata from the abstract parent to each
       concrete `_asType` alternative for FlamaPy-driven rendering.
+[M22] Treat description-derived alternatives as closed sets only when the explicit
+      `Valid values are ...` clause is finite; do not promote later explanatory
+      quoted terms or mixed open domains (e.g. Service IP addresses) to alternatives.
 """
 
 import json
@@ -895,6 +897,88 @@ class SchemaProcessor:
 
         return False
 
+    def extract_explicit_closed_values(self, description):
+        """Extract a closed literal set from an explicit ``Valid values are`` clause.
+
+        This is deliberately narrower than the legacy generic extractor.
+
+        Examples:
+        - ``Valid values are "IPv4" and "IPv6".`` -> {"IPv4", "IPv6"}
+        - ``Valid values are "None", empty string (""), or a valid IP address.``
+          -> handled, but no alternatives because the value domain is open.
+
+        Returning ``handled=True`` prevents the later whole-description quote
+        extractor from treating explanatory quoted text (e.g. "headless") as an
+        admissible value.
+        """
+        if not description:
+            return False, None
+
+        match = re.search(
+            r'\bValid values are\s*:?\s*(.+?)(?=\.(?:\s|$)|\n|$)',
+            description,
+            re.IGNORECASE | re.DOTALL,
+        )
+        if not match:
+            return False, None
+
+        clause = match.group(1).strip()
+
+        # This refinement is only applied when the clause itself presents
+        # explicit quoted literals. Other historical prose formats continue
+        # through the existing extractor unchanged.
+        quoted_values = re.findall(r'["\']([^"\']*)["\']', clause)
+        if not quoted_values:
+            return False, None
+
+        # A clause that mixes literals with an open value domain is not an enum.
+        # Service.clusterIP/clusterIPs are the motivating examples:
+        # "None", empty string, or a valid IP address.
+        open_domain = bool(re.search(
+            r'\bempty\s+string\b|\ba\s+valid\s+[A-Za-z]',
+            clause,
+            re.IGNORECASE,
+        ))
+        if open_domain:
+            self._last_extracted_config_values = {}
+            return True, None
+
+        values = []
+        value_map = {}
+
+        for raw_value in quoted_values:
+            raw_value = raw_value.strip()
+
+            # Empty quoted strings are values, but the current Boolean-alternative
+            # representation has no safe UVL token for them. If an empty literal
+            # appears in a purported closed set, keep the conservative behaviour:
+            # do not model the clause as exhaustive alternatives.
+            if raw_value == '':
+                self._last_extracted_config_values = {}
+                return True, None
+
+            token = raw_value.replace('*', 'estrella')
+            token = token.replace(' ', '_').replace('/', '_')
+
+            if (
+                token
+                and len(token) <= 24
+                and not any(
+                    char in token
+                    for char in {'.', '{', '}', '[', ']', ';', ':'}
+                )
+            ):
+                if token not in value_map:
+                    values.append(token)
+                    value_map[token] = raw_value
+
+        self._last_extracted_config_values = value_map
+
+        if len(values) < 2:
+            return True, None
+
+        return True, set(values)
+
     def extract_values(self, description):
         """
         Extract a list of valid values from a feature description.
@@ -919,6 +1003,15 @@ class SchemaProcessor:
         
         if not any(keyword in description.lower() for keyword in palabras_patrones_minus) and not any(keyword in description for keyword in palabras_patrones_may): # , '. Must be' , 'allowed valures are'
             return None
+
+        # Prefer an explicit closed "Valid values are ..." clause over the
+        # legacy whole-description quote extractor. This prevents contextual
+        # quoted terms from becoming false alternatives.
+        explicit_values_handled, explicit_values = self.extract_explicit_closed_values(
+            description
+        )
+        if explicit_values_handled:
+            return explicit_values
 
         value_patterns = [
 
@@ -1582,7 +1675,7 @@ class SchemaProcessor:
                                 synthetic=True,
                                 details=items,
                             )
-                        else:
+                        elif type_data_items not in scalar_array_types:
                             print(f"Tipo de dato en array no controlado: {type_data_items}")
                 # Process additional properties
                 elif 'additionalProperties' in details:
@@ -2165,13 +2258,13 @@ def generate_semantic_variant(
 definitions_file = "../../resources/kubernetes-json-v1.37.1/_definitions_1-37.json"
 
 # Frozen structural-enriched baseline.
-output_file = "../../variability_model/kubernetes_combined_1-37_V3.uvl"
-descriptions_file = "../../resources/model_generation/descriptions_1-37_V3.json"
-serialization_metadata_file = "../../resources/model_generation/serialization_metadata_1-37_V3.json"
+output_file = "../../variability_model/kubernetes_combined_1-37_V4.uvl"
+descriptions_file = "../../resources/model_generation/descriptions_1-37_V4.json"
+serialization_metadata_file = "../../resources/model_generation/serialization_metadata_1-37_V4.json"
 
 # Separate semantic-enrichment artifact. This never overwrites the baseline.
-semantic_output_file = "../../variability_model/kubernetes_combined_1-37_V3_semantic.uvl"
-constraints_report_file = "../../resources/model_generation/constraints_1-37_V3.txt"
+semantic_output_file = "../../variability_model/kubernetes_combined_1-37_V4_semantic.uvl"
+constraints_report_file = "../../resources/model_generation/constraints_1-37_V4.txt"
 
 
 if __name__ == "__main__":

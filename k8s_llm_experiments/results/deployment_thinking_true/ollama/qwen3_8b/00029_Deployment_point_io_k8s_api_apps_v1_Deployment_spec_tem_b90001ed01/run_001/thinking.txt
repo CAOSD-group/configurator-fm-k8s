@@ -1,0 +1,13 @@
+Okay, the user wants a Kubernetes Deployment that sets the HTTP GET port for a readiness probe in one of its containers. Let me recall the Kubernetes version they specified, which is 1.37. I need to make sure the YAML is compatible with that version.
+
+First, the Deployment needs a container with a readinessProbe. The key part here is configuring the httpGet section with the port. The port should be specified as an integer, not a string. Let me check the syntax for readinessProbe in Kubernetes 1.37. The structure should be similar to newer versions, so I can proceed.
+
+I should include the container's image, maybe use a simple one like nginx for testing. The readinessProbe will have a path, port, and initialDelaySeconds. The port needs to be under httpGet, and it's important to note that the port must be a number, not a string. So in the YAML, it should be "port": 80, not "port": "80".
+
+Also, the container's port should match the one used in the readiness probe. Since nginx runs on port 80, that's correct. I'll set initialDelaySeconds to 5 and periodSeconds to 10 as default values. The failureThreshold is set to 5, which is reasonable.
+
+Let me structure the YAML. Start with the apiVersion: apps/v1, kind: Deployment. Then the metadata with name. In the spec, the replicas, template, spec, containers. Inside the containers array, the nginx container with the readinessProbe. Make sure the indentation is correct so that the readinessProbe is under the container.
+
+Wait, in Kubernetes, the readinessProbe is a field inside the container's lifecycle. So the structure should be correct. Let me double-check the YAML syntax. The port in httpGet is an integer, so no quotes. The path is "/". The initialDelaySeconds and periodSeconds are set. The failureThreshold is 5.
+
+I think that's all. Let me write the YAML accordingly. Make sure there are no trailing spaces and that the indentation is consistent. The user wants only the YAML, no explanations. So the final output should be the correct manifest.

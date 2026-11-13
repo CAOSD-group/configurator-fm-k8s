@@ -1,0 +1,21 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bind-mount-pod
+spec:
+  containers:
+  - name: app-container
+    image: nginx
+    volumeMounts:
+    - name: test-volume
+      mountPath: /usr/share/nginx/html
+      readOnly: true
+      bindMountOptions:
+        - ro
+        - nosuid
+  volumes:
+  - name: test-volume
+    hostPath:
+      path: /data
+```

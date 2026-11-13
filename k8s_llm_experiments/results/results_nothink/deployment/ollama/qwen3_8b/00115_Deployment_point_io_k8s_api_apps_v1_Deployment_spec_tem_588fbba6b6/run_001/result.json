@@ -1,0 +1,70 @@
+{
+  "case_id": "00115_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_588fbba6b6",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.volumes[].rbd.fsType",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType",
+  "variant_labels": [
+    "ext4",
+    "ntfs",
+    "xfs"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ext4",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_ntfs",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_rbd_fsType_xfs"
+  ],
+  "target_phrase": "the filesystem type of an RBD volume",
+  "mapping_method": "volume_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T12:40:26.187778+00:00",
+  "finished_at_utc": "2026-11-10T12:40:29.555608+00:00",
+  "generation_status": "SUCCESS",
+  "model_output_status": "COMPLETE",
+  "latency_seconds": 3.3595790999825113,
+  "usage": {
+    "prompt_tokens": 130,
+    "completion_tokens": 302
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "think": false,
+    "total_duration_ns": 3358739400,
+    "load_duration_ns": 2594200,
+    "prompt_eval_duration_ns": 21256000,
+    "eval_duration_ns": 3302491000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": true,
+    "yaml_parse_ok": false,
+    "yaml_document_count": null,
+    "yaml_root_is_mapping": false,
+    "yaml_error": "ScannerError: while scanning for the next token\nfound character '`' that cannot start any token\n  in \"<unicode string>\", line 1, column 1:\n    ```yaml\n    ^",
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": true,
+    "method": "markdown_fence_removed",
+    "path": "candidate.yaml"
+  },
+  "evaluation_manifest": {
+    "exported": true,
+    "path": "results\\results_nothink\\evaluation_manifests\\deployment\\ollama\\qwen3_8b\\run_001\\00115_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_588fbba6b6.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seccomp-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seccomp-demo
+  template:
+    metadata:
+      labels:
+        app: seccomp-demo
+    spec:
+      containers:
+        - name: main-container
+          image: nginx
+      ephemeralContainers:
+        - name: ephemeral-container
+          image: busybox
+          seccompProfile:
+            type: RuntimeDefault

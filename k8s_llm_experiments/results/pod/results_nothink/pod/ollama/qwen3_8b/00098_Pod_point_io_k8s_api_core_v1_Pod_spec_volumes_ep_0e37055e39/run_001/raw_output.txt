@@ -1,0 +1,31 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+spec:
+  containers:
+  - name: example-container
+    image: nginx
+    resources:
+      limits:
+        storage: "10Gi"
+  volumes:
+  - name: example-volume
+    persistentVolumeClaim:
+      claimName: example-claim
+  initContainers:
+  - name: init-container
+    image: busybox
+    command:
+    - sh
+    - -c
+    - echo "Initializing volume"
+    volumeMounts:
+    - name: example-volume
+      mountPath: /mnt
+  volumes:
+  - name: example-volume
+    persistentVolumeClaim:
+      claimName: example-claim
+```

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: init-container
+          image: busybox
+          command:
+            - sh
+            - -c
+            - echo Hello from init container
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      containers:
+        - name: main-container
+          image: nginx
+          ports:
+            - containerPort: 80

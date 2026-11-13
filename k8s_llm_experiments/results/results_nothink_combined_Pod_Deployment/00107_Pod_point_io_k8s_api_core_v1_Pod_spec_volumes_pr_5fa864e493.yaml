@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trust-bundle-pod
+  labels:
+    app: trust-bundle
+spec:
+  containers:
+  - name: trust-bundle-container
+    image: busybox
+    command:
+    - sleep
+    - "3600"
+    volumeMounts:
+    - name: trust-bundle-volume
+      mountPath: /etc/trust-bundle
+  volumes:
+  - name: trust-bundle-volume
+    projected:
+      sources:
+      - configMap:
+          name: trust-bundle-config
+          items:
+          - key: trust-bundle.pem
+            path: trust-bundle.pem
+        defaultMode: 420
+      - secret:
+          name: trust-bundle-secret
+          items:
+          - key: trust-bundle.pem
+            path: trust-bundle.pem
+        defaultMode: 420
+  initContainers:
+  - name: init-trust-bundle
+    image: busybox
+    command:
+    - sh
+    - -c
+    - |
+      mkdir -p /etc/trust-bundle
+      cp /etc/trust-bundle/trust-bundle.pem /etc/trust-bundle/trust-bundle.pem
+    volumeMounts:
+    - name: trust-bundle-volume
+      mountPath: /etc/trust-bundle

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: health-check-init
+          image: http-server:latest
+          ports:
+            - containerPort: 8080
+              name: health-check
+          lifecycle:
+            preStop:
+              httpGet:
+                path: /health
+                port: 8080
+                scheme: HTTP
+      containers:
+        - name: main-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80

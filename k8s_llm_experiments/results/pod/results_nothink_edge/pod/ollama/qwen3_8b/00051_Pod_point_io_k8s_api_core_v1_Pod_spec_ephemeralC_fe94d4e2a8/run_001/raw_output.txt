@@ -1,0 +1,16 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apparmor-pod
+spec:
+  containers:
+  - name: main-container
+    image: nginx
+  ephemeralContainers:
+  - name: ephemeral-container
+    image: busybox
+    securityContext:
+      appArmorProfile:
+        type: Unconfined
+```

@@ -1,0 +1,32 @@
+{
+  "case_id": "00028_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_1cf202a234",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.containers[].ports[].protocol",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol",
+  "variant_labels": [
+    "SCTP",
+    "TCP",
+    "UDP"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_SCTP",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_TCP",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_protocol_UDP"
+  ],
+  "target_phrase": "the protocol of a port exposed by one of its containers",
+  "mapping_method": "container_rule",
+  "mapping_confidence": "high",
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T09:45:22.098456+00:00"
+}

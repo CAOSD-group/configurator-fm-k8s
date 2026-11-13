@@ -6,3 +6,5 @@
 /__pycache__
 /.vscode
 /kubectl_testing
+/analysis_experiments
+/versionsScripts

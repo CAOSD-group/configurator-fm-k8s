@@ -1,0 +1,25 @@
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tcp-socket-check-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tcp-socket-check
+  template:
+    metadata:
+      labels:
+        app: tcp-socket-check
+    spec:
+      containers:
+      - name: tcp-socket-check-container
+        image: nginx:latest
+        ports:
+        - containerPort: 8080
+        lifecycle:
+          postStart:
+          - tcpSocket:
+              port: 8080
+```

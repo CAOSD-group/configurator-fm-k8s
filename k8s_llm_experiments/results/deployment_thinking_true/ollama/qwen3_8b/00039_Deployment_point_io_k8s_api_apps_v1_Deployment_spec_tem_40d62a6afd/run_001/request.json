@@ -1,0 +1,23 @@
+{
+  "case_id": "00039_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_40d62a6afd",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.containers[].volumeMounts[].bindMountOptions",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_bindMountOptions",
+  "variant_labels": [
+    "nodev",
+    "noexec",
+    "nosuid"
+  ],
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 3,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-09T18:22:56.107348+00:00"
+}

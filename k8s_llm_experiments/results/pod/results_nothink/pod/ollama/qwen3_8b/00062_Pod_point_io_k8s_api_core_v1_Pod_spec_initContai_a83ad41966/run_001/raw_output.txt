@@ -1,0 +1,33 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-probe-pod
+spec:
+  initContainers:
+  - name: init-container
+    image: busybox
+    command:
+    - sh
+    - -c
+    - echo Initiating init container && sleep 30
+    lifecycle:
+      preStop:
+        exec:
+          command:
+          - sh
+          - -c
+          - echo Cleaning up init container && sleep 5
+    ports:
+    - containerPort: 8080
+      name: liveness-port
+  containers:
+  - name: main-container
+    image: nginx
+    ports:
+    - containerPort: 80
+    lifecycle:
+      preStop:
+        tcpSocket:
+          port: 80
+```

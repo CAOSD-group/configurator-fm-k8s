@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "signature": {
+    "manifest_dir": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\k8s_llm_experiments\\results\\results_nothink_combined_Pod_Deployment",
+    "files": 229,
+    "file_list_sha256": "6c86983f0146972e20ac751b1cac780d3ce457604a6242d193b7f6187ceb7ee9",
+    "source_type": "LLM",
+    "validation": "both",
+    "filter_invalid": true,
+    "kubeconform_k8s_version": "1.37.0",
+    "kubeconform_schema_location": null,
+    "kubeconform_timeout": 45,
+    "first_document_only": false,
+    "first_folder_is_repo": false,
+    "uvl": {
+      "path": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\variability_model\\kubernetes_combined_1-37_V3_semantic.uvl",
+      "bytes": 34332751,
+      "mtime_ns": 1792751778871241100
+    },
+    "metadata": {
+      "path": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\model_generation\\serialization_metadata_1-37_V3.json",
+      "bytes": 36414212,
+      "mtime_ns": 1792751777836271600
+    },
+    "descriptions": {
+      "path": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\model_generation\\descriptions_1-37_V3.json",
+      "bytes": 48929571,
+      "mtime_ns": 1792751777124692100
+    },
+    "mapper": {
+      "path": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\scripts\\mapping_files\\metadata_parser01.py",
+      "bytes": 32627,
+      "mtime_ns": 1792500556210446400
+    },
+    "evaluator": {
+      "path": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\scripts\\experiment_generation\\evaluation_manifests_rq3.py",
+      "bytes": 73440,
+      "mtime_ns": 1794328699662354700
+    }
+  },
+  "next_file_index": 229,
+  "csv_byte_offsets": {
+    "rq3_manifests.csv": 114024,
+    "rq3_variant_observations.csv": 59318,
+    "rq3_scalar_defaults.csv": 64017
+  },
+  "complete": true
+}

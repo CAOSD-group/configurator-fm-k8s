@@ -1,0 +1,74 @@
+{
+  "config": {
+    "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+    "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+    "io_k8s_api_apps_v1_Deployment_metadata": {
+      "io_k8s_api_apps_v1_Deployment_metadata_name": "example-deployment"
+    },
+    "io_k8s_api_apps_v1_Deployment_spec": {
+      "io_k8s_api_apps_v1_Deployment_spec_replicas": 1,
+      "io_k8s_api_apps_v1_Deployment_spec_selector": {
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_KeyMap": "app",
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_ValueMap": "example"
+          }
+        ]
+      },
+      "io_k8s_api_apps_v1_Deployment_spec_template": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_KeyMap": "app",
+              "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_ValueMap": "example"
+            }
+          ]
+        },
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": "example-container",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_image": "nginx",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_name": "env-config",
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_readOnly": true,
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_mountPath": "/etc/config"
+                }
+              ]
+            }
+          ],
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_name": "env-config",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap_name": "example-config",
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap_items": [
+                        {
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap_items_key": "env-var",
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_configMap_items_path": "env-var"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI": {
+                      "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items": [
+                        {
+                          "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_projected_sources_downwardAPI_items_path": "cpu-quota"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "case_id": "00011_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_45a4176f47",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[].matchFields[].operator",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator",
+  "variant_labels": [
+    "DoesNotExist",
+    "Exists",
+    "Gt",
+    "In",
+    "Lt",
+    "NotIn"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_DoesNotExist",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Exists",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Gt",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_In",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_Lt",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator_NotIn"
+  ],
+  "target_phrase": "the operator of a field-matching expression in its required node affinity",
+  "mapping_method": "affinity_rule",
+  "mapping_confidence": "high",
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T12:38:01.868474+00:00",
+  "finished_at_utc": "2026-11-10T12:38:03.741417+00:00",
+  "generation_status": "SUCCESS",
+  "model_output_status": "COMPLETE",
+  "latency_seconds": 1.8582677000085823,
+  "usage": {
+    "prompt_tokens": 135,
+    "completion_tokens": 167
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "think": false,
+    "total_duration_ns": 1857285900,
+    "load_duration_ns": 3117000,
+    "prompt_eval_duration_ns": 20799000,
+    "eval_duration_ns": 1818918000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": true,
+    "yaml_parse_ok": false,
+    "yaml_document_count": null,
+    "yaml_root_is_mapping": false,
+    "yaml_error": "ScannerError: while scanning for the next token\nfound character '`' that cannot start any token\n  in \"<unicode string>\", line 1, column 1:\n    ```yaml\n    ^",
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": true,
+    "method": "markdown_fence_removed",
+    "path": "candidate.yaml"
+  },
+  "evaluation_manifest": {
+    "exported": true,
+    "path": "results\\results_nothink\\evaluation_manifests\\deployment\\ollama\\qwen3_8b\\run_001\\00011_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_45a4176f47.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

@@ -1,0 +1,19 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: azure-disk-pod
+spec:
+  containers:
+  - name: azure-disk-container
+    image: mcr.microsoft.com/azuredocs/azure-disk:latest
+    volumeMounts:
+    - name: azure-disk
+      mountPath: /mnt/azure
+  volumes:
+  - name: azure-disk
+    azureDisk:
+      diskName: mydisk
+      diskURI: https://mystorageaccount.blob.core.windows.net/disks/mydisk.vhd
+      kind: AzureDisk
+```

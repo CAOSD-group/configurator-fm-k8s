@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+spec:
+  containers:
+  - name: example-container
+    image: nginx
+  affinity:
+    podAffinity:
+    - labelSelector:
+        matchExpressions:
+        - key: app
+          operator: In
+          values:
+          - myapp
+      topologyKey: kubernetes.io/hostname
+  nodeSelector:
+    beta.kubernetes.io/os: linux

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: example-container
+          image: example-image
+      tolerations:
+        - key: "example-key"
+          operator: "Equal"
+          value: "example-value"
+          effect: "NoSchedule"

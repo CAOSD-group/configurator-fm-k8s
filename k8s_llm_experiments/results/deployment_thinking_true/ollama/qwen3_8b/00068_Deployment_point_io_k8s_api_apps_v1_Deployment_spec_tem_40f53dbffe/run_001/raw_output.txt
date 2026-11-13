@@ -1,0 +1,30 @@
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liveness-probe-init-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: liveness-probe-init
+  template:
+    metadata:
+      labels:
+        app: liveness-probe-init
+    spec:
+      initContainers:
+        - name: liveness-init-container
+          image: busybox
+          command: ["sh", "-c", "echo 'Init container running'; sleep 3600"]
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      containers:
+        - name: main-container
+          image: nginx
+          ports:
+            - containerPort: 80
+```

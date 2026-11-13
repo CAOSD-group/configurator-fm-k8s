@@ -1,0 +1,31 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: main
+        image: nginx
+        ports:
+        - containerPort: 80
+      ephemeralContainers:
+      - name: pre-stop-hook
+        image: alpine
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - sh
+              - -c
+              - echo "Pre-stop hook executed" && curl -s http://localhost:80
+```

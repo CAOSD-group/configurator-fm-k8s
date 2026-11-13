@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  containers:
+  - name: test-container
+    image: nginx
+    resources:
+      limits:
+        memory: 128Mi
+        cpu: 500m
+      requests:
+        memory: 64Mi
+        cpu: 250m
+    env:
+    - name: RESOURCE_REFERENCE_DIVISOR
+      value: "2"
+  ephemeralContainers:
+  - name: test-ephemeral-container
+    image: nginx
+    env:
+    - name: RESOURCE_REFERENCE_DIVISOR
+      value: "2"

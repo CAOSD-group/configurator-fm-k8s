@@ -1,0 +1,30 @@
+{
+  "case_id": "00067_Pod_point_io_k8s_api_core_v1_Pod_spec_initContai_df9a74e4ae",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.initContainers[].resizePolicy[].resourceName",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName",
+  "variant_labels": [
+    "cpu",
+    "memory"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName_cpu",
+    "io_k8s_api_core_v1_Pod_spec_initContainers_resizePolicy_resourceName_memory"
+  ],
+  "target_phrase": "the resource name in a resize policy of one of its init containers",
+  "mapping_method": "container_rule",
+  "mapping_confidence": "high",
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:46:33.719847+00:00"
+}

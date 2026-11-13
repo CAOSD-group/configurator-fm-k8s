@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vsphere-volume-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vsphere-volume
+  template:
+    metadata:
+      labels:
+        app: vsphere-volume
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: vsphere-volume
+          mountPath: /mnt/vsphere
+      volumes:
+      - name: vsphere-volume
+        vsphereVolume:
+          volumePath: "/vmfs/volumes/datastore1/my-volume"
+          fsType: "ext4"

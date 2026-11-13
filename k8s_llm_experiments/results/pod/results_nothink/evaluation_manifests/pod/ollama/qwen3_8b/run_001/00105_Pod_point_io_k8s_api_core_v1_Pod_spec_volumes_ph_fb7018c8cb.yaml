@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: photon-pod
+spec:
+  containers:
+  - name: photon-container
+    image: busybox
+    command:
+      - sh
+      - -c
+      - echo "Pod is running"
+    volumeMounts:
+    - name: photon-volume
+      mountPath: /mnt/photon
+  volumes:
+  - name: photon-volume
+    photonPersistentDisk:
+      pdLabel: my-photon-disk
+      fsType: ext4

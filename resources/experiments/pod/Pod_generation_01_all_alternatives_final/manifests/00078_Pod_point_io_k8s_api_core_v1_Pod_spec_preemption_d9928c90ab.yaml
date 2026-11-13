@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  preemptionPolicy: PreemptLowerPriority
+  containers:
+  - name: fm-container-1

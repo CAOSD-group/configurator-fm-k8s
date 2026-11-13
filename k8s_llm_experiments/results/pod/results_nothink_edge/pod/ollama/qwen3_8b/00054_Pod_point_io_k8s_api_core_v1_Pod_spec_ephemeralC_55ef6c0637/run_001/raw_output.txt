@@ -1,0 +1,30 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: probe-pod
+spec:
+  containers:
+  - name: main-container
+    image: nginx
+    ports:
+    - containerPort: 80
+    lifecycle:
+      postStart:
+        exec:
+          command: ["sh", "-c", "echo 'Post start command executed' > /tmp/poststart"]
+      preStop:
+        exec:
+          command: ["sh", "-c", "echo 'Pre stop command executed' > /tmp/prestop"]
+  ephemeralContainers:
+  - name: probe-ephemeral
+    image: busybox
+    lifecycle:
+      startupProbe:
+        tcpSocket:
+          port: 80
+        failureThreshold: 10
+        periodSeconds: 10
+        initialDelaySeconds: 5
+        timeoutSeconds: 3
+```

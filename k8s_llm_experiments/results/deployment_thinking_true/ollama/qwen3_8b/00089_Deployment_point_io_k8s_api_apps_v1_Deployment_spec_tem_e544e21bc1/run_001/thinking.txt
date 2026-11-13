@@ -1,0 +1,31 @@
+Okay, the user wants a Kubernetes Deployment that explicitly sets the Pod's SELinux change policy. Let me recall how SELinux policies work in Kubernetes.
+
+First, I need to remember the possible values for the SELinux options. The options are usually "Disabled", "Permissive", or "Enforcing". The user specified "change policy", but maybe they mean setting the SELinux mode. Wait, the question says "SELinux change policy", but perhaps they meant the SELinux mode. Maybe there's a confusion here. Alternatively, maybe they want to set the SELinux context for the pod.
+
+Wait, the correct parameter in Kubernetes for SELinux is the `securityContext` under the container or pod level. The `selinuxOptions` field allows setting the user, role, type, and level. But the user mentioned "change policy", which might refer to the enforcement level. However, in Kubernetes, the SELinux mode is controlled by the node's configuration, not directly by the pod. But maybe the user is referring to setting the SELinux options for the pod's containers.
+
+Alternatively, perhaps the user is referring to the `selinuxOptions` in the pod's security context. So, the task is to include that in the Deployment.
+
+So, the Deployment should have a pod security context with `selinuxOptions` set. Let me check the Kubernetes version. The user specified 1.37, which is a recent version, so the API should be available.
+
+So, the YAML should include the `securityContext` in the pod specification, with `selinuxOptions` set. For example, setting the type to a specific value. Let me make sure that the syntax is correct. The `selinuxOptions` is a list of four strings: user, role, type, level. But maybe the user just wants to set the type, so I can set the type to something like "spc_t" or another type. Alternatively, maybe they want to set the enforcement level, but that's not directly possible in the pod's security context. So perhaps the user made a mistake in terminology, and they actually want to set the SELinux options for the pod.
+
+So, the correct approach is to include the `securityContext` in the pod, with `selinuxOptions` set. Let me structure the Deployment accordingly. Also, ensure that the containers have the necessary settings. Let me create a sample Deployment with a container and the security context.
+
+Wait, the user might have meant the SELinux policy change, but in Kubernetes, the pod can't change the overall SELinux policy. So maybe they meant setting the SEL's options for the containers. Therefore, the correct answer is to include the `selinuxOptions` in the container's security context.
+
+So, the YAML would have a Deployment with a PodSpec that includes a container with `securityContext` and `selinuxOptions`. Let me make sure that the syntax is correct. For example:
+
+containers:
+- name: my-container
+  image: my-image
+  securityContext:
+    selinuxOptions:
+      - user: 1000
+      - role: 0
+      - type: spc_t
+      - level: s0
+
+But maybe the user wants to set the type specifically. Alternatively, maybe they want to set the enforcement level, but that's not possible via the pod's security context. So the answer is to include the `selinuxOptions` in the container's security context.
+
+Therefore, the final YAML should have a Deployment with such a configuration. Let me write that out.

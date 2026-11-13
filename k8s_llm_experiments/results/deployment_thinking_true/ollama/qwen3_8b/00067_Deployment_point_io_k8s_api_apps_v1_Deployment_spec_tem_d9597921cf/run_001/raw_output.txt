@@ -1,0 +1,30 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liveness-probe-init
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: liveness-probe-init
+  template:
+    metadata:
+      labels:
+        app: liveness-probe-init
+    spec:
+      initContainers:
+        - name: probe-init
+          image: nginx
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      containers:
+        - name: main
+          image: nginx
+          ports:
+            - containerPort: 80
+```

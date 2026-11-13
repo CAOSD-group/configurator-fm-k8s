@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vsphere-filesystem-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vsphere-filesystem
+  template:
+    metadata:
+      labels:
+        app: vsphere-filesystem
+    spec:
+      containers:
+      - name: app
+        image: nginx
+        volumeMounts:
+        - name: vsphere-volume
+          mountPath: /mnt/data
+      volumes:
+      - name: vsphere-volume
+        persistentVolumeClaim:
+          claimName: vsphere-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vsphere-pvc
+spec:
+  storageClassName: "vsan-storageclass"
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  fsType: ext4

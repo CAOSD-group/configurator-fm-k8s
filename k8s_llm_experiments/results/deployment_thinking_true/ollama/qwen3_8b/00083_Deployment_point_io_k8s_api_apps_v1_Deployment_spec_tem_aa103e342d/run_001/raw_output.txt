@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: preemptible-pod-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: preemptible-pod
+  template:
+    metadata:
+      labels:
+        app: preemptible-pod
+    spec:
+      containers:
+      - name: preemptible-container
+        image: nginx
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      preemptionPolicy:
+        - Never

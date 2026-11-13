@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  volumes:
+  - photonPersistentDisk:
+      fsType: ext4
+      pdID: fm-pdid
+    name: fm-volume-1

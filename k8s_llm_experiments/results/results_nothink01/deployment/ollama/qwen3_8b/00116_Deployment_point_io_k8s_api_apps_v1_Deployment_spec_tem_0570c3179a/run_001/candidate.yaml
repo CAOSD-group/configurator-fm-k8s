@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scaleio-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scaleio-app
+  template:
+    metadata:
+      labels:
+        app: scaleio-app
+    spec:
+      containers:
+      - name: app-container
+        image: nginx
+        volumeMounts:
+        - name: scaleio-volume
+          mountPath: /data
+          readOnly: true
+      volumes:
+      - name: scaleio-volume
+        persistentVolumeClaim:
+          claimName: scaleio-pvc
+      initContainers:
+      - name: init-scaleio
+        image: registry.example.com/scaleio-init:latest
+        command:
+        - /bin/sh
+        - -c
+        - |
+          echo "Configuring ScaleIO volume..."
+          mount -t scaleio /dev/sda1 /data
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+      tolerations:
+      - key: scaleio
+        operator: Exists

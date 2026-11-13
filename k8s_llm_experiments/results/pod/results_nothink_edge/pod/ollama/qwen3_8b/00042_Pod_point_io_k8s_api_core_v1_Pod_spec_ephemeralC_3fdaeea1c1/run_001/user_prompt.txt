@@ -1,0 +1,3 @@
+Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the HTTP GET port of the liveness probe in one of its ephemeral containers.

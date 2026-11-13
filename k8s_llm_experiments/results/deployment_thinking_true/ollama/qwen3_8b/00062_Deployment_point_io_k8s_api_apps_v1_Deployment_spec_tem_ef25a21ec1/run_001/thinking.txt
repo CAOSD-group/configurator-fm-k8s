@@ -1,0 +1,25 @@
+Okay, the user wants a Kubernetes Deployment that has an init container with a specific image pull policy. Let me recall, in Kubernetes, init containers are used for initialization tasks before the main containers start. The image pull policy determines when the image should be pulled. The options are IfNotPresent, Always, and Never.
+
+The user specified Kubernetes version 1.37. I should check if there are any version-specific considerations, but I think the image pull policy has been available for a while. So, the main task is to create a Deployment with an init container and set the pull policy.
+
+First, the Deployment YAML structure. The main sections are metadata, spec, then the template. Inside the spec, there's the container template with containers and initContainers. 
+
+I need to make sure that the initContainers section is properly defined. Let me think of a simple example. Let's say the init container is using a busybox image. The pull policy should be set to Always, for example. 
+
+Wait, the user says "explicitly configures the image pull policy of one of its init containers." So I need to make sure that the init container's imagePullPolicy is set. Let me structure the YAML accordingly.
+
+Let me draft the YAML. Start with apiVersion: apps/v1, kind: Deployment. Then metadata with name. In the spec, the template's spec includes initContainers. Each init container has name, image, and imagePullPolicy. 
+
+Let me make sure that the imagePullPolicy is set for the init container. Also, the main container should have the same image but maybe a different pull policy? Or maybe not. The user only requires the init container's policy to be set. 
+
+Wait, the user didn't mention the main container's policy, so maybe just focus on the init container. Let me create an example where the init container has imagePullPolicy: Always. 
+
+Also, need to ensure that the YAML is valid. For example, the containers and initContainers are in the correct places. Let me check the structure again. 
+
+Yes, in the spec.template.spec, containers and initContainers are both present. So the YAML should have the initContainers array with at least one entry. 
+
+Let me write the YAML. Let's use busybox for the init container and nginx for the main container. The init container's imagePullPolicy is set to Always. 
+
+Wait, but the user might want a specific example. Let me make sure that the YAML is correct. Also, the Kubernetes version is 1.37, but the syntax should be compatible. 
+
+I think that's all. Let me put it all together.

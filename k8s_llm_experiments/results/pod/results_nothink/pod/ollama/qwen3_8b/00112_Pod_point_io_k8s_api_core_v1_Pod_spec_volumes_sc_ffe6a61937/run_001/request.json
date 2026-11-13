@@ -1,0 +1,30 @@
+{
+  "case_id": "00112_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_sc_ffe6a61937",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.volumes[].scaleIO.storageMode",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode",
+  "variant_labels": [
+    "ThickProvisioned",
+    "ThinProvisioned"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode_ThickProvisioned",
+    "io_k8s_api_core_v1_Pod_spec_volumes_scaleIO_storageMode_ThinProvisioned"
+  ],
+  "target_phrase": "the storage mode of a ScaleIO volume",
+  "mapping_method": "volume_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:47:38.998200+00:00"
+}

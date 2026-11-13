@@ -1,0 +1,54 @@
+{
+  "case_id": "00061_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_be422f58b3",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.initContainers[].env[].valueFrom.resourceFieldRef.divisor",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor",
+  "variant_labels": [
+    "asString",
+    "asNumber"
+  ],
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "started_at_utc": "2026-11-09T18:23:17.042656+00:00",
+  "finished_at_utc": "2026-11-09T18:24:02.842694+00:00",
+  "generation_status": "SUCCESS",
+  "latency_seconds": 45.79488170001423,
+  "usage": {
+    "prompt_tokens": 131,
+    "completion_tokens": 4096
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "total_duration_ns": 45798988100,
+    "load_duration_ns": 7607200,
+    "prompt_eval_duration_ns": 21861000,
+    "eval_duration_ns": 45737099000,
+    "done_reason": "length"
+  },
+  "strict_output_checks": {
+    "nonempty": false,
+    "contains_markdown_fence": false,
+    "yaml_parse_ok": true,
+    "yaml_document_count": 0,
+    "yaml_root_is_mapping": false,
+    "yaml_error": null,
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": false,
+    "method": "none",
+    "path": null
+  },
+  "error_type": null,
+  "error_message": null
+}

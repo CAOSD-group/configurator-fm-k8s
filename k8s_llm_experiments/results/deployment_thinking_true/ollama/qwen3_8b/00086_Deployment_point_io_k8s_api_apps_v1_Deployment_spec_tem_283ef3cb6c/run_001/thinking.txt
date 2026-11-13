@@ -1,0 +1,87 @@
+Okay, the user wants a Kubernetes Deployment that explicitly sets the Pod's restart policy. Let me recall the valid restart policies. They are Always, OnFailure, Never, and Default. The default is Always, but the user wants it explicitly configured.
+
+So, the Deployment's spec should have a template with spec.restartPolicy. Let me check the Kubernetes version they mentioned: 1.37. I need to make sure that the syntax is correct for that version. Restart policy is under the container's spec, but wait, no—the restartPolicy is at the Pod level, not per container. Wait, no, actually, the restartPolicy is part of the PodSpec. Wait, in Kubernetes, the restartPolicy is a field in the PodSpec, which is part of the container's spec. Wait, no, let me think again. 
+
+Wait, the PodSpec is part of the Pod's definition. The restartPolicy is a field in the PodSpec. So, in a Deployment, the PodSpec is under the template's spec. So the correct path is: spec.template.spec.restartPolicy. 
+
+Wait, no. Let me double-check. The Deployment's spec is a DeploymentSpec, which has a template (PodTemplateSpec). The PodTemplateSpec has a spec (PodSpec). The PodSpec has a restartPolicy field. So yes, the correct location is spec.template.spec.restartPolicy.
+
+So the user wants this explicitly set. Let me choose a value. The user didn't specify which one, so maybe use 'Always' as the default, but since they want it explicit, perhaps they want to ensure it's set. Alternatively, maybe they want a different policy. But since the question is to "explicitly configure its Pod restart policy," perhaps the user wants to set it to a specific value. However, the user hasn't specified which one. Maybe the answer should include one of the valid options. Let me check the Kubernetes documentation for version 1.37. 
+
+In Kubernetes, the valid restart policies are Always, OnFailure, Never. The Default is Always. So, the user might want to set it to one of these. Since the user hasn't specified, perhaps the answer should set it to 'Always' as the default, but explicitly. Alternatively, maybe the user wants to set it to a different value. But since the question is to "explicitly configure," perhaps the answer should include one of the options. Let me check the example. 
+
+The user's example in the previous answer used 'Always'. Maybe that's acceptable. So, the Deployment YAML would have the restartPolicy set to Always. Let me structure the YAML. 
+
+The Deployment should have metadata, spec with replicas, template with metadata and spec. In the spec, the containers are defined, and then the restartPolicy is set. Wait, no. The restartPolicy is part of the PodSpec, which is under the template's spec. So the structure is:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: example-container
+          image: nginx
+      restartPolicy: Always
+
+Wait, no. Wait, the restartPolicy is part of the PodSpec. So in the template's spec, the restartPolicy is a field. So the correct structure is:
+
+spec:
+  template:
+    spec:
+      restartPolicy: Always
+      containers:
+        - ...
+
+Wait, no. The containers are part of the PodSpec. So the restartPolicy is a top-level field in the PodSpec. So the correct structure is:
+
+spec:
+  template:
+    spec:
+      containers:
+        - ...
+      restartPolicy: Always
+
+Yes. So the containers are defined under the PodSpec, and then the restartPolicy is set. So the YAML should have the containers list, then the restartPolicy. 
+
+So putting it all together, the Deployment YAML would have the containers defined, and then the restartPolicy set. Let me make sure that the YAML is valid. Also, the user wants the manifest to be deployable. So I need to include all necessary fields. 
+
+Let me write the YAML:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: example-container
+          image: nginx
+      restartPolicy: Always
+
+Wait, but in Kubernetes, the restartPolicy is a field in the PodSpec. So in the template's spec, the restartPolicy is a top-level field. So the above YAML is correct. 
+
+But wait, in the PodSpec, the restartPolicy is a field. So the structure is correct. 
+
+So this YAML should be valid. Let me check if there are any other required fields. The containers are required, so the example has one. The restartPolicy is set. 
+
+Yes, this should work. The user wants the restart policy explicitly set, so this meets the requirement. The Kubernetes version is 1.37, which supports this syntax. 
+
+Therefore, the correct YAML is as above.

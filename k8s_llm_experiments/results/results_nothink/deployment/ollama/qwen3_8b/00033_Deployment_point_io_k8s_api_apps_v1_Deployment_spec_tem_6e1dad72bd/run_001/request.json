@@ -1,0 +1,30 @@
+{
+  "case_id": "00033_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_6e1dad72bd",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.containers[].resources.requests",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests",
+  "variant_labels": [
+    "asString",
+    "asNumber"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asString",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asNumber"
+  ],
+  "target_phrase": "the resource requests of one of its containers",
+  "mapping_method": "container_rule",
+  "mapping_confidence": "high",
+  "plan_type": "dynamic_quantity_map_in_array",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T12:38:34.948817+00:00"
+}

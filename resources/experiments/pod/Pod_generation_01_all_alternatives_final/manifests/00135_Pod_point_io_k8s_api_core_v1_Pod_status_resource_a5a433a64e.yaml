@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+status:
+  resources:
+    limits:
+      cpu: 1.0

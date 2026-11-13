@@ -1,0 +1,30 @@
+{
+  "case_id": "00102_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_9a1669179d",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "EDGE",
+  "classification": "server_managed",
+  "config_path": "spec.template.spec.volumes[].ephemeral.volumeClaimTemplate.metadata.managedFields[].operation",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation",
+  "variant_labels": [
+    "Apply",
+    "Update"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Apply",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation_Update"
+  ],
+  "target_phrase": "the operation of one of the managed fields in a generic ephemeral volume claim template",
+  "mapping_method": "edge_rule",
+  "mapping_confidence": "high",
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T14:40:54.282671+00:00"
+}

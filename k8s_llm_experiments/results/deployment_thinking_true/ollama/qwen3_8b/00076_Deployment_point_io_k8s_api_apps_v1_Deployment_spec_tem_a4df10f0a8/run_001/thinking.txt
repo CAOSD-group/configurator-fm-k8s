@@ -1,0 +1,25 @@
+Okay, the user wants a Kubernetes Deployment that uses AppArmor in one of its init containers. Let me recall how to set that up.
+
+First, I need to make sure the Kubernetes version is 1.37. AppArmor is supported in Kubernetes, but I should check if there are any specific considerations for that version. I think it's generally supported, but maybe some profiles are pre-installed.
+
+The main task is to configure an init container with the AppArmor profile. The Deployment should have an initContainer section. I need to specify the image, command, and the securityContext with the appArmorProfile.
+
+Wait, the securityContext for the init container needs to have the appArmorProfile field. The profile can be a predefined one like "unconfined" or a custom one. Since the user didn't specify a particular profile, using "unconfined" might be a safe default, but maybe they want a specific one. However, since it's not mentioned, I'll go with a generic example.
+
+Also, the main container's securityContext might not need AppArmor unless specified. The user only mentioned the init container. So I'll focus on that.
+
+Let me structure the YAML. The Deployment should have metadata, spec with replicas, template, spec with initContainers and containers. The initContainer will have the appArmorProfile in its securityContext.
+
+Wait, the securityContext is part of the container specification. So in the initContainer, I need to set the securityContext with appArmorProfile. Also, the container must have the necessary capabilities if needed, but maybe that's beyond the scope here.
+
+Let me draft the YAML. Let's use a simple init container that runs a shell command. For example, using alpine image, run sh -c echo "init container". Then, in the securityContext, set appArmorProfile with a profile name. Maybe use "unconfined" as the profile, but perhaps the user wants a specific one. Since it's not specified, I'll use a placeholder like "my-profile" and note that it should exist. Alternatively, use a known profile.
+
+Wait, in Kubernetes, the AppArmor profiles are managed by the node. So the profile must be present on the nodes. If the user hasn't specified, maybe using a default like "unconfined" is better, but that might not be a valid profile. Wait, "unconfined" is actually the default, but to explicitly set it, maybe the user wants to show how to configure it.
+
+Alternatively, maybe the user wants to use a specific profile, but since it's not given, I'll use a placeholder. However, in practice, the profile name must exist. So perhaps using a common one like "docker-default" or similar. But without knowing the exact setup, it's safer to use a placeholder and mention that the profile must be available.
+
+But the user didn't ask for explanations, just the YAML. So I'll include the appArmorProfile with a name, maybe "my-profile", and ensure that the securityContext is correctly applied.
+
+Also, make sure that the init container is properly defined. Let me check the syntax. The initContainers array in the spec, each with name, image, command, and securityContext.
+
+Putting it all together, the YAML should have the Deployment with the init container and the securityContext with appArmorProfile. Let me write that out.

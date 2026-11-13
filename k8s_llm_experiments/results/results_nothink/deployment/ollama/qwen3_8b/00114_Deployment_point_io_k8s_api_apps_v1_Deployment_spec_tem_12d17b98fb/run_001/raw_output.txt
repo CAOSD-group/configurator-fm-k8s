@@ -1,0 +1,39 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cert-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cert-pod
+  template:
+    metadata:
+      labels:
+        app: cert-pod
+    spec:
+      volumes:
+        - name: cert-volume
+          projected:
+            sources:
+              - secretProjection:
+                  name: cert-secret
+                  items:
+                    - key: cert-key
+                      path: cert-key.pem
+                      mode: 0644
+              - configMapProjection:
+                  name: cert-config
+                  items:
+                    - key: cert-key
+                      path: cert-key.pem
+                      mode: 0644
+      containers:
+        - name: cert-container
+          image: alpine
+          volumeMounts:
+            - name: cert-volume
+              readOnly: true
+              mountPath: /etc/certs
+```

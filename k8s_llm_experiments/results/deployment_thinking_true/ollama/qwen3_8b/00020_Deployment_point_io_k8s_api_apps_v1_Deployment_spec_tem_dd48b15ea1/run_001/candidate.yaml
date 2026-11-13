@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-ref-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resource-ref
+  template:
+    metadata:
+      labels:
+        app: resource-ref
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        env:
+        - name: RESOURCE_REF
+          value: $(limits.memory/2)

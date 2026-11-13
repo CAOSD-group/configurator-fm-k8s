@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx
+        volumeMounts:
+        - name: env-config
+          readOnly: true
+          mountPath: /etc/config
+      volumes:
+      - name: env-config
+        projected:
+          sources:
+          - configMap:
+              name: example-config
+              items:
+              - key: env-var
+                path: env-var
+          - downwardAPI:
+              items:
+              - path: "cpu-quota"
+                resourceFieldReference:
+                  containerName: example-container
+                  resource: "limits.cpu"
+                  divisor: 1024

@@ -1,0 +1,20 @@
+{
+  "resource_root": "io_k8s_api_core_v1_Pod",
+  "kind": "Pod",
+  "api_version": "v1",
+  "alternative_groups_discovered": 135,
+  "alternative_parent_features": 135,
+  "alternative_children_total": 350,
+  "cases_total_including_base": 136,
+  "cases_planned": 136,
+  "cases_blocked": 0,
+  "groups_by_plan_type": {
+    "single_object_array_point": 60,
+    "nested_object_arrays_experimental": 43,
+    "dynamic_quantity_map_in_array": 17,
+    "scalar_or_object_point": 9,
+    "dynamic_quantity_map_point": 6
+  },
+  "blocked_reasons": {},
+  "semantics": "Points are selected without selecting a variant. Single item scaffolds localize a point in object arrays; SAT and actual YAML materialization still require evaluation."
+}

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+status:
+  initContainerStatuses:
+  - resources:
+      limits:
+        cpu: 1.0
+    image: fm-image
+    imageID: fm-imageid
+    name: fm-initcontainerstatuse-1
+    ready: false
+    restartCount: 1

@@ -1,0 +1,68 @@
+{
+  "case_id": "00078_Pod_point_io_k8s_api_core_v1_Pod_spec_preemption_d9928c90ab",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.preemptionPolicy",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_preemptionPolicy",
+  "variant_labels": [
+    "Never",
+    "PreemptLowerPriority"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_preemptionPolicy_Never",
+    "io_k8s_api_core_v1_Pod_spec_preemptionPolicy_PreemptLowerPriority"
+  ],
+  "target_phrase": "its Pod preemption policy",
+  "mapping_method": "pod_rule",
+  "mapping_confidence": "high",
+  "plan_type": "scalar_or_object_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:46:49.759450+00:00",
+  "finished_at_utc": "2026-11-12T16:46:50.841099+00:00",
+  "generation_status": "SUCCESS",
+  "model_output_status": "COMPLETE",
+  "latency_seconds": 1.0780587000772357,
+  "usage": {
+    "prompt_tokens": 127,
+    "completion_tokens": 96
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "think": false,
+    "total_duration_ns": 1068934100,
+    "load_duration_ns": 2781700,
+    "prompt_eval_duration_ns": 20901000,
+    "eval_duration_ns": 1035290000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": true,
+    "yaml_parse_ok": false,
+    "yaml_document_count": null,
+    "yaml_root_is_mapping": false,
+    "yaml_error": "ScannerError: while scanning for the next token\nfound character '`' that cannot start any token\n  in \"<unicode string>\", line 1, column 1:\n    ```yaml\n    ^",
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": true,
+    "method": "markdown_fence_removed",
+    "path": "candidate.yaml"
+  },
+  "evaluation_manifest": {
+    "exported": true,
+    "path": "results\\pod\\results_nothink\\evaluation_manifests\\pod\\ollama\\qwen3_8b\\run_001\\00078_Pod_point_io_k8s_api_core_v1_Pod_spec_preemption_d9928c90ab.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

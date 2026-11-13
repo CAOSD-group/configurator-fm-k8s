@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  volumes:
+  - scaleIO:
+      fsType: xfs
+      gateway: fm-gateway
+      secretRef: {}
+      system: fm-system
+    name: fm-volume-1

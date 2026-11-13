@@ -1,0 +1,32 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: main-container
+        image: nginx
+        ports:
+        - containerPort: 80
+        lifecycle:
+          postStart:
+            tcpSocket:
+              port: 80
+      ephemeralContainers:
+      - name: ephemeral-container
+        image: busybox
+        lifecycle:
+          postStart:
+            tcpSocket:
+              port: 80
+```

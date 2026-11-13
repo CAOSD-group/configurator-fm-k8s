@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liveness-probe-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: liveness-probe
+  template:
+    metadata:
+      labels:
+        app: liveness-probe
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10

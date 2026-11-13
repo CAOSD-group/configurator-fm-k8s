@@ -1,0 +1,16 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-probe-pod
+spec:
+  containers:
+  - name: ephemeral-container
+    image: busybox
+    lifecycle:
+      probe:
+        tcpSocket:
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 10
+```

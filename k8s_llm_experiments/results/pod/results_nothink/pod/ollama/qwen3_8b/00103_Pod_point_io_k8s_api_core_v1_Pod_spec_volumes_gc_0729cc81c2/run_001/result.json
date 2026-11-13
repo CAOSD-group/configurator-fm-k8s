@@ -1,0 +1,70 @@
+{
+  "case_id": "00103_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_gc_0729cc81c2",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.volumes[].gcePersistentDisk.fsType",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType",
+  "variant_labels": [
+    "ext4",
+    "ntfs",
+    "xfs"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_ext4",
+    "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_ntfs",
+    "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_xfs"
+  ],
+  "target_phrase": "the filesystem type of a GCE persistent disk volume",
+  "mapping_method": "volume_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:47:21.888064+00:00",
+  "finished_at_utc": "2026-11-12T16:47:23.357194+00:00",
+  "generation_status": "SUCCESS",
+  "model_output_status": "COMPLETE",
+  "latency_seconds": 1.4499802000354975,
+  "usage": {
+    "prompt_tokens": 132,
+    "completion_tokens": 131
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "think": false,
+    "total_duration_ns": 1448948800,
+    "load_duration_ns": 2609100,
+    "prompt_eval_duration_ns": 20699000,
+    "eval_duration_ns": 1410349000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": true,
+    "yaml_parse_ok": false,
+    "yaml_document_count": null,
+    "yaml_root_is_mapping": false,
+    "yaml_error": "ScannerError: while scanning for the next token\nfound character '`' that cannot start any token\n  in \"<unicode string>\", line 1, column 1:\n    ```yaml\n    ^",
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": true,
+    "method": "markdown_fence_removed",
+    "path": "candidate.yaml"
+  },
+  "evaluation_manifest": {
+    "exported": true,
+    "path": "results\\pod\\results_nothink\\evaluation_manifests\\pod\\ollama\\qwen3_8b\\run_001\\00103_Pod_point_io_k8s_api_core_v1_Pod_spec_volumes_gc_0729cc81c2.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

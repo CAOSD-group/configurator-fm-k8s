@@ -39,6 +39,7 @@ class OllamaProvider(LLMProvider):
         host: str = "http://127.0.0.1:11434",
         timeout: float = 180.0,
         num_ctx: int = 4096,
+        think: bool = False,
     ) -> None:
         try:
             from ollama import Client
@@ -51,6 +52,7 @@ class OllamaProvider(LLMProvider):
         self._client = Client(host=host, timeout=timeout)
         self.host = host
         self.num_ctx = num_ctx
+        self.think = think
 
     @staticmethod
     def _get(response: Any, name: str, default: Any = None) -> Any:
@@ -83,6 +85,7 @@ class OllamaProvider(LLMProvider):
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
+            think=self.think,
             options=options,
         )
         latency = time.perf_counter() - started
@@ -102,6 +105,7 @@ class OllamaProvider(LLMProvider):
         provider_metadata = {
             "host": self.host,
             "num_ctx": self.num_ctx,
+            "think": self.think,
             "total_duration_ns": self._get(response, "total_duration"),
             "load_duration_ns": self._get(response, "load_duration"),
             "prompt_eval_duration_ns": self._get(response, "prompt_eval_duration"),
@@ -216,6 +220,7 @@ def create_provider(
     timeout: float,
     num_ctx: int,
     gemini_api_key: str | None,
+    ollama_think: bool = False,
 ) -> LLMProvider:
     provider_name = provider_name.lower()
 
@@ -224,6 +229,7 @@ def create_provider(
             host=ollama_host,
             timeout=timeout,
             num_ctx=num_ctx,
+            think=ollama_think,
         )
 
     if provider_name == "gemini":

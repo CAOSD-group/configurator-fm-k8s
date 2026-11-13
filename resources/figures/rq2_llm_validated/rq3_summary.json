@@ -1,0 +1,43 @@
+{
+  "validation": "both",
+  "filter_invalid": true,
+  "schema_validation_counts": {
+    "passed": 168,
+    "rejected": 61
+  },
+  "sat_validation_counts": {
+    "passed_first_projection": 154,
+    "not_run": 61,
+    "rejected_first_projection": 14
+  },
+  "exclusion_reasons": {
+    "schema_rejected": 61,
+    "sat_rejected_first_projection": 14
+  },
+  "files": 229,
+  "files_completed": 229,
+  "files_remaining": 0,
+  "run_complete": true,
+  "documents": 229,
+  "source_type": "LLM",
+  "status_counts": {
+    "documents": 229,
+    "mapped_documents": 168,
+    "included_documents": 154,
+    "excluded_validation": 75
+  },
+  "unique_manifest_contents": 226,
+  "duplicate_content_groups": 3,
+  "evaluated_roots": [
+    "io_k8s_api_apps_v1_Deployment",
+    "io_k8s_api_core_v1_Pod"
+  ],
+  "sat_mode": "first_element_per_array_per_document",
+  "mapping_notes": "Explicit variants only; no omitted default is counted as selected. Array occurrences counted independently for frequencies. SAT uses first array item only. n_metadata_matched_paths is diagnostic path coverage. Scalar VP candidate mapping only covers explicit scalar YAML fields with a modeled value-alternative metadata path; structural and array-valued choices are out of scope. Unrecognized choices outside this scope remain mapper diagnostics.",
+  "input_files": {
+    "uvl": "..\\..\\variability_model\\kubernetes_combined_1-37_V3_semantic.uvl",
+    "mapper": "..\\..\\scripts\\mapping_files\\metadata_parser01.py",
+    "descriptions": "..\\..\\resources\\model_generation\\descriptions_1-37_V3.json",
+    "metadata": "..\\..\\resources\\model_generation\\serialization_metadata_1-37_V3.json"
+  }
+}

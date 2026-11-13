@@ -1,0 +1,33 @@
+{
+  "config": {
+    "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+    "io_k8s_api_core_v1_Pod_kind": "Pod",
+    "io_k8s_api_core_v1_Pod_metadata": {
+      "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod"
+    },
+    "io_k8s_api_core_v1_Pod_spec": {
+      "io_k8s_api_core_v1_Pod_spec_containers": [
+        {
+          "io_k8s_api_core_v1_Pod_spec_containers_name": "fm-container-1"
+        }
+      ],
+      "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints": [
+        {
+          "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector": {
+            "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions": [
+              {
+                "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator": {
+                  "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator_DoesNotExist": true
+                },
+                "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_labelSelector_matchExpressions_key": "fm-key"
+              }
+            ]
+          },
+          "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_maxSkew": 1,
+          "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_topologyKey": "fm-topologykey-1",
+          "io_k8s_api_core_v1_Pod_spec_topologySpreadConstraints_whenUnsatisfiable": "fm-whenunsatisfiable-1"
+        }
+      ]
+    }
+  }
+}

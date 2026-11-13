@@ -1,0 +1,49 @@
+Okay, the user wants a Kubernetes Deployment that explicitly sets the maximum surge during rolling updates. Let me recall how that works.
+
+In Kubernetes, the max surge is part of the RollingUpdate strategy for Deployments. The user specified version 1.37, which I should make sure is compatible. The key is to include the rollingUpdate section under the strategy in the Deployment's spec.
+
+So, the Deployment needs to have a template with a container, and in the spec, the strategy should have rollingUpdate with maxSurge defined. The user didn't mention maxUnavailable, so maybe just set maxSurge. Wait, but the rollingUpdate requires both maxSurge and maxUnavailable? Or is maxUnavailable optional?
+
+Wait, in Kubernetes, the RollingUpdate strategy for Deployment requires both maxSurge and maxUnavailable. If you only specify one, the other might default to 1. But the user's requirement is to explicitly set max surge. However, the question says "explicitly configures its maximum surge", so maybe they just need maxSurge set, and maxUnavailable can be omitted or set to a default. But to be safe, maybe include both? Wait, no. Let me check the Kubernetes docs.
+
+In Kubernetes, the RollingUpdate object for Deployment requires both maxSurge and maxUnavailable. If you don't specify them, they default to 1. But if the user wants to explicitly set maxSurge, perhaps they don't care about maxUnavailable. However, the question only mentions max surge. So maybe the answer should include maxSurge and omit maxUnavailable, relying on the default. But I need to make sure the YAML is valid.
+
+Wait, no. The rollingUpdate field is a object, and both maxSurge and maxUnavailable are optional. If you only specify maxSurge, that's acceptable. The presence of the rollingUpdate field is required for the strategy. So the Deployment's strategy should have type RollingUpdate, and under that, include maxSurge. Let me structure that.
+
+So the Deployment YAML would have:
+
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+
+But wait, the user might want to set maxSurge to a specific value, like 25% or a number. Since the user didn't specify, maybe use a value like 1. But the example should show the correct syntax. Also, the user might want to have maxUnavailable set as well, but since the task is only about max surge, perhaps just include that.
+
+Also, the user didn't mention any other specifics, like the container image or replicas. So the example should be minimal but valid. Let me create a basic Deployment with a single container, replicas set to 1, and the rollingUpdate with maxSurge.
+
+So the YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example
+        image: nginx:latest
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+
+Wait, but in Kubernetes, the rollingUpdate is under the strategy. So the structure is correct. Also, the user specified version 1.37, which is compatible with this syntax. So this should be valid. I think that's the correct approach.

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - lifecycle:
+      preStop:
+        httpGet:
+          port: 8080
+    name: fm-container-1

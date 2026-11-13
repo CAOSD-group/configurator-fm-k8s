@@ -1,0 +1,66 @@
+Okay, let's tackle this problem. The user wants a Kubernetes Deployment that explicitly sets the HTTP GET port for a liveness probe in one of its init containers. The Kubernetes version is 1.37.
+
+First, I need to recall how liveness probes work in Kubernetes. Liveness probes are used to determine if a container is alive. If the probe fails, Kubernetes restarts the container. The probe can be HTTP, TCP, or exec-based. Here, the user specified HTTP GET, so the probe will send an HTTP GET request.
+
+Now, the key part is configuring the HTTP GET port in the liveness probe for an init container. Wait, init containers are different from regular containers. They run initialization tasks before the main container starts. So, the liveness probe in an init container would check if that init container is alive.
+
+But wait, can init containers have liveness probes? Let me check. Yes, init containers can have liveness and readiness probes. However, the probe configuration for init containers is similar to regular containers but under the initContainers section.
+
+The user wants the HTTP GET port explicitly set. The livenessProbe section in the init container's spec needs to have a httpGet object with a path and port. The port is specified as a number, not a string. So, for example, port: 8080.
+
+Let me structure the Deployment. The main container might not need any probes, but the init container must have the liveness probe. Let's create an init container that runs a simple HTTP server, maybe using a busybox or another image. Wait, busybox doesn't have an HTTP server. Maybe using a different image, like nginx, but that's more complex. Alternatively, perhaps using a simple HTTP server in the init container. But for the sake of the example, maybe using a placeholder image that's known to run.
+
+Wait, the user might not care about the actual service running in the init container, just the probe configuration. So perhaps using a generic image, like a busybox with a script that runs a simple HTTP server. But maybe it's easier to use an image that's known to have a web server. Alternatively, maybe the init container is just a placeholder, and the probe is configured regardless of the actual service.
+
+But for the manifest, the important part is the livenessProbe configuration. Let me outline the Deployment structure.
+
+The Deployment will have a spec with a template, which has a spec with initContainers and containers. The initContainers section will have at least one init container with the livenessProbe configured.
+
+So, the YAML would look like this:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: init-container
+          image: some-image
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      containers:
+        - name: main-container
+          image: main-image
+          ports:
+            - containerPort: 80
+
+Wait, but the user specified that the liveness probe is in one of the init containers. So the initContainer must have the livenessProbe. Also, the port is specified as a number, not a string. So port: 8080 is correct.
+
+But wait, in Kubernetes, the port in the probe can be specified as a number or a string. However, the user says "explicitly configures the HTTP GET port", so it's better to use the numeric value.
+
+Also, the user might want to ensure that the init container's liveness probe is correctly set. So including initialDelaySeconds and periodSeconds is good practice, even though they are not strictly required. The user didn't specify those, but including them makes the probe configuration more complete.
+
+Now, checking the Kubernetes version 1.37. Are there any changes in the probe configuration? I don't think so. The structure of the livenessProbe remains the same.
+
+So the final YAML should have an initContainer with the livenessProbe's httpGet port set. The main container is just an example, but the key part is the init container's probe.
+
+Another thing to consider: the init container's image. Since the user didn't specify, using a placeholder like 'busybox' or another image. But maybe using a simple image that can run a web server. However, for the purpose of the manifest, the image can be any valid image. So perhaps using 'nginx' as the init container image, but that might not be necessary. Alternatively, using a minimal image that can run a simple HTTP server. But since the user didn't specify, using a generic image like 'busybox' is acceptable.
+
+Wait, but if the init container is supposed to run a service that the liveness probe can check, then the image must have that service. For example, if the liveness probe checks an HTTP endpoint, the init container must have a web server running. However, the user's requirement is just to configure the probe, not to have a functional service. So maybe the image is irrelevant for this example. The manifest is about the configuration, not the actual service.
+
+Therefore, the YAML should have the init container with the livenessProbe configured as specified. The rest can be standard.
+
+Putting it all together, the Deployment YAML would have the initContainer with the livenessProbe's httpGet port set to 8080, along with initialDelaySeconds and periodSeconds for completeness.

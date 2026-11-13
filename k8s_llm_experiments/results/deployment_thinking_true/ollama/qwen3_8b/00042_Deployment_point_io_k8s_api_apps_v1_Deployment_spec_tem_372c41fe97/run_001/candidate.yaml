@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: main-container
+        image: nginx:latest
+      - name: ephemeral-container
+        image: busybox:latest
+        ephemeral: true
+        imagePullPolicy: Always

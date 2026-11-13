@@ -1,0 +1,26 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: main-container
+        image: nginx
+        ports:
+        - containerPort: 80
+      ephemeralContainers:
+      - name: ephemeral-container
+        image: busybox
+        command: ["sh", "-c", "echo 'Ephemeral container running'; sleep 3600"]
+        imagePullPolicy: IfNotPresent
+```

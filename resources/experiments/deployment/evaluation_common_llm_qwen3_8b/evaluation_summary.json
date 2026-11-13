@@ -1,0 +1,68 @@
+{
+  "source_id": "llm_qwen3_8b",
+  "manifest_dir": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\k8s_llm_experiments\\results\\results_nothink\\evaluation_manifests\\deployment\\ollama\\qwen3_8b\\run_001",
+  "evaluated_files": 94,
+  "status_counts": {
+    "evaluated": 94
+  },
+  "kubectl_mode": "none",
+  "kubeconform": true,
+  "kubeconform_k8s_version": "1.37.0",
+  "fm_sat_mode": "yaml",
+  "uvl": "..\\..\\variability_model\\kubernetes_combined_1-37_V3_semantic.uvl",
+  "metadata": "..\\..\\resources\\model_generation\\serialization_metadata_1-37_V3.json",
+  "mapper": "..\\..\\scripts\\mapping_files\\metadata_parser01.py",
+  "descriptions": "..\\..\\resources\\model_generation\\descriptions_1-37_V3.json",
+  "mapping_strict": false,
+  "full_config_dir": null,
+  "partial_config_dir": null,
+  "cases_json": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\k8s_llm_experiments\\cases\\deployment\\deployment_cases.json",
+  "default_value_audit_csv": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\evaluation_common_llm_qwen3_8b\\audit_default_values.csv",
+  "time_model_init_s": 139.760342,
+  "python_version": "3.11.2",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "metric_note": "default indicates preferred feature selection; defaultValue comparison measures YAML values equal to reference defaults, not proven generator provenance. n_defaults_observed_total is a distinct-feature union, available only with full configuration. Optional partial-config analysis infers fallback but does not prove it. SAT-YAML projects schema-typed Boolean values (including false) to presence assumptions, retaining the original values in mapped JSON. n_variants = options in active alternative groups. n_features is exact only with FM completed JSON. yaml_matched_features uses MetadataMapper YAML->UVL but may be partial (unmapped reported). SAT (yaml mode) tests satisfiable extension of mapped hypotheses only; collection instances not independently modeled. RQ3 satisfaction uses cases.json point_feature against MetadataMapper selected_features; config_path presence is auxiliary evidence and variant_features report the observed alternative(s). schema_valid=Kubeconform; semantic_valid=kubectl server dry-run. Unmeasured is blank.",
+  "output_csv": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\evaluation_common_llm_qwen3_8b\\evaluation_metrics.csv",
+  "output_core_csv": "C:\\Users\\CAOSD\\projects\\configurator-fm-k8s\\resources\\experiments\\deployment\\evaluation_common_llm_qwen3_8b\\evaluation_core.csv",
+  "fm_sat_status_counts": {
+    "passed": 49,
+    "unavailable": 42,
+    "rejected": 3
+  },
+  "schema_validation_status_counts": {
+    "passed": 68,
+    "rejected": 22,
+    "unavailable": 4
+  },
+  "rq1_vp_fidelity_status_counts": {
+    "not_run": 94
+  },
+  "rq2_documentation_status_counts": {
+    "not_run": 94
+  },
+  "default_value_audit_status_counts": {
+    "checked_no_provenance": 94
+  },
+  "rq3_requirement_status_counts": {
+    "satisfied_variant_resolved": 52,
+    "target_point_missing": 36,
+    "satisfied_variant_unresolved": 2,
+    "path_present_point_unmapped": 4
+  },
+  "rq3_point_feature_mapped_counts": {
+    "True": 54,
+    "False": 40
+  },
+  "default_metrics_aggregated": {
+    "n_defaults": null,
+    "n_defaults_observed_total": null,
+    "n_default_value_features_selected": null,
+    "n_default_value_features_matching": 107,
+    "n_default_value_features_differing": 31,
+    "n_default_value_occurrences_matching": 107,
+    "n_default_value_occurrences_differing": 31,
+    "n_default_value_inferred_applied": null,
+    "n_default_value_explicit_equal": null,
+    "n_default_value_explicit_overrides": null
+  }
+}

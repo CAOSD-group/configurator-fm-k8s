@@ -1,0 +1,32 @@
+{
+  "case_id": "00082_Pod_point_io_k8s_api_core_v1_Pod_spec_securityCo_66a9e14917",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.securityContext.appArmorProfile.type",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type",
+  "variant_labels": [
+    "Localhost",
+    "RuntimeDefault",
+    "Unconfined"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_Localhost",
+    "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_RuntimeDefault",
+    "io_k8s_api_core_v1_Pod_spec_securityContext_appArmorProfile_type_Unconfined"
+  ],
+  "target_phrase": "its Pod AppArmor profile type",
+  "mapping_method": "pod_rule",
+  "mapping_confidence": "high",
+  "plan_type": "scalar_or_object_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:46:53.157596+00:00"
+}

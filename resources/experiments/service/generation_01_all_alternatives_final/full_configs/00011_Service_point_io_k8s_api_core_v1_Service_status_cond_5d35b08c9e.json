@@ -1,0 +1,16 @@
+{
+  "io_k8s_api_core_v1_Service_apiVersion": "v1",
+  "io_k8s_api_core_v1_Service_kind": "Service",
+  "io_k8s_api_core_v1_Service_metadata_name": "fm-pilot-pod",
+  "io_k8s_api_core_v1_Service_status_conditions_status": true,
+  "io_k8s_api_core_v1_Service_status_conditions": true,
+  "io_k8s_api_core_v1_Service": true,
+  "Kubernetes": true,
+  "io_k8s_api_core_v1_Service_metadata": true,
+  "io_k8s_api_core_v1_Service_status": true,
+  "io_k8s_api_core_v1_Service_status_conditions_lastTransitionTime": true,
+  "io_k8s_api_core_v1_Service_status_conditions_message": true,
+  "io_k8s_api_core_v1_Service_status_conditions_reason": true,
+  "io_k8s_api_core_v1_Service_status_conditions_type": true,
+  "io_k8s_api_core_v1_Service_status_conditions_status_False": true
+}

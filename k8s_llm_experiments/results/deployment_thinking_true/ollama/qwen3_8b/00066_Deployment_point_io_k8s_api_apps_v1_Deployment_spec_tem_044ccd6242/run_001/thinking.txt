@@ -1,0 +1,71 @@
+Okay, let's tackle this problem. The user wants a Kubernetes Deployment that configures the TCP socket port for a pre-stop lifecycle hook in one of its init containers. The Kubernetes version is 1.37.
+
+First, I need to recall how lifecycle hooks work in Kubernetes. The pre-stop hook is used to gracefully terminate a container. For init containers, this is useful to perform any necessary cleanup before the main container stops.
+
+The key part here is specifying the TCP socket port. The pre-stop hook can be a TCP socket or an exec command. The user specifically wants the TCP socket port configured. So, in the YAML, under the lifecycle section of the init container, I need to set the preStop field with a TCPSocket action.
+
+Wait, the TCPSocket requires a port. So the port must be specified in the TCPSocket configuration. Also, the container must have the necessary ports defined in its containerPort section. But since this is an init container, maybe the port is part of the init container's ports?
+
+Wait, the init container's ports are defined under the container's ports field. So, the init container must have a port exposed. Then, the preStop TCPSocket will use that port.
+
+So, the steps are:
+
+1. Create an init container in the Deployment.
+2. Define a port in the init container's ports.
+3. Configure the preStop lifecycle hook to use a TCPSocket on that port.
+
+Let me check the Kubernetes version 1.37. Are there any changes related to lifecycle hooks or TCPSocket? I don't think so. The structure should be standard.
+
+Now, the YAML structure for the Deployment. The initContainers section is part of the spec.template.spec. Each init container has a name, image, and lifecycle.
+
+For the preStop hook, it's under lifecycle.preStop. The value is a TCPSocket object with port and host. The host is optional, defaulting to the container's IP.
+
+So, the init container needs to have a port defined. Let's say the init container is using a port 8080. Then, the preStop TCPSocket would target that port.
+
+Putting it all together:
+
+- The init container's ports include a port 8080.
+- The preStop hook is a TCPSocket with port 8080.
+
+Let me draft the YAML.
+
+The Deployment will have an initContainer with name, image, ports, and lifecycle.preStop.
+
+Wait, the image is required. Let's use a simple image like alpine for the init container.
+
+So, the YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: init-container
+          image: alpine
+          ports:
+            - containerPort: 8080
+          lifecycle:
+            preStop:
+              tcpSocket:
+                port: 8080
+      containers:
+        - name: main-container
+          image: nginx
+          ports:
+            - containerPort: 80
+
+But wait, the init container's ports are part of its configuration. The preStop TCPSocket refers to that port. So the containerPort 8080 in the init container is correct.
+
+This should work. Let me check if all required fields are present. The init container has name, image, ports, and lifecycle.preStop with tcpSocket and port. Yes.
+
+I think this meets the user's requirements. The TCP socket port is explicitly configured in the pre-stop hook of the init container.

@@ -1,0 +1,34 @@
+{
+  "case_id": "00003_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_sel_ab6fbfe403",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.selector.matchExpressions[].operator",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator",
+  "variant_labels": [
+    "DoesNotExist",
+    "Exists",
+    "In",
+    "NotIn"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_DoesNotExist",
+    "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_Exists",
+    "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_In",
+    "io_k8s_api_apps_v1_Deployment_spec_selector_matchExpressions_operator_NotIn"
+  ],
+  "target_phrase": "the operator of a match expression in its selector",
+  "mapping_method": "resource_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T09:44:40.382702+00:00"
+}

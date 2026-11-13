@@ -1,0 +1,19 @@
+Okay, the user wants a Kubernetes Deployment that sets the seccomp profile type for one of its containers. Let me recall how to do that.
+
+First, I need to make sure the Kubernetes version is 1.37. I should check if seccomp profiles are supported in that version. Since Kubernetes 1.10 introduced seccomp profiles, 1.37 should be fine.
+
+The main thing is to add the seccompProfile section under the container's securityContext. The profile type can be either 'Localhost' or 'RuntimeDefault'. The user didn't specify which, so maybe use 'Localhost' as an example.
+
+Wait, the user said "explicitly configures the seccomp profile type". So I need to set the type. Also, maybe include the profileName if using a specific one, but the user might just want the type. Let me check the Kubernetes docs for the correct structure.
+
+The securityContext for a container can have seccompProfile with type and profileName. Since the user didn't mention a specific profile, maybe just set the type. But maybe the profileName is required? Or is it optional?
+
+Looking at the Kubernetes API, the seccompProfile requires the type, and profileName is optional. So I can include the type and leave profileName out, or set it to an empty string. But maybe the user wants a specific example. Let me use 'Localhost' as the type.
+
+So the container's securityContext should have seccompProfile with type: Localhost. Also, ensure that the Pod's securityContext is set to runAsNonRoot or similar if needed, but the user didn't mention that. Focus on the container's seccomp configuration.
+
+Putting it all together: a Deployment with a container that has the securityContext with seccompProfile. Let me write the YAML.
+
+Wait, the user might not have specified the container image, so use a placeholder like 'nginx:latest'. Also, make sure the YAML is valid. Check for correct indentation and structure.
+
+Yes, that should work. Let me make sure there are no typos. The seccompProfile is under the container's securityContext. Alright, that's the main part. The rest of the Deployment is standard.

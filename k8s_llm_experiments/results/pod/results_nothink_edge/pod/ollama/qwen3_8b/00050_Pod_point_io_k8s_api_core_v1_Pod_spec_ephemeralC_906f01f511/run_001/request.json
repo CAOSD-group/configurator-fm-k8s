@@ -1,0 +1,30 @@
+{
+  "case_id": "00050_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_906f01f511",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "EDGE",
+  "classification": "non_declarative_context",
+  "config_path": "spec.ephemeralContainers[].restartPolicyRules[].exitCodes.operator",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator",
+  "variant_labels": [
+    "In",
+    "NotIn"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_In",
+    "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_restartPolicyRules_exitCodes_operator_NotIn"
+  ],
+  "target_phrase": "the exit-code operator in a restart policy rule of one of its ephemeral containers",
+  "mapping_method": "container_rule",
+  "mapping_confidence": "high",
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:48:32.100545+00:00"
+}

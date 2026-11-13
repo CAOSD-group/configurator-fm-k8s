@@ -1,0 +1,17 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ephemeral-container-pod
+spec:
+  containers:
+  - name: main-container
+    image: nginx
+    ports:
+    - containerPort: 80
+  ephemeralContainers:
+  - name: ephemeral-container
+    image: busybox
+    command: ["sh", "-c", "echo 'Ephemeral container running'; sleep 3600"]
+    imagePullPolicy: IfNotPresent
+```

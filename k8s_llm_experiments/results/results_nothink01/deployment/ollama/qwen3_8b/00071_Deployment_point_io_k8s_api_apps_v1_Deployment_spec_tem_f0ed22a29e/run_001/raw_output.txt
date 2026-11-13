@@ -1,0 +1,33 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-probe-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-probe-demo
+  template:
+    metadata:
+      labels:
+        app: readiness-probe-demo
+    spec:
+      initContainers:
+        - name: init-container
+          image: busybox
+          command:
+            - sh
+            - -c
+            - echo Initiating init container && sleep 30
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      containers:
+        - name: main-container
+          image: nginx
+          ports:
+            - containerPort: 80
+```

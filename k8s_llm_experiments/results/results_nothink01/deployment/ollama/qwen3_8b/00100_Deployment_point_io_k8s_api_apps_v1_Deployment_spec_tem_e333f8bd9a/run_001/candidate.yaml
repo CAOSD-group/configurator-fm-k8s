@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx
+        volumeMounts:
+        - name: env-vars
+          readOnly: true
+          mountPath: /etc/secret
+      volumes:
+      - name: env-vars
+        downwardAPI:
+          items:
+          - path: "HOSTNAME"
+            resourceFieldReference:
+              containerName: example-container
+              divisor: 1

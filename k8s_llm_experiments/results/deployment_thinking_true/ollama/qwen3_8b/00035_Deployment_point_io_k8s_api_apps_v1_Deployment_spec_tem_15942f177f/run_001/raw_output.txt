@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-armor-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-armor-demo
+  template:
+    metadata:
+      labels:
+        app: app-armor-demo
+    spec:
+      containers:
+      - name: app
+        image: nginx
+        securityContext:
+          appArmorProfile:
+            type: unconfined

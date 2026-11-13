@@ -1,0 +1,57 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photon-app
+  labels:
+    app: photon-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: photon-app
+  template:
+    metadata:
+      labels:
+        app: photon-app
+    spec:
+      containers:
+      - name: app-container
+        image: nginx:latest
+        volumeMounts:
+        - name: photon-volume
+          mountPath: /data
+      volumes:
+      - name: photon-volume
+        persistentVolumeClaim:
+          claimName: photon-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: photon-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: photon-sc
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: photon-pv
+  labels:
+    type: photon
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: photon-sc
+  photon:
+    fileSystem: ext4
+    volumeID: photon-volume-1
+    fsType: ext4
+```

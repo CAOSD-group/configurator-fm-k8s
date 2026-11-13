@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  ephemeralContainers:
+  - securityContext:
+      seccompProfile:
+        type: Localhost
+        localhostProfile: fm-localhostprofile
+    name: fm-ephemeralcontainer-1

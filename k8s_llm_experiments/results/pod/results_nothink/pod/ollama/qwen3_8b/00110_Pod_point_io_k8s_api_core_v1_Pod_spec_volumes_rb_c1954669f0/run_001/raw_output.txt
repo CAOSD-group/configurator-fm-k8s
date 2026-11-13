@@ -1,0 +1,37 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rbd-pod
+spec:
+  containers:
+  - name: rbd-container
+    image: busybox
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - name: rbd-volume
+      mountPath: /mnt/rbd
+  volumes:
+  - name: rbd-volume
+    persistentVolumeClaim:
+      claimName: rbd-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rbd-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: rbd
+  resources:
+    requests:
+      storage: 1Gi
+  volumeAttributes:
+    rbdPool: myrbdpool
+    rbdImage: myrbdimage
+    rbdOptions: "size=1G,format=2"
+    fsType: "ext4"
+```

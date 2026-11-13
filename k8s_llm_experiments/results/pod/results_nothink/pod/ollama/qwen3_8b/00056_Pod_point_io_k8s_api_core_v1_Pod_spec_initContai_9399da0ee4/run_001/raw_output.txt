@@ -1,0 +1,35 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-reference-pod
+spec:
+  initContainers:
+  - name: init-container
+    image: alpine
+    command: ["sh", "-c", "echo 'Init container running'"]
+    env:
+    - name: RESOURCE_REFERENCE
+      value: "ResourceReference"
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+  containers:
+  - name: main-container
+    image: alpine
+    command: ["sh", "-c", "echo 'Main container running'"]
+    env:
+    - name: RESOURCE_REFERENCE
+      value: "ResourceReference"
+    resources:
+      limits:
+        memory: "256Mi"
+        cpu: "1000m"
+      requests:
+        memory: "128Mi"
+        cpu: "500m"
+```

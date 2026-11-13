@@ -1,0 +1,28 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        volumeMounts:
+        - name: example-volume
+          mountPath: /data
+          subPath: .
+      volumes:
+      - name: example-volume
+        awsElasticBlockStore:
+          volumeID: vol-12345678
+          fsType: ext4
+```

@@ -1,0 +1,19 @@
+{
+  "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+  "io_k8s_api_core_v1_Pod_kind": "Pod",
+  "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod",
+  "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType": true,
+  "io_k8s_api_core_v1_Pod_spec_volumes": [
+    {
+      "io_k8s_api_core_v1_Pod_spec_volumes_projected": {
+        "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_projected_sources_podCertificate_keyType": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "config": {
+    "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+    "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+    "io_k8s_api_apps_v1_Deployment_metadata": {
+      "io_k8s_api_apps_v1_Deployment_metadata_name": "example-deployment"
+    },
+    "io_k8s_api_apps_v1_Deployment_spec": {
+      "io_k8s_api_apps_v1_Deployment_spec_replicas": 1,
+      "io_k8s_api_apps_v1_Deployment_spec_selector": {
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_KeyMap": "app",
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_ValueMap": "example"
+          }
+        ]
+      },
+      "io_k8s_api_apps_v1_Deployment_spec_template": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_KeyMap": "app",
+              "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_ValueMap": "example"
+            }
+          ]
+        },
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": "example-container",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_image": "nginx:latest",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports": [
+                {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_ports_containerPort": 80
+                }
+              ],
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_path": "/",
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_httpGet_port_asInteger": 80
+                  }
+                },
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_initialDelaySeconds": 5,
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_readinessProbe_periodSeconds": 10
+              },
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_path": "/",
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_httpGet_port_asInteger": 80
+                  }
+                },
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_initialDelaySeconds": 15,
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_livenessProbe_periodSeconds": 20
+              },
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet": {
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_path": "/",
+                  "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_httpGet_port_asInteger": 80
+                  }
+                },
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_initialDelaySeconds": 30,
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_periodSeconds": 10,
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_startupProbe_failureThreshold": 30
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

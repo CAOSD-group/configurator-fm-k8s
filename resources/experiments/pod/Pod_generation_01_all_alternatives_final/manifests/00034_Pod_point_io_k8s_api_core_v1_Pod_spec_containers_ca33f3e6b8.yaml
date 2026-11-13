@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - volumeMounts:
+    - bindMountOptions:
+      - nodev
+      mountPath: fm-mountpath-1
+      name: fm-volumemount-1
+    name: fm-container-1

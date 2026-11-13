@@ -1,0 +1,38 @@
+{
+  "case_id": "00003_Pod_point_io_k8s_api_core_v1_Pod_spec_affinity_n_d5f55d7330",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.affinity.nodeAffinity.preferredDuringSchedulingIgnoredDuringExecution[].preference.matchExpressions[].operator",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator",
+  "variant_labels": [
+    "DoesNotExist",
+    "Exists",
+    "Gt",
+    "In",
+    "Lt",
+    "NotIn"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_DoesNotExist",
+    "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Exists",
+    "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Gt",
+    "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_In",
+    "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_Lt",
+    "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_NotIn"
+  ],
+  "target_phrase": "the operator of a match expression in its preferred node affinity",
+  "mapping_method": "affinity_rule",
+  "mapping_confidence": "high",
+  "plan_type": "nested_object_arrays_experimental",
+  "n_array_ancestors": 2,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:45:31.862890+00:00"
+}

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+      initContainers:
+      - name: init
+        image: busybox:latest
+        command:
+        - sh
+        - -c
+        - echo "Initializing container" && sleep 10
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+          requests:
+            memory: "64Mi"
+            cpu: "125m"
+      terminationGracePeriodSeconds: 30
+      imagePullSecrets:
+      - name: regcred

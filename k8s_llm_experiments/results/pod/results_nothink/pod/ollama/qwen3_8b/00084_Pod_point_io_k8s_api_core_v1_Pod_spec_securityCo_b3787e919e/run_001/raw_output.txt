@@ -1,0 +1,24 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: selinux-policy-pod
+spec:
+  containers:
+  - name: test-container
+    image: alpine
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
+  securityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+    selinuxOptions:
+      level: s0
+      type: spc_t
+      role: object_r
+      sensitivity: s0
+      category: c0
+```

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fc-pod
+spec:
+  containers:
+  - name: fc-container
+    image: busybox
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - name: fc-volume
+      mountPath: /mnt/fc
+  volumes:
+  - name: fc-volume
+    fc:
+      targetWWN: "5000123456789012"
+      lun: 0
+      fsType: "ext4"

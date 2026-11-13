@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: main-container
+        image: nginx
+        ports:
+        - containerPort: 80
+      ephemeralContainers:
+      - name: ephemeral-container
+        image: busybox
+        command: ["sh", "-c", "echo 'ephemeral container'; sleep 3600"]
+        securityContext:
+          appArmorProfile:
+            type: localhost

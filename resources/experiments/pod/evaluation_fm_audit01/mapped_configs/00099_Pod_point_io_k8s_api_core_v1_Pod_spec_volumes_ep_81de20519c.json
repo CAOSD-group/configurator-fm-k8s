@@ -1,0 +1,35 @@
+{
+  "config": {
+    "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+    "io_k8s_api_core_v1_Pod_kind": "Pod",
+    "io_k8s_api_core_v1_Pod_metadata": {
+      "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod"
+    },
+    "io_k8s_api_core_v1_Pod_spec": {
+      "io_k8s_api_core_v1_Pod_spec_containers": [
+        {
+          "io_k8s_api_core_v1_Pod_spec_containers_name": "fm-container-1"
+        }
+      ],
+      "io_k8s_api_core_v1_Pod_spec_volumes": [
+        {
+          "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral": {
+            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate": {
+              "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources": {
+                  "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests": [
+                    {
+                      "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_KeyMap": "storage",
+                      "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asNumber": 1073741824.0
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "io_k8s_api_core_v1_Pod_spec_volumes_name": "fm-volume-1"
+        }
+      ]
+    }
+  }
+}

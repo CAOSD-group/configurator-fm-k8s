@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sh", "-c", "echo 'Graceful shutdown initiated'; sleep 5"]
+        terminationGracePeriodSeconds: 10
+        startupProbe:
+          exec:
+            command: ["sh", "-c", "echo 'Startup probe'; sleep 2"]
+          failureThreshold: 5
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "echo 'Readiness probe'; sleep 1"]
+          failureThreshold: 5
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command: ["sh", "-c", "echo 'Liveness probe'; sleep 1"]
+          failureThreshold: 5
+          periodSeconds: 10
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+        restartPolicy:
+          onFailure: always
+          onExit: always

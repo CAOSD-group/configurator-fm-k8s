@@ -1,0 +1,32 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trust-bundle-deployment
+spec:
+  replicas: 1
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - trust-bundle
+  template:
+    metadata:
+      labels:
+        app: trust-bundle
+    spec:
+      volumes:
+        - name: trust-bundle-volume
+          projected:
+            sources:
+              - configMap:
+                  name: cluster-trust-bundle
+      containers:
+        - name: trust-bundle-container
+          image: busybox
+          command: ["sh", "-c", "sleep 3600"]
+          volumeMounts:
+            - name: trust-bundle-volume
+              mountPath: /etc/trust-bundle
+```

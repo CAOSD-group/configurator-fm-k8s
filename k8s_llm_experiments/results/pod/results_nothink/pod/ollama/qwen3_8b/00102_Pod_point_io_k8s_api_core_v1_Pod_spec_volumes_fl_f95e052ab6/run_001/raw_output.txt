@@ -1,0 +1,24 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flexvolume-pod
+spec:
+  containers:
+  - name: test-container
+    image: alpine
+    command:
+    - sh
+    - -c
+    - echo "Testing FlexVolume filesystem type"
+    volumeMounts:
+    - name: flexvol
+      mountPath: /mnt/flexvol
+      mountPropagation: HostToContainer
+  volumes:
+  - name: flexvol
+    flexVolume:
+      driver: example.com/flexvolume
+      options:
+        fsType: ext4
+```

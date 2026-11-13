@@ -1,0 +1,28 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fc-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fc-app
+  template:
+    metadata:
+      labels:
+        app: fc-app
+    spec:
+      containers:
+      - name: fc-container
+        image: nginx
+        volumeMounts:
+        - name: fc-volume
+          mountPath: /mnt/fc
+      volumes:
+      - name: fc-volume
+        fc:
+          targetWWN: "5000123456789012"
+          lun: 0
+          fsType: "ext4"
+```

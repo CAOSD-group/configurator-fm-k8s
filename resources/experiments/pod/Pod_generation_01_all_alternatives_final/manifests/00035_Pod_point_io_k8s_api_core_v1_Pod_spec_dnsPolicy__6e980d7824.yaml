@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  dnsPolicy: ClusterFirst
+  containers:
+  - name: fm-container-1

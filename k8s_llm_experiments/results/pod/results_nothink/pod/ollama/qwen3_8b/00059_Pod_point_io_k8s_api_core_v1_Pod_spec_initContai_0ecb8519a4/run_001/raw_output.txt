@@ -1,0 +1,21 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  initContainers:
+  - name: init-container
+    image: busybox
+    command:
+    - sh
+    - -c
+    - echo Initiating init container
+    lifecycle:
+      postStart:
+        tcpSocket:
+          port: 8080
+  containers:
+  - name: main-container
+    image: nginx
+```

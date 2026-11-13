@@ -1,0 +1,101 @@
+Okay, let's tackle this problem. The user wants a Kubernetes Deployment that has an init container with a readiness probe configured to use a TCP socket port. The Kubernetes version is 1.37, which I should keep in mind for any version-specific features.
+
+First, I need to recall how readiness probes work in Kubernetes. Readiness probes are used to determine if a container is ready to serve traffic. The TCP socket probe checks if a port is open on the container. The key here is to configure the readinessProbe in an init container. Wait, init containers are different from regular containers. They run to completion before the main container starts. So, the readiness probe in an init container would check if the init container is ready, which might be used to ensure some setup is done before the main container starts.
+
+But wait, can init containers have readiness probes? Let me check. Yes, init containers can have readiness probes, but they are used to determine if the init container is ready. However, the user specifically mentioned the TCP socket port for the readiness probe. So, I need to set up the readinessProbe in the init container with a TCP check.
+
+The Deployment needs to have an initContainer section. Let me structure the YAML. The main container might not be necessary here, but the user might want a simple example. Let's create a Deployment with an init container that has a readiness probe.
+
+In the init container, I'll specify the readinessProbe with a tcpSocket and a port. Let's choose a common port, like 8080. The initialDelaySeconds and periodSeconds can be set to reasonable values, like 5 and 10. The failureThreshold and successThreshold would be 1 and 1, respectively, as per default values if not specified.
+
+Wait, the user wants the TCP socket port explicitly configured. So, the probe should have a tcpSocket with a port specified. Let me make sure that the port is set in the probe. Also, the init container needs to have a command or image that would respond to the TCP check. For example, using a simple HTTP server or a TCP echo server. But since the user didn't specify the init container's image, maybe I can use a standard image like busybox with a shell command that listens on a port. Alternatively, maybe the init container is just a placeholder, but the readiness probe is there to check the port.
+
+Wait, but how does the readiness probe work for an init container? The readiness probe in an init container checks if the init container is ready. If the probe fails, the init container is restarted. Once it's successful, the main container starts. So, the init container must have a process that listens on the specified port. For example, if the init container is running a TCP server on port 8080, the readiness probe would check that port.
+
+So, the init container's image needs to have a service listening on that port. Let's use a simple image like alpine with a command that starts a TCP server. Alternatively, maybe using a busybox image with a command that creates a TCP socket. But perhaps the user just wants the configuration, not the actual service. However, the manifest must be deployable, so the init container must have a valid image and command that can respond to the probe.
+
+Wait, but maybe the user doesn't care about the actual service, just the configuration. However, the manifest must be valid. So, I need to make sure that the init container has a command that would make the TCP port available. For example, using a simple TCP server. Let me think of an example. Maybe using the 'nc' (netcat) command to listen on a port. For example, the init container could run 'nc -l 8080' to listen on port 8,080. But the image needs to have netcat installed. So, using an image like 'alpine' with netcat installed, or using a different image.
+
+Alternatively, maybe the user just wants the configuration part, and the actual service is handled elsewhere. But the manifest must be deployable, so the init container must have a valid command. Let me check. For example, using the 'alpine' image and running a command that starts a TCP server. Let's say the init container runs 'sh -c "while true; do sleep 1; done"' which doesn't listen on any port. That wouldn't work. So, perhaps the init container needs to have a command that listens on the specified port. For example, using 'nc -l 8080' as the command. But the image must have netcat. So, maybe using the 'busybox' image, but busybox doesn't have netcat. Alternatively, use 'alpine' with 'nc' installed.
+
+Alternatively, maybe the user doesn't care about the actual service and just wants the probe configuration. But the manifest must be valid. So, perhaps the init container's image is something that can run, even if the probe is not actually functional. But that's not helpful. So, I need to make sure that the init container has a command that would make the port available. Let me choose an image that can do that. For example, using the 'alpine' image with 'nc' installed. But how to do that? Maybe using a multi-stage build or a specific image. Alternatively, use a different image that has netcat. For example, 'docker.io/centos:centos7' with 'nc' installed. But perhaps the user just wants the configuration, and the actual service is handled elsewhere. However, the manifest must be deployable, so the init container must have a valid command.
+
+Alternatively, maybe the init container is just a placeholder, and the readiness probe is there to check a port that's being used by another process. But the user's requirement is to explicitly configure the TCP socket port in the readiness probe. So, the key part is the configuration, not the actual service. Therefore, I can proceed with the configuration, assuming that the init container's image and command are set up to respond to the TCP probe.
+
+Putting it all together, the Deployment YAML would have an initContainer with a readinessProbe that uses tcpSocket and specifies the port. Let me structure the YAML accordingly. The main container might not be necessary, but including it could be helpful. However, the user's focus is on the init container's readiness probe. So, the YAML should have the initContainer section with the readinessProbe.
+
+Let me draft the YAML:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: init-container
+          image: alpine:3.18
+          command: ["sh", "-c", "while true; do sleep 1; done"]
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      containers:
+        - name: main-container
+          image: nginx
+          ports:
+            - containerPort: 80
+
+Wait, but the init container's command is just a loop. The readiness probe checks if the TCP port is open. However, if the init container isn't actually listening on that port, the probe will fail. So, this example might not work. Therefore, the init container's command must include something that listens on the specified port. For example, using 'nc -l 8080' to start a TCP server. But the image must have 'nc' installed. Let me adjust the command and image.
+
+Let me use an image that has 'nc' installed. For example, using 'docker.io/centos:centos7' and installing netcat. But that's more complex. Alternatively, use a different image. Maybe the user is okay with the init container's command not actually doing anything, but the probe is configured. However, that's not deployable. So, perhaps the user just wants the configuration, and the actual service is handled elsewhere. But the manifest must be valid. Therefore, I need to make sure that the init container's command is valid. Let me use the 'alpine' image with 'nc' installed. Wait, does alpine have 'nc'? Let me check. Alpine's base image doesn't include netcat by default. So, perhaps using a different image. Alternatively, use the 'busybox' image, which has a 'nc' command. Wait, busybox has 'nc' as 'netcat'? Let me confirm. Busybox's 'nc' is a minimal version. So, maybe using the 'busybox' image with the command 'nc -l 8080'.
+
+So, adjusting the init container's image to 'busybox' and command to 'nc -l 8080'. That would make the init container listen on port 8080, which the readiness probe would check. Therefore, the YAML would be:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: init-container
+          image: busybox
+          command: ["sh", "-c", "nc -l 8080"]
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      containers:
+        - name: main-container
+          image: nginx
+          ports:
+            - containerPort: 80
+
+But wait, the command for the init container is 'sh -c "nc -l 8080"'. However, the 'nc' command in busybox might not be available. Let me check. Busybox's 'nc' is a minimal netcat. So, it's possible. Alternatively, maybe the user doesn't care about the actual service and just wants the configuration. But the manifest must be deployable. Therefore, this setup should work.
+
+Another thing to consider: the readiness probe in the init container. The probe checks if the TCP port is open. If the init container is running and listening on that port, the probe will pass. Otherwise, it will fail. So, the init container's command must be something that keeps the port open. The 'nc -l 8080' command will listen on port 8080, so the probe should work.
+
+Therefore, the final YAML should include the init container with the readinessProbe configured for TCP port 8080. The main container is just an example. The user might not need the main container, but including it makes the Deployment valid.
+
+Also, the Kubernetes version is 1.37. I should check if there are any changes in the API for readiness probes. But as of my knowledge, the structure remains the same. So, the YAML should be valid for Kubernetes 1.37.
+
+So, the final answer should be the YAML manifest as described.

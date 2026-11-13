@@ -1,0 +1,3 @@
+Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the filesystem type of a ScaleIO volume.

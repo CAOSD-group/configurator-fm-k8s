@@ -1,0 +1,21 @@
+apiVersion: v1  # APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+kind: Pod  # Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+metadata:  # Standard object’s metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+  name: fm-pilot-pod  # Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
+spec:  # Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+  containers:  # List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
+  - name: fm-container-1  # Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:  # Required. A list of node selector terms. The terms are ORed.
+        - matchFields:  # A list of node selector requirements by node’s fields.
+          # [Variability Point: Represents a key’s relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.]
+          # - Selected Variant: DoesNotExist (Specific value: DoesNotExist)
+          # - Alternative Variant: Exists (Specific value: Exists)
+          # - Alternative Variant: Gt (Specific value: Gt)
+          # - Alternative Variant: In (Specific value: In)
+          # - Alternative Variant: Lt (Specific value: Lt)
+          # - Alternative Variant: NotIn (Specific value: NotIn)
+          - operator: DoesNotExist  # Represents a key’s relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+            key: fm-key  # The label key that the selector applies to.

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: storageos-pod
+spec:
+  containers:
+  - name: app
+    image: alpine
+    command:
+    - sh
+    - -c
+    - echo "StorageOS volume mounted at /mnt/storageos"
+    volumeMounts:
+    - name: storageos-volume
+      mountPath: /mnt/storageos
+      readOnly: false
+  volumes:
+  - name: storageos-volume
+    storageos:
+      fsType: ext4

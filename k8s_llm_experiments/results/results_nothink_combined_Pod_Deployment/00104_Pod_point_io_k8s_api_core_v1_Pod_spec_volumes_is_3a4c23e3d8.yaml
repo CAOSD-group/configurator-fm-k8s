@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: iscsi-pod
+spec:
+  containers:
+  - name: iscsi-container
+    image: alpine
+    command:
+    - sh
+    - -c
+    - echo "Mounting iSCSI volume..."
+    volumeMounts:
+    - name: iscsi-volume
+      mountPath: /mnt/iscsi
+      mountPropagation: HostToContainer
+  volumes:
+  - name: iscsi-volume
+    iscsi:
+      target: iqn.2001-08.com.example:storage.target1
+      lun: 0
+      portal: 192.168.1.100
+      fsType: ext4

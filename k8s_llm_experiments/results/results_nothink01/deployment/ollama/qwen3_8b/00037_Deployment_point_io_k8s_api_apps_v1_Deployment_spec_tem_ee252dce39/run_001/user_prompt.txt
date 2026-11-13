@@ -1,0 +1,3 @@
+Kubernetes version: 1.37
+
+Create a Kubernetes Deployment that explicitly configures the HTTP GET port of the startup probe in one of its containers.

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apparmor-pod
+spec:
+  containers:
+  - name: apparmor-container
+    image: nginx
+    securityContext:
+      runAsUser: 33
+      runAsGroup: 33
+      fsGroup: 33
+    lifecycle:
+      postStart:
+        exec:
+          command:
+          - /bin/sh
+          - -c
+          - echo "AppArmor profile applied"
+  securityContext:
+    runAsNonRoot: true
+    appArmorProfile:
+      type: localhost

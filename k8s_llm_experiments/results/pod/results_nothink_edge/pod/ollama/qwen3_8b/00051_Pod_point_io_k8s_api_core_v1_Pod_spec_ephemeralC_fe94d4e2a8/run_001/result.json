@@ -1,0 +1,70 @@
+{
+  "case_id": "00051_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_fe94d4e2a8",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "EDGE",
+  "classification": "non_declarative_context",
+  "config_path": "spec.ephemeralContainers[].securityContext.appArmorProfile.type",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type",
+  "variant_labels": [
+    "Localhost",
+    "RuntimeDefault",
+    "Unconfined"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_Localhost",
+    "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_RuntimeDefault",
+    "io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_appArmorProfile_type_Unconfined"
+  ],
+  "target_phrase": "the AppArmor profile type of one of its ephemeral containers",
+  "mapping_method": "container_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:48:34.842248+00:00",
+  "finished_at_utc": "2026-11-12T16:48:35.741631+00:00",
+  "generation_status": "SUCCESS",
+  "model_output_status": "COMPLETE",
+  "latency_seconds": 0.8820577000733465,
+  "usage": {
+    "prompt_tokens": 134,
+    "completion_tokens": 77
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "think": false,
+    "total_duration_ns": 880902500,
+    "load_duration_ns": 2599300,
+    "prompt_eval_duration_ns": 21093000,
+    "eval_duration_ns": 829944000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": true,
+    "yaml_parse_ok": false,
+    "yaml_document_count": null,
+    "yaml_root_is_mapping": false,
+    "yaml_error": "ScannerError: while scanning for the next token\nfound character '`' that cannot start any token\n  in \"<unicode string>\", line 1, column 1:\n    ```yaml\n    ^",
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": true,
+    "method": "markdown_fence_removed",
+    "path": "candidate.yaml"
+  },
+  "evaluation_manifest": {
+    "exported": true,
+    "path": "results\\pod\\results_nothink_edge\\evaluation_manifests\\pod\\ollama\\qwen3_8b\\run_001\\00051_Pod_point_io_k8s_api_core_v1_Pod_spec_ephemeralC_fe94d4e2a8.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

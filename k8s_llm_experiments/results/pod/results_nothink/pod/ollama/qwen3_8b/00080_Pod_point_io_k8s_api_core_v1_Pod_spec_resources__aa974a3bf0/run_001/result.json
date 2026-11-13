@@ -1,0 +1,68 @@
+{
+  "case_id": "00080_Pod_point_io_k8s_api_core_v1_Pod_spec_resources__aa974a3bf0",
+  "resource": "Pod",
+  "api_version": "v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.resources.requests",
+  "point_feature": "io_k8s_api_core_v1_Pod_spec_resources_requests",
+  "variant_labels": [
+    "asString",
+    "asNumber"
+  ],
+  "variant_features": [
+    "io_k8s_api_core_v1_Pod_spec_resources_requests_asString",
+    "io_k8s_api_core_v1_Pod_spec_resources_requests_asNumber"
+  ],
+  "target_phrase": "its Pod-level resource requests",
+  "mapping_method": "pod_rule",
+  "mapping_confidence": "high",
+  "plan_type": "dynamic_quantity_map_point",
+  "n_array_ancestors": 0,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-12T16:46:51.862158+00:00",
+  "finished_at_utc": "2026-11-12T16:46:52.615310+00:00",
+  "generation_status": "SUCCESS",
+  "model_output_status": "COMPLETE",
+  "latency_seconds": 0.7491486000362784,
+  "usage": {
+    "prompt_tokens": 127,
+    "completion_tokens": 67
+  },
+  "provider_metadata": {
+    "host": "http://localhost:11434",
+    "num_ctx": 4096,
+    "think": false,
+    "total_duration_ns": 747997100,
+    "load_duration_ns": 2632800,
+    "prompt_eval_duration_ns": 26246000,
+    "eval_duration_ns": 716791000,
+    "done_reason": "stop"
+  },
+  "strict_output_checks": {
+    "nonempty": true,
+    "contains_markdown_fence": true,
+    "yaml_parse_ok": false,
+    "yaml_document_count": null,
+    "yaml_root_is_mapping": false,
+    "yaml_error": "ScannerError: while scanning for the next token\nfound character '`' that cannot start any token\n  in \"<unicode string>\", line 1, column 1:\n    ```yaml\n    ^",
+    "output_compliance_ok": false
+  },
+  "candidate": {
+    "available": true,
+    "method": "markdown_fence_removed",
+    "path": "candidate.yaml"
+  },
+  "evaluation_manifest": {
+    "exported": true,
+    "path": "results\\pod\\results_nothink\\evaluation_manifests\\pod\\ollama\\qwen3_8b\\run_001\\00080_Pod_point_io_k8s_api_core_v1_Pod_spec_resources__aa974a3bf0.yaml"
+  },
+  "error_type": null,
+  "error_message": null
+}

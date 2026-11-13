@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: field-matching-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: field-matching-operator
+  template:
+    metadata:
+      labels:
+        app: field-matching-operator
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: kubernetes.io/os
+                operator: In
+                values:
+                - linux
+      containers:
+      - name: field-matching-operator
+        image: field-matching-operator:latest
+        ports:
+        - containerPort: 8080

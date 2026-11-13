@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - ports:
+    - protocol: TCP
+      containerPort: 1
+    name: fm-container-1

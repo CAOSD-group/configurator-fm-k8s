@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ebs-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ebs-app
+  template:
+    metadata:
+      labels:
+        app: ebs-app
+    spec:
+      containers:
+      - name: ebs-container
+        image: nginx
+        volumeMounts:
+        - name: ebs-volume
+          mountPath: /data
+      volumes:
+      - name: ebs-volume
+        awsElasticBlockStore:
+          volumeID: "vol-1234567890abcdef0"
+          fsType: "ext4"

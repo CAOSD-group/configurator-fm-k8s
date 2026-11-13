@@ -1,0 +1,22 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readiness-probe-pod
+spec:
+  containers:
+  - name: main-container
+    image: nginx
+    ports:
+    - containerPort: 80
+  ephemeralContainers:
+  - name: probe-container
+    image: busybox
+    ports:
+    - containerPort: 8080
+    readinessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 10
+```

@@ -1,0 +1,32 @@
+{
+  "case_id": "00099_Deployment_point_io_k8s_api_apps_v1_Deployment_spec_tem_05848660e1",
+  "resource": "Deployment",
+  "api_version": "apps/v1",
+  "kubernetes_version": "1.37",
+  "benchmark_group": "PRIMARY",
+  "classification": "user_configurable",
+  "config_path": "spec.template.spec.volumes[].cinder.fsType",
+  "point_feature": "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType",
+  "variant_labels": [
+    "ext4",
+    "ntfs",
+    "xfs"
+  ],
+  "variant_features": [
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ext4",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_ntfs",
+    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_cinder_fsType_xfs"
+  ],
+  "target_phrase": "the filesystem type of a Cinder volume",
+  "mapping_method": "volume_rule",
+  "mapping_confidence": "high",
+  "plan_type": "single_object_array_point",
+  "n_array_ancestors": 1,
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "repetition": 1,
+  "temperature": 0.0,
+  "max_output_tokens": 4096,
+  "ollama_think": false,
+  "started_at_utc": "2026-11-10T09:46:51.793994+00:00"
+}

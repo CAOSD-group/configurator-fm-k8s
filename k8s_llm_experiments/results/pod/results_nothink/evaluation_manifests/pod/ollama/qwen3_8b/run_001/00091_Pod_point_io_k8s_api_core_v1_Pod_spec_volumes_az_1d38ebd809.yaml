@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: azure-disk-pod
+spec:
+  containers:
+  - name: azure-disk-container
+    image: mcr.microsoft.com/azuredisk-sample:latest
+    volumeMounts:
+    - name: azure-disk
+      mountPath: /mnt/azuredisk
+  volumes:
+  - name: azure-disk
+    azureDisk:
+      diskName: mydisk
+      diskURI: https://mystorageaccount.blob.core.windows.net/mydisk
+      cachingMode: ReadOnly

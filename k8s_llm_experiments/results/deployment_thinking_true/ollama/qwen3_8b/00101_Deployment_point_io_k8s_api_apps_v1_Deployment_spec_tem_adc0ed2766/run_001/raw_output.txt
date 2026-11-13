@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emptydir-limit-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emptydir-limit
+  template:
+    metadata:
+      labels:
+        app: emptydir-limit
+    spec:
+      containers:
+        - name: limit-container
+          image: busybox
+          command: ["sh", "-c", "while true; do echo $(date) >> /data/log; sleep 1; done"]
+          volumeMounts:
+            - name: limited-volume
+              mountPath: /data
+      volumes:
+        - name: limited-volume
+          emptyDir:
+            capacity: 1Gi

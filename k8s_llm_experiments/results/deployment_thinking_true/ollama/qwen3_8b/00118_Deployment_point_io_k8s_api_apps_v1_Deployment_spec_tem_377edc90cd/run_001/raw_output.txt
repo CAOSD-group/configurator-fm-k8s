@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: storageos-pv
+  annotations:
+    storageos.com/fsType: ext4
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: storageos
+  csi:
+    driver: storageos.csi.storageos.com
+    volumeHandle: "vol-1234567890abcdef"
+    fsType: ext4
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: storageos-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: storageos
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storageos-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storageos-app
+  template:
+    metadata:
+      labels:
+        app: storageos-app
+    spec:
+      containers:
+        - name: app
+          image: nginx
+          volumeMounts:
+            - name: storageos-volume
+              mountPath: /data
+      volumes:
+        - name: storageos-volume
+          persistentVolumeClaim:
+            claimName: storageos-claim

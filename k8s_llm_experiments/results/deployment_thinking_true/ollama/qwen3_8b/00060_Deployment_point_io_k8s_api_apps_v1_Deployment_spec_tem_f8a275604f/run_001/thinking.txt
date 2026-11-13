@@ -1,0 +1,63 @@
+Okay, the user wants a Kubernetes Deployment that explicitly sets bind-mount options for a volume mount in an ephemeral container. Let me recall the requirements.
+
+First, Kubernetes version 1.37. I need to make sure the features used are available in that version. Ephemeral containers were introduced in 1.24, so 1.37 should be okay. Bind-mount options—how do you specify those in a PodSpec?
+
+In Kubernetes, when you mount a volume, you can use the `mountOptions` field under the `volumeMounts` section. But wait, for ephemeral containers, the structure might be a bit different. Let me check.
+
+Ephemeral containers are part of a Pod, so the PodSpec would have `ephemeralContainers` under the `spec`. Each ephemeral container's `volumeMounts` can have `mountOptions`. So the key is to include `mountOptions` in the volumeMounts of the ephemeral container.
+
+Let me structure the Deployment. The Deployment will have a PodTemplateSpec with a container and an ephemeral container. The volume needs to be defined in the Pod's `volumes` section. Then, the ephemeral container's volumeMounts will reference that volume and include the `mountOptions`.
+
+Wait, the user said "bind-mount options"—so the mountOptions would include things like `bind`, `ro`, etc. For example, `mountOptions: ["bind", "ro"]` would make it a bind mount with read-only.
+
+Let me draft the YAML. The Deployment will have a container (maybe a busybox for testing) and an ephemeral container. The volume could be a ConfigMap or a hostPath. Let's use a hostPath for simplicity. The ephemeral container mounts that volume with specific options.
+
+Wait, but in the Deployment, the PodSpec is under the container's spec. So the Deployment's template will have the PodSpec with the volumes and the containers. The ephemeral container is part of the PodSpec.
+
+So the structure would be:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - name: main-container
+          image: nginx
+          volumeMounts:
+            - name: example-volume
+              mountPath: /mnt
+      volumes:
+        - name: example-volume
+          hostPath:
+            path: /host/path
+      ephemeralContainers:
+        - name: ephemeral-container
+          image: busybox
+          volumeMounts:
+            - name: example-volume
+              mountPath: /mnt
+              mountOptions:
+                - bind
+                - ro
+
+Wait, but the volume must be defined in the volumes section of the PodSpec. So the example-volume is defined there. The main container mounts it, and the ephemeral container also mounts it with mountOptions.
+
+But wait, the volume is defined once in the volumes list. Both containers and ephemeral containers can reference it. So that's correct.
+
+But in the example above, the main container's volumeMounts and the ephemeral container's volumeMounts both reference the same volume. The ephemeral container's volumeMounts include the mountOptions.
+
+Yes, that should work. Let me check if the syntax is correct. The mountOptions is a list of strings. So the YAML should have `mountOptions: ["bind", "ro"]`.
+
+But in the example, the user might want to see a specific example. Let me make sure that the Deployment is correctly structured. Also, the ephemeral container's name should be unique. Also, the main container is part of the containers list, and the ephemeral is under ephemeralContainers.
+
+So the final YAML should look like that. Let me verify the Kubernetes version. Since 1.37 supports ephemeral containers and mountOptions, this should be valid.

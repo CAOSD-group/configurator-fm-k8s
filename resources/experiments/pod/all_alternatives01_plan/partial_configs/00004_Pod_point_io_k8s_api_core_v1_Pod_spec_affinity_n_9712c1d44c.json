@@ -1,0 +1,17 @@
+{
+  "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+  "io_k8s_api_core_v1_Pod_kind": "Pod",
+  "io_k8s_api_core_v1_Pod_metadata_name": "fm-pilot-pod",
+  "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator": true,
+  "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+    {
+      "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference": {
+        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields": [
+          {
+            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator": true
+          }
+        ]
+      }
+    }
+  ]
+}

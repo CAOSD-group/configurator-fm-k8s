@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seccomp-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seccomp-example
+  template:
+    metadata:
+      labels:
+        app: seccomp-example
+    spec:
+      initContainers:
+      - name: init-seccomp
+        image: busybox
+        command: ["sh", "-c", "echo 'Init container with seccomp'"]
+        securityContext:
+          seccompProfile:
+            type: RuntimeMinimum
+      containers:
+      - name: main-container
+        image: nginx
+        ports:
+        - containerPort: 80

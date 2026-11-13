@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  securityContext:
+    fsGroup: 1
+    fsGroupChangePolicy: Always
+    runAsGroup: 1
+    runAsUser: 1
+    seLinuxChangePolicy: MountOption
+    supplementalGroupsPolicy: Strict

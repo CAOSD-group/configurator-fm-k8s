@@ -1,0 +1,15 @@
+Okay, the user wants a Kubernetes Deployment with an explicit deployment strategy. Let me recall the options for deployment strategies in Kubernetes. There's the default rolling update, but they want it explicitly configured.
+
+So, the deployment strategy can be specified under the strategy field in the deployment's spec. The options are RollingUpdate or Recreate. Since the user didn't specify which one, maybe I should use RollingUpdate with some parameters. Wait, the question says "explicitly configures its deployment strategy," so maybe they want to ensure that the strategy is set, perhaps overriding the default.
+
+Wait, in Kubernetes, the default strategy is RollingUpdate. But if they want to make sure it's set, maybe they want to include it explicitly. Alternatively, maybe they want to use the Recreate strategy. But the user didn't specify, so perhaps the safest is to use RollingUpdate with some parameters like maxSurge and maxUnavailable. That way, the strategy is explicitly defined.
+
+Also, the user mentioned Kubernetes version 1.37. I should check if there are any changes in the API for that version. But I think the deployment strategy structure has been stable for a while. So the manifest should include the strategy under the spec of the deployment.
+
+So the YAML should have the deployment's spec with the strategy field. Let me structure that. The deployment will have a template with a container, and the strategy will be RollingUpdate with maxSurge and maxUnavailable set. Let me make sure the YAML syntax is correct, with proper indentation and colons.
+
+Wait, the user might not have specified any particular parameters, but to make it explicit, including some values for maxSurge and maxUnavailable would demonstrate the strategy configuration. Let me set them to 25% and 25% respectively. That's a common default, but it's better to include them to show the strategy is configured.
+
+So the final YAML will have the deployment with the strategy specified. Let me double-check the syntax. The strategy is under spec.strategy, and the type is RollingUpdate. The parameters are under spec.strategy.rollingUpdate. Yes, that's correct.
+
+I think that's all. Let me write the YAML accordingly.

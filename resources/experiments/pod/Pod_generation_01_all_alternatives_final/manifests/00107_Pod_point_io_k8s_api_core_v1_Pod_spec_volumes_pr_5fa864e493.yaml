@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fm-pilot-pod
+spec:
+  containers:
+  - name: fm-container-1
+  volumes:
+  - projected:
+      sources:
+      - clusterTrustBundle:
+          labelSelector:
+            matchExpressions:
+            - operator: DoesNotExist
+              key: fm-key
+          path: fm-path
+    name: fm-volume-1

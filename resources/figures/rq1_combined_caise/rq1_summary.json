@@ -1,0 +1,248 @@
+[
+  {
+    "resource": "Deployment",
+    "planned_vps": 119,
+    "generated_vps": 113,
+    "unsat_vps": 6,
+    "other_vp_outcomes": 0,
+    "generated_manifests": 114,
+    "schema_passed": 114,
+    "schema_rejected": 0,
+    "schema_other": 0,
+    "sat_yaml_passed": 114,
+    "sat_yaml_rejected": 0,
+    "sat_yaml_other": 0,
+    "vp_variant_reconstructed": 113,
+    "vp_variant_compared": 113,
+    "plain_documented_same_data": 114,
+    "documentation_blocks_correct": 113,
+    "documentation_blocks_compared": 113,
+    "alternative_descriptions_expected": 195,
+    "alternative_descriptions_verified": 195,
+    "default_marked_selected_unlabeled": 29,
+    "paired_timings": 114,
+    "timing": {
+      "plain": {
+        "n": 114,
+        "median": 2.863225,
+        "p90": 3.328901,
+        "q25": 2.649096,
+        "q75": 3.109466,
+        "mean": 2.70429
+      },
+      "documented": {
+        "n": 114,
+        "median": 3.422189,
+        "p90": 3.842814,
+        "q25": 3.168719,
+        "q75": 3.63722,
+        "mean": 3.229651
+      },
+      "incremental": {
+        "n": 114,
+        "median": 0.527449,
+        "p90": 0.592195,
+        "q25": 0.498476,
+        "q75": 0.558325,
+        "mean": 0.525361
+      },
+      "comments": {
+        "n": 114,
+        "median": 0.305611,
+        "p90": 0.351367,
+        "q25": 0.290284,
+        "q75": 0.328818,
+        "mean": 0.309011
+      },
+      "rendering_increment": {
+        "n": 114,
+        "median": 0.221314,
+        "p90": 0.249116,
+        "q25": 0.208142,
+        "q75": 0.23238,
+        "mean": 0.216376
+      },
+      "writing_increment": {
+        "n": 114,
+        "median": -4.3e-05,
+        "p90": 7.8e-05,
+        "q25": -0.000103,
+        "q75": 1.6e-05,
+        "mean": -2.6e-05
+      },
+      "relative_pct": {
+        "n": 114,
+        "median": 18.564571,
+        "p90": 38.026061,
+        "q25": 16.872906,
+        "q75": 20.631891,
+        "mean": 21.430496
+      }
+    },
+    "warnings": []
+  },
+  {
+    "resource": "Pod",
+    "planned_vps": 135,
+    "generated_vps": 129,
+    "unsat_vps": 6,
+    "other_vp_outcomes": 0,
+    "generated_manifests": 130,
+    "schema_passed": 130,
+    "schema_rejected": 0,
+    "schema_other": 0,
+    "sat_yaml_passed": 130,
+    "sat_yaml_rejected": 0,
+    "sat_yaml_other": 0,
+    "vp_variant_reconstructed": 129,
+    "vp_variant_compared": 129,
+    "plain_documented_same_data": 130,
+    "documentation_blocks_correct": 129,
+    "documentation_blocks_compared": 129,
+    "alternative_descriptions_expected": 209,
+    "alternative_descriptions_verified": 209,
+    "default_marked_selected_unlabeled": 25,
+    "paired_timings": 130,
+    "timing": {
+      "plain": {
+        "n": 130,
+        "median": 2.965885,
+        "p90": 3.471646,
+        "q25": 2.765862,
+        "q75": 3.271647,
+        "mean": 2.852021
+      },
+      "documented": {
+        "n": 130,
+        "median": 3.589328,
+        "p90": 4.065942,
+        "q25": 3.349139,
+        "q75": 3.878502,
+        "mean": 3.44145
+      },
+      "incremental": {
+        "n": 130,
+        "median": 0.582762,
+        "p90": 0.676013,
+        "q25": 0.546968,
+        "q75": 0.635312,
+        "mean": 0.58943
+      },
+      "comments": {
+        "n": 130,
+        "median": 0.353021,
+        "p90": 0.399532,
+        "q25": 0.324259,
+        "q75": 0.372086,
+        "mean": 0.354344
+      },
+      "rendering_increment": {
+        "n": 130,
+        "median": 0.232656,
+        "p90": 0.281571,
+        "q25": 0.213908,
+        "q75": 0.261718,
+        "mean": 0.235121
+      },
+      "writing_increment": {
+        "n": 130,
+        "median": -3.6e-05,
+        "p90": 5.4e-05,
+        "q25": -8.2e-05,
+        "q75": 1.1e-05,
+        "mean": -3.5e-05
+      },
+      "relative_pct": {
+        "n": 130,
+        "median": 19.662072,
+        "p90": 35.729081,
+        "q25": 17.916034,
+        "q75": 22.039135,
+        "mean": 22.432193
+      }
+    },
+    "warnings": []
+  },
+  {
+    "planned_vps": 254,
+    "generated_vps": 242,
+    "unsat_vps": 12,
+    "other_vp_outcomes": 0,
+    "generated_manifests": 244,
+    "schema_passed": 244,
+    "schema_rejected": 0,
+    "schema_other": 0,
+    "sat_yaml_passed": 244,
+    "sat_yaml_rejected": 0,
+    "sat_yaml_other": 0,
+    "vp_variant_reconstructed": 242,
+    "vp_variant_compared": 242,
+    "plain_documented_same_data": 244,
+    "documentation_blocks_correct": 242,
+    "documentation_blocks_compared": 242,
+    "alternative_descriptions_expected": 404,
+    "alternative_descriptions_verified": 404,
+    "default_marked_selected_unlabeled": 54,
+    "paired_timings": 244,
+    "resource": "Total",
+    "timing": {
+      "plain": {
+        "n": 244,
+        "median": 2.938932,
+        "p90": 3.426109,
+        "q25": 2.700655,
+        "q75": 3.208427,
+        "mean": 2.782999
+      },
+      "documented": {
+        "n": 244,
+        "median": 3.529886,
+        "p90": 4.030989,
+        "q25": 3.237675,
+        "q75": 3.793041,
+        "mean": 3.342495
+      },
+      "incremental": {
+        "n": 244,
+        "median": 0.553953,
+        "p90": 0.652277,
+        "q25": 0.516353,
+        "q75": 0.604715,
+        "mean": 0.559496
+      },
+      "comments": {
+        "n": 244,
+        "median": 0.329317,
+        "p90": 0.382714,
+        "q25": 0.297366,
+        "q75": 0.360201,
+        "mean": 0.333163
+      },
+      "rendering_increment": {
+        "n": 244,
+        "median": 0.225826,
+        "p90": 0.272392,
+        "q25": 0.210133,
+        "q75": 0.248649,
+        "mean": 0.226363
+      },
+      "writing_increment": {
+        "n": 244,
+        "median": -4.2e-05,
+        "p90": 6.8e-05,
+        "q25": -9.1e-05,
+        "q75": 1.2e-05,
+        "mean": -3.1e-05
+      },
+      "relative_pct": {
+        "n": 244,
+        "median": 19.119437,
+        "p90": 36.895953,
+        "q25": 17.372561,
+        "q75": 21.497415,
+        "mean": 21.964187
+      }
+    },
+    "warnings": []
+  }
+]

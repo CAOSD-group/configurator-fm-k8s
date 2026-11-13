@@ -1,0 +1,43 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rbd-app
+  labels:
+    app: rbd-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rbd-app
+  template:
+    metadata:
+      labels:
+        app: rbd-app
+    spec:
+      containers:
+      - name: app
+        image: nginx
+        volumeMounts:
+        - name: rbd-volume
+          mountPath: /data
+      volumes:
+      - name: rbd-volume
+        persistentVolumeClaim:
+          claimName: rbd-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rbd-pvc
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: rbd
+  resources:
+    requests:
+      storage: 1Gi
+  volumeAttributes:
+    fsType: ext4
+```

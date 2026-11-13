@@ -66,11 +66,11 @@ def select_cases(
     return selected
 
 
-def strict_yaml_summary(raw_output: str) -> dict[str, Any]:
-    """Parse the RAW response only. Never strips Markdown or repairs output."""
+def yaml_summary(text: str) -> dict[str, Any]:
+    """Describe YAML validity without modifying the supplied text."""
     result = {
-        "nonempty": bool(raw_output.strip()),
-        "contains_markdown_fence": "```" in raw_output,
+        "nonempty": bool(text.strip()),
+        "contains_markdown_fence": "```" in text,
         "yaml_parse_ok": False,
         "yaml_document_count": None,
         "yaml_root_is_mapping": False,
@@ -84,7 +84,7 @@ def strict_yaml_summary(raw_output: str) -> dict[str, Any]:
         return result
 
     try:
-        docs = list(yaml.safe_load_all(raw_output))
+        docs = list(yaml.safe_load_all(text))
         result["yaml_parse_ok"] = True
         result["yaml_document_count"] = len(docs)
         result["yaml_root_is_mapping"] = (
@@ -95,6 +95,80 @@ def strict_yaml_summary(raw_output: str) -> dict[str, Any]:
 
     return result
 
+
+def strict_yaml_summary(raw_output: str) -> dict[str, Any]:
+    """Evaluate the RAW response exactly as returned by the model."""
+    result = yaml_summary(raw_output)
+    result["output_compliance_ok"] = (
+        result["nonempty"]
+        and not result["contains_markdown_fence"]
+        and result["yaml_parse_ok"]
+        and result["yaml_document_count"] == 1
+        and result["yaml_root_is_mapping"]
+    )
+    return result
+
+
+_FENCED_YAML_RE = re.compile(
+    r"^\s*```(?:yaml|yml)?[ \t]*\r?\n(?P<body>.*?)(?:\r?\n)?```\s*$",
+    flags=re.IGNORECASE | re.DOTALL,
+)
+
+
+def recover_yaml_candidate(raw_output: str) -> tuple[str | None, str]:
+    """
+    Produce a YAML candidate using only deterministic wrapper removal.
+
+    This is intentionally NOT a repair step:
+    - valid raw YAML -> returned unchanged
+    - one whole-response Markdown YAML fence -> fence removed
+    - prose + code block, malformed YAML, multiple documents, etc. -> no candidate
+    """
+    raw_checks = strict_yaml_summary(raw_output)
+    if raw_checks["output_compliance_ok"]:
+        return raw_output, "raw"
+
+    match = _FENCED_YAML_RE.fullmatch(raw_output)
+    if not match:
+        return None, "none"
+
+    candidate = match.group("body").strip() + "\n"
+    checks = yaml_summary(candidate)
+    if (
+        checks["yaml_parse_ok"]
+        and checks["yaml_document_count"] == 1
+        and checks["yaml_root_is_mapping"]
+    ):
+        return candidate, "markdown_fence_removed"
+
+    return None, "none"
+
+
+def classify_model_output(generated: Any) -> str:
+    """
+    Classify the model-level outcome independently from HTTP/provider success.
+
+    COMPLETE:
+        Non-empty final answer and provider did not report a length stop.
+    TRUNCATED_WITH_CONTENT:
+        Some final content exists but generation hit the token limit.
+    TRUNCATED_IN_THINKING:
+        No final content, thinking exists, and generation hit the token limit.
+    EMPTY_CONTENT_WITH_THINKING:
+        Thinking exists but no final answer was emitted.
+    EMPTY_CONTENT:
+        Provider returned no final answer and no thinking text.
+    """
+    text = (getattr(generated, "text", None) or "").strip()
+    thinking = (getattr(generated, "thinking", None) or "").strip()
+    metadata = getattr(generated, "provider_metadata", {}) or {}
+    done_reason = str(metadata.get("done_reason", "") or "").lower()
+
+    if text:
+        return "TRUNCATED_WITH_CONTENT" if done_reason == "length" else "COMPLETE"
+    if thinking:
+        return "TRUNCATED_IN_THINKING" if done_reason == "length" else "EMPTY_CONTENT_WITH_THINKING"
+    return "EMPTY_CONTENT"
 
 def experiment_path(
     results_dir: Path,
@@ -115,6 +189,57 @@ def experiment_path(
     )
 
 
+def evaluation_manifest_path(
+    base_dir: Path,
+    *,
+    resource: str,
+    provider: str,
+    model: str,
+    case_id: str,
+    repetition: int,
+) -> Path:
+    """Return an evaluation-ready YAML path whose stem is exactly case_id.
+
+    Repetitions are separated into run_XXX directories so the same case_id can
+    be evaluated repeatedly without filename collisions. The generated case IDs
+    are already filesystem-safe and are intentionally preserved verbatim.
+    """
+    if Path(case_id).name != case_id or any(ch in case_id for ch in '<>:"/\\|?*'):
+        raise ValueError(f"case_id is not safe as a filename on Windows: {case_id}")
+
+    return (
+        base_dir
+        / safe_name(resource.lower())
+        / safe_name(provider.lower())
+        / safe_name(model)
+        / f"run_{repetition:03d}"
+        / f"{case_id}.yaml"
+    )
+
+
+def export_evaluation_manifest(
+    candidate_text: str,
+    *,
+    base_dir: Path,
+    resource: str,
+    provider: str,
+    model: str,
+    case_id: str,
+    repetition: int,
+) -> Path:
+    target = evaluation_manifest_path(
+        base_dir,
+        resource=resource,
+        provider=provider,
+        model=model,
+        case_id=case_id,
+        repetition=repetition,
+    )
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(candidate_text, encoding="utf-8")
+    return target
+
+
 def write_json(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(
         json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
@@ -131,9 +256,11 @@ def run_one(
     case: dict[str, Any],
     repetition: int,
     results_dir: Path,
+    evaluation_manifests_dir: Path,
     temperature: float,
     max_output_tokens: int,
     overwrite: bool,
+    ollama_think: bool,
 ) -> tuple[str, Path]:
     case_id = str(case["case_id"])
     resource = str(case["resource"])
@@ -151,6 +278,22 @@ def run_one(
         try:
             previous = load_json(result_path)
             if previous.get("generation_status") == "SUCCESS":
+                existing_candidate = out_dir / "candidate.yaml"
+                if existing_candidate.is_file():
+                    exported = export_evaluation_manifest(
+                        existing_candidate.read_text(encoding="utf-8"),
+                        base_dir=evaluation_manifests_dir,
+                        resource=resource,
+                        provider=provider_name,
+                        model=model,
+                        case_id=case_id,
+                        repetition=repetition,
+                    )
+                    previous["evaluation_manifest"] = {
+                        "exported": True,
+                        "path": str(exported),
+                    }
+                    write_json(result_path, previous)
                 return "SKIPPED_EXISTING", out_dir
         except Exception:
             pass
@@ -169,6 +312,10 @@ def run_one(
         "config_path": case.get("config_path"),
         "point_feature": case.get("point_feature"),
         "variant_labels": case.get("variant_labels", []),
+        "variant_features": case.get("variant_features", []),
+        "target_phrase": case.get("target_phrase"),
+        "mapping_method": case.get("mapping_method"),
+        "mapping_confidence": case.get("mapping_confidence"),
         "plan_type": case.get("plan_type"),
         "n_array_ancestors": case.get("n_array_ancestors"),
         "provider": provider_name,
@@ -176,6 +323,7 @@ def run_one(
         "repetition": repetition,
         "temperature": temperature,
         "max_output_tokens": max_output_tokens,
+        "ollama_think": ollama_think if provider_name == "ollama" else None,
         "started_at_utc": utc_now_iso(),
     }
 
@@ -201,19 +349,48 @@ def run_one(
             generated.text, encoding="utf-8"
         )
 
+        candidate_text, candidate_method = recover_yaml_candidate(generated.text)
+        candidate_available = candidate_text is not None
+        evaluation_manifest = None
+        if candidate_available:
+            (out_dir / "candidate.yaml").write_text(
+                candidate_text, encoding="utf-8"
+            )
+            evaluation_manifest = export_evaluation_manifest(
+                candidate_text,
+                base_dir=evaluation_manifests_dir,
+                resource=resource,
+                provider=provider_name,
+                model=model,
+                case_id=case_id,
+                repetition=repetition,
+            )
+
         if generated.thinking:
             (out_dir / "thinking.txt").write_text(
                 generated.thinking, encoding="utf-8"
             )
 
+        model_output_status = classify_model_output(generated)
+
         result = {
             **request,
             "finished_at_utc": utc_now_iso(),
             "generation_status": "SUCCESS",
+            "model_output_status": model_output_status,
             "latency_seconds": generated.latency_seconds,
             "usage": generated.usage,
             "provider_metadata": generated.provider_metadata,
             "strict_output_checks": strict_yaml_summary(generated.text),
+            "candidate": {
+                "available": candidate_available,
+                "method": candidate_method,
+                "path": "candidate.yaml" if candidate_available else None,
+            },
+            "evaluation_manifest": {
+                "exported": evaluation_manifest is not None,
+                "path": str(evaluation_manifest) if evaluation_manifest is not None else None,
+            },
             "error_type": None,
             "error_message": None,
         }
@@ -227,10 +404,12 @@ def run_one(
             **request,
             "finished_at_utc": utc_now_iso(),
             "generation_status": "ERROR",
+            "model_output_status": "PROVIDER_ERROR",
             "latency_seconds": None,
             "usage": {},
             "provider_metadata": {},
             "strict_output_checks": None,
+            "evaluation_manifest": {"exported": False, "path": None},
             "error_type": type(exc).__name__,
             "error_message": str(exc),
         }
@@ -286,12 +465,30 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--max-output-tokens", type=int, default=4096)
     parser.add_argument("--num-ctx", type=int, default=4096)
+    parser.add_argument(
+        "--ollama-think",
+        action="store_true",
+        help=(
+            "Enable Ollama thinking mode. Default is disabled so reasoning "
+            "tokens cannot consume the manifest output budget."
+        ),
+    )
     parser.add_argument("--timeout", type=float, default=180.0)
     parser.add_argument("--delay-seconds", type=float, default=0.0)
     parser.add_argument(
         "--results-dir",
         type=Path,
         default=Path("results"),
+    )
+    parser.add_argument(
+        "--evaluation-manifests-dir",
+        type=Path,
+        default=None,
+        help=(
+            "Base directory for evaluation-ready YAML copies. Defaults to "
+            "<results-dir>/evaluation_manifests. Files are stored as "
+            "<resource>/<provider>/<model>/run_XXX/<case_id>.yaml."
+        ),
     )
     parser.add_argument(
         "--env-file",
@@ -351,6 +548,8 @@ def main() -> int:
     print(f"Group: {args.group}")
     print(f"Prompt status: {args.prompt_status}")
     print(f"Repetitions: {args.repetitions}")
+    if args.provider == "ollama":
+        print(f"Ollama thinking: {args.ollama_think}")
 
     if not selected:
         print("No cases selected.")
@@ -382,12 +581,20 @@ def main() -> int:
         ollama_host = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434")
         gemini_api_key = os.getenv("GEMINI_API_KEY")
 
+    evaluation_manifests_dir = (
+        args.evaluation_manifests_dir
+        if args.evaluation_manifests_dir is not None
+        else args.results_dir / "evaluation_manifests"
+    )
+    print(f"Evaluation manifests: {evaluation_manifests_dir}")
+
     provider_obj = create_provider(
         args.provider,
         ollama_host=ollama_host,
         timeout=args.timeout,
         num_ctx=args.num_ctx,
         gemini_api_key=gemini_api_key,
+        ollama_think=args.ollama_think,
     )
 
     total_runs = len(selected) * args.repetitions
@@ -416,12 +623,24 @@ def main() -> int:
                 case=case,
                 repetition=repetition,
                 results_dir=args.results_dir,
+                evaluation_manifests_dir=evaluation_manifests_dir,
                 temperature=args.temperature,
                 max_output_tokens=args.max_output_tokens,
                 overwrite=args.overwrite,
+                ollama_think=args.ollama_think,
             )
             counters[status] += 1
             print(f"{status} -> {out_dir}")
+
+            if status == "ERROR":
+                try:
+                    error_result = load_json(out_dir / "result.json")
+                    print(
+                        f"    {error_result.get('error_type')}: "
+                        f"{error_result.get('error_message')}"
+                    )
+                except Exception:
+                    pass
 
             if args.delay_seconds > 0 and current < total_runs:
                 time.sleep(args.delay_seconds)

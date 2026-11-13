@@ -1,0 +1,23 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gce-pd-pod
+spec:
+  containers:
+  - name: test-container
+    image: alpine
+    command:
+    - sh
+    - -c
+    - echo "Testing GCE PD mount"
+    volumeMounts:
+    - name: gce-pd
+      mountPath: /mnt/gce-pd
+      subPath: .
+  volumes:
+  - name: gce-pd
+    gcePersistentDisk:
+      pdName: your-pd-name
+      fsType: ext4
+```

@@ -1,0 +1,3 @@
+Kubernetes version: 1.37
+
+Create a Kubernetes Pod that explicitly configures the bind-mount options of a volume mount in one of its init containers.

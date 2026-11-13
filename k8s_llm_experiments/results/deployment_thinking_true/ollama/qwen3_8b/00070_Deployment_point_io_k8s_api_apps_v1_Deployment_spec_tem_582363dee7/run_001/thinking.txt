@@ -1,0 +1,96 @@
+Okay, let's tackle this problem. The user wants a Kubernetes Deployment that has an init container with a readiness probe configured to check the HTTP GET port. The Kubernetes version is 1.37, which is important because some features might have different syntax or availability.
+
+First, I need to recall how readiness probes work in Kubernetes. Readiness probes are used to determine if a container is ready to serve traffic. The probe can check HTTP endpoints, TCP ports, or execute a command. Since the user specified an HTTP GET port, I'll focus on the HTTP probe.
+
+The key here is that the readiness probe is in an init container. Init containers are used for initialization tasks and run to completion. However, readiness probes are typically associated with regular containers. Wait, can init containers have readiness probes? Let me check. Oh, right, in Kubernetes, readiness probes are part of the container's lifecycle. But init containers can have liveness and readiness probes as well, though they are less common. But the user specifically mentioned the readiness probe in an init container, so I need to include that.
+
+So, the Deployment will have a container and an init container. The init container needs to have a readiness probe. The user wants the HTTP GET port explicitly configured. Let me think about the structure.
+
+In the YAML, each container (both main and init) can have a readinessProbe section. For the init container, I'll set up the readinessProbe with httpGet, specifying the port. The port needs to be a number, like 8080. Also, the path is required, so maybe "/healthz" as a common example.
+
+Wait, the user says "explicitly configures the HTTP GET port of the readiness probe in one of its init containers." So the init container's readiness probe must have the httpGet with port specified. Also, the init container needs to have a command that runs, perhaps a simple HTTP server to respond to the probe. But since it's an init container, maybe it's just a sleep or a simple script. However, the readiness probe will check the HTTP endpoint. So the init container must have a service running on that port to respond to the probe.
+
+But how to set that up? The init container's image needs to have a web server. For example, using a busybox image with a simple HTTP server. Wait, busybox doesn't have an HTTP server by default. Maybe using a different image, like nginx or a custom image. Alternatively, maybe using a command to start a simple HTTP server. But that might be complicated. Alternatively, perhaps the user just wants the configuration, not the actual service. But the probe needs to be able to check the port. So the init container must have a process listening on that port.
+
+But for the purpose of the manifest, maybe the user just wants the configuration, assuming that the init container's image has the necessary service. So I'll proceed with that.
+
+So, the Deployment will have:
+
+- A main container (maybe an app container).
+- An init container.
+- The init container has a readinessProbe with httpGet, port specified.
+
+Let me structure the YAML.
+
+First, the apiVersion for Deployment is apps/v1. The kind is Deployment. The metadata has a name. The spec has replicas, template, spec, containers, and initContainers.
+
+In the initContainers section, define the init container. For example:
+
+initContainers:
+- name: init-container
+  image: some-image
+  readinessProbe:
+    httpGet:
+      path: /healthz
+      port: 8080
+    initialDelaySeconds: 5
+    periodSeconds: 10
+
+But wait, the readinessProbe in init containers requires the container to have a process listening on that port. So the init container's image must have a service running on port 8080. For example, using a simple HTTP server. But maybe the user just wants the configuration, not the actual service. However, the manifest must be valid, so the probe configuration is necessary.
+
+Also, the main container's ports might not be relevant here, but the init container's readiness probe is the focus.
+
+So, putting it all together. Let me write the YAML.
+
+The Deployment will have an init container with the readiness probe. The main container can be any, but perhaps a simple one. Let's use nginx as the main container for simplicity.
+
+Wait, but the init container's readiness probe is the main point. So the YAML should include that.
+
+So, the final YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      initContainers:
+        - name: init-container
+          image: nginx:latest
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      containers:
+        - name: main-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+
+Wait, but the init container's image is nginx:latest. Does that have a service running on port 80? Well, nginx by default listens on port 80. But the readiness probe is checking port 8 (as per the example). Wait, in the example above, the port is 8. But maybe the user wants a specific port, like 8080. Let me adjust that.
+
+Also, the readiness probe's port must be a number, not a string. So, port: 8080.
+
+But the init container's image needs to have a service listening on that port. For example, if the init container is using a simple HTTP server, but if it's using nginx, then it's already listening on port 80. So maybe the port should be 80.
+
+But the user says "explicitly configures the HTTP GET port of the readiness probe". So the port must be specified. So in the YAML, the port is set to 8080, for example.
+
+But the init container's image must have a service running on that port. If the image is nginx, then it's listening on port 80. So if the probe is checking port 80, that's okay. But if the user wants a different port, maybe 8080, then the init container's image must have that. Alternatively, maybe the init container is a custom image with a server on 8080.
+
+But for the purpose of the manifest, perhaps the user just wants the configuration, assuming that the image is correct. So the YAML will have the port specified.
+
+So, the final YAML would have the init container's readinessProbe with httpGet, port set to a specific number, like 8080.
+
+Another thing: the readiness probe in init containers might have different defaults. For example, initialDelaySeconds and periodSeconds. The user didn't specify those, but they are required. So I need to include them. The user might want them to be set, so I'll set initialDelaySeconds to 5 and periodSeconds to 10 as examples.
+
+Putting it all together, the YAML should have the init container with the readinessProbe configured as specified.

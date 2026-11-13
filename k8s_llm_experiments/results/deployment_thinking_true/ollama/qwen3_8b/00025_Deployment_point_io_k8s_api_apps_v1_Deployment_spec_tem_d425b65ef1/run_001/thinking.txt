@@ -1,0 +1,81 @@
+Okay, the user wants a Kubernetes Deployment that sets up a TCP socket port in the pre-stop lifecycle hook of a container. Let me recall how lifecycle hooks work in Kubernetes. The pre-stop hook is used to notify the container that it's about to be terminated, allowing it to perform any necessary cleanup.
+
+The user specifically mentioned configuring the TCP socket port. I remember that the pre-stop hook can be a TCP socket, which means the container should listen on a specific port. The Kubernetes documentation says that for a TCP socket, the container must listen on the specified port, and the kubelet will send a signal to that port to trigger the stop.
+
+So, in the Deployment YAML, I need to define the lifecycle section under the container's spec. The preStop handler should have a tcpSocket with a port. The port needs to be a named port as defined in the container's ports section. Wait, or is it a number? Let me check. The port can be specified as a number or a name. But using a name might be better for clarity, but the example in the documentation uses a number. Hmm.
+
+Wait, the port in the tcpSocket must be a number, not a name. Because the container's ports are defined with names and numbers. So, if I define a port with a name, like "shutdown-port", and then reference that name in the tcpSocket, that should work. But I need to make sure that the container actually listens on that port. So, in the container's ports section, I need to have a port with that name and the corresponding number.
+
+Wait, but the user might not have a specific port number in mind. Let me choose a common port, like 8080, and name it "shutdown-port". Then, in the preStop handler, reference that name. But the Kubernetes API requires that the port in the tcpSocket is a number. Wait, no, the port can be specified as a string, but in the YAML, it's a number. Let me confirm.
+
+Looking at the Kubernetes API reference for Lifecycle, the preStop handler's tcpSocket has a port field which is an integer. So, the port must be a number. Therefore, I can't use a named port here. Wait, no, the port can be specified as a number or a name. Wait, no, the port in the tcpSocket is a number. Because in the YAML, the port is a number. So, if I have a container that listens on port 8080, then the preStop handler's tcpSocket port should be 8080.
+
+But the container's ports are defined with a name and a number. So, in the container's ports section, I can have:
+
+ports:
+  - name: shutdown-port
+    containerPort: 8080
+    protocol: TCP
+
+Then, in the preStop handler, I can reference that name. Wait, but the port in the tcpSocket is a number. So, maybe the name is not used here. Wait, no, the port in the tcpSocket is a number. So, the container must listen on that specific port. Therefore, the container's ports must include that port number. So, perhaps the user wants to have a specific port, like 8080, and the preStop hook will send a signal to that port.
+
+So, the Deployment YAML would have a container with a port defined, and the preStop handler uses that port number. Let me structure that.
+
+The Deployment will have a container, say, nginx, with a port 8080. Then, in the lifecycle's preStop, set up a tcpSocket with port 8080. Wait, but the container's ports are defined with containerPort. So, the container must have that port open. So, the YAML would look like:
+
+containers:
+  - name: my-container
+    image: my-image
+    ports:
+      - containerPort: 8080
+        name: shutdown-port
+        protocol: TCP
+    lifecycle:
+      preStop:
+        tcpSocket:
+          port: 8080
+
+Wait, but the port in the tcpSocket is a number. So, the name in the ports is not used here. The port in the tcpSocket is the actual port number. So, the container must have that port open. Therefore, the container's ports section should have that port defined. So, the example above is correct.
+
+But the user might not have a specific image in mind. Let me use a sample image, like nginx. But nginx typically listens on 80. However, the preStop hook would need to listen on a specific port. So, perhaps the container is designed to listen on a specific port for shutdown signals. So, the example would have the container listening on port 8080, and the preStop hook sends a signal to that port.
+
+So, putting it all together, the Deployment YAML would have the container with the port defined, and the preStop handler with the tcpSocket pointing to that port. Let me make sure that the Kubernetes version is 1.37. The features related to lifecycle hooks have been available since earlier versions, so 1.37 should be okay.
+
+Another thing to consider: the container must be able to handle the TCP connection on that port. The preStop hook will send a signal to that port, and the container should respond appropriately. But the user's requirement is just to configure the port, not to handle the signal. So, the YAML just needs to specify the port in the preStop handler.
+
+So, the final YAML would look like:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-container
+          image: nginx
+          ports:
+            - name: shutdown-port
+              containerPort: 8080
+              protocol: TCP
+          lifecycle:
+            preStop:
+              tcpSocket:
+                port: 8080
+
+Wait, but the container's image is nginx, which by default listens on port 80. So, if the container is supposed to listen on 8080, maybe the image needs to be configured to do that. But the user's requirement is just to set up the port in the preStop hook, not to change the container's behavior. So, perhaps the container is designed to listen on 8080 for shutdown signals. However, the example might not be realistic, but the user's task is to generate the YAML with the correct configuration.
+
+Therefore, the YAML above should be correct. The key points are:
+
+- The container has a port defined with containerPort 8080.
+- The preStop handler uses tcpSocket with port 8080.
+
+This should satisfy the user's requirement. Let me double-check the Kubernetes version. The user specified 1.37, which is a recent version, so the features are available. The YAML syntax is correct for that version. The preStop handler's tcpSocket is correctly specified with the port number. The container's ports include the port number. So, this should be a valid Deployment manifest.

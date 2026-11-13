@@ -1,7 +1,0 @@
-{
-  "case_mode": "points",
-  "total_cases": 41,
-  "planned": 41,
-  "skipped": 0,
-  "case_semantics": "one case per VP parent, solver chooses alternative"
-}

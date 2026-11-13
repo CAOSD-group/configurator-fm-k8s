@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resize-policy-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resize-policy
+  template:
+    metadata:
+      labels:
+        app: resize-policy
+    spec:
+      containers:
+      - name: resize-container
+        image: nginx:latest
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          policy:
+            resource: memory

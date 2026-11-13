@@ -1,0 +1,60 @@
+{
+  "config": {
+    "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+    "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+    "io_k8s_api_apps_v1_Deployment_metadata": {
+      "io_k8s_api_apps_v1_Deployment_metadata_name": "example-deployment"
+    },
+    "io_k8s_api_apps_v1_Deployment_spec": {
+      "io_k8s_api_apps_v1_Deployment_spec_replicas": 1,
+      "io_k8s_api_apps_v1_Deployment_spec_selector": {
+        "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels": [
+          {
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_KeyMap": "app",
+            "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_ValueMap": "example"
+          }
+        ]
+      },
+      "io_k8s_api_apps_v1_Deployment_spec_template": {
+        "io_k8s_api_apps_v1_Deployment_spec_template_metadata": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_KeyMap": "app",
+              "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_ValueMap": "example"
+            }
+          ]
+        },
+        "io_k8s_api_apps_v1_Deployment_spec_template_spec": {
+          "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+            {
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": "example-container",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_image": "nginx:latest",
+              "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits_KeyMap": "memory",
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits_asString": "256Mi"
+                  },
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits_KeyMap": "cpu",
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_limits_asString": "500m"
+                  }
+                ],
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests": [
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_KeyMap": "memory",
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asString": "128Mi"
+                  },
+                  {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_KeyMap": "cpu",
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asString": "250m"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

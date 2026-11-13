@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: main
+        image: nginx
+        ports:
+        - containerPort: 80
+      ephemeralContainers:
+      - name: test-ephemeral
+        image: alpine
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - sh
+              - -c
+              - echo "Post start"
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: 128Mi
+            cpu: 100m
+        restartPolicy:
+          exitCode:
+            operator: Equal
+            value: 0

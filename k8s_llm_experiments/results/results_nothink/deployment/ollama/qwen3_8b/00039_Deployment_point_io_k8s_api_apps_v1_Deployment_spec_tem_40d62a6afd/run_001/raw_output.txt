@@ -1,0 +1,30 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container
+        image: nginx:latest
+        volumeMounts:
+        - name: example-volume
+          mountPath: /usr/share/nginx/html
+          readOnly: true
+          bindMountOptions:
+            - ro
+            - nosuid
+      volumes:
+      - name: example-volume
+        hostPath:
+          path: /var/www/html
+```

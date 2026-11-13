@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: os-config-pod
+spec:
+  containers:
+  - name: os-config-container
+    image: nginx
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+  nodeSelector:
+    kubernetes.io/os: linux
+  os:
+    type: linux

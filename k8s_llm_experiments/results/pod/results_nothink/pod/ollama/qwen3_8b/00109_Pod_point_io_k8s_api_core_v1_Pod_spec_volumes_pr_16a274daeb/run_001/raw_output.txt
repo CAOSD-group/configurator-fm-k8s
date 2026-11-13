@@ -1,0 +1,29 @@
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cert-pod
+  namespace: default
+spec:
+  volumes:
+  - name: cert-volume
+    projected:
+      sources:
+      - secretProjection:
+          name: cert-secret
+          items:
+          - key: cert.pem
+            path: cert.pem
+          - key: key.pem
+            path: key.pem
+  containers:
+  - name: cert-container
+    image: alpine
+    command:
+    - sh
+    - -c
+    - echo "Certificate and key mounted in /certs"
+    volumeMounts:
+    - name: cert-volume
+      mountPath: /certs
+```
